@@ -15,6 +15,22 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/quotation', function () {
+    return view('quotation');
+});
+
 Route::get('/phpinfo', function () {
     return view('phpinfo');
+});
+
+Route::get('/debug/client', function () {
+    return view('layouts.debug.client');
+});
+
+Route::get('/debug/user', function () {
+    return view('layouts.debug.user');
+});
+
+Route::get('/debug/quotation', function () {
+    return view('layouts.debug.quotation');
 });

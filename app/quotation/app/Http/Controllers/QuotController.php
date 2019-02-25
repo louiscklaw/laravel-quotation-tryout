@@ -89,7 +89,7 @@ class QuotController extends Controller
     public function debug_view($id)
     {
         $record = Quot_helper::get_record($id);
-        return view('layouts.debug.quot_view',['record',$record]);
+        return view('layouts.debug.quot_view',['record'=>$record]);
     }
 
 }

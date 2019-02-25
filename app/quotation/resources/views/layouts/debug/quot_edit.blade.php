@@ -8,7 +8,6 @@
             <h2>basic form elements</h2>
         </div>
 
-
         @if(isset($form_action) and $form_action =='edit')
             {{ Form::model($record, ['method'=>'PATCH', 'action'=> ['QuotController@update', $record->id]]) }}
         @else

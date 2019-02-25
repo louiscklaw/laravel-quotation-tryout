@@ -40,6 +40,13 @@ def laravel_rebuild():
         docker_compose_php_composer_install()
         laravel_artisan_migrate()
 
+def laravel_db_migrate(proj_name):
+    with lcd(DOCKER_DIR):
+        docker_compose_run_command('php artisan migrate','/app/{}'.format(proj_name))
+
+        for table in ['ClientTableSeeder','QuotTableSeeder']:
+            docker_compose_run_command('php artisan db:seed --class={}'.format(table),'/app/{}'.format( proj_name))
+
 def rebuild_docker():
     with lcd(DOCKER_DIR):
             local('docker-compose kill')
@@ -52,13 +59,11 @@ def rebuild_docker():
 
     laravel_reload_conf()
 
-
-
-def laravel_db_migrate(proh_home):
-    docker_compose_run_command('php artisan migrate', proj_home )
+    laravel_db_migrate('quotation')
 
 def release_permission(proj_home):
-    docker_compose_run_command('chown www-data:staff -R .', proj_home )
+    with lcd(DOCKER_DIR):
+        docker_compose_run_command('chown www-data:staff -R .', proj_home )
 
 def laraveL_create_project(proj_name='blog'):
     proj_home = '/app/{}'.format(proj_name)
@@ -75,7 +80,7 @@ def install_laravel(proj_name='blog'):
         local('docker-compose exec web sh -c "cd {} && composer install"'.format(proj_home))
         local('docker-compose exec web sh -c "cd {} && php artisan key:generate"'.format(proj_home))
 
-    laravel_db_migrate(proj_home)
+    #     laravel_db_migrate(proj_home)
     release_permission(proj_home)
 
 @hosts('logic@localhost')

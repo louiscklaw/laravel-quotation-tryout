@@ -67,7 +67,9 @@ class QuotController extends Controller
             'record'=>$quot_record,
             'form_action' =>'edit',
             'editor_name'=>'quotation debug edit',
-            'editor_description' => 'quotation debug edit description'
+            'editor_description' => 'quotation debug edit description',
+            'update_controller' =>'QuotController@update',
+            'store_controller' =>'QuotController@store'
             ]);
 
     }
@@ -99,7 +101,9 @@ class QuotController extends Controller
         return view('layouts.debug.record_view',[
             'record'=>$record,
             'editor_name'=>'quotation debug view',
-            'editor_description' => 'quotation debug view description'
+            'editor_description' => 'quotation debug view description',
+            'update_controller' =>'QuotController@update',
+            'store_controller' =>'QuotController@store'
             ]);
     }
 

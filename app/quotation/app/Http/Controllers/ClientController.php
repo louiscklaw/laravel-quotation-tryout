@@ -66,7 +66,9 @@ class ClientController extends Controller
             'record'=>$quot_record,
             'form_action' =>'edit',
             'editor_name'=>'client debug edit',
-            'editor_description' => 'client debug edit description'
+            'editor_description' => 'client debug edit description',
+            'update_controller' =>'ClientController@update',
+            'store_controller' => 'ClientController@store'
             ]);
 
     }
@@ -98,7 +100,9 @@ class ClientController extends Controller
         return view('layouts.debug.record_view',[
             'record'=>$record,
             'editor_name'=>'client debug view',
-            'editor_description' => 'client debug viwe description'
+            'editor_description' => 'client debug viwe description',
+            'update_controller' =>'ClientController@update',
+            'store_controller' => 'ClientController@store'
             ]);
     }
 

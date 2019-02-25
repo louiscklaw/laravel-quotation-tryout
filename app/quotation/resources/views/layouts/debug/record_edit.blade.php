@@ -9,9 +9,9 @@
         </div>
 
         @if(isset($form_action) and $form_action =='edit')
-            {{ Form::model($record, ['method'=>'PATCH', 'action'=> ['QuotController@update', $record->id]]) }}
+            {{ Form::model($record, ['method'=>'PATCH', 'action'=> [$update_controller, $record->id]]) }}
         @else
-            {{ Form::model($record, ['method'=>'POST', 'action'=> ['QuotController@store', $record->id]]) }}
+            {{ Form::model($record, ['method'=>'POST', 'action'=> [$store_controller, $record->id]]) }}
         @endif
 
             @card([

@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('quotation');
 });
 
 Route::get('/quotation', function () {
@@ -23,14 +23,14 @@ Route::get('/phpinfo', function () {
     return view('phpinfo');
 });
 
-Route::get('/debug/client', function () {
-    return view('layouts.debug.client');
+Route::get('/debug_client', function () {
+    return view('debug_client');
 });
 
-Route::get('/debug/user', function () {
-    return view('layouts.debug.user');
+Route::get('/debug_user', function () {
+    return view('debug_user');
 });
 
-Route::get('/debug/quotation', function () {
-    return view('layouts.debug.quotation');
+Route::get('/debug_quotation', function () {
+    return view('debug_quotation');
 });

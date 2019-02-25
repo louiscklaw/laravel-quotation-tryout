@@ -44,13 +44,13 @@
             </a>
             <ul class="ml-menu">
                 <li>
-                    <a href="debug/client">Client</a>
+                    <a href="debug_client">Client</a>
                 </li>
                 <li>
-                    <a href="debug/user">User</a>
+                    <a href="debug_user">User</a>
                 </li>
                 <li>
-                    <a href="debug/quotation">Quotation</a>
+                    <a href="debug_quotation">Quotation</a>
                 </li>
             </ul>
         </li>

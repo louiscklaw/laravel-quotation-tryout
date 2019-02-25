@@ -7,13 +7,9 @@
         <div class="block-header">
             <h2>basic form elements</h2>
         </div>
-        <!-- findme -->
-        {{ Form::model($quot, ['method'=>'PATCH', 'action'=> ['ESOController@update', $quot->$quot_id]]) }}
-                {{ Form::text(
-                                '123',
-                                '321'
-                                )
-                        }}
+
+        {{ Form::open(array('url' => 'foo/bar')) }}
+            //
         {{ Form::close() }}
 
     </div>

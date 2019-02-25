@@ -39,7 +39,7 @@ class Quot_helper
 class QuotController extends Controller
 {
 
-    public function debug_list()
+    public function debug_index()
     {
         $all_records = Quot_helper::get_all();
         return view('layouts.debug_quotation_list',['all_records'=>$all_records]);
@@ -50,7 +50,7 @@ class QuotController extends Controller
         $quot_record = new Quot_helper;
         $quot_record = Quot_helper::get_record($id);
 
-        return view('layouts.debug.quot_edit',['record',$quot_record]);
+        return view('layouts.debug.quot_edit',['record'=>$quot_record]);
 
     }
 

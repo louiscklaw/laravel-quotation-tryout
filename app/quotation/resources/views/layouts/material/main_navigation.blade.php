@@ -44,13 +44,13 @@
             </a>
             <ul class="ml-menu">
                 <li>
-                    <a href="{{route('client.debug_list')}}">Client</a>
+                    <a href="{{route('debug_client.debug_list')}}">Client</a>
                 </li>
                 <li>
-                    <a href="{{route('user.debug_list')}}">User</a>
+                    <a href="{{route('debug_user.debug_list')}}">User</a>
                 </li>
                 <li>
-                    <a href="{{route('quot.debug_list')}}">Quotation</a>
+                    <a href="{{route('debug_quot.debug_index')}}">Quotation</a>
                 </li>
             </ul>
         </li>

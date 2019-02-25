@@ -24,22 +24,19 @@
                     {!! Form::submit('Confirm', ['class'=>'btn btn-primary']) !!}
                 </div>
 
-                @card_inside(['card_inside_title'=>'basic examples'])
+                @foreach(array_keys($record->getAttributes()) as $field_name)
                     <div class="row clearfix">
                         <div class="col-sm-3">
-                            quot_date
+                            {{$field_name}}
                         </div>
                         <div class="col-sm-9">
                             @textInput(['form_class'=>'', 'placeholder'=>''])
-                                $record->quot_date
+                                {{$field_name}}
                             @endtextInput
                         </div>
-
                     </div>
-
-                @endcard_inside
+                @endforeach
             @endcard
-
         {{ Form::close() }}
 
     </div>

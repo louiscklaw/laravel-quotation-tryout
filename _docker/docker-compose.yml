@@ -1,0 +1,15 @@
+# ./docker-compose.yml
+
+version: '3'
+
+services:
+  web:
+    # image: mattrayner/lamp:latest-1604-php7
+    build: ./laravel-php7
+    container_name: quotation-web
+    volumes:
+      - ../app/:/app
+    ports:
+      - "8001:80"
+    # stdin_open: true
+    # tty: true

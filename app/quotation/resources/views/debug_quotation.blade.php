@@ -1,6 +1,41 @@
 @extends('layouts.material.html')
 
 
+@section('content')
+<section class="content">
+    <div class="container-fluid">
+        <div class="block-header">
+            <h2>basic form elements</h2>
+        </div>
+
+
+        @card([
+            'card_name'=>'Quotation',
+            'card_desc'=>'quotation debug page'
+            ])
+
+            @card_inside(['card_inside_title'=>'basic examples'])
+                <div class="row clearfix">
+                    <div class="col-sm-12">
+                        @textInput(['form_class'=>''])
+                            test text input
+                        @endtextInput
+                    </div>
+                    <div class="col-sm-12">
+                        @passwordInput
+                            tset password input
+                        @endpasswordInput
+                    </div>
+                </div>
+            @endcard_inside
+
+        @endcard
+
+
+    </div>
+</section>
+
+@endsection
 
 
 @push('blank_scripts_body')

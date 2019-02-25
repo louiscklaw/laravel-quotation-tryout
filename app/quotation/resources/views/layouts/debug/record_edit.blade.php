@@ -23,26 +23,27 @@
                     {!! Form::submit('Confirm', ['class'=>'btn btn-primary']) !!}
                 </div>
 
+                <div class="row clearfix">
                 @foreach(array_keys($record->getAttributes()) as $field_name)
-                    <div class="row clearfix">
-                        <div class="col-sm-3">
+
+                        <div class="col-sm-2">
                             {{$field_name}}
                         </div>
                         @if ($field_name=='id')
-                            <div class="col-sm-9">
+                            <div class="col-sm-1">
                                 @textInput(['form_class'=>'', 'placeholder'=>'', 'input_disabled'=>''])
                                     {{$field_name}}
                                 @endtextInput
                             </div>
                         @else
-                            <div class="col-sm-9">
+                            <div class="col-sm-3">
                                 @textInput(['form_class'=>'', 'placeholder'=>''])
                                     {{$field_name}}
                                 @endtextInput
                             </div>
                         @endif
-                    </div>
                 @endforeach
+                    </div>
             @endcard
         {{ Form::close() }}
 

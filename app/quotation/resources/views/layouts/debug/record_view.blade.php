@@ -18,9 +18,9 @@
                 'card_desc'=>'quotation debug page'
                 ])
 
-                @foreach(array_keys($record->getAttributes()) as $field_name)
                     <div class="row clearfix">
-                        <div class="col-sm-3">
+                @foreach(array_keys($record->getAttributes()) as $field_name)
+                        <div class="col-sm-1">
                             {{$field_name}}
                         </div>
                         <div class="col-sm-3">
@@ -28,8 +28,8 @@
                                 {{$field_name}}
                             @endtextInput
                         </div>
-                    </div>
                 @endforeach
+                    </div>
             @endcard
         {{ Form::close() }}
 

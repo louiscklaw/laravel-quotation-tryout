@@ -26,11 +26,11 @@
                 <div class="row clearfix">
                 @foreach(array_keys($record->getAttributes()) as $field_name)
 
-                        <div class="col-sm-2">
+                        <div class="col-sm-1">
                             {{$field_name}}
                         </div>
                         @if ($field_name=='id')
-                            <div class="col-sm-1">
+                            <div class="col-sm-3">
                                 @textInput(['form_class'=>'', 'placeholder'=>'', 'input_disabled'=>''])
                                     {{$field_name}}
                                 @endtextInput

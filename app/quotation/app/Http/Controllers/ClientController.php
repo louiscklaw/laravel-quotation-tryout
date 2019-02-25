@@ -52,7 +52,6 @@ class ClientController extends Controller
         $record_type = 'debug_client';
         return view('layouts.debug.debug_list',[
             'all_records'=>$all_records,
-            'active_record_type'=>'debug_client',
             'vep_route_target'=>$record_type,
             ]);
     }

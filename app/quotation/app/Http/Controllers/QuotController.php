@@ -49,7 +49,11 @@ class QuotController extends Controller
     public function debug_index()
     {
         $all_records = Quot_helper::get_all();
-        return view('layouts.debug_quotation_list',['all_records'=>$all_records]);
+        $record_type = 'debug_quot';
+        return view('layouts.debug_quotation_list',[
+            'all_records'=>$all_records,
+            'vep_route_target'=>$record_type,
+            ]);
     }
 
     public function debug_edit($id)

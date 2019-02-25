@@ -12,7 +12,7 @@
             <h2>basic form elements</h2>
         </div>
 
-        @include('layouts.components.debug_datatable')
+        @include('layouts.components.datatable')
     </div>
 </section>
 

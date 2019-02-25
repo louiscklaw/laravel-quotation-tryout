@@ -22,9 +22,9 @@
                         <td>{{$record->$field_name}}</td>
                     @endforeach
                     <td>
-                        <a href="{{ route($vep_route_target.'.show',['id'=>$record->id]) }}">View</a>
-                        <a href="{{ route($vep_route_target.'.edit',['id'=>$record->id]) }}">edit</a>
-                        <a href="{{ route($vep_route_target.'.pdf',['id'=>$record->id]) }}">pdf</a>
+                        <a href="{{ route($vep_route_target.'.debug_view',['id'=>$record->id]) }}">View</a>
+                        <a href="{{ route($vep_route_target.'.debug_edit',['id'=>$record->id]) }}">edit</a>
+                        <a href="{{ route($vep_route_target.'.debug_pdf',['id'=>$record->id]) }}">pdf</a>
                     </td>
                 </tr>
 

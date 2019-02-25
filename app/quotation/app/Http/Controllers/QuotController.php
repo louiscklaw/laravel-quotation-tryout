@@ -46,6 +46,29 @@ class Quot_helper
 class QuotController extends Controller
 {
 
+    public function index()
+    {
+        $all_records = Quot_helper::get_all();
+        $record_type = 'quot';
+        return view('layouts.quot.list',[
+            'all_records'=>$all_records,
+            'vep_route_target'=>$record_type,
+
+            ]);
+    }
+
+    public function show()
+    {
+        $record = Quot_helper::get_record($id);
+        return view('layouts.quot.show',[
+            'record'=>$record,
+            'editor_name'=>'quotation view',
+            'editor_description' => 'quotation debug view description',
+            'update_controller' =>'QuotController@update',
+            'store_controller' =>'QuotController@store'
+            ]);
+    }
+
     public function debug_index()
     {
         $all_records = Quot_helper::get_all();

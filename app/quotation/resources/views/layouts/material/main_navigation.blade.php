@@ -8,9 +8,21 @@
             </a>
         </li>
         <li>
-            <a href="quotation">
+            <a href="{{ route('quotation.index') }}">
                 <i class="material-icons">text_fields</i>
                 <span>Quotation</span>
+            </a>
+        </li>
+        <li>
+            <a href="{{ route('client.index') }}">
+                <i class="material-icons">text_fields</i>
+                <span>Client</span>
+            </a>
+        </li>
+        <li>
+            <a href="{{ route('user.index') }}">
+                <i class="material-icons">text_fields</i>
+                <span>Users</span>
             </a>
         </li>
         <li>

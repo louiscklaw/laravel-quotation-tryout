@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Client;
 
-class Client_helper
+class ClientHelper
 {
 
     public static function get_record($id)
@@ -46,9 +46,46 @@ class Client_helper
 class ClientController extends Controller
 {
 
+    public function show($id)
+    {
+        $record = ClientHelper::get_record($id);
+        return view('layouts.client.show',[
+            'record'=>$record,
+            'editor_name'=>'client view',
+            'editor_description' => 'client debug viwe description',
+            'update_controller' =>'ClientController@update',
+            'store_controller' => 'ClientController@store'
+            ]);
+    }
+
+    public function edit($id)
+    {
+        $quot_record = new ClientHelper;
+        $quot_record = ClientHelper::get_record($id);
+        return view('layouts.client.edit',[
+            'record'=>$quot_record,
+            'form_action' =>'edit',
+            'editor_name'=>'client edit',
+            'editor_description' => 'client debug edit description',
+            'update_controller' =>'ClientController@update',
+            'store_controller' => 'ClientController@store'
+            ]);
+
+    }
+
+    public function index()
+    {
+        $all_records = ClientHelper::get_all();
+        $record_type = 'client';
+        return view('layouts.client.list',[
+            'all_records'=>$all_records,
+            'vep_route_target'=>$record_type,
+            ]);
+    }
+
     public function debug_index()
     {
-        $all_records = Client_helper::get_all();
+        $all_records = ClientHelper::get_all();
         $record_type = 'debug_client';
         return view('layouts.debug.debug_list',[
             'all_records'=>$all_records,
@@ -58,8 +95,8 @@ class ClientController extends Controller
 
     public function debug_edit($id)
     {
-        $quot_record = new Client_helper;
-        $quot_record = Client_helper::get_record($id);
+        $quot_record = new ClientHelper;
+        $quot_record = ClientHelper::get_record($id);
 
 
         return view('layouts.debug.record_edit',[
@@ -77,7 +114,7 @@ class ClientController extends Controller
     {
         // var_dump($req);
 
-        $quot_record = new Client_helper;
+        $quot_record = new ClientHelper;
         $quot_record->save($id, $req);
 
         return $this->debug_index();
@@ -96,7 +133,7 @@ class ClientController extends Controller
 
     public function debug_view($id)
     {
-        $record = Client_helper::get_record($id);
+        $record = ClientHelper::get_record($id);
         return view('layouts.debug.record_view',[
             'record'=>$record,
             'editor_name'=>'client debug view',

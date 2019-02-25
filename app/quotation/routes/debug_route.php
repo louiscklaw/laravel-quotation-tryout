@@ -1,5 +1,7 @@
 <?php
 
+    include 'client_route.php';
+
     Route::get('/phpinfo', function () {
         return view('phpinfo');
     });
@@ -25,10 +27,6 @@
     Route::get('/debug_user/{id}/edit', 'QuotController@debug_edit')->name('debug_user.debug_edit');
     Route::get('/debug_user/{id}/pdf', 'QuotController@debug_pdf')->name('debug_user.debug_pdf');
     Route::get('/debug_user/{id}/view', 'QuotController@debug_view')->name('debug_user.debug_view');
-
-    Route::resources([
-        'client' => 'ClientController',
-    ]);
 
     Route::get('/debug_client', 'ClientController@debug_index')->name('debug_client.debug_list');
     Route::get('/debug_client/{id}/edit', 'ClientController@debug_edit')->name('debug_client.debug_edit');

@@ -24,6 +24,13 @@ class Quot_helper
 
     }
 
+    public function save($id, $req)
+    {
+        $value = $req->all();
+        $target_record = $this->get_record($id);
+        $target_record->update($value);
+    }
+
     public function open_record($id)
     {
         return $this->get_record('id',$id);
@@ -50,18 +57,33 @@ class QuotController extends Controller
         $quot_record = new Quot_helper;
         $quot_record = Quot_helper::get_record($id);
 
-        return view('layouts.debug.quot_edit',['record'=>$quot_record]);
+
+        return view('layouts.debug.quot_edit',[
+            'record'=>$quot_record,
+            'form_action' =>'edit'
+            ]);
 
     }
 
     public function update(Request $req, $id)
     {
+        // var_dump($req);
 
+        $quot_record = new Quot_helper;
+        $quot_record->save($id, $req);
+
+        return $this->debug_index();
     }
 
     public function debug_pdf($id)
     {
         return 'debug_pdf';
+    }
+
+    public function store(Request $req, $id)
+    {
+        var_dump($req);
+        die();
     }
 
     public function debug_view($id)

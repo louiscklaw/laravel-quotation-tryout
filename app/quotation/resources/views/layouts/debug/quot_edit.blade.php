@@ -8,40 +8,39 @@
             <h2>basic form elements</h2>
         </div>
 
-        @card([
+
+        @if(isset($form_action) and $form_action =='edit')
+            {{ Form::model($record, ['method'=>'PATCH', 'action'=> ['QuotController@update', $record->id]]) }}
+        @else
+            {{ Form::model($record, ['method'=>'POST', 'action'=> ['QuotController@store', $record->id]]) }}
+        @endif
+
+            @card([
                 'card_name'=>'Quotation',
                 'card_desc'=>'quotation debug page'
                 ])
 
+                <div class="form-group" style="margin-top: 20px">
+                    {!! Form::submit('Confirm', ['class'=>'btn btn-primary']) !!}
+                </div>
+
                 @card_inside(['card_inside_title'=>'basic examples'])
                     <div class="row clearfix">
-                        <div class="col-sm-12">
-                            @textInput(['form_class'=>''])
-                                test text input
+                        <div class="col-sm-3">
+                            quot_date
+                        </div>
+                        <div class="col-sm-9">
+                            @textInput(['form_class'=>'', 'placeholder'=>''])
+                                $record->quot_date
                             @endtextInput
                         </div>
-                        <div class="col-sm-12">
-                            @passwordInput
-                                tset password input
-                            @endpasswordInput
-                        </div>
+
                     </div>
+
                 @endcard_inside
             @endcard
 
-            @if(isset($form_action) and $form_action =='edit')
-                {{ Form::model($record, ['method'=>'PATCH', 'action'=> ['QuotController@update', $record->id]]) }}
-            @else
-                {{ Form::model($record, ['method'=>'POST', 'action'=> ['QuotController@store', $record->id]]) }}
-            @endif
-
-
-            <div class="form-group" style="margin-top: 20px">
-                {!! Form::submit('Confirm', ['class'=>'btn btn-primary']) !!}
-            </div>
-
-
-            {{ Form::close() }}
+        {{ Form::close() }}
 
     </div>
 </section>

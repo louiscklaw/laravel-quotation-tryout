@@ -21,9 +21,6 @@
     Route::get('/debug_quotation/{id}/pdf', 'QuotController@debug_pdf')->name('debug_quot.debug_pdf');
     Route::get('/debug_quotation/{id}/view', 'QuotController@debug_view')->name('debug_quot.debug_view');
 
-
-
-
     Route::get('/debug_user', 'QuotController@debug_list')->name('debug_user.debug_list');
     Route::get('/debug_user/{id}/edit', 'QuotController@debug_edit')->name('debug_user.debug_edit');
     Route::get('/debug_user/{id}/pdf', 'QuotController@debug_pdf')->name('debug_user.debug_pdf');
@@ -33,3 +30,9 @@
     Route::get('/debug_client/{id}/edit', 'QuotController@debug_edit')->name('debug_client.debug_edit');
     Route::get('/debug_client/{id}/pdf', 'QuotController@debug_pdf')->name('debug_client.debug_pdf');
     Route::get('/debug_client/{id}/view', 'QuotController@debug_view')->name('debug_client.debug_view');
+
+
+    Route::get('/basic_form', function()
+    {
+        return view('basic_form');
+    });

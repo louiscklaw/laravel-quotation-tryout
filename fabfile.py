@@ -32,6 +32,9 @@ def laravel_reload_conf():
         local('docker-compose restart')
         print('restart done')
 
+def docker_compose_run_command(command, path):
+        local('docker-compose exec web sh -c "cd {} && {}"'.format(path, command))
+
 def laravel_rebuild():
     with lcd(DOCKER_DIR):
         docker_compose_php_composer_install()
@@ -41,17 +44,25 @@ def rebuild_docker():
     with lcd(DOCKER_DIR):
             local('docker-compose kill')
             local('docker-compose down')
-            local('docker-compose build --compress')
+            local('docker-compose build')
             local('docker-compose up -d')
 
     install_laravel('helloworld')
+    install_laravel('quotation')
     laravel_reload_conf()
 
 
-def install_laravel(proj_name='blog'):
+def laraveL_create_project(proj_name='blog'):
     proj_home = '/app/{}'.format(proj_name)
     with lcd(DOCKER_DIR):
         local('docker-compose exec web sh -c "cd /app && composer create-project --prefer-dist laravel/laravel {}"'.format(proj_name))
+
+
+def install_laravel(proj_name='blog'):
+    proj_home = '/'.join(['/app', proj_name])
+    with lcd(DOCKER_DIR):
+        docker_compose_run_command('cp .env.example .env', proj_home )
+        docker_compose_run_command('chown www-data:staff -R .', proj_home )
         local('docker-compose exec web sh -c "cd {} && composer install"'.format(proj_home))
         local('docker-compose exec web sh -c "cd {} && php artisan key:generate"'.format(proj_home))
 

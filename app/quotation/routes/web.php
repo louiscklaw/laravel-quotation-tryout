@@ -31,6 +31,6 @@ Route::get('/debug_user', function () {
     return view('debug_user');
 });
 
-Route::get('/debug_quotation', function () {
-    return view('debug_quotation');
-});
+Route::get('/debug_quotation', 'QuotController@debug_list')->name('quot.debug_list');
+
+Route::get('/debug_quotation/{id}', 'QuotController@debug_edit')->name('quot.debug_edit');

@@ -8,7 +8,6 @@
             <h2>basic form elements</h2>
         </div>
 
-
         @card([
             'card_name'=>'Quotation',
             'card_desc'=>'quotation debug page'
@@ -28,9 +27,7 @@
                     </div>
                 </div>
             @endcard_inside
-
         @endcard
-
 
     </div>
 </section>

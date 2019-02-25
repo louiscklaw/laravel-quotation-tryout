@@ -49,8 +49,16 @@ def rebuild_docker():
 
     install_laravel('helloworld')
     install_laravel('quotation')
+
     laravel_reload_conf()
 
+
+
+def laravel_db_migrate(proh_home):
+    docker_compose_run_command('php artisan migrate', proj_home )
+
+def release_permission(proj_home):
+    docker_compose_run_command('chown www-data:staff -R .', proj_home )
 
 def laraveL_create_project(proj_name='blog'):
     proj_home = '/app/{}'.format(proj_name)
@@ -63,8 +71,12 @@ def install_laravel(proj_name='blog'):
     with lcd(DOCKER_DIR):
         docker_compose_run_command('cp .env.example .env', proj_home )
         docker_compose_run_command('chown www-data:staff -R .', proj_home )
+
         local('docker-compose exec web sh -c "cd {} && composer install"'.format(proj_home))
         local('docker-compose exec web sh -c "cd {} && php artisan key:generate"'.format(proj_home))
+
+    laravel_db_migrate(proj_home)
+    release_permission(proj_home)
 
 @hosts('logic@localhost')
 def helloworld():

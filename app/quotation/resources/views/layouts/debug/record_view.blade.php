@@ -14,8 +14,8 @@
         @endif
 
             @card([
-                'card_name'=>'Quotation',
-                'card_desc'=>'quotation debug page'
+                'card_name'=>$editor_name,
+                'card_desc'=>$editor_description
                 ])
 
                     <div class="row clearfix">

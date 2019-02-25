@@ -53,6 +53,7 @@ class QuotController extends Controller
         return view('layouts.debug.debug_list',[
             'all_records'=>$all_records,
             'vep_route_target'=>$record_type,
+
             ]);
     }
 
@@ -64,7 +65,9 @@ class QuotController extends Controller
 
         return view('layouts.debug.record_edit',[
             'record'=>$quot_record,
-            'form_action' =>'edit'
+            'form_action' =>'edit',
+            'editor_name'=>'quotation debug edit',
+            'editor_description' => 'quotation debug edit description'
             ]);
 
     }
@@ -93,7 +96,11 @@ class QuotController extends Controller
     public function debug_view($id)
     {
         $record = Quot_helper::get_record($id);
-        return view('layouts.debug.record_view',['record'=>$record]);
+        return view('layouts.debug.record_view',[
+            'record'=>$record,
+            'editor_name'=>'quotation debug view',
+            'editor_description' => 'quotation debug view description'
+            ]);
     }
 
 }

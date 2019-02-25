@@ -64,7 +64,9 @@ class ClientController extends Controller
 
         return view('layouts.debug.record_edit',[
             'record'=>$quot_record,
-            'form_action' =>'edit'
+            'form_action' =>'edit',
+            'editor_name'=>'client debug edit',
+            'editor_description' => 'client debug edit description'
             ]);
 
     }
@@ -93,7 +95,11 @@ class ClientController extends Controller
     public function debug_view($id)
     {
         $record = Client_helper::get_record($id);
-        return view('layouts.debug.record_view',['record'=>$record]);
+        return view('layouts.debug.record_view',[
+            'record'=>$record,
+            'editor_name'=>'client debug view',
+            'editor_description' => 'client debug viwe description'
+            ]);
     }
 
 }

@@ -50,7 +50,7 @@ class QuotController extends Controller
     {
         $all_records = Quot_helper::get_all();
         $record_type = 'debug_quot';
-        return view('layouts.debug_quotation_list',[
+        return view('layouts.debug.debug_list',[
             'all_records'=>$all_records,
             'vep_route_target'=>$record_type,
             ]);
@@ -62,7 +62,7 @@ class QuotController extends Controller
         $quot_record = Quot_helper::get_record($id);
 
 
-        return view('layouts.debug.quot_edit',[
+        return view('layouts.debug.record_edit',[
             'record'=>$quot_record,
             'form_action' =>'edit'
             ]);
@@ -93,7 +93,7 @@ class QuotController extends Controller
     public function debug_view($id)
     {
         $record = Quot_helper::get_record($id);
-        return view('layouts.debug.quot_view',['record'=>$record]);
+        return view('layouts.debug.record_view',['record'=>$record]);
     }
 
 }

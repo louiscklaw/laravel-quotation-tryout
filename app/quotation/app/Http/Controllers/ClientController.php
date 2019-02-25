@@ -62,7 +62,7 @@ class ClientController extends Controller
         $quot_record = Client_helper::get_record($id);
 
 
-        return view('layouts.debug.quot_edit',[
+        return view('layouts.debug.record_edit',[
             'record'=>$quot_record,
             'form_action' =>'edit'
             ]);
@@ -93,7 +93,7 @@ class ClientController extends Controller
     public function debug_view($id)
     {
         $record = Client_helper::get_record($id);
-        return view('layouts.debug.quot_view',['record'=>$record]);
+        return view('layouts.debug.record_view',['record'=>$record]);
     }
 
 }

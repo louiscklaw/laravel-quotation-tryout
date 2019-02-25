@@ -28,11 +28,19 @@
                         <div class="col-sm-3">
                             {{$field_name}}
                         </div>
-                        <div class="col-sm-9">
-                            @textInput(['form_class'=>'', 'placeholder'=>''])
-                                {{$field_name}}
-                            @endtextInput
-                        </div>
+                        @if ($field_name=='id')
+                            <div class="col-sm-9">
+                                @textInput(['form_class'=>'', 'placeholder'=>'', 'input_disabled'=>''])
+                                    {{$field_name}}
+                                @endtextInput
+                            </div>
+                        @else
+                            <div class="col-sm-9">
+                                @textInput(['form_class'=>'', 'placeholder'=>''])
+                                    {{$field_name}}
+                                @endtextInput
+                            </div>
+                        @endif
                     </div>
                 @endforeach
             @endcard

@@ -58,7 +58,7 @@ class UserController extends Controller
         $quot_record = Quot_helper::get_record($id);
 
 
-        return view('layouts.debug.quot_edit',[
+        return view('layouts.debug.record_edit',[
             'record'=>$quot_record,
             'form_action' =>'edit'
             ]);
@@ -89,7 +89,7 @@ class UserController extends Controller
     public function debug_view($id)
     {
         $record = Quot_helper::get_record($id);
-        return view('layouts.debug.quot_view',['record'=>$record]);
+        return view('layouts.debug.record_view',['record'=>$record]);
     }
 
 }

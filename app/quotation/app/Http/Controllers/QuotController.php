@@ -9,7 +9,7 @@ use App\Quot;
 class Quot_helper
 {
 
-    public function get($id)
+    public static function get_record($id)
     {
         return Quot::where('id',$id)->firstOrFail();
     }
@@ -24,10 +24,16 @@ class Quot_helper
 
     }
 
+    public function open_record($id)
+    {
+        return $this->get_record('id',$id);
+    }
+
     public static function get_all()
     {
         return Quot::all();
     }
+
 }
 
 class QuotController extends Controller
@@ -41,7 +47,27 @@ class QuotController extends Controller
 
     public function debug_edit($id)
     {
-        return 'debug_edit';
+        $quot_record = new Quot_helper;
+        $quot_record = Quot_helper::get_record($id);
+
+        return view('layouts.debug.quot_edit',['record',$quot_record]);
+
+    }
+
+    public function update(Request $req, $id)
+    {
+
+    }
+
+    public function debug_pdf($id)
+    {
+        return 'debug_pdf';
+    }
+
+    public function debug_view($id)
+    {
+        $record = Quot_helper::get_record($id);
+        return view('layouts.debug.quot_view',['record',$record]);
     }
 
 }

@@ -50,7 +50,7 @@
                     <a href="debug_user">User</a>
                 </li>
                 <li>
-                    <a href="debug_quotation">Quotation</a>
+                    <a href="{{route('quot.debug_list')}}">Quotation</a>
                 </li>
             </ul>
         </li>

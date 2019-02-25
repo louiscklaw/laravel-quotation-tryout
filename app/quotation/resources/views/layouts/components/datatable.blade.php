@@ -12,11 +12,11 @@
                 <td>{{$record->quot_ref}}</td>
                 <td>{{$record->quot_date}}</td>
                 <td>
-                    <a href="{{ route('quot.debug_view',['id',$record->id])}}">View</a>
+                    <a href="{{ route('quot.debug_view',['id'=>$record->id])}}">View</a>
                     /
-                    <a href="{{ route('quot.debug_edit',['id',$record->id])}}">Edit</a>
+                    <a href="{{ route('quot.debug_edit',['id'=>$record->id])}}">Edit</a>
                     /
-                    <a href="{{ route('quot.debug_pdf',['id',$record->id])}}">PDF</a>
+                    <a href="{{ route('quot.debug_pdf',['id'=>$record->id])}}">PDF</a>
                 </td>
             </tr>
 

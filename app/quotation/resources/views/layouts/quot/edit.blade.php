@@ -24,27 +24,41 @@
                 </div>
 
                 <div class="row clearfix">
-                @foreach(array_keys($record->getAttributes()) as $field_name)
-
-                        <div class="col-sm-1">
-                            {{$field_name}}
-                        </div>
-                        @if ($field_name=='id')
-                            <div class="col-sm-3">
-                                @textInput(['form_class'=>'', 'placeholder'=>'', 'input_disabled'=>''])
-                                    {{$field_name}}
-                                @endtextInput
-                            </div>
-                        @else
-                            <div class="col-sm-3">
-                                @textInput(['form_class'=>'', 'placeholder'=>''])
-                                    {{$field_name}}
-                                @endtextInput
-                            </div>
-                        @endif
-                @endforeach
+                    <div class="col-sm-1">
+                        id
                     </div>
+                    <div class="col-sm-3">
+                        @textInput(['form_class'=>'', 'placeholder'=>''])
+                            id
+                        @endtextInput
+                    </div>
+
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-3"></div>
+                    <div class="col-sm-1">
+                        quot_date
+                    </div>
+                    <div class="col-sm-3">
+                        @textInput(['form_class'=>'', 'placeholder'=>''])
+                            quot_date
+                        @endtextInput
+                    </div>
+                </div>
+
+                <div class="row clearfix">
+                    <div class="col-sm-1">
+                        quot_client_id
+                    </div>
+                    <div class="col-sm-3">
+                        @bootstrap_select
+                        @endbootstrap_select
+                    </div>
+                </div>
             @endcard
+
+
+
+
         {{ Form::close() }}
 
     </div>

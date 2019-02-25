@@ -69,6 +69,23 @@ class QuotController extends Controller
             ]);
     }
 
+    public function edit($id)
+    {
+        $quot_record = new Quot_helper;
+        $quot_record = Quot_helper::get_record($id);
+
+
+        return view('layouts.quot.edit',[
+            'record'=>$quot_record,
+            'form_action' =>'edit',
+            'editor_name'=>'quotation edit',
+            'editor_description' => 'quotation edit description',
+            'update_controller' =>'QuotController@update',
+            'store_controller' =>'QuotController@store'
+            ]);
+
+    }
+
     public function debug_index()
     {
         $all_records = Quot_helper::get_all();

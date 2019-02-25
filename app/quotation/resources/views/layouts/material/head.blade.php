@@ -8,4 +8,5 @@
 
     @stack('head_link')
 
+    @stack('append_css')
 </head>

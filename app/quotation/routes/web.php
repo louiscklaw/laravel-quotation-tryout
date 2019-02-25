@@ -34,3 +34,8 @@ Route::get('/debug_user', function () {
 Route::get('/debug_quotation', 'QuotController@debug_list')->name('quot.debug_list');
 
 Route::get('/debug_quotation/{id}', 'QuotController@debug_edit')->name('quot.debug_edit');
+
+Route::get('/debug_quotation_pdf/{id}', 'QuotController@debug_pdf')->name('quot.debug_pdf');
+
+
+Route::get('/debug_quotation_view/{id}', 'QuotController@debug_view')->name('quot.debug_view');

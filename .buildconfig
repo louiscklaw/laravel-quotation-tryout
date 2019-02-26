@@ -1,0 +1,10 @@
+[default]
+name=Default
+runtime=host
+config-opts=
+run-opts=
+prefix=/home/logic/.cache/gnome-builder/install/laravel-quotation-tryout/host
+app-id=
+postbuild=
+prebuild=
+default=true

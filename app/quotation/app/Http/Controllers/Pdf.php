@@ -37,31 +37,31 @@ class PdfHelper
 $table=<<<EOF
 <table class="Quotation_table">
     <tr>
-        <td style="text-align:left; width:80px">
+        <td style="text-align:left; width:15%  ">
             Customer(客戶)
         </td>
-        <td style="text-align:left; width:400px; border-left: 1px solid black;font-size:120%;">
+        <td style="text-align:left; width:35%; border-left: 1px solid black;font-size:120%;">
             123
         </td>
-        <td style="text-align:center; width:100px; border-left: 1px solid black;">
+        <td style="text-align:center; width:15% border-left: 1px solid black;">
             Quotation Date:
         </td>
-        <td style="text-align:center; width:90px; border-left: 1px solid black;">
+        <td style="text-align:center; width:35%; border-left: 1px solid black;">
             abc
         </td>
     </tr>
 
     <tr>
-        <td style="text-align:left; width:80px; border-top: 1px solid black;">
+        <td style="text-align:left; width:15%; border-top: 1px solid black;">
             Address(地址)
         </td>
-        <td style="text-align:left; width:400px; border-left: 1px solid black; border-top: 1px solid black; border-top: 1px soli black;">
+        <td style="text-align:left; width:35%; border-left: 1px solid black; border-top: 1px solid black; border-top: 1px soli black;">
             321
         </td>
-        <td style="text-align:center; width:100px; border-left: 1px solid black; border-top: 1px solid black;">
+        <td style="text-align:center; width:15% border-left: 1px solid black; border-top: 1px solid black;">
             QuotatioRef.:
         </td>
-        <td style="text-align:center; width:90px; border-left: 1px solid black; border-top: 1px solid black;">
+        <td style="text-align:center; width:35%; border-left: 1px solid black; border-top: 1px solid black;">
             cba
         </td>
     </tr>
@@ -73,7 +73,7 @@ EOF;
     public function pdf_helloworld()
     {
         // config
-        PDF::SetFont('droidsansfallbackhk', '', 12);
+        PDF::SetFont('droidsansfallbackhk', '', 8);
 
         PDF::setHeaderCallback(
             function($pdf)  {
@@ -89,17 +89,17 @@ EOF;
 
         $html='';
 
-        // $html = $html+$this->get_client_table();
+        $html = $html.$this->get_client_table(1);
 
-        for($i=0; $i<999;$i++)
+
+        for($i=0; $i<4;$i++)
         {
             $html= $html.'helloworld html 中文字';
-
         }
 
         PDF::SetTitle('Hello World');
         PDF::AddPage();
-        PDF::Write(0, $html);
+        PDF::WriteHtml($html);
         PDF::Output('hello_world.pdf');
 
 

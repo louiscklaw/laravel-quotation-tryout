@@ -88,6 +88,9 @@ class Quot_helper
     {
         $quot_record = Quot::where('id',$id)->firstOrFail();
         $quot_ref = $quot_record->quot_ref;
+
+        $client_record = ClientHelper::get_client_by_id($quot_record->client_id);
+
         $quotitem_records = QuotItemHelper::get_quot_item($quot_ref);
 
 

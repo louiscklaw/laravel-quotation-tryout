@@ -41,6 +41,11 @@ class ClientHelper
         return Client::all();
     }
 
+    public static function get_client_by_id($id)
+    {
+        return Client::where('id',$id)->get();
+    }
+
 }
 
 class ClientController extends Controller

@@ -17,7 +17,7 @@ class QuotTableSeeder extends Seeder
             'quot_date' => Str::random(10),
             'quot_sales' => Str::random(10),
             'quot_ref' => $quot_ref,
-            'quot_client_id' => Str::random(10),
+            'quot_client_id' => rand(1,10),
             'quot_site_id' => Str::random(10),
             'quot_jobtype' => Str::random(10),
             'quot_setqty' => Str::random(10),

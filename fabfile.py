@@ -42,9 +42,9 @@ def laravel_rebuild():
 
 def laravel_db_migrate(proj_name):
     with lcd(DOCKER_DIR):
-        docker_compose_run_command('php artisan migrate','/app/{}'.format(proj_name))
+        docker_compose_run_command('php artisan migrate:refresh','/app/{}'.format(proj_name))
 
-        for table in ['ClientTableSeeder','QuotTableSeeder']:
+        for table in ['ClientTableSeeder','QuotTableSeeder', 'QuotItemTableSeeder']:
             docker_compose_run_command('php artisan db:seed --class={}'.format(table),'/app/{}'.format( proj_name))
 
 def rebuild_docker():

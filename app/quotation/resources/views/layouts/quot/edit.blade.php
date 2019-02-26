@@ -15,10 +15,18 @@
             @else
                     <h2>new quotation form</h2>
             @endif
+            @card([
+                'card_name'=>$editor_name,
+                'card_desc'=>$editor_description
+                ])
 
-            <div class="form-group" style="margin-top: 20px">
-                {!! Form::submit('Save', ['class'=>'btn btn-primary']) !!}
-            </div>
+                <div class="form-group" style="margin-top, margin-bottom: 20px">
+                    {!! Form::submit('Save', ['class'=>'btn btn-primary']) !!}
+
+                    <a class="btn bg-light-blue waves-effect" href="{{ route('quot.edit',['id'=>$record->id]) }}" role="button">edit</a>
+                <a class="btn bg-light-blue waves-effect" href="{{ route('quot.pdf', ['id'=>$record->id]) }}" role="button">pdf</a>
+                </div>
+            @endcard
 
             @card([
                 'card_name'=>$editor_name,

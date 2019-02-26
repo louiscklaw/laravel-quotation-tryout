@@ -167,6 +167,11 @@ class QuotController extends Controller
 
     }
 
+    public function get_pdf($id)
+    {
+        return 'hello get pdf';
+    }
+
     public function update(Request $req, $id)
     {
         // var_dump($req);

@@ -44,15 +44,6 @@
                     </div>
                 </div>
 
-                <div class="row clearfix">
-                    <div class="col-sm-1">
-                        quot_client_id
-                    </div>
-                    <div class="col-sm-3">
-                        @bootstrap_select
-                        @endbootstrap_select
-                    </div>
-                </div>
             @endcard
 
 
@@ -77,7 +68,7 @@
                             @for($i=0;$i<sizeof($quotitem_records); $i++)
                             <tr>
                                 <th scope="row">1</th>
-                                <td>{!! Form::textarea('quotitem_ref[]', $quotitem_records[$i]->quotitem_ref,
+                                <td>{!! Form::textarea('quotitem_des_cm[]', $quotitem_records[$i]->quotitem_des_cm,
                                     ['class'=>'form-control','rows'=>2,'cols'=>20]) !!}</td>
                                 <td>{!! Form::text('quotitem_unitprice[]', $quotitem_records[$i]->quotitem_unitprice, ['class'=>'form-control']) !!}</td>
 
@@ -99,18 +90,13 @@
                 'card_name'=>'Remarks',
                 'card_desc'=>'Remarks'
                 ])
-
-
-
                 <div class="row clearfix">
                     <div class="col-sm-12">
                         @textarea(['form_class'=>'', 'placeholder'=>''])
                             quot_remark
                         @endtextarea
                     </div>
-
                 </div>
-
             @endcard
 
         {{ Form::close() }}

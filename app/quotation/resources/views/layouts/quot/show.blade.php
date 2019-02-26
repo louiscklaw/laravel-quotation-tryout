@@ -4,33 +4,103 @@
 @section('content')
 <section class="content">
     <div class="container-fluid">
-        <div class="block-header">
-            <h2>basic form elements</h2>
-        </div>
         @if(isset($form_action) and $form_action =='edit')
-            {{ Form::model($record, ['method'=>'PATCH', 'action'=> ['QuotController@update', $record->id]]) }}
+            {{ Form::model($record, ['method'=>'PATCH', 'action'=> [$update_controller, $record->id]]) }}
         @else
-            {{ Form::model($record, ['method'=>'POST', 'action'=> ['QuotController@store', $record->id]]) }}
+            {{ Form::model($record, ['method'=>'POST', 'action'=> [$store_controller, $record->id]]) }}
         @endif
 
+            @if(isset($form_action) and $form_action =='edit')
+                    <h2>edit quotation form</h2>
+            @else
+
+                    <h2>new quotation form</h2>
+            @endif
+
+                <div class="form-group" style="margin-top: 20px">
+                    {!! Form::submit('Confirm', ['class'=>'btn btn-primary']) !!}
+                </div>
             @card([
                 'card_name'=>$editor_name,
                 'card_desc'=>$editor_description
                 ])
 
-                    <div class="row clearfix">
-                @foreach(array_keys($record->getAttributes()) as $field_name)
-                        <div class="col-sm-1">
-                            {{$field_name}}
-                        </div>
-                        <div class="col-sm-3">
-                            @textInput(['form_class'=>'', 'placeholder'=>'','input_disabled'=>''])
-                                {{$field_name}}
-                            @endtextInput
-                        </div>
-                @endforeach
+                <div class="row clearfix">
+                    <div class="col-sm-2">
+                        id
                     </div>
+                    <div class="col-sm-4">
+                        @textInput(['form_class'=>'', 'placeholder'=>''])
+                            id
+                        @endtextInput
+                    </div>
+
+                    <div class="col-sm-2">
+                        quot_date
+                    </div>
+                    <div class="col-sm-4">
+                        @textInput(['form_class'=>'', 'placeholder'=>''])
+                            quot_date
+                        @endtextInput
+                    </div>
+                </div>
+
+                <div class="row clearfix">
+                    <div class="col-sm-1">
+                        quot_client_id
+                    </div>
+                    <div class="col-sm-3">
+                        @bootstrap_select
+                        @endbootstrap_select
+                    </div>
+                </div>
             @endcard
+
+
+            @card([
+                'card_name'=>'quotitem_record',
+                'card_desc'=>'quotitem description'
+                ])
+                <div class="body table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>description</th>
+                                <th>unit price</th>
+                                <th>quantity</th>
+                                <th>subtotal comment</th>
+                                <th>subtotal</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($quotitem_records as $quotitem_record)
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>{!! Form::textarea($quotitem_record->quot_ref, null,
+                                    ['class'=>'form-control','rows'=>2,'cols'=>20]) !!}</td>
+                                <td>{!! Form::text($quotitem_record->quot_ref, null, ['class'=>'form-control']) !!}</td>
+                                <td>{!! Form::text($quotitem_record->quot_ref, null, ['class'=>'form-control']) !!}</td>
+                                <td>{!! Form::textarea($quotitem_record->quot_ref, null,
+                                    ['class'=>'form-control','rows'=>2,'cols'=>20]) !!}</td>
+                                <td>{!! Form::text($quotitem_record->quot_ref, null, ['class'=>'form-control']) !!}</td>
+                            </tr>
+                            @endforeach
+
+                        </tbody>
+                    </table>
+                </div>
+            @endcard
+
+
+            @card([
+                'card_name'=>'Remarks',
+                'card_desc'=>'Remarks'
+                ])
+                {!! Form::textarea($quotitem_record->quot_ref, null, ['class'=>'form-control','rows'=>10,'cols'=>50]) !!}
+
+            @endcard
+
         {{ Form::close() }}
 
     </div>

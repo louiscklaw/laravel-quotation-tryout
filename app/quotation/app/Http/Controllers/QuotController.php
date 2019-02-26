@@ -9,9 +9,9 @@ use App\QuotItem;
 
 class QuotItemHelper
 {
-    public function get_quot_item($quot_ref)
+    public static function get_quot_item($quot_ref)
     {
-        return QuotItem::where('quot_ref',$quot_ref)->all();
+        return QuotItem::where('quotitem_ref',$quot_ref)->get();
     }
 }
 
@@ -98,17 +98,17 @@ class QuotController extends Controller
             ]);
     }
 
-    public function show()
+    public function show($id)
     {
         $records = Quot_helper::get_record($id);
         $quot_record = $records[0];
-        $quotitem_records = $record[1];
+        $quotitem_records = $records[1];
 
         return view('layouts.quot.show',[
             'record'=>$quot_record,
             'quotitem_records'=>$quotitem_records,
-            'editor_name'=>'quotation view',
-            'editor_description' => 'quotation debug view description',
+            'editor_name'=>'quotation show',
+            'editor_description' => 'quotation show description',
             'update_controller' =>'QuotController@update',
             'store_controller' =>'QuotController@store'
             ]);

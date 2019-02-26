@@ -22,8 +22,10 @@ class Quot_helper
     {
         $quot_record = Quot::where('id',$id)->firstOrFail();
         $quot_ref = $quot_record->quot_ref;
-        $quotitem_record = QuotItemHelper::get_quot_item($quot_ref);
-        return array($quot_record, $quotitem_record);
+        $quotitem_records = QuotItemHelper::get_quot_item($quot_ref);
+
+
+        return array($quot_record, $quotitem_records);
     }
 
     function create_default()
@@ -116,19 +118,25 @@ class QuotController extends Controller
 
     public function edit($id)
     {
-        $quot_record = new Quot_helper;
-        $quot_record = Quot_helper::get_record($id);
+        $record = new Quot_helper;
+        $record = Quot_helper::get_record($id);
 
+        $quot_record = $record[0];
+        $quotitem_records = $record[1];
+
+        // $test = $quotitem_records[0];
+        // var_dump($quotitem_records[0]->quotitem_ref);
+        // die();
 
         return view('layouts.quot.edit',[
             'record'=>$quot_record,
+            'quotitem_records' => $quotitem_records,
             'form_action' =>'edit',
             'editor_name'=>'quotation edit',
             'editor_description' => 'quotation edit description',
             'update_controller' =>'QuotController@update',
             'store_controller' =>'QuotController@store'
             ]);
-
     }
 
     public function debug_index()

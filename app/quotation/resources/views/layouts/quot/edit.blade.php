@@ -74,18 +74,21 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($quotitem_records as $quotitem_record)
+
+                            @for($i=0;$i<sizeof($quotitem_records); $i++)
                             <tr>
                                 <th scope="row">1</th>
-                                <td>{!! Form::textarea($quotitem_record->quot_ref, null,
+                                <td>{!! Form::textarea('quotitem_ref[]', $quotitem_records[$i]->quotitem_ref,
                                     ['class'=>'form-control','rows'=>2,'cols'=>20]) !!}</td>
-                                <td>{!! Form::text($quotitem_record->quot_ref, null, ['class'=>'form-control']) !!}</td>
-                                <td>{!! Form::text($quotitem_record->quot_ref, null, ['class'=>'form-control']) !!}</td>
-                                <td>{!! Form::textarea($quotitem_record->quot_ref, null,
-                                    ['class'=>'form-control','rows'=>2,'cols'=>20]) !!}</td>
-                                <td>{!! Form::text($quotitem_record->quot_ref, null, ['class'=>'form-control']) !!}</td>
+                                <td>{!! Form::text('quotitem_unitprice[]', $quotitem_records[$i]->quotitem_unitprice, ['class'=>'form-control']) !!}</td>
+
+                                <td>{!! Form::text('quotitem_qty[]', $quotitem_records[$i]->quotitem_qty, ['class'=>'form-control']) !!}</td>
+
+                                <td>{!! Form::textarea('quotitem_subtotal_cm[]', $quotitem_records[$i]->quotitem_subtotal_cm,['class'=>'form-control','rows'=>2,'cols'=>20]) !!}</td>
+
+                                <td>{!! Form::text('quotitem_subtotal[]', $quotitem_records[$i]->quotitem_subtotal, ['class'=>'form-control']) !!}</td>
                             </tr>
-                            @endforeach
+                            @endfor
 
                         </tbody>
                     </table>
@@ -97,7 +100,7 @@
                 'card_name'=>'Remarks',
                 'card_desc'=>'Remarks'
                 ])
-                {!! Form::textarea($quotitem_record->quot_ref, null, ['class'=>'form-control','rows'=>10,'cols'=>50]) !!}
+                {!! Form::textarea(null, null, ['class'=>'form-control','rows'=>10,'cols'=>50]) !!}
 
             @endcard
 

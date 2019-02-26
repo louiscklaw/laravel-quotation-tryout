@@ -14,13 +14,40 @@
                 'card_name'=>$editor_name,
                 'card_desc'=>$editor_description
                 ])
-                <a class="btn bg-light-green waves-effect" href="{{ route('quot.edit',['id'=>$record->id]) }}" role="button">edit</a>
-                <a class="btn bg-light-green waves-effect" href="{{ route('quot.pdf', ['id'=>$record->id]) }}" role="button">pdf</a>
+                <a class="btn bg-light-blue waves-effect" href="{{ route('quot.edit',['id'=>$record->id]) }}" role="button">edit</a>
+                <a class="btn bg-light-blue waves-effect" href="{{ route('quot.pdf', ['id'=>$record->id]) }}" role="button">pdf</a>
             @endcard
 
             @card([
                 'card_name'=>$editor_name,
                 'card_desc'=>$editor_description
+                ])
+
+                <div class="row clearfix">
+                    <div class="col-sm-2">
+                        id
+                    </div>
+                    <div class="col-sm-4">
+                        @textInput(['form_class'=>'', 'placeholder'=>''])
+                            id
+                        @endtextInput
+                    </div>
+
+                    <div class="col-sm-2">
+                        quot_date
+                    </div>
+                    <div class="col-sm-4">
+                        @textInput(['form_class'=>'', 'placeholder'=>''])
+                            quot_date
+                        @endtextInput
+                    </div>
+                </div>
+
+            @endcard
+
+            @card([
+                'card_name'=>'Client',
+                'card_desc'=>'Client description'
                 ])
 
                 <div class="row clearfix">

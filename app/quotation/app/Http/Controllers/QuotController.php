@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Quot;
 use App\QuotItem;
+use App\Http\Controllers\Pdf;
+
 
 class QuotItemHelper
 {
@@ -233,7 +235,10 @@ class QuotController extends Controller
 
     public function get_pdf($id)
     {
-        return 'hello get pdf';
+        $pdf_helper = new PdfHelper();
+        $pdf_helper->gen_pdf();
+
+
     }
 
     public function update(Request $req, $id)

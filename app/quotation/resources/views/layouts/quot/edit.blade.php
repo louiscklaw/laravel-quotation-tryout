@@ -22,7 +22,8 @@
 
             @card([
                 'card_name'=>$editor_name,
-                'card_desc'=>$editor_description
+                'card_desc'=>$editor_description,
+                'card_class'=>'col-lg-4 col-md-4 col-sm-4 col-xs-4'
                 ])
 
                 <div class="row clearfix">
@@ -47,6 +48,26 @@
 
             @endcard
 
+
+            @card([
+                'card_name'=>'Client',
+                'card_desc'=>'Client description',
+                'card_class'=>'col-lg-4 col-md-4 col-sm-4 col-xs-4'
+                ])
+
+                <div class="row clearfix">
+                    <div class="col-sm-2">
+                        Name
+                    </div>
+                    <div class="col-sm-4">
+                        @textInput(['form_class'=>'', 'placeholder'=>''])
+                            quot_client_id
+                        @endtextInput
+                    </div>
+
+                </div>
+
+            @endcard
 
             @card([
                 'card_name'=>'quotitem_record',

@@ -165,6 +165,7 @@ return [
         /*
          * Package Service Providers...
          */
+        Elibyy\TCPDF\ServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -230,6 +231,7 @@ return [
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
 
+        'PDF' => Elibyy\TCPDF\Facades\TCPDF::class,
     ],
 
 ];

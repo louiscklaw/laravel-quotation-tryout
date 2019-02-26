@@ -8,18 +8,19 @@ use App\Client;
 
 use PDF;
 
+class pdf_helloworld{
+
+}
+
 class PdfHelper
 {
 
     public function pdf_helloworld()
     {
-        for ($i = 0; $i < 5; $i++) {
-            PDF::SetTitle('Hello World'.$i);
-            PDF::AddPage();
-            PDF::Write(0, 'Hello World'.$i);
-            PDF::Output(public_path('hello_world' . $i . '.pdf'), 'F');
-            PDF::reset();
-          }
+        PDF::SetTitle('Hello World');
+        PDF::AddPage();
+        PDF::Write(0, 'Hello World');
+        PDF::Output('hello_world.pdf');
 
 
         // return 'helloworld pdf';

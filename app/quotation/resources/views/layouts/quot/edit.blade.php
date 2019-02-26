@@ -16,9 +16,10 @@
                     <h2>new quotation form</h2>
             @endif
 
-                <div class="form-group" style="margin-top: 20px">
-                    {!! Form::submit('Confirm', ['class'=>'btn btn-primary']) !!}
-                </div>
+            <div class="form-group" style="margin-top: 20px">
+                {!! Form::submit('Save', ['class'=>'btn btn-primary']) !!}
+            </div>
+
             @card([
                 'card_name'=>$editor_name,
                 'card_desc'=>$editor_description

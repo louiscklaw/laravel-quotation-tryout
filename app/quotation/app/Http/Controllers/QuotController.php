@@ -5,13 +5,25 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Quot;
+use App\QuotItem;
+
+class QuotItemHelper
+{
+    public function get_quot_item($quot_ref)
+    {
+        return QuotItem::where('quot_ref',$quot_ref)->all();
+    }
+}
 
 class Quot_helper
 {
 
     public static function get_record($id)
     {
-        return Quot::where('id',$id)->firstOrFail();
+        $quot_record = Quot::where('id',$id)->firstOrFail();
+        $quot_ref = $quot_record->quot_ref;
+        $quotitem_record = QuotItemHelper::get_quot_item($quot_ref);
+        return array($quot_record, $quotitem_record);
     }
 
     function create_default()
@@ -27,13 +39,13 @@ class Quot_helper
     public function save($id, $req)
     {
         $value = $req->all();
-        $target_record = $this->get_record($id);
+        $target_record = $this->get_record($id)[0];
         $target_record->update($value);
     }
 
     public function open_record($id)
     {
-        return $this->get_record('id',$id);
+        return $this->get_record('id',$id)[0];
     }
 
     public static function get_all()
@@ -57,11 +69,44 @@ class QuotController extends Controller
             ]);
     }
 
+    public function store()
+    {
+        return $this->index();
+    }
+
+    public function create()
+    {
+        $quotitem_records = array();
+
+        $new_quot_record = new Quot;
+
+        for($i=0;$i<5;$i++)
+        {
+            $quotitem_record = new QuotItem;
+            array_push($quotitem_records, $quotitem_record);
+        }
+
+
+        return view('layouts.quot.edit',[
+            'record'=>$new_quot_record,
+            'quotitem_records'=>$quotitem_records,
+            'form_action' =>'create',
+            'editor_name'=>'new auotation',
+            'editor_description' => 'new auotation description',
+            'update_controller' =>'QuotController@update',
+            'store_controller' =>'QuotController@store'
+            ]);
+    }
+
     public function show()
     {
-        $record = Quot_helper::get_record($id);
+        $records = Quot_helper::get_record($id);
+        $quot_record = $records[0];
+        $quotitem_records = $record[1];
+
         return view('layouts.quot.show',[
-            'record'=>$record,
+            'record'=>$quot_record,
+            'quotitem_records'=>$quotitem_records,
             'editor_name'=>'quotation view',
             'editor_description' => 'quotation debug view description',
             'update_controller' =>'QuotController@update',
@@ -127,12 +172,6 @@ class QuotController extends Controller
     public function debug_pdf($id)
     {
         return 'debug_pdf';
-    }
-
-    public function store(Request $req, $id)
-    {
-        var_dump($req);
-        die();
     }
 
     public function debug_view($id)

@@ -11,12 +11,12 @@ class QuotTableSeeder extends Seeder
      *
      * @return void
      */
-    public function insert_record()
+    public function insert_record($quot_ref)
     {
         DB::table('quot')->insert([
             'quot_date' => Str::random(10),
             'quot_sales' => Str::random(10),
-            'quot_ref' => Str::random(10),
+            'quot_ref' => $quot_ref,
             'quot_client_id' => Str::random(10),
             'quot_site_id' => Str::random(10),
             'quot_jobtype' => Str::random(10),
@@ -106,9 +106,9 @@ class QuotTableSeeder extends Seeder
 
     public function run()
     {
-        for($i=0; $i < 999; $i++)
+        for($i=0; $i < 20; $i++)
         {
-            $this->insert_record();
+            $this->insert_record(sprintf('UFO%05d', $i));
         }
     }
 

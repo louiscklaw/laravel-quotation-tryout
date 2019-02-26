@@ -8,22 +8,46 @@
             </a>
         </li>
         <li>
-            <a href="{{ route('quotation.index') }}">
+            <a href="javascript:void(0);" class="menu-toggle">
                 <i class="material-icons">text_fields</i>
                 <span>Quotation</span>
             </a>
+            <ul class="ml-menu">
+                <li>
+                    <a href="{{route('quotation.create')}}">New</a>
+                </li>
+                <li>
+                    <a href="{{ route('quotation.index') }}">List</a>
+                </li>
+            </ul>
         </li>
         <li>
-            <a href="{{ route('client.index') }}">
+            <a href="javascript:void(0);" class="menu-toggle">
                 <i class="material-icons">text_fields</i>
                 <span>Client</span>
             </a>
+            <ul class="ml-menu">
+                <li>
+                    <a href="{{route('client.create')}}">New</a>
+                </li>
+                <li>
+                    <a href="{{ route('client.index') }}">List</a>
+                </li>
+            </ul>
         </li>
         <li>
-            <a href="{{ route('user.index') }}">
+            <a href="javascript:void(0);" class="menu-toggle">
                 <i class="material-icons">text_fields</i>
                 <span>Users</span>
             </a>
+            <ul class="ml-menu">
+                <li>
+                    <a href="{{route('user.create')}}">New</a>
+                </li>
+                <li>
+                    <a href="{{ route('user.index') }}">List</a>
+                </li>
+            </ul>
         </li>
         <li>
             <a href="phpinfo">

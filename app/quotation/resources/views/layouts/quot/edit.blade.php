@@ -13,7 +13,6 @@
             @if(isset($form_action) and $form_action =='edit')
                     <h2>edit quotation form</h2>
             @else
-
                     <h2>new quotation form</h2>
             @endif
 
@@ -100,7 +99,17 @@
                 'card_name'=>'Remarks',
                 'card_desc'=>'Remarks'
                 ])
-                {!! Form::textarea(null, null, ['class'=>'form-control','rows'=>10,'cols'=>50]) !!}
+
+
+
+                <div class="row clearfix">
+                    <div class="col-sm-12">
+                        @textarea(['form_class'=>'', 'placeholder'=>''])
+                            quot_remark
+                        @endtextarea
+                    </div>
+
+                </div>
 
             @endcard
 

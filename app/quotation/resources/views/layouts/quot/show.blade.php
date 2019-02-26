@@ -10,6 +10,13 @@
             {{ Form::model($record, ['method'=>'POST', 'action'=> [$store_controller, $record->id]]) }}
         @endif
             <h2>show quotation form</h2>
+            @card([
+                'card_name'=>$editor_name,
+                'card_desc'=>$editor_description
+                ])
+                <a class="btn bg-light-green waves-effect" href="{{ route('quot.edit',['id'=>$record->id]) }}" role="button">edit</a>
+                <a class="btn bg-light-green waves-effect" href="{{ route('quot.pdf', ['id'=>$record->id]) }}" role="button">pdf</a>
+            @endcard
 
             @card([
                 'card_name'=>$editor_name,
@@ -60,15 +67,26 @@
                             @for($i=0;$i<sizeof($quotitem_records); $i++)
                             <tr>
                                 <th scope="row">{{$i+1}}</th>
-                                <td>{!! Form::textarea('quotitem_des_cm[]', $quotitem_records[$i]->quotitem_des_cm,
-                                    ['class'=>'form-control','rows'=>2,'cols'=>20]) !!}</td>
-                                <td>{!! Form::text('quotitem_unitprice[]', $quotitem_records[$i]->quotitem_unitprice, ['class'=>'form-control']) !!}</td>
+                                <td>{!! Form::textarea(
+                                        'quotitem_des_cm[]',
+                                        $quotitem_records[$i]->quotitem_des_cm,
+                                        ['class'=>'form-control','rows'=>2,'cols'=>20, 'disabled'=>'']) !!}
+                                </td>
+                                <td>
+                                    {!! Form::label($quotitem_records[$i]->quotitem_unitprice) !!}
+                                </td>
 
-                                <td>{!! Form::text('quotitem_qty[]', $quotitem_records[$i]->quotitem_qty, ['class'=>'form-control']) !!}</td>
+                                <td>
+                                    {!! Form::label($quotitem_records[$i]->quotitem_qty) !!}
+                                </td>
 
-                                <td>{!! Form::textarea('quotitem_subtotal_cm[]', $quotitem_records[$i]->quotitem_subtotal_cm,['class'=>'form-control','rows'=>2,'cols'=>20]) !!}</td>
+                                <td>
+                                    {!! Form::textarea('quotitem_subtotal_cm[]', $quotitem_records[$i]->quotitem_subtotal_cm,['class'=>'form-control','rows'=>2,'cols'=>20, 'disabled'=>'']) !!}
+                                </td>
 
-                                <td>{!! Form::text('quotitem_subtotal[]', $quotitem_records[$i]->quotitem_subtotal, ['class'=>'form-control']) !!}</td>
+                                <td>
+                                    {!! Form::label($quotitem_records[$i]->quotitem_subtotal) !!}
+                                </td>
                             </tr>
                             @endfor
 

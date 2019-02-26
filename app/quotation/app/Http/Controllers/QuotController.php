@@ -9,14 +9,78 @@ use App\QuotItem;
 
 class QuotItemHelper
 {
+    public static function check_need_to_insert($des, $unitprice, $qty, $subtotal_cm, $subtotal)
+    {
+
+    }
+
     public static function get_quot_item($quot_ref)
     {
-        return QuotItem::where('quotitem_ref',$quot_ref)->get();
+        $quotitem_records = QuotItem::where('quotitem_ref',$quot_ref)->get();
+        return $quotitem_records;
     }
+
+    public static function del_quotitem_by_ref($quot_ref)
+    {
+        return QuotItem::where('quotitem_ref',$quot_ref)->delete();
+    }
+
+    public static function save_quot_item($quot_ref, $req)
+    {
+
+        $incoming = $req->only('quotitem');
+        if(QuotItemHelper::get_length_of_quotitems($req) > 0)
+        {
+            for ($i=0; $i< sizeof($incoming['quotitem']); $i++)
+            {
+                // IDEA: check need to be create
+
+                $quotitem_record = new QuotItem;
+                $quotitem_record->quotitem_ref = $quot_ref;
+
+                foreach(array_keys($incoming['quotitem'][0]) as $field)
+                {
+                    $quotitem_record->$field = $incoming['quotitem'][$i][$field];
+                }
+                $quotitem_record->save();
+            }
+        }
+
+    }
+
+    public static function get_length_of_quotitems($req)
+    {
+        $incoming = $req->only('quotitem');
+        if (array_key_exists('quotitem',$incoming))
+        {
+            return sizeof($incoming['quotitem'][0]);
+        }else{
+            return 0;
+
+        }
+    }
+
+    public static function save_quot_items($quot_ref, $req)
+    {
+        QuotItemHelper::del_quotitem_by_ref($quot_ref);
+        QuotItemHelper::save_quot_item($quot_ref, $req);
+
+    }
+
+
 }
 
 class Quot_helper
 {
+    public static function get_quot_record_by_id($id)
+    {
+        return Quot::where('id',$id)->firstOrFail();
+    }
+
+    public static function get_quot_ref_by_id($id)
+    {
+        return Quot_helper::get_quot_record_by_id($id)->quot_ref;
+    }
 
     public static function get_record($id)
     {
@@ -178,8 +242,11 @@ class QuotController extends Controller
 
         $quot_record = new Quot_helper;
         $quot_record->save($id, $req);
+        $quot_ref = Quot_helper::get_quot_ref_by_id($id);
 
-        return $this->debug_index();
+        QuotItemHelper::save_quot_items($quot_ref,$req);
+
+        return $this->index();
     }
 
     public function debug_pdf($id)

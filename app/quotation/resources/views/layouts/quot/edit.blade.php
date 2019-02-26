@@ -69,15 +69,15 @@
                             @for($i=0;$i<sizeof($quotitem_records); $i++)
                             <tr>
                                 <th scope="row">{{$i+1}}</th>
-                                <td>{!! Form::textarea('quotitem_des_cm[]', $quotitem_records[$i]->quotitem_des_cm,
+                                <td>{!! Form::textarea('quotitem['.$i.'][quotitem_des_cm]', $quotitem_records[$i]->quotitem_des_cm,
                                     ['class'=>'form-control','rows'=>2,'cols'=>20]) !!}</td>
-                                <td>{!! Form::text('quotitem_unitprice[]', $quotitem_records[$i]->quotitem_unitprice, ['class'=>'form-control']) !!}</td>
+                                <td>{!! Form::text('quotitem['.$i.'][quotitem_unitprice]',  $quotitem_records[$i]->quotitem_unitprice, ['class'=>'form-control']) !!}</td>
 
-                                <td>{!! Form::text('quotitem_qty[]', $quotitem_records[$i]->quotitem_qty, ['class'=>'form-control']) !!}</td>
+                                <td>{!! Form::text('quotitem['.$i.'][quotitem_qty]', $quotitem_records[$i]->quotitem_qty, ['class'=>'form-control']) !!}</td>
 
-                                <td>{!! Form::textarea('quotitem_subtotal_cm[]', $quotitem_records[$i]->quotitem_subtotal_cm,['class'=>'form-control','rows'=>2,'cols'=>20]) !!}</td>
+                                <td>{!! Form::textarea('quotitem['.$i.'][quotitem_subtotal_cm]', $quotitem_records[$i]->quotitem_subtotal_cm,['class'=>'form-control','rows'=>2,'cols'=>20]) !!}</td>
 
-                                <td>{!! Form::text('quotitem_subtotal[]', $quotitem_records[$i]->quotitem_subtotal, ['class'=>'form-control']) !!}</td>
+                                <td>{!! Form::text('quotitem['.$i.'][quotitem_subtotal]', $quotitem_records[$i]->quotitem_subtotal, ['class'=>'form-control']) !!}</td>
                             </tr>
                             @endfor
 

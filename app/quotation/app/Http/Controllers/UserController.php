@@ -71,7 +71,6 @@ class UserController extends Controller
         $quot_record = new UserHelper;
         $quot_record = UserHelper::get_record($id);
 
-
         return view('layouts.debug.record_edit',[
             'record'=>$quot_record,
             'form_action' =>'edit',

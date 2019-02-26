@@ -9,17 +9,8 @@
         @else
             {{ Form::model($record, ['method'=>'POST', 'action'=> [$store_controller, $record->id]]) }}
         @endif
+            <h2>show quotation form</h2>
 
-            @if(isset($form_action) and $form_action =='edit')
-                    <h2>edit quotation form</h2>
-            @else
-
-                    <h2>new quotation form</h2>
-            @endif
-
-                <div class="form-group" style="margin-top: 20px">
-                    {!! Form::submit('Confirm', ['class'=>'btn btn-primary']) !!}
-                </div>
             @card([
                 'card_name'=>$editor_name,
                 'card_desc'=>$editor_description

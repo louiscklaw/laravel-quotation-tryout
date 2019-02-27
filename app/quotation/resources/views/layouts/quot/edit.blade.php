@@ -41,9 +41,9 @@
                                 id
                             @endfloat_label_input
 
-                            @float_label_input()
+                            @datepicker(['placeholder'=>'quot_date'])
                                 quot_date
-                            @endfloat_label_input
+                            @enddatepicker
                     </div>
 
                 @endcard
@@ -63,6 +63,15 @@
                 @endcard
 
 
+                @card([
+                    'card_name'=>'Client',
+                    'card_desc'=>'Client description',
+                    'card_class'=>'col-lg-4 col-md-4 col-sm-4 col-xs-4'
+                    ])
+
+
+
+                @endcard
 
 
             </div>

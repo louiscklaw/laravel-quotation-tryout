@@ -19,9 +19,10 @@
             @foreach($all_records as $record)
                 <tr>
                     <td>
-                        <a href="{{ route($vep_route_target.'.show',['id'=>$record->id]) }}">View</a>
+                        <a href="{{ route($vep_route_target.'.show',['id'=>$record->id]) }}">show</a>
                         <a href="{{ route($vep_route_target.'.edit',['id'=>$record->id]) }}">edit</a>
                         <a href="{{ route($vep_route_target.'.pdf',['id'=>$record->id]) }}">pdf</a>
+                        <a href="{{ route($vep_route_target.'.htmlpdf',['id'=>$record->id]) }}">htmlpdf</a>
                     </td>
                     @foreach(array_keys($record->getAttributes()) as $field_name)
                         <td>{{$record->$field_name}}</td>

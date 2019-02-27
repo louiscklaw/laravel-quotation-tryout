@@ -45,7 +45,6 @@ class ClientHelper
     {
         return Client::where('id',$id)->get();
     }
-
 }
 
 class ClientController extends Controller

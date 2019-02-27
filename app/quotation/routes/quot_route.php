@@ -4,4 +4,6 @@
         'quot' => 'QuotController',
     ]);
 
-    Route::get('/quot/{id}/pdf', 'QuotController@get_pdf')->name('quot.pdf');
+    Route::get('/quot/{id}/pdf', 'PdfController@pdfview')->name('quot.pdf');
+
+    Route::get('/quot/{id}/html', 'PdfController@htmlview')->name('quot.htmlpdf');

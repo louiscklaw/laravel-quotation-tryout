@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Quot;
 use App\QuotItem;
+use App\Client;
 use App\Http\Controllers\Pdf;
 
 
@@ -68,8 +69,6 @@ class QuotItemHelper
         QuotItemHelper::save_quot_item($quot_ref, $req);
 
     }
-
-
 }
 
 class Quot_helper
@@ -193,6 +192,10 @@ class QuotController extends Controller
         $quot_record = $record[0];
         $quotitem_records = $record[1];
 
+        $client_name_list = Client::pluck('client_cname','id');
+        // var_dump($client_name_list);
+        // die();
+
         // $test = $quotitem_records[0];
         // var_dump($quotitem_records[0]->quotitem_ref);
         // die();
@@ -204,7 +207,8 @@ class QuotController extends Controller
             'editor_name'=>'quotation edit',
             'editor_description' => 'quotation edit description',
             'update_controller' =>'QuotController@update',
-            'store_controller' =>'QuotController@store'
+            'store_controller' =>'QuotController@store',
+            'client_name_list' => $client_name_list
             ]);
     }
 
@@ -224,9 +228,11 @@ class QuotController extends Controller
         $quot_record = new Quot_helper;
         $quot_record = Quot_helper::get_record($id);
 
+        // var_dump($quot_record);
+        // die();
 
         return view('layouts.debug.record_edit',[
-            'record'=>$quot_record,
+            'record'=>$quot_record[0],
             'form_action' =>'edit',
             'editor_name'=>'quotation debug edit',
             'editor_description' => 'quotation debug edit description',
@@ -250,6 +256,7 @@ class QuotController extends Controller
 
         $quot_record = new Quot_helper;
         $quot_record->save($id, $req);
+
         $quot_ref = Quot_helper::get_quot_ref_by_id($id);
 
         QuotItemHelper::save_quot_items($quot_ref,$req);

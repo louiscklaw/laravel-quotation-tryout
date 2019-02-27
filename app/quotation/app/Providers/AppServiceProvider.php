@@ -38,6 +38,9 @@ class AppServiceProvider extends ServiceProvider
         Blade::component('layouts.components.checkbox','checkbox');
         Blade::component('layouts.components.radio','radio');
         Blade::component('layouts.components.switch','switch');
+
+        Blade::component('layouts.components.select_with_search_bar','select_with_search_bar');
+
     }
 
     /**

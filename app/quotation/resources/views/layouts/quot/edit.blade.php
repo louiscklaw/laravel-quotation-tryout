@@ -48,17 +48,15 @@
                     ])
 
                     <div class="row clearfix">
-                            @float_label_input()
-                                quot_client_id
-                            @endfloat_label_input
-                    </div>
-
-                    <div class="row clearfix">
-                        @float_label_input()
-                            quot_client_id123
-                        @endfloat_label_input
+                        @select_with_search_bar(['title'=>"client id", 'select_list'=>$client_name_list])
+                            quot_client_id
+                        @endselect_with_search_bar
                     </div>
                 @endcard
+
+
+
+
             </div>
 
 

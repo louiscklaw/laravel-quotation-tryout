@@ -222,9 +222,11 @@ class QuotController extends Controller
         $quot_record = new Quot_helper;
         $quot_record = Quot_helper::get_record($id);
 
+        // var_dump($quot_record);
+        // die();
 
         return view('layouts.debug.record_edit',[
-            'record'=>$quot_record,
+            'record'=>$quot_record[0],
             'form_action' =>'edit',
             'editor_name'=>'quotation debug edit',
             'editor_description' => 'quotation debug edit description',

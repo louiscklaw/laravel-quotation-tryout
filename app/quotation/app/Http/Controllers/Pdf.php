@@ -104,18 +104,25 @@ EOF;
 
 class PdfController extends Controller
 {
-    public function pdfview()
+    public function pdfview($quot_id)
     {
         // $items = DB::table("items")->get();
         // view()->share('items',$items);
+        $quot_record = Quot::where('id',$quot_id)->get();
+        $client_id = $quot_record[0]->quot_client_id;
+
+        $client_record = Client::where('id',$client_id)->get();
 
 
         // if($request->has('download')){
-            $pdf = PDF::loadView('pdfview');
-            $pdf->setPaper('A4');
+        $pdf = PDF::loadView('pdfview',[
+            'client_record'=>$client_record[0],
+            'quot_record'=>$quot_record[0].
+            ]);
+        $pdf->setPaper('A4');
 
-            // $pdf = PDF::loadHTML('pdfview');
-            return $pdf->stream('pdfview.pdf');
+        // $pdf = PDF::loadHTML('pdfview');
+        return $pdf->stream('pdfview.pdf');
 
 
         // }

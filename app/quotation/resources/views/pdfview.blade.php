@@ -191,7 +191,7 @@
     <table cellspacing="0" cellpadding="1" border="0" style="padding-top:10px;">
         <tr>
             <td class="head_row left_row item_name customer_table_name">Name</td>
-            <td class="head_row item_value customer_table_value">&&client_name&&</td>
+            <td class="head_row item_value customer_table_value">{{ $client_record->client_name }}</td>
             <td class="head_row item_name customer_table_name">Date:</td>
             <td class="head_row right_row item_value customer_table_value">&&quotation_date&&</td>
         </tr>

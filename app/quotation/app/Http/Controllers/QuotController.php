@@ -68,8 +68,6 @@ class QuotItemHelper
         QuotItemHelper::save_quot_item($quot_ref, $req);
 
     }
-
-
 }
 
 class Quot_helper

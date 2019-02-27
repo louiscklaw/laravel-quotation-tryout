@@ -23,3 +23,4 @@ include 'debug_route.php';
 include 'client_route.php';
 include 'user_route.php';
 include 'quot_route.php';
+include 'pdf_route.php';

@@ -8,11 +8,13 @@
 @section('content')
 <section class="content">
     <div class="container-fluid">
-        <div class="block-header">
+        <!-- <div class="block-header">
             <h2>basic form elements</h2>
-        </div>
+        </div> -->
 
-        @include('layouts.components.datatable')
+        <div class="col-sm-12">
+            @include('layouts.components.datatable')
+        </div>
     </div>
 </section>
 

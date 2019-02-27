@@ -19,11 +19,11 @@ def docker_compose_cmd(cmd_body):
 def docker_compose_exec(cmd_body):
     docker_compose_cmd(' exec {}'.format(cmd_body) )
 
-def docker_compose_php_composer_install():
-    docker_compose_exec("web /bin/sh -c 'cd /app/blog; composer install'")
+def docker_compose_php_composer_install(service_name, proj_name='blog' ):
+    docker_compose_exec("{} /bin/sh -c 'cd /app/{}; composer install'".format(service_name, proj_name))
 
-def laravel_artisan_migrate():
-    docker_compose_exec("web /bin/sh -c 'cd /app/blog; php artisan migrate'")
+def laravel_artisan_migrate(service_name, proj_name='blog' ):
+    docker_compose_exec("{} /bin/sh -c 'cd /app/{}; php artisan migrate'".format(service_name, proj_name))
 
 def laravel_reload_conf():
     with lcd(DOCKER_DIR):
@@ -37,8 +37,8 @@ def docker_compose_run_command(command, path):
 
 def laravel_rebuild():
     with lcd(DOCKER_DIR):
-        docker_compose_php_composer_install()
-        laravel_artisan_migrate()
+        docker_compose_php_composer_install('web', 'quotation')
+        laravel_artisan_migrate('web', 'quotation')
 
 def laravel_db_migrate(proj_name):
     with lcd(DOCKER_DIR):

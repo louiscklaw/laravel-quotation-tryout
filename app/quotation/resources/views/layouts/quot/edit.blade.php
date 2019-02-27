@@ -20,54 +20,57 @@
                 {!! Form::submit('Save', ['class'=>'btn btn-primary']) !!}
             </div>
 
-            @card([
-                'card_name'=>$editor_name,
-                'card_desc'=>$editor_description,
-                'card_class'=>'col-lg-4 col-md-4 col-sm-4 col-xs-4'
-                ])
+            <div class="row clearfix">
+                @card([
+                    'card_name'=>$editor_name,
+                    'card_desc'=>$editor_description,
+                    'card_class'=>'col-lg-4 col-md-4 col-sm-4 col-xs-4'
+                    ])
 
-                <div class="row clearfix">
-                    <div class="col-sm-2">
-                        id
-                    </div>
-                    <div class="col-sm-4">
-                        @textInput(['form_class'=>'', 'placeholder'=>''])
+                    <div class="row clearfix">
+
+                        <div class="col-sm-2">
                             id
-                        @endtextInput
-                    </div>
+                        </div>
+                        <div class="col-sm-4">
+                            @textInput(['form_class'=>'', 'placeholder'=>''])
+                                id
+                            @endtextInput
+                        </div>
 
-                    <div class="col-sm-2">
-                        quot_date
-                    </div>
-                    <div class="col-sm-4">
-                        @textInput(['form_class'=>'', 'placeholder'=>''])
+                        <div class="col-sm-2">
                             quot_date
-                        @endtextInput
-                    </div>
-                </div>
-
-            @endcard
-
-
-            @card([
-                'card_name'=>'Client',
-                'card_desc'=>'Client description',
-                'card_class'=>'col-lg-4 col-md-4 col-sm-4 col-xs-4'
-                ])
-
-                <div class="row clearfix">
-                    <div class="col-sm-2">
-                        Name
-                    </div>
-                    <div class="col-sm-4">
-                        @textInput(['form_class'=>'', 'placeholder'=>''])
-                            quot_client_id
-                        @endtextInput
+                        </div>
+                        <div class="col-sm-4">
+                            @textInput(['form_class'=>'', 'placeholder'=>''])
+                                quot_date
+                            @endtextInput
+                        </div>
                     </div>
 
-                </div>
+                @endcard
 
-            @endcard
+
+                @card([
+                    'card_name'=>'Client',
+                    'card_desc'=>'Client description',
+                    'card_class'=>'col-lg-4 col-md-4 col-sm-4 col-xs-4'
+                    ])
+
+                    <div class="row clearfix">
+                        <div class="col-sm-2">
+                            Name
+                        </div>
+                        <div class="col-sm-4">
+                            @textInput(['form_class'=>'', 'placeholder'=>''])
+                                quot_client_id
+                            @endtextInput
+                        </div>
+
+                    </div>
+
+                @endcard
+            </div>
 
             @card([
                 'card_name'=>'quotitem_record',

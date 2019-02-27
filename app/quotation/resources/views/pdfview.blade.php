@@ -153,7 +153,18 @@
 
         </tr>
         <tr>
-        <td class="left_row description_item_value">&&Description&&</td>
+            <td class="left_row description_item_value">
+                <table cellspacing="0" cellpadding="1" border="0">
+                    <tr>
+                        <td style="width: 5px;" colspan="2">&&Description&&</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td style="text-align: justify; text-justify: inter-word;">123123123123123123</td>
+                    </tr>
+                </table>
+            </td>
 
             <td class="unitprice_item_value">&&Unit Price&&</td>
             <td class="quantity_item_value">&&Quantity&&</td>
@@ -161,26 +172,70 @@
 
         </tr>
         <tr>
-            <td class="left_row description_item_value">&&Description&&</td>
+            <td class="left_row description_item_value">
+                <table cellspacing="0" cellpadding="1" border="0">
+                    <tr>
+                        <td style="width: 5px;" colspan="2">&&Description&&</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td style="text-align: justify; text-justify: inter-word;">123123123123123123</td>
+                    </tr>
+                </table>
+            </td>
             <td class="unitprice_item_value">&&Unit Price&&</td>
             <td class="quantity_item_value">&&Quantity&&</td>
             <td class="right_row subtotal_item_value">&&Subtotal&&</td>
 
         </tr>
         <tr>
-            <td class="left_row description_item_value">&&Description&&</td>
+            <td class="left_row description_item_value">
+                <table cellspacing="0" cellpadding="1" border="0">
+                    <tr>
+                        <td style="width: 5px;" colspan="2">&&Description&&</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td style="text-align: justify; text-justify: inter-word;">123123123123123123</td>
+                    </tr>
+                </table>
+            </td>
             <td class="unitprice_item_value">&&Unit Price&&</td>
             <td class="quantity_item_value">&&Quantity&&</td>
             <td class="right_row subtotal_item_value">&&Subtotal&&</td>
         </tr>
         <tr>
-            <td class="left_row description_item_value">&&Description&&</td>
+            <td class="left_row description_item_value">
+                <table cellspacing="0" cellpadding="1" border="0">
+                    <tr>
+                        <td style="width: 5px;" colspan="2">&&Description&&</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td style="text-align: justify; text-justify: inter-word;">123123123123123123</td>
+                    </tr>
+                </table>
+            </td>
             <td class="unitprice_item_value">&&Unit Price&&</td>
             <td class="quantity_item_value">&&Quantity&&</td>
             <td class="right_row subtotal_item_value">&&Subtotal&&</td>
         </tr>
         <tr>
-            <td class="left_row description_item_value">&&Description&&</td>
+            <td class="left_row description_item_value">
+                <table cellspacing="0" cellpadding="1" border="0">
+                    <tr>
+                        <td style="width: 5px;" colspan="2">&&Description&&</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td style="text-align: justify; text-justify: inter-word;">123123123123123123</td>
+                    </tr>
+                </table>
+            </td>
             <td class="unitprice_item_value">&&Unit Price&&</td>
             <td class="quantity_item_value">&&Quantity&&</td>
             <td class="right_row subtotal_item_value">&&Subtotal&&</td>
@@ -240,73 +295,3 @@
 
 
 </div>
-
-<br>
-<br>
-<br>
-<br>
-<br>
-
-<table cellspacing="0" cellpadding="1" border="0">
-    <tr>
-        <td class="head_row" style="border: 1px solid;">1</td>
-        <td class="head_row" style="border: 1px solid;">2</td>
-        <td class="head_row" style="border: 1px solid;">3</td>
-    </tr>
-    <tr>
-        <td style="border-left: 1px solid;">
-
-            <table cellspacing="0" cellpadding="1" border="0">
-                <tr>
-                    <td class="head_row" style="border: 1px solid;">1</td>
-                    <td class="head_row" style="border: 1px solid;">2</td>
-                    <td class="head_row" style="border: 1px solid;">3</td>
-                </tr>
-                <tr>
-                    <td style="border-left: 1px solid;">4</td>
-                    <td style="border: none;">5</td>
-                    <td style="border-right: 1px solid; border-left: none;">6</td>
-                </tr>
-                <tr>
-                    <td style="border-top: none; border-bottom: 1px solid;border-left: 1px solid;">1</td>
-                    <td style="border-top: none; border-left: none; border-right: none; border-bottom: 1px solid;">2</td>
-                    <td style="border-top: none; border-bottom: 1px solid; border-right: 1px solid; border-left: none;">3</td>
-                </tr>
-            </table>
-
-
-        </td>
-        <td style="border: none;">5</td>
-        <td style="border-right: 1px solid; border-left: none;">6</td>
-    </tr>
-    <tr>
-        <td style="border-top: none; border-bottom: 1px solid;border-left: 1px solid;">1</td>
-        <td style="border-top: none; border-left: none; border-right: none; border-bottom: 1px solid;">2</td>
-        <td style="border-top: none; border-bottom: 1px solid; border-right: 1px solid; border-left: none;">3</td>
-    </tr>
-</table>
-
-</div>
-
-<style>
-    .head_row {
-        border-bottom: 1px solid;
-        border-top: 1px solid;
-    }
-
-    .body_row {
-        border: none;
-    }
-
-    .left_row {
-        border-left: 1px solid;
-    }
-
-    .right_row {
-        border-right: 1px solid;
-    }
-
-    .bottom_row {
-        border-bottom: 1px solid;
-    }
-</style>

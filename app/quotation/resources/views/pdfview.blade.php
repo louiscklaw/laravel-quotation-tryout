@@ -54,7 +54,9 @@
 
     .description_item_name {
         width: 55%;
-        padding: 5px;
+        padding-left: 15px;
+        padding-top: 5px;
+        padding-bottom: 5px;
     }
 
     .unitprice_item_name,
@@ -66,7 +68,7 @@
 
     .description_item_value {
         width: 55%;
-        padding: 5px;
+        padding: 15px;
     }
 
     .unitprice_item_value,
@@ -151,7 +153,8 @@
 
         </tr>
         <tr>
-            <td class="left_row description_item_value">&&Description&&</td>
+        <td class="left_row description_item_value">&&Description&&</td>
+
             <td class="unitprice_item_value">&&Unit Price&&</td>
             <td class="quantity_item_value">&&Quantity&&</td>
             <td class="right_row subtotal_item_value">&&Subtotal&&</td>
@@ -163,6 +166,18 @@
             <td class="quantity_item_value">&&Quantity&&</td>
             <td class="right_row subtotal_item_value">&&Subtotal&&</td>
 
+        </tr>
+        <tr>
+            <td class="left_row description_item_value">&&Description&&</td>
+            <td class="unitprice_item_value">&&Unit Price&&</td>
+            <td class="quantity_item_value">&&Quantity&&</td>
+            <td class="right_row subtotal_item_value">&&Subtotal&&</td>
+        </tr>
+        <tr>
+            <td class="left_row description_item_value">&&Description&&</td>
+            <td class="unitprice_item_value">&&Unit Price&&</td>
+            <td class="quantity_item_value">&&Quantity&&</td>
+            <td class="right_row subtotal_item_value">&&Subtotal&&</td>
         </tr>
         <tr>
             <td class="left_row description_item_value">&&Description&&</td>
@@ -226,7 +241,6 @@
 
 </div>
 
-
 <br>
 <br>
 <br>
@@ -274,7 +288,6 @@
 
 </div>
 
-
 <style>
     .head_row {
         border-bottom: 1px solid;
@@ -297,9 +310,3 @@
         border-bottom: 1px solid;
     }
 </style>
-
-<br>
-<br>
-<br>
-<br>
-<br>

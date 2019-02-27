@@ -82,6 +82,7 @@
                         <thead>
                             <tr>
                                 <th>#</th>
+                                <th>item name</th>
                                 <th>description</th>
                                 <th>unit price</th>
                                 <th>quantity</th>
@@ -94,6 +95,11 @@
                             @for($i=0;$i<sizeof($quotitem_records); $i++)
                             <tr>
                                 <th scope="row">{{$i+1}}</th>
+                                <td>{!! Form::textarea(
+                                        'quotitem_item[]',
+                                        $quotitem_records[$i]->quotitem_item,
+                                        ['class'=>'form-control','rows'=>2,'cols'=>20, 'disabled'=>'']) !!}
+                                </td>
                                 <td>{!! Form::textarea(
                                         'quotitem_des_cm[]',
                                         $quotitem_records[$i]->quotitem_des_cm,

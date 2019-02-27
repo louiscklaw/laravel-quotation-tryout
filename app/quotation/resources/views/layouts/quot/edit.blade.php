@@ -29,23 +29,13 @@
 
                     <div class="row clearfix">
 
-                        <div class="col-sm-2">
-                            id
-                        </div>
-                        <div class="col-sm-4">
-                            @textInput(['form_class'=>'', 'placeholder'=>''])
+                            @float_label_input()
                                 id
-                            @endtextInput
-                        </div>
+                            @endfloat_label_input
 
-                        <div class="col-sm-2">
-                            quot_date
-                        </div>
-                        <div class="col-sm-4">
-                            @textInput(['form_class'=>'', 'placeholder'=>''])
+                            @float_label_input()
                                 quot_date
-                            @endtextInput
-                        </div>
+                            @endfloat_label_input
                     </div>
 
                 @endcard
@@ -58,19 +48,19 @@
                     ])
 
                     <div class="row clearfix">
-                        <div class="col-sm-2">
-                            Name
-                        </div>
-                        <div class="col-sm-4">
-                            @textInput(['form_class'=>'', 'placeholder'=>''])
+                            @float_label_input()
                                 quot_client_id
-                            @endtextInput
-                        </div>
-
+                            @endfloat_label_input
                     </div>
 
+                    <div class="row clearfix">
+                        @float_label_input()
+                            quot_client_id123
+                        @endfloat_label_input
+                    </div>
                 @endcard
             </div>
+
 
             @card([
                 'card_name'=>'quotitem_record',

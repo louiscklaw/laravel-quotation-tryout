@@ -1,13 +1,18 @@
 <div class="menu">
     <ul class="list">
         <li class="header">MAIN NAVIGATION</li>
-        <li class="active">
+
             <a href="index.html">
                 <i class="material-icons">home</i>
                 <span>Home</span>
             </a>
-        </li>
-        <li>
+
+        @foreach($menuitems as $menuitem)
+
+
+        @endforeach
+
+        <li class="active">
             <a href="javascript:void(0);" class="menu-toggle">
                 <i class="material-icons">text_fields</i>
                 <span>Quotation</span>
@@ -16,7 +21,7 @@
                 <li>
                     <a href="{{route('quotation.create')}}">New</a>
                 </li>
-                <li>
+                <li class="active">
                     <a href="{{ route('quotation.index') }}">List</a>
                 </li>
             </ul>

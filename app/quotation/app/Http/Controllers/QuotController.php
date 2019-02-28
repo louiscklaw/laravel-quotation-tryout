@@ -135,6 +135,7 @@ class QuotController extends Controller
         return view('layouts.quot.list',[
             'all_records'=>$all_records,
             'vep_route_target'=>$record_type,
+            'mn_highlight'=>'quotation_list'
 
             ]);
     }

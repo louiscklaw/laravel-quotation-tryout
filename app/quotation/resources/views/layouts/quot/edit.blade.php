@@ -18,20 +18,19 @@
 
             <div class="row clearfix">
 
-            @card([
-                'card_name'=>$editor_name,
-                'card_desc'=>$editor_description,
-                'card_class'=>'col-lg-4 col-md-4 col-sm-4 col-xs-4'
-                ])
+                @card([
+                    'card_name'=>$editor_name,
+                    'card_desc'=>$editor_description,
+                    'card_class'=>'col-lg-4 col-md-4 col-sm-4 col-xs-4'
+                    ])
 
-                <div class="form-group" style="margin-top, margin-bottom: 20px">
-                    {!! Form::submit('Save', ['class'=>'btn btn-primary']) !!}
+                    <div class="form-group" style="margin-top, margin-bottom: 20px">
+                        {!! Form::submit('Save', ['class'=>'btn btn-primary']) !!}
 
-                    <a class="btn bg-light-blue waves-effect" href="{{ route('quot.edit',['id'=>$record->id]) }}" role="button">edit</a>
-                <a class="btn bg-light-blue waves-effect" href="{{ route('quot.pdf', ['id'=>$record->id]) }}" role="button">pdf</a>
-                </div>
-            @endcard
-
+                        <a class="btn bg-light-blue waves-effect" href="{{ route('quot.edit',['id'=>$record->id]) }}" role="button">edit</a>
+                    <a class="btn bg-light-blue waves-effect" href="{{ route('quot.pdf', ['id'=>$record->id]) }}" role="button">pdf</a>
+                    </div>
+                @endcard
 
                 @card([
                     'card_name'=>$editor_name,
@@ -52,7 +51,6 @@
 
                 @endcard
 
-
                 @card([
                     'card_name'=>'Client',
                     'card_desc'=>'Client description',
@@ -65,9 +63,6 @@
                         @endselect_with_search_bar
                     </div>
                 @endcard
-
-
-
 
             </div>
 

@@ -12,6 +12,32 @@ use App\Http\Controllers\Pdf;
 
 class QuotItemHelper
 {
+    static $menu_config=
+    ['main item'=>[
+            'text'=>'Quotation1',
+            'icon'=>'material-icons',
+            'link'=>'',
+
+            'subitem' => [
+                'sub item1'=>[
+                    'text'=>'New',
+                    'icon'=>'material-icons',
+                    'link'=>'google.com',
+                    'subitem'=>[
+                        'new111'=>[
+                            'text'=>'New',
+                            'icon'=>'material-icons',
+                            'link'=>'google.com'
+                        ]]
+                ],
+                'sub item2'=>[
+                    'text'=>'List',
+                    'icon'=>'material-icons',
+                    'link'=>'google.com',
+                ],
+            ]
+    ]];
+
     public static function check_need_to_insert($des, $unitprice, $qty, $subtotal_cm, $subtotal)
     {
 
@@ -135,8 +161,8 @@ class QuotController extends Controller
         return view('layouts.quot.list',[
             'all_records'=>$all_records,
             'vep_route_target'=>$record_type,
-            'mn_highlight'=>'quotation_list'
-
+            'mn_highlight'=>'quotation_list',
+            'menuitems'=>QuotitemHelper::$menu_config
             ]);
     }
 

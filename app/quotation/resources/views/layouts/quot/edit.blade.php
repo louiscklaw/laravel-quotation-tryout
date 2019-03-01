@@ -15,9 +15,13 @@
             @else
                     <h2>new quotation form</h2>
             @endif
+
+            <div class="row clearfix">
+
             @card([
                 'card_name'=>$editor_name,
-                'card_desc'=>$editor_description
+                'card_desc'=>$editor_description,
+                'card_class'=>'col-lg-4 col-md-4 col-sm-4 col-xs-4'
                 ])
 
                 <div class="form-group" style="margin-top, margin-bottom: 20px">
@@ -28,7 +32,7 @@
                 </div>
             @endcard
 
-            <div class="row clearfix">
+
                 @card([
                     'card_name'=>$editor_name,
                     'card_desc'=>$editor_description,

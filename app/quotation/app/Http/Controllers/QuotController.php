@@ -15,24 +15,17 @@ class QuotItemHelper
     static $menu_config=
     ['main item'=>[
             'text'=>'Quotation1',
-            'icon'=>'material-icons',
-            'link'=>'',
-
+            'icon'=>'assignment',
+            'link'=>'javascript:void(0);',
             'subitem' => [
-                'sub item1'=>[
+                'new'=>[
                     'text'=>'New',
-                    'icon'=>'material-icons',
-                    'link'=>'google.com',
-                    'subitem'=>[
-                        'new111'=>[
-                            'text'=>'New',
-                            'icon'=>'material-icons',
-                            'link'=>'google.com'
-                        ]]
+                    'icon'=>'assignment',
+                    'link'=>'google.com'
                 ],
-                'sub item2'=>[
+                'list'=>[
                     'text'=>'List',
-                    'icon'=>'material-icons',
+                    'icon'=>'assignment',
                     'link'=>'google.com',
                 ],
             ]

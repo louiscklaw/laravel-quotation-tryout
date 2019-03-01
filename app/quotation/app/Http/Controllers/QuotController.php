@@ -9,27 +9,9 @@ use App\QuotItem;
 use App\Client;
 use App\Http\Controllers\Pdf;
 
-
 class QuotItemHelper
 {
-    static $menu_config=
-    ['main item'=>[
-            'text'=>'Quotation1',
-            'icon'=>'assignment',
-            'link'=>'javascript:void(0);',
-            'subitem' => [
-                'new'=>[
-                    'text'=>'New',
-                    'icon'=>'assignment',
-                    'link'=>'javascript:void(0);',
-                ],
-                'list'=>[
-                    'text'=>'List',
-                    'icon'=>'assignment',
-                    'link'=>'javascript:void(0);',
-                ],
-            ]
-    ]];
+
 
     public static function check_need_to_insert($des, $unitprice, $qty, $subtotal_cm, $subtotal)
     {
@@ -154,8 +136,7 @@ class QuotController extends Controller
         return view('layouts.quot.list',[
             'all_records'=>$all_records,
             'vep_route_target'=>$record_type,
-            'mn_highlight'=>'quotation_list',
-            'menuitems'=>QuotitemHelper::$menu_config
+            'mn_highlight'=>'quotation_list'
             ]);
     }
 

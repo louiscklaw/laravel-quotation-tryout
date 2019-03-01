@@ -151,6 +151,8 @@ class QuotController extends Controller
 
         $new_quot_record = new Quot;
 
+        $client_name_list = Client::pluck('client_cname','id');
+
         for($i=0;$i<5;$i++)
         {
             $quotitem_record = new QuotItem;
@@ -163,9 +165,11 @@ class QuotController extends Controller
             'quotitem_records'=>$quotitem_records,
             'form_action' =>'create',
             'editor_name'=>'new auotation',
+            'client_name_list' => $client_name_list,
             'editor_description' => 'new auotation description',
             'update_controller' =>'QuotController@update',
-            'store_controller' =>'QuotController@store'
+            'store_controller' =>'QuotController@store',
+            'mn_highlight'=>'quotation_new'
             ]);
     }
 
@@ -209,7 +213,8 @@ class QuotController extends Controller
             'editor_description' => 'quotation edit description',
             'update_controller' =>'QuotController@update',
             'store_controller' =>'QuotController@store',
-            'client_name_list' => $client_name_list
+            'client_name_list' => $client_name_list,
+            'mn_highlight' =>'quotation_list'
             ]);
     }
 

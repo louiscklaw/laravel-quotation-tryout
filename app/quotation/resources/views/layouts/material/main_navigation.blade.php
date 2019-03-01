@@ -9,7 +9,7 @@
                     'new'=>[
                         'text'=>'New',
                         'icon'=>'assignment',
-                        'link'=>'javascript:void(0);',
+                        'link'=>route('quotation.create'),
                     ],
                     'list'=>[
                         'text'=>'List',
@@ -82,7 +82,7 @@
 
                             <ul class="ml-menu">
                             @foreach($itemvalue['subitem'] as $subitem_name => $subitem_value)
-                                @if (explode('_',$mn_highlight)[1] == $subitem_name)
+                                @if (explode('_',$mn_highlight)[0] == $itemname && explode('_',$mn_highlight)[1] == $subitem_name)
                                     <li class="active">
                                 @else
                                     <li>

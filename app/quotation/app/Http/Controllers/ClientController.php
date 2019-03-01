@@ -84,6 +84,7 @@ class ClientController extends Controller
         return view('layouts.client.list',[
             'all_records'=>$all_records,
             'vep_route_target'=>$record_type,
+            'mn_highlight'=>'client_list'
             ]);
     }
 

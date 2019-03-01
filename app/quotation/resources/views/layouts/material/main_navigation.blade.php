@@ -1,7 +1,7 @@
 @php
     $menuitems=
         [
-        'quotation'=>[
+            'quotation'=>[
                 'text'=>'Quotation',
                 'icon'=>'assignment',
                 'link'=>'javascript:void(0);',
@@ -9,49 +9,52 @@
                     'new'=>[
                         'text'=>'New',
                         'icon'=>'assignment',
-                        'link'=>route('quotation.create'),
+                        'link'=>route('quotation.create')
                     ],
                     'list'=>[
                         'text'=>'List',
                         'icon'=>'assignment',
-                        'link'=>route('quotation.index'),
+                        'link'=>route('quotation.index')
                     ],
                 ]
         ],
-        'Client'=>[
-                'text'=>'Quotation',
+        'client'=>[
+                'text'=>'client',
                 'icon'=>'assignment',
                 'link'=>'javascript:void(0);',
                 'subitem' => [
                     'new'=>[
                         'text'=>'New',
                         'icon'=>'assignment',
-                        'link'=>'javascript:void(0);',
+                        'link'=>route('client.create')
                     ],
                     'list'=>[
                         'text'=>'List',
                         'icon'=>'assignment',
-                        'link'=>'javascript:void(0);',
+                        'link'=>route('client.index')
                     ],
                 ]
         ],
-        'User'=>[
-                'text'=>'Quotation',
+        'user'=>[
+                'text'=>'user',
                 'icon'=>'assignment',
                 'link'=>'javascript:void(0);',
                 'subitem' => [
                     'new'=>[
                         'text'=>'New',
                         'icon'=>'assignment',
-                        'link'=>'javascript:void(0);',
+                        'link'=>route('user.create')
                     ],
                     'list'=>[
                         'text'=>'List',
                         'icon'=>'assignment',
-                        'link'=>'javascript:void(0);',
+                        'link'=>route('user.index')
                     ],
                 ]
         ],
+
+
+
         ];
 
 @endphp

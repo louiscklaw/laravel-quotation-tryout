@@ -185,7 +185,8 @@ class QuotController extends Controller
             'editor_name'=>'quotation show',
             'editor_description' => 'quotation show description',
             'update_controller' =>'QuotController@update',
-            'store_controller' =>'QuotController@store'
+            'store_controller' =>'QuotController@store',
+            'mn_highlight'=>'quotation_list'
             ]);
     }
 

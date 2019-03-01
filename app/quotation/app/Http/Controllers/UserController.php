@@ -53,6 +53,7 @@ class UserController extends Controller
         return view('layouts.user.list',[
             'all_records'=>$all_records,
             'vep_route_target'=>$record_type,
+            'mn_highlight'=>'user_new'
             ]);
     }
 

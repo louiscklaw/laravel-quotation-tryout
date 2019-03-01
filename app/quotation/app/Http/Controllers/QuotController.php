@@ -21,12 +21,12 @@ class QuotItemHelper
                 'new'=>[
                     'text'=>'New',
                     'icon'=>'assignment',
-                    'link'=>'google.com'
+                    'link'=>'javascript:void(0);',
                 ],
                 'list'=>[
                     'text'=>'List',
                     'icon'=>'assignment',
-                    'link'=>'google.com',
+                    'link'=>'javascript:void(0);',
                 ],
             ]
     ]];

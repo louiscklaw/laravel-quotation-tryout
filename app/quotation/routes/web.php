@@ -11,9 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('quotation');
-});
+Route::get('/', 'CommonController@home')->name('quotation.home');
+
+
 
 Route::get('/quotation', function () {
     return view('quotation');

@@ -1,18 +1,9 @@
 @php
     $menuitems=
         [
-            'Home'=>[
-                'text'=>'Quotation', 'icon'=>'assignment', 'link'=>'javascript:void(0);',
-                'subitem' => [
-                    'new'=>[
-                        'text'=>'New', 'icon'=>'assignment', 'link'=>route('quotation.create')
-                    ],
-                    'list'=>[
-                        'text'=>'List', 'icon'=>'assignment', 'link'=>route('quotation.index')
-                    ],
-                ]
+            'home'=>[
+                'text'=>'home', 'icon'=>'assignment', 'link'=>route('quotation.home'),
             ],
-
             'Tools'=>[
                 'text'=>'Quotation', 'icon'=>'assignment', 'link'=>'javascript:void(0);',
                 'subitem' => [
@@ -164,10 +155,6 @@
 <div class="menu">
     <ul class="list">
         <li class="header">MAIN NAVIGATION</li>
-            <a href="index.html">
-                <i class="material-icons">home</i>
-                <span>Home</span>
-            </a>
             @foreach($menuitems as $itemname => $itemvalue)
                 @if (explode('_',$mn_highlight)[0] == $itemname)
                     <li class="active">

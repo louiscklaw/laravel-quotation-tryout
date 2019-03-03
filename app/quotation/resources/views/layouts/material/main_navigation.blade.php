@@ -1,57 +1,160 @@
 @php
     $menuitems=
         [
+            'Home'=>[
+                'text'=>'Quotation', 'icon'=>'assignment', 'link'=>'javascript:void(0);',
+                'subitem' => [
+                    'new'=>[
+                        'text'=>'New', 'icon'=>'assignment', 'link'=>route('quotation.create')
+                    ],
+                    'list'=>[
+                        'text'=>'List', 'icon'=>'assignment', 'link'=>route('quotation.index')
+                    ],
+                ]
+            ],
+
+            'Tools'=>[
+                'text'=>'Quotation', 'icon'=>'assignment', 'link'=>'javascript:void(0);',
+                'subitem' => [
+                    'new'=>[
+                        'text'=>'New', 'icon'=>'assignment', 'link'=>route('quotation.create')
+                    ],
+                    'list'=>[
+                        'text'=>'List', 'icon'=>'assignment', 'link'=>route('quotation.index')
+                    ],
+                ]
+            ],
+
             'quotation'=>[
-                'text'=>'Quotation',
-                'icon'=>'assignment',
-                'link'=>'javascript:void(0);',
+                'text'=>'Quotation', 'icon'=>'assignment', 'link'=>'javascript:void(0);',
                 'subitem' => [
                     'new'=>[
-                        'text'=>'New',
-                        'icon'=>'assignment',
-                        'link'=>route('quotation.create')
+                        'text'=>'New', 'icon'=>'assignment', 'link'=>route('quotation.create')
                     ],
                     'list'=>[
-                        'text'=>'List',
-                        'icon'=>'assignment',
-                        'link'=>route('quotation.index')
+                        'text'=>'List', 'icon'=>'assignment', 'link'=>route('quotation.index')
                     ],
                 ]
-        ],
-        'client'=>[
-                'text'=>'client',
-                'icon'=>'assignment',
-                'link'=>'javascript:void(0);',
+            ],
+
+            'delivery'=>[
+                'text'=>'Delivery', 'icon'=>'assignment', 'link'=>'javascript:void(0);',
                 'subitem' => [
                     'new'=>[
-                        'text'=>'New',
-                        'icon'=>'assignment',
-                        'link'=>route('client.create')
+                        'text'=>'New', 'icon'=>'assignment', 'link'=>route('quotation.create')
                     ],
                     'list'=>[
-                        'text'=>'List',
-                        'icon'=>'assignment',
-                        'link'=>route('client.index')
+                        'text'=>'List', 'icon'=>'assignment', 'link'=>route('quotation.index')
                     ],
                 ]
-        ],
-        'user'=>[
-                'text'=>'user',
-                'icon'=>'assignment',
-                'link'=>'javascript:void(0);',
+            ],
+
+            'Collection'=>[
+                'text'=>'Quotation', 'icon'=>'assignment', 'link'=>'javascript:void(0);',
                 'subitem' => [
                     'new'=>[
-                        'text'=>'New',
-                        'icon'=>'assignment',
-                        'link'=>route('user.create')
+                        'text'=>'New', 'icon'=>'assignment', 'link'=>route('quotation.create')
                     ],
                     'list'=>[
-                        'text'=>'List',
-                        'icon'=>'assignment',
-                        'link'=>route('user.index')
+                        'text'=>'List', 'icon'=>'assignment', 'link'=>route('quotation.index')
                     ],
                 ]
-        ],
+            ],
+
+            'LnD'=>[
+                'text'=>'Quotation', 'icon'=>'assignment', 'link'=>'javascript:void(0);',
+                'subitem' => [
+                    'new'=>[
+                        'text'=>'New', 'icon'=>'assignment', 'link'=>route('quotation.create')
+                    ],
+                    'list'=>[
+                        'text'=>'List', 'icon'=>'assignment', 'link'=>route('quotation.index')
+                    ],
+                ]
+            ],
+
+
+            'Invoice'=>[
+                'text'=>'Quotation', 'icon'=>'assignment', 'link'=>'javascript:void(0);',
+                'subitem' => [
+                    'new'=>[
+                        'text'=>'New', 'icon'=>'assignment', 'link'=>route('quotation.create')
+                    ],
+                    'list'=>[
+                        'text'=>'List', 'icon'=>'assignment', 'link'=>route('quotation.index')
+                    ],
+                ]
+            ],
+
+
+            'Inventory'=>[
+                'text'=>'Quotation', 'icon'=>'assignment', 'link'=>'javascript:void(0);',
+                'subitem' => [
+                    'new'=>[
+                        'text'=>'New', 'icon'=>'assignment', 'link'=>route('quotation.create')
+                    ],
+                    'list'=>[
+                        'text'=>'List', 'icon'=>'assignment', 'link'=>route('quotation.index')
+                    ],
+                ]
+            ],
+
+
+            'Price'=>[
+                'text'=>'Quotation', 'icon'=>'assignment', 'link'=>'javascript:void(0);',
+                'subitem' => [
+                    'new'=>[
+                        'text'=>'New', 'icon'=>'assignment', 'link'=>route('quotation.create')
+                    ],
+                    'list'=>[
+                        'text'=>'List', 'icon'=>'assignment', 'link'=>route('quotation.index')
+                    ],
+                ]
+            ],
+
+            'Customer'=>[
+                'text'=>'Quotation', 'icon'=>'assignment', 'link'=>'javascript:void(0);',
+                'subitem' => [
+
+                    'Company'=>[
+                        'text'=>'New', 'icon'=>'assignment', 'link'=>route('quotation.create'),
+                        'subitem'=>[
+                            'new'=>[
+                                'text'=>'New', 'icon'=>'assignment', 'link'=>route('quotation.create')
+                            ],
+                            'list'=>[
+                                'text'=>'List', 'icon'=>'assignment', 'link'=>route('quotation.index')
+                            ],
+                        ]],
+                    'Client'=>['text'=>'New', 'icon'=>'assignment', 'link'=>route('quotation.create')],
+                    'Site(DeliveryContact)'=>['text'=>'New', 'icon'=>'assignment', 'link'=>route('quotation.create')],
+                    'ConstSite'=>['text'=>'New', 'icon'=>'assignment', 'link'=>route('quotation.create')],
+                    'Siteitem'=>['text'=>'New', 'icon'=>'assignment', 'link'=>route('quotation.create')],
+                ]
+            ],
+
+            'client'=>[
+                    'text'=>'client', 'icon'=>'assignment', 'link'=>'javascript:void(0);',
+                    'subitem' => [
+                        'new'=>[
+                            'text'=>'New', 'icon'=>'assignment', 'link'=>route('client.create')
+                        ],
+                        'list'=>[
+                            'text'=>'List', 'icon'=>'assignment', 'link'=>route('client.index')
+                        ],
+                    ]
+            ],
+            'user'=>[
+                    'text'=>'user', 'icon'=>'assignment', 'link'=>'javascript:void(0);',
+                    'subitem' => [
+                        'new'=>[
+                            'text'=>'New', 'icon'=>'assignment', 'link'=>route('user.create')
+                        ],
+                        'list'=>[
+                            'text'=>'List', 'icon'=>'assignment', 'link'=>route('user.index')
+                        ],
+                    ]
+            ],
 
 
 
@@ -73,7 +176,7 @@
                 @endif
 
                     @if (isset($itemvalue['subitem']))
-                        <a href="{{ $itemvalue['link'] }}" class="menu-toggle">
+                        <a href="javascript:void(0);" class="menu-toggle">
                     @else
                         <a href="{{ $itemvalue['link'] }}">
                     @endif
@@ -92,7 +195,7 @@
                                 @endif
                                         <!-- <a> -->
                                         @if (isset($subitem_value['subitem']))
-                                            <a href="{{ $subitem_value['link'] }}" class="menu-toggle">
+                                            <a href="javascript:void(0);" class="menu-toggle">
                                         @else
                                             <a href="{{ $subitem_value['link'] }}">
                                         @endif

@@ -24,3 +24,7 @@ include 'client_route.php';
 include 'user_route.php';
 include 'quot_route.php';
 include 'pdf_route.php';
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

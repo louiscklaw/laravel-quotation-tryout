@@ -5,8 +5,6 @@
                 'text'=>'Home', 'icon'=>'assignment', 'link'=>route('quotation.home'),
             ],
 
-
-
             'tools'=>[
                 'text'=>'Tools', 'icon'=>'assignment', 'link'=>'javascript:void(0);',
                 'subitem' => [

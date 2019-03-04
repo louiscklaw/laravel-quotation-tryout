@@ -148,4 +148,9 @@ class ClientController extends Controller
             ]);
     }
 
+    public function create()
+    {
+        return "clientcontroller create placeholder";
+    }
+
 }

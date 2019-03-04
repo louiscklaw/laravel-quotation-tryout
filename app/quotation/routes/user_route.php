@@ -1,7 +1,7 @@
 <?php
 
     Route::resources([
-        'user' => 'UserController',
+        'user' => 'ClientController',
     ]);
 
     Route::get('/user/{id}/pdf', 'UserController@pdf')->name('user.pdf');

@@ -16,11 +16,11 @@ class PostsTable extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
-            $table->string('title')->nullable();
-            $table->string('content')->nullable();
+            $table->text('title')->nullable();
+            $table->longText('content')->nullable();
             $table->string('visible')->nullable();
             $table->string('author')->nullable();
-            $table->string('create_since')->nullable();
+            $table->dateTime('create_since')->nullable();
         });
     }
 

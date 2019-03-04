@@ -3,8 +3,9 @@
 use Illuminate\Support\Str;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-
 use Carbon\Carbon;
+
+use joshtronic\LoremIpsum;
 
 class PostsTableSeeder extends Seeder
 {
@@ -15,12 +16,16 @@ class PostsTableSeeder extends Seeder
      */
     public function insert_record()
     {
+        $lipsum = new LoremIpsum();
+
         DB::table('posts')->insert([
             'title' => Str::random(10),
-            'content' => Str::random(99),
+            'content' => $lipsum->sentences(random_int(1,99)),
             'visible' => rand(0,1),
             'author' => rand(1,10),
             'create_since' => Carbon::now()->format('Y-m-d H:i:s'),
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
     }
 

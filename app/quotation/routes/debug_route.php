@@ -38,3 +38,7 @@
     {
         return view('basic_form');
     });
+
+    Route::get('/debug_editor', function(){
+        return view('layouts.debug.debug_richtext_editor',['mn_highlight'=>'quotation_list']);
+    });

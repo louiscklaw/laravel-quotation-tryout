@@ -5,8 +5,32 @@
                 'text'=>'Home', 'icon'=>'assignment', 'link'=>route('quotation.home'),
             ],
 
+            'posts'=>[
+                'text'=>'Posts', 'icon'=>'assignment',
+                'subitem' => [
+                    'new'=>[
+                        'text'=>'New', 'icon'=>'assignment', 'link'=>route('posts.create')
+                    ],
+                    'list'=>[
+                        'text'=>'List', 'icon'=>'assignment', 'link'=>route('posts.index')
+                    ],
+                ]
+            ],
+
+            'page'=>[
+                'text'=>'Page', 'icon'=>'assignment',
+                'subitem' => [
+                    'new'=>[
+                        'text'=>'New', 'icon'=>'assignment', 'link'=>route('page.create')
+                    ],
+                    'list'=>[
+                        'text'=>'List', 'icon'=>'assignment', 'link'=>route('page.index')
+                    ],
+                ]
+            ],
+
             'tools'=>[
-                'text'=>'Tools', 'icon'=>'assignment', 'link'=>'javascript:void(0);',
+                'text'=>'Tools', 'icon'=>'assignment',
                 'subitem' => [
                     'new'=>[
                         'text'=>'New', 'icon'=>'assignment', 'link'=>route('quotation.create')
@@ -18,7 +42,7 @@
             ],
 
             'quotation'=>[
-                'text'=>'Quotation', 'icon'=>'assignment', 'link'=>'javascript:void(0);',
+                'text'=>'Quotation', 'icon'=>'assignment',
                 'subitem' => [
                     'new'=>[
                         'text'=>'New', 'icon'=>'assignment', 'link'=>route('quotation.create')
@@ -30,7 +54,7 @@
             ],
 
             'delivery'=>[
-                'text'=>'Delivery', 'icon'=>'assignment', 'link'=>'javascript:void(0);',
+                'text'=>'Delivery', 'icon'=>'assignment',
                 'subitem' => [
                     'new'=>[
                         'text'=>'New', 'icon'=>'assignment', 'link'=>route('quotation.create')
@@ -42,7 +66,7 @@
             ],
 
             'collection'=>[
-                'text'=>'Collection', 'icon'=>'assignment', 'link'=>'javascript:void(0);',
+                'text'=>'Collection', 'icon'=>'assignment',
                 'subitem' => [
                     'new'=>[
                         'text'=>'New', 'icon'=>'assignment', 'link'=>route('quotation.create')
@@ -54,7 +78,7 @@
             ],
 
             'lnd'=>[
-                'text'=>'LnD', 'icon'=>'assignment', 'link'=>'javascript:void(0);',
+                'text'=>'LnD', 'icon'=>'assignment',
                 'subitem' => [
                     'new'=>[
                         'text'=>'New', 'icon'=>'assignment', 'link'=>route('quotation.create')
@@ -67,7 +91,7 @@
 
 
             'invoice'=>[
-                'text'=>'Invoice', 'icon'=>'assignment', 'link'=>'javascript:void(0);',
+                'text'=>'Invoice', 'icon'=>'assignment',
                 'subitem' => [
                     'new'=>[
                         'text'=>'New', 'icon'=>'assignment', 'link'=>route('quotation.create')
@@ -80,7 +104,7 @@
 
 
             'inventory'=>[
-                'text'=>'Inventory', 'icon'=>'assignment', 'link'=>'javascript:void(0);',
+                'text'=>'Inventory', 'icon'=>'assignment',
                 'subitem' => [
                     'new'=>[
                         'text'=>'New', 'icon'=>'assignment', 'link'=>route('quotation.create')
@@ -93,7 +117,7 @@
 
 
             'price'=>[
-                'text'=>'Price', 'icon'=>'assignment', 'link'=>'javascript:void(0);',
+                'text'=>'Price', 'icon'=>'assignment',
                 'subitem' => [
                     'new'=>[
                         'text'=>'New', 'icon'=>'assignment', 'link'=>route('quotation.create')
@@ -105,11 +129,11 @@
             ],
 
             'customer'=>[
-                'text'=>'Customer', 'icon'=>'assignment', 'link'=>'javascript:void(0);',
+                'text'=>'Customer', 'icon'=>'assignment',
                 'subitem' => [
 
                     'Company'=>[
-                        'text'=>'New', 'icon'=>'assignment', 'link'=>route('quotation.create'),
+                        'text'=>'New', 'icon'=>'assignment',
                         'subitem'=>[
                             'new'=>[
                                 'text'=>'New', 'icon'=>'assignment', 'link'=>route('quotation.create')
@@ -126,7 +150,7 @@
             ],
 
             'client'=>[
-                    'text'=>'Client', 'icon'=>'assignment', 'link'=>'javascript:void(0);',
+                    'text'=>'Client', 'icon'=>'assignment',
                     'subitem' => [
                         'new'=>[
                             'text'=>'New', 'icon'=>'assignment', 'link'=>route('client.create')
@@ -137,7 +161,7 @@
                     ]
             ],
             'user'=>[
-                    'text'=>'user', 'icon'=>'assignment', 'link'=>'javascript:void(0);',
+                    'text'=>'user', 'icon'=>'assignment',
                     'subitem' => [
                         'new'=>[
                             'text'=>'New', 'icon'=>'assignment', 'link'=>route('user.create')

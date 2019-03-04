@@ -25,6 +25,9 @@ include 'user_route.php';
 include 'quot_route.php';
 include 'pdf_route.php';
 
+include 'posts_route.php';
+include 'page_route.php';
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

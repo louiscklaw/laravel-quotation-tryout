@@ -11,7 +11,12 @@ class postsController
 {
     public function index()
     {
-        return 'hello index';
+        $all_records = Posts::all();
+        $mn_highlight = 'posts_list';
+        return view('layouts.posts.list',
+            compact('all_records', 'mn_highlight')
+        );
+
     }
 
     public function create()

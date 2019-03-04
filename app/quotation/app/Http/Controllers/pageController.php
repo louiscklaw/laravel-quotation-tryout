@@ -11,11 +11,12 @@ class pageController
 {
     public function index()
     {
-        return 'page hello index';
+        $all_records = Page::all();
+        return view('layouts.page.list',compact('all_records'));
     }
 
     public function create()
     {
-        return 'page hello create';
+        return view('layouts.page.new');
     }
 }

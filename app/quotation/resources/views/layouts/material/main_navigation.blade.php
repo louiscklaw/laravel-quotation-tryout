@@ -142,10 +142,10 @@
                                 'text'=>'List', 'icon'=>'assignment', 'link'=>route('quotation.index')
                             ],
                         ]],
-                    'Client'=>['text'=>'New', 'icon'=>'assignment', 'link'=>route('quotation.create')],
-                    'Site(DeliveryContact)'=>['text'=>'New', 'icon'=>'assignment', 'link'=>route('quotation.create')],
-                    'ConstSite'=>['text'=>'New', 'icon'=>'assignment', 'link'=>route('quotation.create')],
-                    'Siteitem'=>['text'=>'New', 'icon'=>'assignment', 'link'=>route('quotation.create')],
+                    'Client'=>['text'=>'Client', 'icon'=>'assignment', 'link'=>route('quotation.create')],
+                    'Site(DeliveryContact)'=>['text'=>'Site(DeliveryContact)', 'icon'=>'assignment', 'link'=>route('quotation.create')],
+                    'ConstSite'=>['text'=>'ConstSite', 'icon'=>'assignment', 'link'=>route('quotation.create')],
+                    'Siteitem'=>['text'=>'Siteitem', 'icon'=>'assignment', 'link'=>route('quotation.create')],
                 ]
             ],
 

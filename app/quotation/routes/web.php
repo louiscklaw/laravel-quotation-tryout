@@ -11,13 +11,11 @@
 |
 */
 
-Route::get('/', 'CommonController@home')->name('quotation.home');
+Route::get('/', 'FrontEndController@home')->name('home');
 
 
+Route::get('/admin/home', 'CommonController@home')->name('quotation.home');
 
-Route::get('/quotation', function () {
-    return view('quotation');
-});
 
 include 'debug_route.php';
 include 'client_route.php';

@@ -31,3 +31,14 @@ include 'page_route.php';
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+$record_type=array('posts','page');
+foreach($record_type as $record)
+{
+    Route::resources([
+        $record => $record.'Controller',
+    ]);
+
+    Route::get('/'.$record.'/get_pdf')->name($record.'.pdf');
+    Route::get('/'.$record.'/get_htmlpdf')->name($record.'.htmlpdf');
+}

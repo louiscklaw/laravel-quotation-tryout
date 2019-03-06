@@ -11,13 +11,22 @@ class ClientTableSeeder extends Seeder
      *
      * @return void
      */
-    public function insert_record()
+    public function insert_client_record()
     {
+        $faker_pool = array(
+            Faker\Factory::create('zh_HK'),
+            Faker\Factory::create('en_US'),
+            Faker\Factory::create('zh_CN')
+        );
+        // var_dump($faker->name);
+        // die();
+
+        $random_faker = $faker_pool[random_int(1, sizeof($faker_pool))-1];
+
         DB::table('client')->insert([
-            'client_name' => 'louislaw',
+            'client_name' => $random_faker->name,
             'client_contact' => Str::random(10).'@gmail.com',
             'client_cat' => Str::random(10),
-            'client_name' => Str::random(10),
             'client_cname' => Str::random(10),
             'client_ename' => Str::random(10),
             'client_address' => Str::random(10),
@@ -41,9 +50,10 @@ class ClientTableSeeder extends Seeder
 
     public function run()
     {
-        for($i=0; $i < 99; $i++)
+        DB::table('client')->delete();
+        for($i=0; $i < 10; $i++)
         {
-            $this->insert_record();
+            $this->insert_client_record();
         }
     }
 }

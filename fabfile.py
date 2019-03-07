@@ -6,6 +6,8 @@ from fabric.colors import *
 from fabric.context_managers import *
 from fabric.contrib.project import *
 
+from time import sleep
+
 CWD = os.path.dirname(__file__)
 DOCKER_DIR = os.path.join(CWD,'_docker')
 
@@ -47,6 +49,10 @@ def laravel_db_migrate(proj_name):
         for table in ['ClientTableSeeder','QuotTableSeeder', 'QuotItemTableSeeder']:
             docker_compose_run_command('php artisan db:seed --class={}'.format(table),'/app/{}'.format( proj_name))
 
+def mysql_create_db(db_name):
+    with lcd(DOCKER_DIR):
+        docker_compose_run_command('mysql -uroot -e \\"CREATE DATABASE %s\\";' % db_name, '/app/%s' % db_name)
+
 def rebuild_docker():
     with lcd(DOCKER_DIR):
             local('docker-compose kill')
@@ -59,6 +65,9 @@ def rebuild_docker():
 
     laravel_reload_conf()
 
+    print('sleep a while for docker becomes steady...')
+    sleep(60*1)
+    mysql_create_db('quotation')
     laravel_db_migrate('quotation')
 
 def release_permission(proj_home):
@@ -74,7 +83,7 @@ def laraveL_create_project(proj_name='blog'):
 def install_laravel(proj_name='blog'):
     proj_home = '/'.join(['/app', proj_name])
     with lcd(DOCKER_DIR):
-        docker_compose_run_command('cp .env.example .env', proj_home )
+        # docker_compose_run_command('cp .env.example .env', proj_home )
         docker_compose_run_command('chown www-data:staff -R .', proj_home )
 
         local('docker-compose exec web sh -c "cd {} && composer install"'.format(proj_home))

@@ -26,9 +26,8 @@
 
                     <div class="form-group" style="margin-top, margin-bottom: 20px">
                         {!! Form::submit('Save', ['class'=>'btn btn-primary']) !!}
-
                         <a class="btn bg-light-blue waves-effect" href="{{ route('quot.edit',['id'=>$record->id]) }}" role="button">edit</a>
-                    <a class="btn bg-light-blue waves-effect" href="{{ route('quot.pdf', ['id'=>$record->id]) }}" role="button">pdf</a>
+                        <a class="btn bg-light-blue waves-effect" href="{{ route('quot.pdf', ['id'=>$record->id]) }}" role="button">pdf</a>
                     </div>
                 @endcard
 
@@ -39,14 +38,21 @@
                     ])
 
                     <div class="row clearfix">
-
+                        @if(isset($form_action) and $form_action =='edit')
                             @float_label_input()
                                 id
                             @endfloat_label_input
+                        @endif
 
-                            @float_label_input()
+                        @if(isset($form_action) and $form_action =='edit')
+                            @float_label_input(['default'=>$record->quot_date])
                                 quot_date
                             @endfloat_label_input
+                        @else
+                            @float_label_input(['default'=>date('Y-m-d')])
+                                quot_date
+                            @endfloat_label_input
+                        @endif
                     </div>
 
                 @endcard

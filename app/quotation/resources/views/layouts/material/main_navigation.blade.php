@@ -133,13 +133,13 @@
                 'subitem' => [
 
                     'Company'=>[
-                        'text'=>'New', 'icon'=>'assignment',
+                        'text'=>'Company', 'icon'=>'assignment',
                         'subitem'=>[
                             'new'=>[
-                                'text'=>'New', 'icon'=>'assignment', 'link'=>route('quotation.create')
+                                'text'=>'New', 'icon'=>'assignment', 'link'=>route('company.create')
                             ],
                             'list'=>[
-                                'text'=>'List', 'icon'=>'assignment', 'link'=>route('quotation.index')
+                                'text'=>'List', 'icon'=>'assignment', 'link'=>route('company.index')
                             ],
                         ]],
                     'Client'=>['text'=>'Client', 'icon'=>'assignment', 'link'=>route('quotation.create')],

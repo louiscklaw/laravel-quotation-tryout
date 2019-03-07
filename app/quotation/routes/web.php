@@ -32,7 +32,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-$record_type=array('posts','page');
+$record_type=array('posts','page','company');
 foreach($record_type as $record)
 {
     Route::resources([

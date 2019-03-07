@@ -30,6 +30,7 @@
                         </div>
 
                     </div>
+                @endforeach
             @endcard
         {{ Form::close() }}
 

@@ -58,7 +58,8 @@ class ClientController extends Controller
             'editor_name'=>'client view',
             'editor_description' => 'client debug viwe description',
             'update_controller' =>'ClientController@update',
-            'store_controller' => 'ClientController@store'
+            'store_controller' => 'ClientController@store',
+            'mn_highlight' => 'client_list'
             ]);
     }
 
@@ -72,7 +73,8 @@ class ClientController extends Controller
             'editor_name'=>'client edit',
             'editor_description' => 'client debug edit description',
             'update_controller' =>'ClientController@update',
-            'store_controller' => 'ClientController@store'
+            'store_controller' => 'ClientController@store',
+            'mn_highlight' => 'client_list'
             ]);
 
     }

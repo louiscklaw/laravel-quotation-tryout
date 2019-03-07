@@ -23,12 +23,22 @@
                     'card_desc'=>$editor_description,
                     'card_class'=>'col-lg-4 col-md-4 col-sm-4 col-xs-4'
                     ])
-
-                    <div class="form-group" style="margin-top, margin-bottom: 20px">
-                        {!! Form::submit('Save', ['class'=>'btn btn-primary']) !!}
-                        <a class="btn bg-light-blue waves-effect" href="{{ route('quot.edit',['id'=>$record->id]) }}" role="button">edit</a>
-                        <a class="btn bg-light-blue waves-effect" href="{{ route('quot.pdf', ['id'=>$record->id]) }}" role="button">pdf</a>
+                    <div class="row clearfix">
+                        <div class="col-sm-12">
+                            {!! Form::submit('Save', ['class'=>'btn btn-primary']) !!}
+                            <a class="btn bg-light-blue waves-effect" href="{{ route('quot.edit',['id'=>$record->id]) }}" role="button">edit</a>
+                            <a class="btn bg-light-blue waves-effect" href="{{ route('quot.pdf', ['id'=>$record->id]) }}" role="button">pdf</a>
+                        </div>
                     </div>
+
+                    <div class="row clearfix">
+                        <div class="col-sm-12">
+                            @select_with_search_bar(['title'=>"quot owner", 'select_list'=>$client_name_list])
+                                quot_owner
+                            @endselect_with_search_bar
+                        </div>
+                    </div>
+
                 @endcard
 
                 @card([
@@ -68,6 +78,7 @@
                             quot_client_id
                         @endselect_with_search_bar
                     </div>
+
                 @endcard
 
             </div>
@@ -128,6 +139,7 @@
                     </div>
                 </div>
             @endcard
+
 
         {{ Form::close() }}
 

@@ -26,8 +26,8 @@
                     <div class="row clearfix">
                         <div class="col-sm-12">
                             {!! Form::submit('Save', ['class'=>'btn btn-primary']) !!}
-                            <a class="btn bg-light-blue waves-effect" href="{{ route('quot.edit',['id'=>$record->id]) }}" role="button">edit</a>
-                            <a class="btn bg-light-blue waves-effect" href="{{ route('quot.pdf', ['id'=>$record->id]) }}" role="button">pdf</a>
+                            <a class="btn bg-light-blue waves-effect" href="{{ route('quot.pdf', ['id'=>$record->id]) }}" role="button">pdf wo letterhead</a>
+                            <a class="btn bg-light-blue waves-effect" href="{{ route('quot.pdf',['id'=>$record->id]) }}" role="button">pdf</a>
                         </div>
                     </div>
 

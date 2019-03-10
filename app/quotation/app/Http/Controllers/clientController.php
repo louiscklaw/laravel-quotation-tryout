@@ -57,8 +57,8 @@ class clientController extends Controller
             'record'=>$record,
             'editor_name'=>'client view',
             'editor_description' => 'client debug viwe description',
-            'update_controller' =>'ClientController@update',
-            'store_controller' => 'ClientController@store',
+            'update_controller' =>'clientController@update',
+            'store_controller' => 'clientController@store',
             'mn_highlight' => 'client_list'
             ]);
     }
@@ -72,8 +72,8 @@ class clientController extends Controller
             'form_action' =>'edit',
             'editor_name'=>'client edit',
             'editor_description' => 'client debug edit description',
-            'update_controller' =>'ClientController@update',
-            'store_controller' => 'ClientController@store',
+            'update_controller' =>'clientController@update',
+            'store_controller' => 'clientController@store',
             'mn_highlight' => 'client_list'
             ]);
 
@@ -111,8 +111,8 @@ class clientController extends Controller
             'form_action' =>'edit',
             'editor_name'=>'client debug edit',
             'editor_description' => 'client debug edit description',
-            'update_controller' =>'ClientController@update',
-            'store_controller' => 'ClientController@store'
+            'update_controller' =>'clientController@update',
+            'store_controller' => 'clientController@store'
             ]);
 
     }
@@ -145,8 +145,8 @@ class clientController extends Controller
             'record'=>$record,
             'editor_name'=>'client debug view',
             'editor_description' => 'client debug viwe description',
-            'update_controller' =>'ClientController@update',
-            'store_controller' => 'ClientController@store'
+            'update_controller' =>'clientController@update',
+            'store_controller' => 'clientController@store'
             ]);
     }
 

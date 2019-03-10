@@ -152,8 +152,8 @@
                                 'text'=>'List', 'icon'=>'assignment', 'link'=>route('client.index')
                             ],
                         ]],
-                    'Site(DeliveryContact)'=>[
-                        'text'=>'Site', 'icon'=>'assignment', 'link'=>route('site.create'),
+                    'Site'=>[
+                        'text'=>'Site(DeliveryContact)', 'icon'=>'assignment', 'link'=>route('site.create'),
                         'subitem'=>[
                             'new'=>[
                                 'text'=>'New', 'icon'=>'assignment', 'link'=>route('site.create')

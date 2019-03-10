@@ -168,17 +168,6 @@
                 ]
             ],
 
-            'client'=>[
-                    'text'=>'Client', 'icon'=>'assignment',
-                    'subitem' => [
-                        'new'=>[
-                            'text'=>'New', 'icon'=>'assignment', 'link'=>route('client.create')
-                        ],
-                        'list'=>[
-                            'text'=>'List', 'icon'=>'assignment', 'link'=>route('client.index')
-                        ],
-                    ]
-            ],
             'user'=>[
                     'text'=>'user', 'icon'=>'assignment',
                     'subitem' => [

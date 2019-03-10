@@ -47,7 +47,7 @@ class ClientHelper
     }
 }
 
-class ClientController extends Controller
+class clientController extends Controller
 {
 
     public function show($id)
@@ -57,8 +57,8 @@ class ClientController extends Controller
             'record'=>$record,
             'editor_name'=>'client view',
             'editor_description' => 'client debug viwe description',
-            'update_controller' =>'ClientController@update',
-            'store_controller' => 'ClientController@store',
+            'update_controller' =>'clientController@update',
+            'store_controller' => 'clientController@store',
             'mn_highlight' => 'client_list'
             ]);
     }
@@ -72,8 +72,8 @@ class ClientController extends Controller
             'form_action' =>'edit',
             'editor_name'=>'client edit',
             'editor_description' => 'client debug edit description',
-            'update_controller' =>'ClientController@update',
-            'store_controller' => 'ClientController@store',
+            'update_controller' =>'clientController@update',
+            'store_controller' => 'clientController@store',
             'mn_highlight' => 'client_list'
             ]);
 
@@ -86,7 +86,7 @@ class ClientController extends Controller
         return view('layouts.client.list',[
             'all_records'=>$all_records,
             'vep_route_target'=>$record_type,
-            'mn_highlight'=>'client_list'
+            'mn_highlight'=>'customer_client_list'
             ]);
     }
 
@@ -111,8 +111,8 @@ class ClientController extends Controller
             'form_action' =>'edit',
             'editor_name'=>'client debug edit',
             'editor_description' => 'client debug edit description',
-            'update_controller' =>'ClientController@update',
-            'store_controller' => 'ClientController@store'
+            'update_controller' =>'clientController@update',
+            'store_controller' => 'clientController@store'
             ]);
 
     }
@@ -145,8 +145,8 @@ class ClientController extends Controller
             'record'=>$record,
             'editor_name'=>'client debug view',
             'editor_description' => 'client debug viwe description',
-            'update_controller' =>'ClientController@update',
-            'store_controller' => 'ClientController@store'
+            'update_controller' =>'clientController@update',
+            'store_controller' => 'clientController@store'
             ]);
     }
 

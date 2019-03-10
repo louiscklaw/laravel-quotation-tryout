@@ -4,83 +4,138 @@
 @section('content')
 <section class="content">
     <div class="container-fluid">
-        <div class="block-header">
-            <h2>{{ $page_h2 }}</h2>
-        </div>
+
 
         @if(isset($form_action) and $form_action =='edit')
             {{ Form::model($record, ['method'=>'PATCH', 'action'=> [$update_controller, $record->id]]) }}
         @else
             {{ Form::model($record, ['method'=>'POST', 'action'=> [$store_controller, $record->id]]) }}
         @endif
+        <div class="block-header">
+            <h2>{{ $editor_name }}</h2>
+        </div>
 
-            @card([
-                'card_name'=>$editor_name,
-                'card_desc'=>$editor_description
-                ])
+            <div class="row clearfix">
+                <div class="col-sm-6">
+                    @card([
+                            'card_name'=>'basic information',
+                            'card_desc'=>'company contact information'
+                            ])
+                        <div class="row clearfix">
+                            <div class="col-sm-4">
+                                @float_label_input(['form_class'=>'', 'label'=>'company short name'])
+                                    company_name
+                                @endfloat_label_input
+                            </div>
+                            <div class="col-sm-4">
+                                @float_label_input(['form_class'=>'', 'label'=>'company chinese name'])
+                                    company_cname
+                                @endfloat_label_input
+                            </div>
+                            <div class="col-sm-4">
+                                @float_label_input(['form_class'=>'', 'label'=>'company name'])
+                                    company_ename
+                                @endfloat_label_input
+                            </div>
+                        </div>
 
-                <div class="form-group" style="margin-top: 20px">
-                    {!! Form::submit('Confirm', ['class'=>'btn btn-primary']) !!}
+                        <div class="row clearfix">
+                            <div class="col-sm-4">
+                                @float_label_input(['form_class'=>'', 'label'=>'company telephone'])
+                                    company_contact_tel
+                                @endfloat_label_input
+                            </div>
+                            <div class="col-sm-4">
+                                @float_label_input(['form_class'=>'', 'label'=>'company mobile'])
+                                    company_contact_mobile
+                                @endfloat_label_input
+                            </div>
+                            <div class="col-sm-4">
+                                @float_label_input(['form_class'=>'', 'label'=>'company email'])
+                                    company_contact_email
+                                @endfloat_label_input
+                            </div>
+                        </div>
+
+                        <div class="row clearfix">
+                            <div class="col-sm-12">
+                                @float_label_input(['form_class'=>'', 'label'=>'company address'])
+                                    company_address
+                                @endfloat_label_input
+                            </div>
+                        </div>
+
+
+                        <div class="row clearfix">
+                            <div class="col-sm-4">
+                                @float_label_input(['form_class'=>'', 'label'=>'related sales'])
+                                    company_relatedsales
+                                @endfloat_label_input
+                            </div>
+                            <div class="col-sm-4">
+                                @float_label_input(['form_class'=>'', 'label'=>'company CR code'])
+                                    company_cr_code
+                                @endfloat_label_input
+                            </div>
+                        </div>
+
+
+                        <div class="row clearfix">
+                            <div class="col-sm-4">
+                                @float_label_input(['form_class'=>'', 'label'=>'record owner'])
+                                    company_owner_name
+                                @endfloat_label_input
+                            </div>
+                            <div class="col-sm-4">
+                                @float_label_input(['form_class'=>'', 'label'=>'create time'])
+                                    created_at
+                                @endfloat_label_input
+                            </div>
+                            <div class="col-sm-4">
+                                @float_label_input(['form_class'=>'', 'label'=>'update time'])
+                                    updated_at
+                                @endfloat_label_input
+                            </div>
+                        </div>
+
+                    @endcard
                 </div>
 
-                <div class="row clearfix">
-
-
-
-                    <div class="col-sm-2">
-                        client contact
-                    </div>
-
-                    <div class="col-sm-4">
-                        @textInput(['form_class'=>'', 'placeholder'=>''])
-                            client_contact
-                        @endtextInput
-                    </div>
-
-                </div>
-            @endcard
-
-            @card([
-                    'card_name'=>'client name',
-                    'card_desc'=>'client name'
+                <div class="col-sm-6">
+                    @card([
+                    'card_name'=>'公司相關資料',
+                    'card_desc'=>'公司的相關資料'
                     ])
-                <div class="row clearfix">
-                    <div class="col-sm-4">
-                        @textInput(['form_class'=>'', 'placeholder'=>''])
-                            client_name
-                        @endtextInput
+                    <div class="row clearfix">
+                        <div class="col-sm-12">
+                            @textarea(['form_class'=>'', 'label'=>''])
+                                client_remark
+                            @endtextarea
+                        </div>
                     </div>
-                    <div class="col-sm-4">
-                        @textInput(['form_class'=>'', 'placeholder'=>''])
-                            client_cname
-                        @endtextInput
-                    </div>
-                    <div class="col-sm-4">
-                        @textInput(['form_class'=>'', 'placeholder'=>''])
-                            client_ename
-                        @endtextInput
-                    </div>
+                    @endcard
                 </div>
-            @endcard
 
-            @card([
-                    'card_name'=>'client contact',
-                    'card_desc'=>'client contact'
+
+                <div class="col-sm-6">
+                    @card([
+                    'card_name'=>'存檔',
+                    'card_desc'=>'save / cancel'
                     ])
-
-            @endcard
-            @card([
-                'card_name'=>'Client remarks',
-                'card_desc'=>'Client remarks'
-                ])
-                <div class="row clearfix">
-                    <div class="col-sm-12">
-                        @textarea(['form_class'=>'', 'placeholder'=>''])
-                            client_remark
-                        @endtextarea
+                    <div class="row clearfix">
+                        <div class="col-sm-12">
+                            <div class="form-group" style="margin-top: 20px">
+                                {!! Form::submit('Confirm', ['class'=>'btn btn-primary']) !!}
+                            </div>
+                        </div>
                     </div>
+                    @endcard
                 </div>
-            @endcard
+
+            </div>
+
+
+
 
         {{ Form::close() }}
 

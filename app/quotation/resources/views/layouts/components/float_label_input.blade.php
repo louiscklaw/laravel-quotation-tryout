@@ -7,7 +7,7 @@
                     (isset($input_disabled) ? 'disabled=""' : '')
                 ]
             )}}
-            <label class="form-label">{{$slot}}</label>
+            <label class="form-label">{{$label}}</label>
         </div>
     </div>
 </div>

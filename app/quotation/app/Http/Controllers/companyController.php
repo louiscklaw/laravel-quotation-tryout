@@ -33,8 +33,9 @@ class companyController extends Controller
     public function create()
     {
         return view('layouts.company.edit',
-            ['form_action'=>Common::$FORM_ACTION_CREATE]
-            );
+            ['form_action'=>Common::$FORM_ACTION_CREATE,
+            'page_h2' => 'Add new company'
+            ]);
     }
 
     public function edit($id)
@@ -48,7 +49,7 @@ class companyController extends Controller
             'update_controller' =>'companyController@update',
             'store_controller' => 'companyController@store',
             'mn_highlight' => 'customer_company_list',
-            'page_h2' => 'company edit'
+            'editor_name' => 'company edit'
             ]);
 
     }

@@ -41,14 +41,14 @@ class companyController extends Controller
     {
         $quot_record = new companyHelper;
         $quot_record = companyHelper::get_record($id);
-        return view('layouts.client.edit',[
+        return view('layouts.company.edit',[
             'record'=>$quot_record,
             'form_action' =>'edit',
-            'editor_name'=>'client edit',
             'editor_description' => 'client debug edit description',
             'update_controller' =>'companyController@update',
             'store_controller' => 'companyController@store',
-            'mn_highlight' => 'customer_company_list'
+            'mn_highlight' => 'customer_company_list',
+            'page_h2' => 'company edit'
             ]);
 
     }
@@ -60,7 +60,8 @@ class companyController extends Controller
         return view('layouts.company.list',[
             'all_records'=>$all_records,
             'vep_route_target'=>$record_type,
-            'mn_highlight'=>'customer_company_list'
+            'mn_highlight'=>'customer_company_list',
+            'page_h2'=>'company list'
             ]);
     }
 }

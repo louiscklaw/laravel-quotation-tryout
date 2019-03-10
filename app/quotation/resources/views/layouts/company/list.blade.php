@@ -9,7 +9,7 @@
 <section class="content">
     <div class="container-fluid">
         <div class="block-header">
-            <h2>basic form elements</h2>
+            <h2>{{ $page_h2 }}</h2>
         </div>
 
         @include('layouts.components.datatable')

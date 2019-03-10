@@ -4,10 +4,17 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Common;
 use App\Company;
+
 
 class companyHelper
 {
+    public static function get_record($id)
+    {
+        return Company::where('id',$id)->firstOrFail();
+    }
+
     public static function get_all()
     {
         return Company::all();
@@ -25,6 +32,24 @@ class companyController extends Controller
 
     public function create()
     {
+        return view('layouts.company.edit',
+            ['form_action'=>Common::$FORM_ACTION_CREATE]
+            );
+    }
+
+    public function edit($id)
+    {
+        $quot_record = new companyHelper;
+        $quot_record = companyHelper::get_record($id);
+        return view('layouts.client.edit',[
+            'record'=>$quot_record,
+            'form_action' =>'edit',
+            'editor_name'=>'client edit',
+            'editor_description' => 'client debug edit description',
+            'update_controller' =>'companyController@update',
+            'store_controller' => 'companyController@store',
+            'mn_highlight' => 'customer_company_list'
+            ]);
 
     }
 

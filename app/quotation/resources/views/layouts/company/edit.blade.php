@@ -9,7 +9,7 @@
         @if(isset($form_action) and $form_action =='edit')
             {{ Form::model($record, ['method'=>'PATCH', 'action'=> [$update_controller, $record->id]]) }}
         @else
-            {{ Form::model($record, ['method'=>'POST', 'action'=> [$store_controller, $record->id]]) }}
+            {{ Form::model($record, ['method'=>'POST', 'action'=> [$store_controller]]) }}
         @endif
         <div class="block-header">
             <h2>{{ $editor_name }}</h2>
@@ -55,6 +55,13 @@
                                     company_contact_email
                                 @endfloat_label_input
                             </div>
+
+                            <div class="col-sm-12">
+                                @float_label_input(['form_class'=>'', 'label'=>'company website'])
+                                    company_contact_email
+                                @endfloat_label_input
+                            </div>
+
                         </div>
 
                         <div class="row clearfix">

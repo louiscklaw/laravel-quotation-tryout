@@ -32,18 +32,24 @@ class companyController extends Controller
 
     public function create()
     {
-        return view('layouts.company.edit',
-            ['form_action'=>Common::$FORM_ACTION_CREATE,
-            'page_h2' => 'Add new company'
+        $company_record = new companyHelper;
+
+        return view('layouts.company.edit',[
+            'record'=>$company_record,
+            'form_action'=>Common::$FORM_ACTION_CREATE,
+            'page_h2' => 'Add new company',
+            'store_controller' =>'companyController@store',
+            'editor_name' => 'create new company',
+            'mn_highlight' => 'customer_company_new',
             ]);
     }
 
     public function edit($id)
     {
-        $quot_record = new companyHelper;
-        $quot_record = companyHelper::get_record($id);
+        $company_record = new companyHelper;
+        $company_record = companyHelper::get_record($id);
         return view('layouts.company.edit',[
-            'record'=>$quot_record,
+            'record'=>$company_record,
             'form_action' =>'edit',
             'editor_description' => 'client debug edit description',
             'update_controller' =>'companyController@update',
@@ -64,5 +70,14 @@ class companyController extends Controller
             'mn_highlight'=>'customer_company_list',
             'page_h2'=>'company list'
             ]);
+    }
+
+    public function update()
+    {
+        return $this->index();
+    }
+    public function store()
+    {
+        return $this->index();
     }
 }

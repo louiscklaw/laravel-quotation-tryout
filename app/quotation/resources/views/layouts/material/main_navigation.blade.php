@@ -200,7 +200,7 @@
     <ul class="list">
         <li class="header">MAIN NAVIGATION</li>
             @foreach($menuitems as $itemname => $itemvalue)
-                @if (explode('_',$mn_highlight)[0] == $itemname)
+                @if (strtolower(explode('_',$mn_highlight)[0]) == strtolower($itemname))
                     <li class="active">
                 @else
                     <li>
@@ -219,7 +219,7 @@
 
                             <ul class="ml-menu">
                             @foreach($itemvalue['subitem'] as $subitem_name => $subitem_value)
-                                @if (explode('_',$mn_highlight)[0] == $itemname && explode('_',$mn_highlight)[1] == $subitem_name)
+                                @if (strtolower(explode('_',$mn_highlight)[0]) == strtolower($itemname) && strtolower(explode('_',$mn_highlight)[1]) == strtolower($subitem_name))
                                     <li class="active">
                                 @else
                                     <li>
@@ -237,7 +237,11 @@
                                     @if (isset($subitem_value['subitem']))
                                         <ul class="ml-menu">
                                         @foreach($subitem_value['subitem'] as $thirditem_name => $thirditem_value)
+                                        @if (strtolower(explode('_',$mn_highlight)[0]) == strtolower($itemname) && strtolower(explode('_',$mn_highlight)[1]) == strtolower($subitem_name) && strtolower(explode('_',$mn_highlight)[2]) == strtolower($thirditem_name))
+                                            <li class="active">
+                                        @else
                                             <li>
+                                        @endif
                                                 <a href="{{ $thirditem_value['link'] }}">
                                                     {{$thirditem_value['text']}}
                                                 </a>

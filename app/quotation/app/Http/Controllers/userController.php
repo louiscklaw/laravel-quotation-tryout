@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 use App\User;
 
-class UserHelper
+class userHelper
 {
 
     public static function get_record($id)
@@ -43,12 +43,12 @@ class UserHelper
 
 }
 
-class UserController extends Controller
+class userController extends Controller
 {
 
     public function index()
     {
-        $all_records = UserHelper::get_all();
+        $all_records = userHelper::get_all();
         $record_type = 'User';
         return view('layouts.user.list',[
             'all_records'=>$all_records,
@@ -59,7 +59,7 @@ class UserController extends Controller
 
     public function debug_index()
     {
-        $all_records = UserHelper::get_all();
+        $all_records = userHelper::get_all();
         $record_type = 'debug_User';
         return view('layouts.debug.debug_list',[
             'all_records'=>$all_records,
@@ -69,16 +69,16 @@ class UserController extends Controller
 
     public function debug_edit($id)
     {
-        $quot_record = new UserHelper;
-        $quot_record = UserHelper::get_record($id);
+        $quot_record = new userHelper;
+        $quot_record = userHelper::get_record($id);
 
         return view('layouts.debug.record_edit',[
             'record'=>$quot_record,
             'form_action' =>'edit',
             'editor_name'=>'User debug edit',
             'editor_description' => 'User debug edit description',
-            'update_controller' =>'UserController@update',
-            'store_controller' => 'UserController@store'
+            'update_controller' =>'userController@update',
+            'store_controller' => 'userController@store'
             ]);
 
     }
@@ -87,7 +87,7 @@ class UserController extends Controller
     {
         // var_dump($req);
 
-        $quot_record = new UserHelper;
+        $quot_record = new userHelper;
         $quot_record->save($id, $req);
 
         return $this->debug_index();
@@ -106,8 +106,8 @@ class UserController extends Controller
 
     public function edit($id)
     {
-        $quot_record = new UserHelper;
-        $quot_record = UserHelper::get_record($id);
+        $quot_record = new userHelper;
+        $quot_record = userHelper::get_record($id);
 
 
         return view('layouts.user.edit',[
@@ -115,21 +115,21 @@ class UserController extends Controller
             'form_action' =>'edit',
             'editor_name'=>'User debug edit',
             'editor_description' => 'User debug edit description',
-            'update_controller' =>'UserController@update',
-            'store_controller' => 'UserController@store'
+            'update_controller' =>'userController@update',
+            'store_controller' => 'userController@store'
             ]);
 
     }
 
     public function debug_view($id)
     {
-        $record = UserHelper::get_record($id);
+        $record = userHelper::get_record($id);
         return view('layouts.debug.record_view',[
             'record'=>$record,
             'editor_name'=>'User debug view',
             'editor_description' => 'User debug viwe description',
-            'update_controller' =>'UserController@update',
-            'store_controller' => 'UserController@store'
+            'update_controller' =>'userController@update',
+            'store_controller' => 'userController@store'
             ]);
     }
 

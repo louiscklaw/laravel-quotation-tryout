@@ -49,11 +49,12 @@ class userController extends Controller
     public function index()
     {
         $all_records = userHelper::get_all();
-        $record_type = 'User';
+
+        $record_type = 'user';
         return view('layouts.user.list',[
             'all_records'=>$all_records,
             'vep_route_target'=>$record_type,
-            'mn_highlight'=>'user_new'
+            'mn_highlight'=>'user_list'
             ]);
     }
 
@@ -137,5 +138,6 @@ class userController extends Controller
     {
         return "usercontroller create placeholder";
     }
+
 
 }

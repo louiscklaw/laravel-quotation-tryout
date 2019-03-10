@@ -168,14 +168,14 @@
                 ]
             ],
 
-            'user'=>[
-                    'text'=>'user', 'icon'=>'assignment',
+            'colleagues'=>[
+                    'text'=>'Colleagues', 'icon'=>'assignment',
                     'subitem' => [
                         'new'=>[
-                            'text'=>'New', 'icon'=>'assignment', 'link'=>route('user.create')
+                            'text'=>'New', 'icon'=>'assignment', 'link'=>route('colleagues.create')
                         ],
                         'list'=>[
-                            'text'=>'List', 'icon'=>'assignment', 'link'=>route('user.index')
+                            'text'=>'List', 'icon'=>'assignment', 'link'=>route('colleagues.index')
                         ],
                     ]
             ],

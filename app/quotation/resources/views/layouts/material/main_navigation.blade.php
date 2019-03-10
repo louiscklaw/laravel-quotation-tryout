@@ -142,8 +142,27 @@
                                 'text'=>'List', 'icon'=>'assignment', 'link'=>route('company.index')
                             ],
                         ]],
-                    'Client'=>['text'=>'Client', 'icon'=>'assignment', 'link'=>route('quotation.create')],
-                    'Site(DeliveryContact)'=>['text'=>'Site(DeliveryContact)', 'icon'=>'assignment', 'link'=>route('quotation.create')],
+                    'Client'=>[
+                        'text'=>'Client', 'icon'=>'assignment', 'link'=>route('client.create'),
+                        'subitem'=>[
+                            'new'=>[
+                                'text'=>'New', 'icon'=>'assignment', 'link'=>route('client.create')
+                            ],
+                            'list'=>[
+                                'text'=>'List', 'icon'=>'assignment', 'link'=>route('client.index')
+                            ],
+                        ]],
+                    'Site(DeliveryContact)'=>[
+                        'text'=>'Site', 'icon'=>'assignment', 'link'=>route('site.create'),
+                        'subitem'=>[
+                            'new'=>[
+                                'text'=>'New', 'icon'=>'assignment', 'link'=>route('site.create')
+                            ],
+                            'list'=>[
+                                'text'=>'List', 'icon'=>'assignment', 'link'=>route('site.index')
+                            ],
+
+                        ]],
                     'ConstSite'=>['text'=>'ConstSite', 'icon'=>'assignment', 'link'=>route('quotation.create')],
                     'Siteitem'=>['text'=>'Siteitem', 'icon'=>'assignment', 'link'=>route('quotation.create')],
                 ]

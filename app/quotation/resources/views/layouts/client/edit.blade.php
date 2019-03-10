@@ -24,17 +24,13 @@
                 </div>
 
                 <div class="row clearfix">
-                    <div class="col-sm-2">
-                        client name
-                    </div>
-                    <div class="col-sm-4">
-                        @textInput(['form_class'=>'', 'placeholder'=>''])
-                            client_name
-                        @endtextInput
-                    </div>
+
+
+
                     <div class="col-sm-2">
                         client contact
                     </div>
+
                     <div class="col-sm-4">
                         @textInput(['form_class'=>'', 'placeholder'=>''])
                             client_contact
@@ -43,6 +39,49 @@
 
                 </div>
             @endcard
+
+            @card([
+                    'card_name'=>'client name',
+                    'card_desc'=>'client name'
+                    ])
+                <div class="row clearfix">
+                    <div class="col-sm-4">
+                        @textInput(['form_class'=>'', 'placeholder'=>''])
+                            client_name
+                        @endtextInput
+                    </div>
+                    <div class="col-sm-4">
+                        @textInput(['form_class'=>'', 'placeholder'=>''])
+                            client_cname
+                        @endtextInput
+                    </div>
+                    <div class="col-sm-4">
+                        @textInput(['form_class'=>'', 'placeholder'=>''])
+                            client_ename
+                        @endtextInput
+                    </div>
+                </div>
+            @endcard
+
+            @card([
+                    'card_name'=>'client contact',
+                    'card_desc'=>'client contact'
+                    ])
+
+            @endcard
+            @card([
+                'card_name'=>'Client remarks',
+                'card_desc'=>'Client remarks'
+                ])
+                <div class="row clearfix">
+                    <div class="col-sm-12">
+                        @textarea(['form_class'=>'', 'placeholder'=>''])
+                            client_remark
+                        @endtextarea
+                    </div>
+                </div>
+            @endcard
+
         {{ Form::close() }}
 
     </div>

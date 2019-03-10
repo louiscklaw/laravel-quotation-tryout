@@ -47,7 +47,7 @@ class ClientHelper
     }
 }
 
-class ClientController extends Controller
+class clientController extends Controller
 {
 
     public function show($id)

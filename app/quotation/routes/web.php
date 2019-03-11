@@ -11,9 +11,9 @@
 |
 */
 
+Auth::routes();
+
 Route::get('/', 'CommonController@home')->name('quotation.home');
-
-
 
 Route::get('/quotation', function () {
     return view('quotation');
@@ -28,8 +28,6 @@ include 'pdf_route.php';
 include 'posts_route.php';
 include 'page_route.php';
 
-Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
 
 $record_type=array(
@@ -40,7 +38,6 @@ $record_type=array(
     'client',
     'company'
 );
-
 
 foreach($record_type as $record)
 {

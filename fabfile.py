@@ -51,7 +51,7 @@ def laravel_db_migrate(proj_name):
 
 def mysql_create_db(db_name):
     with lcd(DOCKER_DIR):
-        docker_compose_run_command('mysql -uroot -e \\"CREATE DATABASE %s\\";' % db_name, '/app/%s' % db_name)
+        docker_compose_run_command('mysql -uroot -e \\"CREATE DATABASE %s COLLATE utf8_general_ci\\";' % db_name, '/app/%s' % db_name)
 
 def rebuild_docker():
     with lcd(DOCKER_DIR):
@@ -60,15 +60,18 @@ def rebuild_docker():
             local('docker-compose build')
             local('docker-compose up -d')
 
-    install_laravel('helloworld')
-    install_laravel('quotation')
-
     laravel_reload_conf()
 
     print('sleep a while for docker becomes steady...')
     sleep(60*1)
-    mysql_create_db('quotation')
-    laravel_db_migrate('quotation')
+
+    for proj_name in ['quotation','helloworld']:
+        provision_project(proj_name)
+
+def provision_project(proj_name):
+    install_laravel(proj_name)
+    mysql_create_db(proj_name)
+    laravel_db_migrate(proj_name)
 
 def release_permission(proj_home):
     with lcd(DOCKER_DIR):

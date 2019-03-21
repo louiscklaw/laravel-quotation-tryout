@@ -39,14 +39,14 @@ def docker_compose_run_command(command, path):
 
 def laravel_rebuild():
     with lcd(DOCKER_DIR):
-        docker_compose_php_composer_install('web', 'quotation')
+        docker_composeP_php_composer_install('web', 'quotation')
         laravel_artisan_migrate('web', 'quotation')
 
 def laravel_db_migrate(proj_name):
     with lcd(DOCKER_DIR):
         docker_compose_run_command('php artisan migrate:refresh','/app/{}'.format(proj_name))
 
-        for table in ['ClientTableSeeder','QuotTableSeeder', 'QuotItemTableSeeder']:
+        for table in ['DatabaseSeeder']:
             docker_compose_run_command('php artisan db:seed --class={}'.format(table),'/app/{}'.format( proj_name))
 
 def mysql_create_db(db_name):
@@ -69,6 +69,9 @@ def rebuild_docker():
     sleep(60*1)
     mysql_create_db('quotation')
     laravel_db_migrate('quotation')
+
+    mysql_create_db('helloworld')
+    laravel_db_migrate('helloworld')
 
 def release_permission(proj_home):
     with lcd(DOCKER_DIR):

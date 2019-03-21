@@ -24,12 +24,13 @@ class ClientTableSeeder extends Seeder
 
     public function get_phone_number()
     {
-        return $this->random_from_pool([null,'',$this->faker[0]->phoneNumber]);
+        // $this->random_from_pool([null,'',$this->faker[0]->phoneNumber])
+        return $this->faker[0]->phoneNumber;
     }
 
     public function get_email()
     {
-        return $this->random_from_pool([null,'',$this->faker[0]->email]);
+        return $this->faker[0]->email;
     }
 
     public function get_address()
@@ -54,7 +55,7 @@ class ClientTableSeeder extends Seeder
         // var_dump($faker->name);
         // die();
 
-        $client_cname = $this->random_from_pool([null,'',$this->faker[0]->name]);
+        $client_cname = $this->faker[0]->name;
         $client_ename = $this->faker[1]->name;
 
         DB::table('client')->insert([

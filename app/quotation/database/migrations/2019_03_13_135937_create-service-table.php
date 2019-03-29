@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateClientTable extends Migration
+class CreateServiceTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,7 @@ class CreateClientTable extends Migration
      */
     public function up()
     {
-        Schema::dropIfExists('client');
-
-        Schema::create('client', function (Blueprint $table) {
+        Schema::create('service', function (Blueprint $table) {
             $table->engine = 'MyISAM';
             $table->charset = 'utf8';
             $table->collation = 'utf8_unicode_ci';
@@ -23,17 +21,9 @@ class CreateClientTable extends Migration
             $table->increments('id');
 
             $string_columns = [
-                'client_name',
-                'client_cname',
-                'client_gender',
-                'client_brithday',
-                'client_whatsapp',
-                'client_mobile',
-                'client_address',
-                'client_email',
-                'client_date',
-                'client_status',
-                'client_update_at'
+                'service_name',
+                'service_cat',
+                'service_criteria'
             ];
 
             foreach($string_columns as $string_column)
@@ -42,12 +32,9 @@ class CreateClientTable extends Migration
                     ->nullable()
                     ->index($string_column);
             }
-
-            $table->text('client_desc')->nullable();
-            $table->text('client_remarks')->nullable();
+            $table->text('service_desc');
         });
     }
-
     /**
      * Reverse the migrations.
      *
@@ -55,6 +42,7 @@ class CreateClientTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('client');
+        Schema::dropIfExists('service');
+
     }
 }

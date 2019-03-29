@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateClientTable extends Migration
+class CreatePriceListTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,7 @@ class CreateClientTable extends Migration
      */
     public function up()
     {
-        Schema::dropIfExists('client');
-
-        Schema::create('client', function (Blueprint $table) {
+        Schema::create('price_list', function (Blueprint $table) {
             $table->engine = 'MyISAM';
             $table->charset = 'utf8';
             $table->collation = 'utf8_unicode_ci';
@@ -23,18 +21,15 @@ class CreateClientTable extends Migration
             $table->increments('id');
 
             $string_columns = [
-                'client_name',
-                'client_cname',
-                'client_gender',
-                'client_brithday',
-                'client_whatsapp',
-                'client_mobile',
-                'client_address',
-                'client_email',
-                'client_date',
-                'client_status',
-                'client_update_at'
+                'price_list_name',
+                'price_list_object',
+                'price_list_target_id',
+                'price_list_price',
+                'price_list_disabled',
+                'price_list_criteria',
+                'price_list_available_since'
             ];
+
 
             foreach($string_columns as $string_column)
             {
@@ -43,8 +38,8 @@ class CreateClientTable extends Migration
                     ->index($string_column);
             }
 
-            $table->text('client_desc')->nullable();
-            $table->text('client_remarks')->nullable();
+            $table->text('price_list_desc')->nullable();
+            $table->text('price_list_remarks')->nullable();
         });
     }
 
@@ -55,6 +50,7 @@ class CreateClientTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('client');
+        Schema::dropIfExists('price_list');
+
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateClientTable extends Migration
+class CreatePurchaseHistoryTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,27 +13,19 @@ class CreateClientTable extends Migration
      */
     public function up()
     {
-        Schema::dropIfExists('client');
-
-        Schema::create('client', function (Blueprint $table) {
+        Schema::create('purchase_history', function (Blueprint $table) {
             $table->engine = 'MyISAM';
             $table->charset = 'utf8';
             $table->collation = 'utf8_unicode_ci';
 
             $table->increments('id');
 
+
             $string_columns = [
-                'client_name',
-                'client_cname',
-                'client_gender',
-                'client_brithday',
-                'client_whatsapp',
-                'client_mobile',
-                'client_address',
-                'client_email',
-                'client_date',
-                'client_status',
-                'client_update_at'
+                'purchase_history_client_name',
+                'purchase_history_price',
+                'purchase_history_item',
+                'purchase_history_date'
             ];
 
             foreach($string_columns as $string_column)
@@ -43,8 +35,7 @@ class CreateClientTable extends Migration
                     ->index($string_column);
             }
 
-            $table->text('client_desc')->nullable();
-            $table->text('client_remarks')->nullable();
+            $table->text('purchase_history_remarks')->nullable();
         });
     }
 
@@ -55,6 +46,6 @@ class CreateClientTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('client');
+        Schema::dropIfExists('purchase_history');
     }
 }

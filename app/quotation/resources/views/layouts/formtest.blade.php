@@ -19,7 +19,7 @@
 
 
 @push('blank_scripts_body')
-    @parent
+
 
     <!-- Autosize Plugin Js -->
     <script src="{{asset('plugins/autosize/autosize.js')}}"></script>

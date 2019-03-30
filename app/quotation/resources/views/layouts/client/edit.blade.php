@@ -33,9 +33,6 @@
 
         {{ Form::close() }}
 
-
-
-
     </div>
 </section>
 

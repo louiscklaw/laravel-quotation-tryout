@@ -1,6 +1,5 @@
 
     <div class="{{ isset($card_class)? $card_class : '' }}">
-
         <div class="card">
             <div class="header">
                 <h2>
@@ -15,11 +14,8 @@
                     </li>
                 </ul>
             </div>
-
             <div class="body">
                 {{ $slot }}
-
             </div>
-
         </div>
     </div>

@@ -3,8 +3,8 @@
         {{ __("db_field.$field_name") }}
     </div>
     <div class="{{ isset($field_value_class)? $field_value_class : '' }}">
-        @textInput(['form_class'=>'', 'placeholder'=>''])
+        @textarea(['form_class'=>'', 'placeholder'=>''])
             {{$field_name}}
-        @endtextInput
+        @endtextarea
     </div>
 </div>

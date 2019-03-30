@@ -43,6 +43,7 @@ class AppServiceProvider extends ServiceProvider
 
 
         Blade::component('layouts.components.db_txt_field','db_txt_field');
+        Blade::component('layouts.components.db_textarea','db_textarea');
 
     }
 

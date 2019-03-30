@@ -24,13 +24,6 @@ class ClientHelper
 
     }
 
-    public function save($id, $req)
-    {
-        $value = $req->all();
-        $target_record = $this->get_record($id);
-        $target_record->update($value);
-    }
-
     public function open_record($id)
     {
         return $this->get_record('id',$id);
@@ -45,6 +38,17 @@ class ClientHelper
     {
         return Client::where('id',$id)->get();
     }
+
+
+    public function save($id, $req)
+    {
+        $value = $req->all();
+        $target_record = $this->get_record($id);
+
+        $target_record->update($value);
+
+    }
+
 }
 
 class clientController extends Controller
@@ -138,7 +142,7 @@ class clientController extends Controller
         $quot_record = new ClientHelper;
         $quot_record->save($id, $req);
 
-        return $this->debug_index();
+        return redirect()->route('client.show',compact('id'));
     }
 
     public function debug_pdf($id)

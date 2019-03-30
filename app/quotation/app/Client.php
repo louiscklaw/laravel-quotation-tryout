@@ -23,7 +23,9 @@ class Client extends Model
         'client_remarks',
         'client_date',
         'client_status',
-        'client_update_at'
+        'client_update_at',
+        'client_desc',
+        'client_remarks'
     ];
 
     public static $client_status_configuration=array(

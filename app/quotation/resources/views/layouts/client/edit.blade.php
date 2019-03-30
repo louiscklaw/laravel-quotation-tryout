@@ -17,7 +17,9 @@
             {{ Form::model($record, ['method'=>'POST', 'action'=> [$store_controller, $record->id]]) }}
         @endif
 
-        @card([
+        @foreach ($cards as $card)
+
+            @card([
                 'card_name'=>$editor_name,
                 'card_desc'=>$editor_description
             ])
@@ -26,10 +28,12 @@
                 {!! Form::submit('Confirm', ['class'=>'btn btn-primary']) !!}
             </div>
 
-            @db_txt_field(['field_name'=>'client_name'])
-            @enddb_txt_field
-
-        @endcard
+                @foreach ($card['field_names'] as $field_name)
+                    @db_txt_field(['field_name'=>$field_name])
+                    @enddb_txt_field
+                @endforeach
+            @endcard
+        @endforeach
 
         {{ Form::close() }}
 

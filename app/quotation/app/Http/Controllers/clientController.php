@@ -67,6 +67,19 @@ class clientController extends Controller
     {
         $quot_record = new ClientHelper;
         $quot_record = ClientHelper::get_record($id);
+
+        $cards = [
+            '1'=>['field_names'=>[
+                'client_name','client_cname','client_gender','client_brithday'
+                ]],
+            '2'=>['field_names'=>[
+                'client_whatsapp','client_mobile','client_address','client_email'
+            ]],
+            '3'=>['field_names'=>[
+                'client_date','client_status','client_update_at','client_desc','client_remarks'
+            ]],
+        ];
+
         return view('layouts.client.edit',[
             'record'=>$quot_record,
             'form_action' =>'edit',
@@ -74,7 +87,8 @@ class clientController extends Controller
             'editor_description' => 'client debug edit description',
             'update_controller' =>'clientController@update',
             'store_controller' => 'clientController@store',
-            'mn_highlight' => 'client_list'
+            'mn_highlight' => 'client_list',
+            'cards'=>$cards
             ]);
 
     }

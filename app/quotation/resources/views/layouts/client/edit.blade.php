@@ -23,9 +23,8 @@
             'card_class'=>'col-lg-4 col-md-4 col-sm-6 col-xs-12'
         ])
 
-            <div class="form-group" style="margin-top: 20px">
-                {!! Form::submit('Confirm', ['class'=>'btn btn-primary']) !!}
-            </div>
+            @db_confirm_button
+            @enddb_confirm_button
 
             @db_txt_field(['field_name'=>'client_status',
                 'field_name_class' => 'col-sm-6',
@@ -35,14 +34,14 @@
 
             @db_txt_field([
                 'field_name'=>'client_date',
-                'field_name_class' => 'col-sm-3',
-                'field_value_class' =>'col-sm-3'
+                'field_name_class' => 'col-sm-6',
+                'field_value_class' =>'col-sm-6'
             ])
             @enddb_txt_field
 
             @db_txt_field(['field_name'=>'client_update_at',
-                'field_name_class' => 'col-sm-3',
-                'field_value_class' =>'col-sm-3'])
+                'field_name_class' => 'col-sm-6',
+                'field_value_class' =>'col-sm-6'])
             @enddb_txt_field
 
         @endcard

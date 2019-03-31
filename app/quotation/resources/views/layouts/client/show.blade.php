@@ -5,7 +5,7 @@
 <section class="content">
     <div class="container-fluid">
         <div class="block-header">
-            <h2>basic form elements</h2>
+            <h2>show client information</h2>
         </div>
 
         {{ Form::model($record) }}

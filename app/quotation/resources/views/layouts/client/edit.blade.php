@@ -7,7 +7,7 @@
 
         @if(isset($form_action) and $form_action =='edit')
             <div class="block-header">
-                <h2>client editor</h2>
+                <h2>edit client information</h2>
             </div>
             {{ Form::model($record, ['method'=>'PATCH', 'action'=> [$update_controller, $record->id]]) }}
         @else

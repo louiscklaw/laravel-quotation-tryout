@@ -28,7 +28,8 @@
 
             @db_txt_field(['field_name'=>'client_status',
                 'field_name_class' => 'col-sm-6',
-                'field_value_class' =>'col-sm-6'
+                'field_value_class' =>'col-sm-6',
+                'input_disabled'=>''
             ])
             @enddb_txt_field
 

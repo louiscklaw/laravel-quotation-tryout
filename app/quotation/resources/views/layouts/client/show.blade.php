@@ -21,12 +21,10 @@
             ])
 
                 @db_button([
-                    'button_text'=>'hello',
+                    'button_text'=>'edit',
                     'button_link'=>'world'
                 ])
                 @enddb_button
-
-
 
                 @db_txt_field(['field_name'=>'client_status',
                     'field_name_class' => 'col-sm-6',

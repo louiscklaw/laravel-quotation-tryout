@@ -7,18 +7,13 @@
         <div class="block-header">
             <h2>basic form elements</h2>
         </div>
-        @if(isset($form_action) and $form_action =='edit')
-            {{ Form::model($record, ['method'=>'PATCH', 'action'=> ['QuotController@update', $record->id]]) }}
-        @else
-            {{ Form::model($record, ['method'=>'POST', 'action'=> ['QuotController@store', $record->id]]) }}
-        @endif
 
-
+        {{ Form::model($record) }}
             @card([
                 'card_name'=>$editor_name,
                 'card_desc'=>$editor_description,
                 'card_class'=>'col-lg-4 col-md-4 col-sm-6 col-xs-12'
-            ])
+                ])
 
                 @db_button([
                     'button_text'=>'edit',
@@ -51,98 +46,98 @@
             @endcard
 
             @card([
-            'card_name'=>$editor_name,
-            'card_desc'=>$editor_description,
-            'card_class'=>'col-lg-4 col-md-4 col-sm-6 col-xs-12'
-        ])
-
-            @db_txt_field([
-                'field_name'=>'client_name',
-                'field_name_class' => 'col-sm-6',
-                'field_value_class' =>'col-sm-6',
-                    'input_disabled'=>''
+                'card_name'=>$editor_name,
+                'card_desc'=>$editor_description,
+                'card_class'=>'col-lg-4 col-md-4 col-sm-6 col-xs-12'
             ])
-            @enddb_txt_field
 
-            @db_txt_field(['field_name'=>'client_cname',
-                'field_name_class' => 'col-sm-6',
-                'field_value_class' =>'col-sm-6',
-                    'input_disabled'=>''
+                @db_txt_field([
+                    'field_name'=>'client_name',
+                    'field_name_class' => 'col-sm-6',
+                    'field_value_class' =>'col-sm-6',
+                        'input_disabled'=>''
+                ])
+                @enddb_txt_field
+
+                @db_txt_field(['field_name'=>'client_cname',
+                    'field_name_class' => 'col-sm-6',
+                    'field_value_class' =>'col-sm-6',
+                        'input_disabled'=>''
+                ])
+                @enddb_txt_field
+
+                @db_txt_field(['field_name'=>'client_gender',
+                    'field_name_class' => 'col-sm-6',
+                    'field_value_class' =>'col-sm-6',
+                        'input_disabled'=>''
+                    ])
+                @enddb_txt_field
+
+                @db_txt_field(['field_name'=>'client_brithday',
+                    'field_name_class' => 'col-sm-6',
+                    'field_value_class' =>'col-sm-6',
+                        'input_disabled'=>''
+                    ])
+                @enddb_txt_field
+
+            @endcard
+
+            @card([
+                'card_name'=>'client contact',
+                'card_desc'=>$editor_description,
+                'card_class'=>'col-lg-4 col-md-4 col-sm-6 col-xs-12'
             ])
-            @enddb_txt_field
 
-            @db_txt_field(['field_name'=>'client_gender',
-                'field_name_class' => 'col-sm-6',
-                'field_value_class' =>'col-sm-6',
-                    'input_disabled'=>''
+                @db_txt_field([
+                    'field_name'=>'client_whatsapp',
+                    'field_name_class' => 'col-sm-6',
+                    'field_value_class' =>'col-sm-6',
+                        'input_disabled'=>''
                 ])
-            @enddb_txt_field
+                @enddb_txt_field
 
-            @db_txt_field(['field_name'=>'client_brithday',
-                'field_name_class' => 'col-sm-6',
-                'field_value_class' =>'col-sm-6',
-                    'input_disabled'=>''
+                @db_txt_field(['field_name'=>'client_mobile',
+                    'field_name_class' => 'col-sm-6',
+                    'field_value_class' =>'col-sm-6',
+                        'input_disabled'=>''
                 ])
-            @enddb_txt_field
+                @enddb_txt_field
 
-        @endcard
+                @db_txt_field(['field_name'=>'client_address',
+                    'field_name_class' => 'col-sm-6',
+                    'field_value_class' =>'col-sm-6',
+                        'input_disabled'=>''
+                    ])
+                @enddb_txt_field
 
-        @card([
-            'card_name'=>'client contact',
-            'card_desc'=>$editor_description,
-            'card_class'=>'col-lg-4 col-md-4 col-sm-6 col-xs-12'
-        ])
+                @db_txt_field(['field_name'=>'client_email',
+                    'field_name_class' => 'col-sm-6',
+                    'field_value_class' =>'col-sm-6',
+                        'input_disabled'=>''
+                    ])
+                @enddb_txt_field
 
-            @db_txt_field([
-                'field_name'=>'client_whatsapp',
-                'field_name_class' => 'col-sm-6',
-                'field_value_class' =>'col-sm-6',
-                    'input_disabled'=>''
+            @endcard
+
+            @card([
+                'card_name'=>'client Remarks',
+                'card_desc'=>$editor_description,
+                'card_class'=>'col-xs-12'
             ])
-            @enddb_txt_field
 
-            @db_txt_field(['field_name'=>'client_mobile',
-                'field_name_class' => 'col-sm-6',
-                'field_value_class' =>'col-sm-6',
-                    'input_disabled'=>''
-            ])
-            @enddb_txt_field
+                @db_textarea(['field_name'=>'client_desc',
+                    'field_name_class' => 'col-sm-12',
+                    'field_value_class' =>'col-sm-12',
+                        'input_disabled'=>''])
+                @enddb_textarea
 
-            @db_txt_field(['field_name'=>'client_address',
-                'field_name_class' => 'col-sm-6',
-                'field_value_class' =>'col-sm-6',
-                    'input_disabled'=>''
-                ])
-            @enddb_txt_field
+                @db_textarea(['field_name'=>'client_remarks',
+                    'field_name_class' => 'col-sm-12',
+                    'field_value_class' =>'col-sm-12',
+                        'input_disabled'=>''])
+                @enddb_textarea
 
-            @db_txt_field(['field_name'=>'client_email',
-                'field_name_class' => 'col-sm-6',
-                'field_value_class' =>'col-sm-6',
-                    'input_disabled'=>''
-                ])
-            @enddb_txt_field
-
-        @endcard
-
-        @card([
-            'card_name'=>'client Remarks',
-            'card_desc'=>$editor_description,
-            'card_class'=>'col-xs-12'
-        ])
-
-            @db_textarea(['field_name'=>'client_desc',
-                'field_name_class' => 'col-sm-12',
-                'field_value_class' =>'col-sm-12',
-                    'input_disabled'=>''])
-            @enddb_textarea
-
-            @db_textarea(['field_name'=>'client_remarks',
-                'field_name_class' => 'col-sm-12',
-                'field_value_class' =>'col-sm-12',
-                    'input_disabled'=>''])
-            @enddb_textarea
-
-        @endcard
+            @endcard
 
         {{ Form::close() }}
 

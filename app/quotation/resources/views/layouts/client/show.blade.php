@@ -17,7 +17,7 @@
 
                 @db_button([
                     'button_text'=>'edit',
-                    'button_link'=>'world'
+                    'button_link'=>route('client.edit',['id'=>1])
                 ])
                 @enddb_button
 

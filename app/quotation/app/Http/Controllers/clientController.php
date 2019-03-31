@@ -123,7 +123,6 @@ class clientController extends Controller
         $quot_record = new ClientHelper;
         $quot_record = ClientHelper::get_record($id);
 
-
         return view('layouts.debug.record_edit',[
             'record'=>$quot_record,
             'form_action' =>'edit',
@@ -132,7 +131,6 @@ class clientController extends Controller
             'update_controller' =>'clientController@update',
             'store_controller' => 'clientController@store'
             ]);
-
     }
 
     public function update(Request $req, $id)

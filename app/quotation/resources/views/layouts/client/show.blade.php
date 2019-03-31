@@ -17,7 +17,7 @@
 
                 @db_button([
                     'button_text'=>'edit',
-                    'button_link'=>route('client.edit',['id'=>1])
+                    'button_link'=>route('client.edit',['id'=>$record->id])
                 ])
                 @enddb_button
 

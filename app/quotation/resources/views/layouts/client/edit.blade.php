@@ -70,8 +70,8 @@
                 <div class="col-sm-6">
                     client gender
                 </div>
-                <div class="col-sm-2">
-                    <select class="custom-select">
+                <div class="col-sm-6">
+                    <select class="custom-select col-sm-12">
                         <option value="1">One</option>
                         <option value="2">Two</option>
                         <option value="3">Three</option>

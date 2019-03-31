@@ -68,10 +68,14 @@
 
             <div class="row clearfix">
                 <div class="col-sm-6">
-                    client cname
+                    client gender
                 </div>
-                <div class="col-sm-6">
-                    {{ Form::select('size', array('L' => 'Large', 'S' => 'Small')) }}
+                <div class="col-sm-2">
+                    <select class="custom-select">
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
                 </div>
             </div>
 

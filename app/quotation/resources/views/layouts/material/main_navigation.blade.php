@@ -180,6 +180,10 @@
                     ]
             ],
 
+            'helloworld'=>[
+                    'text'=>'helloworld', 'icon'=>'warning',
+                    'link' => 'www.google.com'
+            ],
 
 
         ];
@@ -243,7 +247,7 @@
                             </ul>
                     @endif
                 </li>
-                @endforeach
+            @endforeach
         </li>
     </ul>
 </div>

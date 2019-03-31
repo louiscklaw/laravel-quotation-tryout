@@ -66,10 +66,14 @@
             ])
             @enddb_txt_field
 
-            @db_txt_field(['field_name'=>'client_gender',
-                'field_name_class' => 'col-sm-6',
-                'field_value_class' =>'col-sm-6'])
-            @enddb_txt_field
+            <div class="row clearfix">
+                <div class="col-sm-6">
+                    client cname
+                </div>
+                <div class="col-sm-6">
+                    {{ Form::select('size', array('L' => 'Large', 'S' => 'Small')) }}
+                </div>
+            </div>
 
             @db_txt_field(['field_name'=>'client_brithday',
                 'field_name_class' => 'col-sm-6',

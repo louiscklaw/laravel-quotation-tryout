@@ -62,10 +62,11 @@
                                             <td>2011/04/25</td>
                                             <td>$320,800</td>
                                             <td>
-                                                <button type="button" class="btn bg-teal  waves-effect">View</button>
-                                                <button type="button" class="btn bg-teal  waves-effect">Edit</button>
-                                                <button type="button" class="btn bg-teal  waves-effect">PDF</button>
+                                                <button type="button" class="btn bg-teal btn-sm waves-effect">V</button>
+                                                <button type="button" class="btn bg-teal btn-sm waves-effect">E</button>
+                                                <button type="button" class="btn bg-teal btn-sm waves-effect">P</button>
                                             </td>
+
                                         </tr>
                                         <tr>
                                             <td>Garrett Winters</td>
@@ -75,9 +76,9 @@
                                             <td>2011/07/25</td>
                                             <td>$170,750</td>
                                             <td>
-                                                <button type="button" class="btn bg-teal  waves-effect">View</button>
-                                                <button type="button" class="btn bg-teal  waves-effect">Edit</button>
-                                                <button type="button" class="btn bg-teal  waves-effect">PDF</button>
+                                                <button type="button" class="btn bg-teal btn-sm waves-effect">V</button>
+                                                <button type="button" class="btn bg-teal btn-sm waves-effect">E</button>
+                                                <button type="button" class="btn bg-teal btn-sm waves-effect">P</button>
                                             </td>
                                         </tr>
                                     </tbody>
@@ -120,16 +121,18 @@
             var table = $('#test_table').DataTable( {
                 orderCellsTop: true,
                 fixedHeader: true,
-                columnDefs: [
-                    { "width": "5%", "targets": 0 },
-                    { "width": "5%", "targets": 0 },
-                    { "width": "5%", "targets": 0 },
-                    { "width": "5%", "targets": 0 },
-                    { "width": "5%", "targets": 0 },
-                    { "width": "5%", "targets": 0 },
-                    { "width": "5%", "targets": 0 }
-                ]
+                // columnDefs: [
+                //     { "width": "10%", "targets": 0 },
+                //     { "width": "10%", "targets": 0 },
+                //     { "width": "10%", "targets": 0 },
+                //     { "width": "10%", "targets": 0 },
+                //     { "width": "10%", "targets": 0 },
+                //     { "width": "10%", "targets": 0 },
+                //     { "width": "10%", "targets": 0 }
+                // ]
             } );
+
+            table.columns.adjust().draw();
         });
 
     </script>

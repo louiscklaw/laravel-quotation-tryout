@@ -11,10 +11,10 @@ use App\User;
 class UsersTableSeeder extends Seeder
 {
 
-    public function insert_record($user_id, $user_name, $password)
+    public function insert_record($user_id, $username, $password)
     {
         DB::table('users')->insert([
-            'name' => 'user'.$user_id,
+            'name' => $username,
             'email' => Str::random(10).'@gmail.com',
             'email_verified_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'password' => bcrypt($password),

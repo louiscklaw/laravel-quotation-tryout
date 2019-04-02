@@ -10,8 +10,12 @@
                         Client Edit
                         <small>Edit client information</small>
                     </h2>
-                    <button type="button" class="btn btn-primary m-t-15 waves-effect">{{ __('Save')}}</button>
-                    <button type="button" class="btn btn-primary m-t-15 waves-effect">{{ __('PDF') }}</button>
+                    @if (isset($action) && $action =='create')
+                        <button type="button" class="btn btn-primary m-t-15 waves-effect">{{ __('Create')}}</button>
+                    @else
+                        <button type="button" class="btn btn-primary m-t-15 waves-effect">{{ __('Save')}}</button>
+                        <button type="button" class="btn btn-primary m-t-15 waves-effect">{{ __('PDF') }}</button>
+                    @endif
                 </div>
 
                 <div class="body">

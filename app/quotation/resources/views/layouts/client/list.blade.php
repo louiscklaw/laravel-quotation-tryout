@@ -61,7 +61,11 @@
                                             <td>61</td>
                                             <td>2011/04/25</td>
                                             <td>$320,800</td>
-                                            <td>123</td>
+                                            <td>
+                                                <button type="button" class="btn bg-teal  waves-effect">View</button>
+                                                <button type="button" class="btn bg-teal  waves-effect">Edit</button>
+                                                <button type="button" class="btn bg-teal  waves-effect">PDF</button>
+                                            </td>
                                         </tr>
                                         <tr>
                                             <td>Garrett Winters</td>
@@ -70,7 +74,11 @@
                                             <td>63</td>
                                             <td>2011/07/25</td>
                                             <td>$170,750</td>
-                                            <td>123</td>
+                                            <td>
+                                                <button type="button" class="btn bg-teal  waves-effect">View</button>
+                                                <button type="button" class="btn bg-teal  waves-effect">Edit</button>
+                                                <button type="button" class="btn bg-teal  waves-effect">PDF</button>
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>

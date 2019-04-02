@@ -53,15 +53,22 @@ def mysql_create_db(db_name):
     with lcd(DOCKER_DIR):
         docker_compose_run_command('mysql -uroot -e \\"CREATE DATABASE %s\\";' % db_name, '/app/%s' % db_name)
 
-def get_mysql_command(db_name):
-    return "CREATE DATABASE %s" % db_name
+def get_mysql_command(cmd_body):
+    return 'mysql -uroot -e \\"%s\\";' % cmd_body
 
 def reset_admin_password():
     # alter user 'admin' identified by '123456';
     with lcd(DOCKER_DIR):
         wk_path = '/app'
         mysql_command = "alter user 'admin' identified by '123456'"
-        docker_compose_run_command('mysql -uroot -e \\"%s\\";' % mysql_command, wk_path)
+        docker_compose_run_command(get_mysql_command(mysql_command), wk_path)
+
+def drop_db_if_exist(db_name):
+    # alter user 'admin' identified by '123456';
+    with lcd(DOCKER_DIR):
+        wk_path = '/app'
+        mysql_command = "DROP DATABASE IF EXISTS %s" % db_name
+        docker_compose_run_command(get_mysql_command(mysql_command), wk_path)
 
 def rebuild_docker():
     # with lcd(DOCKER_DIR):
@@ -78,12 +85,12 @@ def rebuild_docker():
     # # print('sleep a while for docker becomes steady...')
     # sleep(60*3)
 
-    reset_admin_password()
-    # mysql_create_db('quotation')
-    # laravel_db_migrate('quotation')
 
-    # mysql_create_db('helloworld')
-    # laravel_db_migrate('helloworld')
+    reset_admin_password()
+    for db in ['quotation', 'helloworld']:
+        drop_db_if_exist(db)
+        mysql_create_db(db)
+        laravel_db_migrate(db)
 
 def release_permission(proj_home):
     with lcd(DOCKER_DIR):

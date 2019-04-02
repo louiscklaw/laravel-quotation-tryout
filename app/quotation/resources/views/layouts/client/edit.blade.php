@@ -1,175 +1,141 @@
 @extends('layouts.material.html')
 
-
 @section('content')
 <section class="content">
-    <div class="container-fluid">
-
-        @if(isset($form_action) and $form_action =='edit')
-            <div class="block-header">
-                <h2>edit client information</h2>
-            </div>
-            {{ Form::model($record, ['method'=>'PATCH', 'action'=> [$update_controller, $record->id]]) }}
-        @else
-            <div class="block-header">
-                <h2>create client</h2>
-            </div>
-            {{ Form::model($record, ['method'=>'POST', 'action'=> [$store_controller, $record->id]]) }}
-        @endif
-
-        @card([
-            'card_name'=>$editor_name,
-            'card_desc'=>$editor_description,
-            'card_class'=>'col-lg-4 col-md-4 col-sm-6 col-xs-12'
-        ])
-
-            @db_confirm_button
-            @enddb_confirm_button
-
-            @db_txt_field(['field_name'=>'client_status',
-                'field_name_class' => 'col-sm-6',
-                'field_value_class' =>'col-sm-6',
-                'input_disabled'=>''
-            ])
-            @enddb_txt_field
-
-            @db_txt_field([
-                'field_name'=>'client_date',
-                'field_name_class' => 'col-sm-6',
-                'field_value_class' =>'col-sm-6'
-            ])
-            @enddb_txt_field
-
-            @db_txt_field(['field_name'=>'client_update_at',
-                'field_name_class' => 'col-sm-6',
-                'field_value_class' =>'col-sm-6'])
-            @enddb_txt_field
-
-        @endcard
-
-        @card([
-            'card_name'=>$editor_name,
-            'card_desc'=>$editor_description,
-            'card_class'=>'col-lg-4 col-md-4 col-sm-6 col-xs-12'
-        ])
-
-            @db_txt_field([
-                'field_name'=>'client_name',
-                'field_name_class' => 'col-sm-6',
-                'field_value_class' =>'col-sm-6'
-            ])
-            @enddb_txt_field
-
-            @db_txt_field(['field_name'=>'client_cname',
-                'field_name_class' => 'col-sm-6',
-                'field_value_class' =>'col-sm-6'
-            ])
-            @enddb_txt_field
-
-            <div class="row clearfix">
-                <div class="col-sm-6">
-                    client gender
+    <div class="row clearfix">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="card">
+                <div class="header">
+                    <h2>
+                        Client Edit
+                        <small>Edit client information</small>
+                    </h2>
+                    <button type="button" class="btn btn-primary m-t-15 waves-effect">{{ __('Save')}}</button>
+                    <button type="button" class="btn btn-primary m-t-15 waves-effect">{{ __('PDF') }}</button>
                 </div>
-                <div class="col-sm-6">
-                    <select class="custom-select col-sm-12">
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                    </select>
+
+                <div class="body">
+                    <div class="row clearfix">
+                        <div class="col-sm-4">
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <input type="text" class="form-control">
+                                    <label class="form-label">Client name</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <input type="text" class="form-control">
+                                    <label class="form-label">Client cname</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <input type="text" class="form-control">
+                                    <label class="form-label">Client gender</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row clearfix">
+
+                    <div class="col-sm-4">
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <input type="text" class="form-control">
+                                    <label class="form-label">Client brithday</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
+            <div class="card">
+                <div class="header">
+                        <h2>Client contact method</h2>
+                        <small>Edit client method</small>
+                </div>
 
-            @db_txt_field(['field_name'=>'client_brithday',
-                'field_name_class' => 'col-sm-6',
-                'field_value_class' =>'col-sm-6'])
-            @enddb_txt_field
+                <div class="body">
+                    <div class="row clearfix">
+                        <div class="col-sm-4">
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <input type="text" class="form-control">
+                                    <label class="form-label">whatsapp</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <input type="text" class="form-control">
+                                    <label class="form-label">mobile number</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <input type="text" class="form-control">
+                                    <label class="form-label">email</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-        @endcard
+                    <div class="row clearfix">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <label class="form-label">Address</label>
+                                    <textarea rows="2" class="form-control no-resize"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-        @card([
-            'card_name'=>'client contact',
-            'card_desc'=>$editor_description,
-            'card_class'=>'col-lg-4 col-md-4 col-sm-6 col-xs-12'
-        ])
+            <div class="card">
+                <div class="header">
+                    <h2>
+                        {{ __('Remarks')}}
+                        <small>{{ __('Additional information about client')}}}</small>
+                    </h2>
+                </div>
 
-            @db_txt_field([
-                'field_name'=>'client_whatsapp',
-                'field_name_class' => 'col-sm-6',
-                'field_value_class' =>'col-sm-6'
-            ])
-            @enddb_txt_field
+                <div class="body">
 
-            @db_txt_field(['field_name'=>'client_mobile',
-                'field_name_class' => 'col-sm-6',
-                'field_value_class' =>'col-sm-6'
-            ])
-            @enddb_txt_field
+                    <div class="row clearfix">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <label class="form-label">{{ __('Remarks')}}</label>
+                                    <textarea rows="6" class="form-control no-resize"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-            @db_txt_field(['field_name'=>'client_email',
-                'field_name_class' => 'col-sm-6',
-                'field_value_class' =>'col-sm-6'])
-            @enddb_txt_field
+                    <div class="row clearfix">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <label class="form-label">{{ __('Description') }}</label>
+                                    <textarea rows="6" class="form-control no-resize"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-        @endcard
-
-
-
-        @card([
-            'card_name'=>'client Remarks',
-            'card_desc'=>$editor_description,
-            'card_class'=>'col-xs-12'
-        ])
-
-
-            @db_txt_field(['field_name'=>'client_address',
-                'field_name_class' => 'col-sm-3',
-                'field_value_class' =>'col-sm-9'])
-            @enddb_txt_field
-
-        @endcard
-
-        @card([
-            'card_name'=>'client Remarks',
-            'card_desc'=>$editor_description,
-            'card_class'=>'col-xs-12'
-        ])
-
-            @db_textarea(['field_name'=>'client_desc',
-                'field_name_class' => 'col-sm-12',
-                'field_value_class' =>'col-sm-12'])
-            @enddb_textarea
-
-            @db_textarea(['field_name'=>'client_remarks',
-                'field_name_class' => 'col-sm-12',
-                'field_value_class' =>'col-sm-12'])
-            @enddb_textarea
-
-        @endcard
-
-        {{ Form::close() }}
-
+                </div>
+            </div>
+        </div>
     </div>
 </section>
-
 @endsection
-
-
-@push('blank_scripts_body')
-
-
-    <!-- Autosize Plugin Js -->
-    <script src="{{asset('plugins/autosize/autosize.js')}}"></script>
-
-    <!-- Moment Plugin Js -->
-    <script src="{{asset('plugins/momentjs/moment.js')}}"></script>
-
-    <!-- Bootstrap Material Datetime Picker Plugin Js -->
-    <script src="{{asset('plugins/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js')}}"></script>
-
-    <!-- Bootstrap Datepicker Plugin Js -->
-    <script src="{{asset('plugins/bootstrap-datepicker/js/bootstrap-datepicker.js')}}"></script>
-
-    <!-- Custom Js -->
-    <script src="{{asset('js/pages/forms/basic-form-elements.js')}}"></script>
-
-@endpush

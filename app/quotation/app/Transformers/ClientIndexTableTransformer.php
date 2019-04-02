@@ -13,9 +13,17 @@ use App\Client;
 class ClientIndexTableTransformer extends TransformerAbstract
 {
 
-    public function transform()
+    public function transform(Client $client)
     {
-        return ['hello transform','hello transform'];
+        return [
+            'id'         => (int) $client->id,
+            'name'       => $client->client_name,
+            'contact_email'      => $client->client_email,
+            'creation_time' => (string) $client->creation_time,
+            'last_mod_time' => (string) $client->client_update_at,
+            'create_time' => (string) $client->client_create_at,
+            'action' => (string) "<span>Edit</span>",
+        ];
     }
 
 

@@ -56,3 +56,5 @@ foreach($record_type as $record)
     Route::get('/'.$record.'/get_pdf')->name($record.'.pdf');
     Route::get('/'.$record.'/get_htmlpdf')->name($record.'.htmlpdf');
 }
+
+Route::get('/reports', 'ReportController@index')->name('reports.index');

@@ -30,7 +30,7 @@
                         </div>
                         <div class="body">
                             <div class="table-responsive">
-                                <table class="table table-bordered table-striped table-hover dataTable js-exportable">
+                                <table class="table table-bordered table-striped table-hover dataTable js-exportable" id="test_table">
                                     <thead>
                                         <tr>
                                             <th>Name</th>
@@ -82,6 +82,7 @@
                                         </tr>
                                     </tbody>
                                 </table>
+
                             </div>
                         </div>
                     </div>
@@ -90,12 +91,50 @@
             <!-- #END# Exportable Table -->
         </div>
     </section>
+
+
 @endsection
 
 @push('blank_scripts_body')
-
     <!-- Jquery DataTable Plugin Js -->
     <script src="{{asset('plugins/jquery-datatable/jquery.dataTables.js')}}"></script>
+
+    <script>
+        $('document').ready(function(){
+            // // Setup - add a text input to each footer cell
+            $('#test_table thead tr').clone(true).appendTo( '#test_table thead' );
+            $('#test_table thead tr:eq(1) th').each( function (i) {
+                var title = $(this).text();
+                $(this).html( '<input type="text" style="width:100%;"  class="form-control input-sm" placeholder="Search '+title+'" />' );
+
+                $( 'input', this ).on( 'keyup change', function () {
+                    if ( table.column(i).search() !== this.value ) {
+                        table
+                            .column(i)
+                            .search( this.value )
+                            .draw();
+                    }
+                } );
+            } );
+
+            var table = $('#test_table').DataTable( {
+                orderCellsTop: true,
+                fixedHeader: true,
+                columnDefs: [
+                    { "width": "5%", "targets": 0 },
+                    { "width": "5%", "targets": 0 },
+                    { "width": "5%", "targets": 0 },
+                    { "width": "5%", "targets": 0 },
+                    { "width": "5%", "targets": 0 },
+                    { "width": "5%", "targets": 0 },
+                    { "width": "5%", "targets": 0 }
+                ]
+            } );
+        });
+
+    </script>
+
+
     <script src="{{asset('plugins/jquery-datatable/skin/bootstrap/js/dataTables.bootstrap.js')}}"></script>
     <script src="{{asset('plugins/jquery-datatable/extensions/export/dataTables.buttons.min.js')}}"></script>
     <script src="{{asset('plugins/jquery-datatable/extensions/export/buttons.flash.min.js')}}"></script>
@@ -105,5 +144,6 @@
     <script src="{{asset('plugins/jquery-datatable/extensions/export/buttons.html5.min.js')}}"></script>
     <script src="{{asset('plugins/jquery-datatable/extensions/export/buttons.print.min.js')}}"></script>
 
-    <script src="{{asset('js/pages/tables/jquery-datatable.js')}}"></script>
+    <!-- <script src="{{asset('js/pages/tables/jquery-datatable.js')}}"></script> -->
+
 @endpush

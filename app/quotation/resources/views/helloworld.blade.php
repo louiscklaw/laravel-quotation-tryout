@@ -8,13 +8,54 @@
         </div>
     </div>
     <div class="row clearfix">
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
             <div class="card">
                 <div class="header">
                     <h2>
                         Client Edit
-                        <small>Different sizes and widths</small>
+                        <small>Edit client information</small>
                     </h2>
+                </div>
+
+                <div class="body">
+                    <h2 class="card-inside-title">Basic information</h2>
+                    <div class="row clearfix">
+                        <div class="col-sm-4">
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <input type="text" class="form-control">
+                                    <label class="form-label">Client name</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <input type="text" class="form-control">
+                                    <label class="form-label">Client cname</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <input type="text" class="form-control">
+                                    <label class="form-label">Client gender</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row clearfix">
+
+                    <div class="col-sm-4">
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <input type="text" class="form-control">
+                                    <label class="form-label">Client brithday</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

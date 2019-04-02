@@ -53,14 +53,14 @@ def mysql_create_db(db_name):
     with lcd(DOCKER_DIR):
         docker_compose_run_command('mysql -uroot -e \\"CREATE DATABASE %s\\";' % db_name, '/app/%s' % db_name)
 
-def get_mysql_command(command_body):
+def get_mysql_command(db_name):
     return "CREATE DATABASE %s" % db_name
 
-def reset_admin_password();
+def reset_admin_password(db_name):
     # alter user 'admin' identified by '123456';
     with lcd(DOCKER_DIR):
         db_path = '/app/%s' % db_name
-        mysql_command = get_mysql_command("alter user 'admin' identified by '123456'")
+        mysql_command = "alter user 'admin' identified by '123456'"
         docker_compose_run_command('mysql -uroot -e \\"%s\\";' % mysql_command, db_path)
 
 def rebuild_docker():

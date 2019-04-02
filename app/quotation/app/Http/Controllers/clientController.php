@@ -2,9 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use Yajra\Datatables\Datatables;
+
 use Illuminate\Http\Request;
 
+use App\Transformers\ClientIndexTableTransformer;
+
 use App\Client;
+
+
 
 class ClientHelper
 {
@@ -168,6 +174,14 @@ class clientController extends Controller
             'store_controller' => 'clientController@store',
             'mn_highlight' => 'client_list'
             ]);
+    }
+
+    public function index_table_content()
+    {
+        $client_records = Client::query();
+
+        return Datatables::of($client_records)->setTransformer(new ClientIndexTableTransformer)
+            ->make(true);
     }
 
 }

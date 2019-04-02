@@ -17,6 +17,11 @@ add app/quotation/resources/views/phpinfo.blade.php
 `{!! phpinfo() !!}`
 
 
+### laravel plugin used
+*"laravelcollective/html": "~5.0",
+*"league/fractal": "^0.17.0",
+*"yajra/laravel-datatables-oracle": "~7.5"
+*yajra/laravel-datatables-fractal
 
 ### NOTES:
 `composer create-project --prefer-dist laravel/laravel quotation`

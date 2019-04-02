@@ -130,6 +130,10 @@
                 //     { "width": "10%", "targets": 0 },
                 //     { "width": "10%", "targets": 0 }
                 // ]
+                ajax: {
+                    "url": "{{ route('client.index_table_content') }}",
+                    type:"POST"
+                }
             } );
 
             table.columns.adjust().draw();

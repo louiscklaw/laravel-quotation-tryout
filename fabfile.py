@@ -70,27 +70,28 @@ def drop_db_if_exist(db_name):
         mysql_command = "DROP DATABASE IF EXISTS %s" % db_name
         docker_compose_run_command(get_mysql_command(mysql_command), wk_path)
 
-def rebuild_docker():
-    # with lcd(DOCKER_DIR):
-    #         local('docker-compose kill')
-    #         local('docker-compose down')
-    #         local('docker-compose build')
-    #         local('docker-compose up -d')
-
-    # install_laravel('helloworld')
-    # install_laravel('quotation')
-
-    # laravel_reload_conf()
-
-    # # print('sleep a while for docker becomes steady...')
-    # sleep(60*3)
-
-
+def rebuild_db():
     reset_admin_password()
     for db in ['quotation', 'helloworld']:
         drop_db_if_exist(db)
         mysql_create_db(db)
         laravel_db_migrate(db)
+
+def rebuild_docker():
+    with lcd(DOCKER_DIR):
+            local('docker-compose kill')
+            local('docker-compose down')
+            local('docker-compose build')
+            local('docker-compose up -d')
+
+    install_laravel('helloworld')
+    install_laravel('quotation')
+
+    laravel_reload_conf()
+
+    # print('sleep a while for docker becomes steady...')
+    sleep(60*3)
+    rebuild_db()
 
 def release_permission(proj_home):
     with lcd(DOCKER_DIR):

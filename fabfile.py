@@ -75,8 +75,8 @@ def rebuild_docker():
 
     laravel_reload_conf()
 
-    print('sleep a while for docker becomes steady...')
-    sleep(60*1)
+    # print('sleep a while for docker becomes steady...')
+    sleep(60*3)
     mysql_create_db('quotation')
     laravel_db_migrate('quotation')
 

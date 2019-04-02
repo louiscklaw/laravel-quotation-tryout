@@ -30,6 +30,8 @@ include 'page_route.php';
 
 include 'colleagues_route.php';
 
+Route::get('/helloworld', 'helloworldController@index')->name('helloworld.index');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

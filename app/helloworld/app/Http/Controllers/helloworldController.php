@@ -27,9 +27,8 @@ class helloworldController extends Controller
     {
         $fileupload_record = new testfileuploads();
 
-        return view('helloworld', compact(
-            'fileupload_record'
-        ));
+        return view('helloworld');
+
     }
 
     public function update(Request $request)

@@ -28,4 +28,7 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    protected $attributes = [
+    	'disabled' => 'enabled'
+    ];
 }

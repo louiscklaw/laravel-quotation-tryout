@@ -105,14 +105,25 @@
             ])
             @enddb_txt_field
 
-            @db_txt_field(['field_name'=>'client_address',
+            @db_txt_field(['field_name'=>'client_email',
                 'field_name_class' => 'col-sm-6',
                 'field_value_class' =>'col-sm-6'])
             @enddb_txt_field
 
-            @db_txt_field(['field_name'=>'client_email',
-                'field_name_class' => 'col-sm-6',
-                'field_value_class' =>'col-sm-6'])
+        @endcard
+
+
+
+        @card([
+            'card_name'=>'client Remarks',
+            'card_desc'=>$editor_description,
+            'card_class'=>'col-xs-12'
+        ])
+
+
+            @db_txt_field(['field_name'=>'client_address',
+                'field_name_class' => 'col-sm-3',
+                'field_value_class' =>'col-sm-9'])
             @enddb_txt_field
 
         @endcard

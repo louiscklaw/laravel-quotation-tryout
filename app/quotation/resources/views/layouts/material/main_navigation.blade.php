@@ -182,9 +182,8 @@
 
             'helloworld'=>[
                     'text'=>'helloworld', 'icon'=>'warning',
-                    'link' => 'www.google.com'
+                    'link' => route('helloworld.index')
             ],
-
 
         ];
 

@@ -25,7 +25,9 @@ class helloworldController extends Controller
      */
     public function index()
     {
-        return view('helloworld');
+        return view('helloworld',[
+            'mn_highlight' => 'helloworld'
+        ]);
     }
 
     public function update(Request $request)

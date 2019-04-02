@@ -34,22 +34,22 @@
                                     <thead>
                                         <tr>
                                             <th>Name</th>
-                                            <th>Position</th>
-                                            <th>Office</th>
+                                            <th>Gender</th>
+                                            <th>whatsapp</th>
+                                            <th>Mobile</th>
                                             <th>Age</th>
-                                            <th>Start date</th>
-                                            <th>Salary</th>
+                                            <th>Email</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
                                             <th>Name</th>
-                                            <th>Position</th>
-                                            <th>Office</th>
+                                            <th>Gender</th>
+                                            <th>whatsapp</th>
+                                            <th>Mobile</th>
                                             <th>Age</th>
-                                            <th>Start date</th>
-                                            <th>Salary</th>
+                                            <th>Email</th>
                                             <th>Action</th>
                                         </tr>
                                     </tfoot>

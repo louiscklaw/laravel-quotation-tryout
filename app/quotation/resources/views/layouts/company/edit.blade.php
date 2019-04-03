@@ -20,7 +20,7 @@
                             <div class="form-group form-float">
                                 <div class="form-line">
                                     <input type="text" class="form-control">
-                                    <label class="form-label">{{ __('Company short name')</label>
+                                    <label class="form-label">{{ __('Company short name')}}</label>
                                 </div>
                             </div>
                         </div>

@@ -66,7 +66,7 @@
             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                 <div class="card">
                     <div class="header">
-                        <h2>RADAR CHART</h2>
+                        <h2>HORIZONTAL BAR CHART</h2>
                         <ul class="header-dropdown m-r--5">
                             <li class="dropdown">
                                 <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown"
@@ -82,7 +82,8 @@
                         </ul>
                     </div>
                     <div class="body">
-                        <canvas id="radar_chart" height="150"></canvas>
+                        <!-- <canvas id="radar_chart" height="150"></canvas> -->
+                        {!! $sample_horizontal_bar_chart->render() !!}
                     </div>
                 </div>
             </div>

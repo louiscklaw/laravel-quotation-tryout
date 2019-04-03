@@ -16,44 +16,139 @@
 
                 <div class="body">
                     <div class="row clearfix">
-
-                        <div class="col-sm-4">
+                        <div class="col-sm-12">
                             <div class="form-group form-float">
-                                <div class="form-line">
-                                    <input type="text" class="form-control">
-                                    <label class="form-label">{{ __('Company name')}}</label>
+                                <div class="col-sm-4">
+                                    {{ __('English name')}}
+                                </div>
+                                <div class="col-sm-8">
+                                    test company name
+                                </div>
+                            </div>
+
+                            <div class="form-group form-float">
+                                <div class="col-sm-4">
+                                    {{ __('Chinese name')}}
+                                </div>
+                                <div class="col-sm-8">
+                                    test company name
+                                </div>
+                            </div>
+
+                            <div class="form-group form-float">
+                                <div class="col-sm-4">
+                                    {{ __('Short name')}}
+                                </div>
+                                <div class="col-sm-8">
+                                    test company name
+                                </div>
+                            </div>
+
+                            <div class="form-group form-float">
+                                <div class="col-sm-4">
+                                    {{ __('Address')}}
+                                </div>
+                                <div class="col-sm-8">
+                                    test company address
+                                </div>
+                            </div>
+
+                            <div class="form-group form-float">
+                                <div class="col-sm-4">
+                                    {{ __('Contact name')}}
+                                </div>
+                                <div class="col-sm-8">
+                                    test company name
                                 </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+                        <div class="card">
+                <div class="header">
+                    <h2>
+                        Company
+                        <small>Company information</small>
+                    </h2>
+                </div>
 
-                        <div class="col-sm-4">
+                <div class="body">
+                    <div class="row clearfix">
+                        <div class="col-sm-12">
                             <div class="form-group form-float">
-                                <div class="form-line">
-                                    <input type="text" class="form-control">
-                                    <label class="form-label">{{ __('Company ename')}}</label>
+                                <div class="col-sm-4">
+                                    {{ __('Contract tel')}}
+                                </div>
+                                <div class="col-sm-8">
+                                    test company name
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="col-sm-4">
                             <div class="form-group form-float">
-                                <div class="form-line">
-                                    <input type="text" class="form-control">
-                                    <label class="form-label">{{ __('Company cname')}}</label>
+                                <div class="col-sm-4">
+                                    {{ __('Contract mobile')}}
+                                </div>
+                                <div class="col-sm-8">
+                                    test company name
                                 </div>
                             </div>
+
+                            <div class="form-group form-float">
+                                <div class="col-sm-4">
+                                    {{ __('Contract fax')}}
+                                </div>
+                                <div class="col-sm-8">
+                                    test company name
+                                </div>
+                            </div>
+
+                            <div class="form-group form-float">
+                                <div class="col-sm-4">
+                                    {{ __('Contract email')}}
+                                </div>
+                                <div class="col-sm-8">
+                                    test company name
+                                </div>
+                            </div>
+
+                            <div class="form-group form-float">
+                                <div class="col-sm-4">
+                                    {{ __('sales')}}
+                                </div>
+                                <div class="col-sm-8">
+                                    test company name
+                                </div>
+                            </div>
+
+                            <div class="form-group form-float">
+                                <div class="col-sm-4">
+                                    {{ __('BR code')}}
+                                </div>
+                                <div class="col-sm-8">
+                                    test company name
+                                </div>
+                            </div>
+
+                            <div class="form-group form-float">
+                                <div class="col-sm-4">
+                                    {{ __('owner name')}}
+                                </div>
+                                <div class="col-sm-8">
+                                    test company name
+                                </div>
+                            </div>
+
                         </div>
-
-
-
-
-
-
                     </div>
                 </div>
 
 
             </div>
+        </div>
+
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+
         </div>
 
 
@@ -72,6 +167,28 @@
                             <div class="form-group">
                                 <div class="form-line">
                                     {{ __('Remarks')}}
+                                    <textarea rows="6" class="form-control no-resize"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row clearfix">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <div class="form-line">
+                                    {{ __('Remarks2')}}
+                                    <textarea rows="6" class="form-control no-resize"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row clearfix">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <div class="form-line">
+                                    {{ __('Remarks3')}}
                                     <textarea rows="6" class="form-control no-resize"></textarea>
                                 </div>
                             </div>

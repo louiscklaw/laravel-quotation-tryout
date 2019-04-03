@@ -140,7 +140,7 @@ class clientTableSeeder extends Seeder
     public function run()
     {
         DB::table('client')->truncate();
-        for($i=0; $i < 999; $i++)
+        for($i=0; $i < 30; $i++)
         {
             $this->insert_client_record();
             echo 'insert';

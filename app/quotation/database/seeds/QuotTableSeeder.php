@@ -106,7 +106,7 @@ class QuotTableSeeder extends Seeder
 
     public function run()
     {
-        for($i=0; $i < 99; $i++)
+        for($i=0; $i < 20; $i++)
         {
             $this->insert_record(sprintf('UFO%05d', $i));
         }

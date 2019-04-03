@@ -42,7 +42,6 @@ $record_type=array(
     'company',
     'site',
     'client',
-    'company',
     'colleagues'
 );
 

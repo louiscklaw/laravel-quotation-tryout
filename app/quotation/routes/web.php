@@ -20,16 +20,16 @@ Route::get('/quotation', function () {
 });
 
 include 'debug_route.php';
-include 'client_route.php';
-include 'company_route.php';
-include 'user_route.php';
+// include 'client_route.php';
+// include 'company_route.php';
+// include 'user_route.php';
 include 'quot_route.php';
-include 'pdf_route.php';
+// include 'pdf_route.php';
 
-include 'posts_route.php';
-include 'page_route.php';
+// include 'posts_route.php';
+// include 'page_route.php';
 
-include 'colleagues_route.php';
+// include 'colleagues_route.php';
 
 Route::get('/helloworld', 'helloworldController@index')->name('helloworld.index');
 

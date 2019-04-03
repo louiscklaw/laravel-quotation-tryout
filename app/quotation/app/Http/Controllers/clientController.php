@@ -62,9 +62,9 @@ class clientController extends Controller
 
     public function show($id)
     {
-        $client_record = ClientHelper::get_record($id);
+        $record = ClientHelper::get_record($id);
         return view('layouts.client.show',[
-            'client_record'=>$client_record,
+            'record'=>$record,
             'editor_name'=>'client view',
             'editor_description' => 'client debug viwe description',
             'update_controller' =>'clientController@update',

@@ -4,7 +4,95 @@
 @section('content')
 <section class="content">
     <div class="container-fluid">
-        helloworld
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+            <div class="card">
+                <div class="header">
+                    <h2>
+                        Company
+                        <small>Company information</small>
+                    </h2>
+                </div>
+
+
+                <div class="body">
+                    <div class="row clearfix">
+
+                        <div class="col-sm-4">
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <input type="text" class="form-control">
+                                    <label class="form-label">{{ __('Company name')}}</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-4">
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <input type="text" class="form-control">
+                                    <label class="form-label">{{ __('Company ename')}}</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-4">
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <input type="text" class="form-control">
+                                    <label class="form-label">{{ __('Company cname')}}</label>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+
+
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+            <div class="card">
+                <div class="header">
+                    <h2>
+                        {{ __('Remarks')}}
+                        <small>{{ __('Additional information about client')}}}</small>
+                    </h2>
+                </div>
+
+                <div class="body">
+                    <div class="row clearfix">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <div class="form-line">
+                                    {{ __('Remarks')}}
+                                    <textarea rows="6" class="form-control no-resize"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row clearfix">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <div class="form-line">
+                                    {{ __('Description') }}
+                                    <textarea rows="6" class="form-control no-resize"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
     </div>
 </section>
 

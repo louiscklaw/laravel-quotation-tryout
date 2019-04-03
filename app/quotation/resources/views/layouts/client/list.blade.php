@@ -35,12 +35,16 @@
                                         <tr>
                                             <th>Name</th>
                                             <th>Gender</th>
+                                            <th>whatsapp</th>
+                                            <th>Mobile</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
                                             <th>Name</th>
                                             <th>Gender</th>
+                                            <th>whatsapp</th>
+                                            <th>Mobile</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
@@ -92,6 +96,8 @@
                 columns: [
                     { "data": "client_name" },
                     { "data": "client_gender" },
+                    { "data": "client_whatsapp" },
+                    { "data": "client_mobile" },
                     ],
 
             } );

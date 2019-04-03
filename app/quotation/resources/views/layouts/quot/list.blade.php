@@ -98,12 +98,12 @@
                 orderCellsTop: true,
                 fixedHeader: true,
                 ajax: {
-                    "url": "{{ route('quot.index_table_content') }}",
+                    "url": "{{ route('Quot.index_table_content') }}",
                     type:"GET"
                 },
                 columns: [
                     { "data": "quot_ref" },
-                    { "data": "created_at" },
+                    { "data": "quot_startday" },
                     { "data": "quot_client_id" },
                     { "data": "quot_site_id" },
                     { "data": "quot_jobtype" },

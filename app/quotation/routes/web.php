@@ -44,7 +44,7 @@ $record_type=array(
     'site',
     'client',
     'colleagues',
-    'quot'
+    'Quot'
 );
 
 

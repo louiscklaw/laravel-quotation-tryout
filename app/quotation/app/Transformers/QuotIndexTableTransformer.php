@@ -19,8 +19,8 @@ class QuotIndexTableTransformer extends TransformerAbstract
 
     public function get_action_link($id)
     {
-        $view_link =route('quot.show',['id'=>$id]);
-        $edit_link = route('quot.edit',['id'=>$id]);
+        $view_link =route('Quot.show',['id'=>$id]);
+        $edit_link = route('Quot.edit',['id'=>$id]);
 
         $view_html = $this->get_button_link('View', $view_link);
         $edit_html = $this->get_button_link('Edit', $edit_link);

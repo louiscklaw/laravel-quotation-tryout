@@ -4,6 +4,7 @@ use Illuminate\Support\Str;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
+
 class QuotTableSeeder extends Seeder
 {
     /**
@@ -23,7 +24,7 @@ class QuotTableSeeder extends Seeder
             'quot_setqty' => Str::random(10),
             'quot_periodnum' => Str::random(10),
             'quot_periodtype' => Str::random(10),
-            'quot_startday' => Str::random(10),
+            'quot_startday' => sharedSeeder::get_random_day(),
             'quot_endday' => Str::random(10),
             'quot_rentdiscount' => Str::random(10),
             'quot_contractrent' => Str::random(10),
@@ -106,7 +107,7 @@ class QuotTableSeeder extends Seeder
 
     public function run()
     {
-        $num_quot_to_create = 999;
+        $num_quot_to_create = 99;
         foreach(range(0,$num_quot_to_create) as $i)
         {
             echo "\r";

@@ -37,6 +37,9 @@
                                             <th>Gender</th>
                                             <th>whatsapp</th>
                                             <th>Mobile</th>
+                                            <th>Brithday</th>
+                                            <th>Email</th>
+                                            <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
@@ -45,6 +48,9 @@
                                             <th>Gender</th>
                                             <th>whatsapp</th>
                                             <th>Mobile</th>
+                                            <th>Brithday</th>
+                                            <th>Email</th>
+                                            <th>Action</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
@@ -98,6 +104,9 @@
                     { "data": "client_gender" },
                     { "data": "client_whatsapp" },
                     { "data": "client_mobile" },
+                    { "data": "client_brithday" },
+                    { "data": "client_email" },
+                    { "data": "action" },
                     ],
 
             } );

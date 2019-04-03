@@ -1,6 +1,6 @@
 <?php
 
-    Route::match(['get','post'],'/client/index_table_content','clientController@index_table_content')->name('client.index_table_content');
+    Route::get('/client/index_table_content','clientController@index_table_content')->name('client.index_table_content');
 
     Route::resources([
         'client' => 'ClientController',

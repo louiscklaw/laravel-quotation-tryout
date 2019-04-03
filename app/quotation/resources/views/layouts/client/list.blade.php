@@ -35,52 +35,16 @@
                                         <tr>
                                             <th>Name</th>
                                             <th>Gender</th>
-                                            <th>whatsapp</th>
-                                            <th>Mobile</th>
-                                            <th>Age</th>
-                                            <th>Email</th>
-                                            <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
                                             <th>Name</th>
                                             <th>Gender</th>
-                                            <th>whatsapp</th>
-                                            <th>Mobile</th>
-                                            <th>Age</th>
-                                            <th>Email</th>
-                                            <th>Action</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
-                                        <tr>
-                                            <td>Tiger Nixon</td>
-                                            <td>System Architect</td>
-                                            <td>Edinburgh</td>
-                                            <td>61</td>
-                                            <td>2011/04/25</td>
-                                            <td>$320,800</td>
-                                            <td>
-                                                <a class="btn bg-teal btn-sm waves-effect" href="{{ route('client.show',['id'=>'1']) }}" role="button">View</a>
-                                                <a class="btn bg-teal btn-sm waves-effect" href="{{ route('client.edit',['id'=>'1']) }}" role="button">Edit</a>
-                                                <a class="btn bg-teal btn-sm waves-effect" href="{{ route('client.pdf',['id'=>'1']) }}" role="button">PDF</a>
-                                            </td>
 
-                                        </tr>
-                                        <tr>
-                                            <td>Garrett Winters</td>
-                                            <td>Accountant</td>
-                                            <td>Tokyo</td>
-                                            <td>63</td>
-                                            <td>2011/07/25</td>
-                                            <td>$170,750</td>
-                                            <td>
-                                                <a class="btn bg-teal btn-sm waves-effect" href="{{ route('client.show',['id'=>'1']) }}" role="button">View</a>
-                                                <a class="btn bg-teal btn-sm waves-effect" href="{{ route('client.edit',['id'=>'1']) }}" role="button">Edit</a>
-                                                <a class="btn bg-teal btn-sm waves-effect" href="{{ route('client.pdf',['id'=>'1']) }}" role="button">PDF</a>
-                                            </td>
-                                        </tr>
                                     </tbody>
                                 </table>
 
@@ -121,19 +85,15 @@
             var table = $('#test_table').DataTable( {
                 orderCellsTop: true,
                 fixedHeader: true,
-                // columnDefs: [
-                //     { "width": "10%", "targets": 0 },
-                //     { "width": "10%", "targets": 0 },
-                //     { "width": "10%", "targets": 0 },
-                //     { "width": "10%", "targets": 0 },
-                //     { "width": "10%", "targets": 0 },
-                //     { "width": "10%", "targets": 0 },
-                //     { "width": "10%", "targets": 0 }
-                // ]
                 ajax: {
                     "url": "{{ route('client.index_table_content') }}",
-                    type:"POST"
-                }
+                    type:"GET"
+                },
+                columns: [
+                    { "data": "client_name" },
+                    { "data": "client_gender" },
+                    ],
+
             } );
 
             table.columns.adjust().draw();

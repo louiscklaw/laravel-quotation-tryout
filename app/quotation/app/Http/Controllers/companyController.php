@@ -29,8 +29,17 @@ class companyHelper
 class companyController extends Controller
 {
     //
-    public function show()
+    public function show($id)
     {
+        $company = CompanyHelper::get_record($id);
+        return view('layouts.company.show',[
+            'record'=>$company,
+            'editor_name'=>'client view',
+            'editor_description' => 'client debug viwe description',
+            'update_controller' =>'clientController@update',
+            'store_controller' => 'clientController@store',
+            'mn_highlight' => 'client_list'
+            ]);
 
     }
 

@@ -17,10 +17,10 @@ class CompanyIndexTableTransformer extends TransformerAbstract
         return '<a class="btn bg-teal btn-sm waves-effect" href="'.$link.'" role="button">'.$button_text.'</a>';
     }
 
-    public function get_action_link($client_id)
+    public function get_action_link($id)
     {
-        $view_link =route('client.show',['id'=>$client_id]);
-        $edit_link = route('client.edit',['id'=>$client_id]);
+        $view_link =route('company.show',['id'=>$id]);
+        $edit_link = route('company.edit',['id'=>$id]);
 
         $view_html = $this->get_button_link('View', $view_link);
         $edit_html = $this->get_button_link('Edit', $edit_link);

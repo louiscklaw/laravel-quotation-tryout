@@ -24,13 +24,6 @@ class ClientHelper
 
     }
 
-    public function save($id, $req)
-    {
-        $value = $req->all();
-        $target_record = $this->get_record($id);
-        $target_record->update($value);
-    }
-
     public function open_record($id)
     {
         return $this->get_record('id',$id);
@@ -45,6 +38,17 @@ class ClientHelper
     {
         return Client::where('id',$id)->get();
     }
+
+
+    public function save($id, $req)
+    {
+        $value = $req->all();
+        $target_record = $this->get_record($id);
+
+        $target_record->update($value);
+
+    }
+
 }
 
 class clientController extends Controller
@@ -67,6 +71,19 @@ class clientController extends Controller
     {
         $quot_record = new ClientHelper;
         $quot_record = ClientHelper::get_record($id);
+
+        $cards = [
+            '1'=>['field_names'=>[
+                'client_name','client_cname','client_gender','client_brithday'
+                ]],
+            '2'=>['field_names'=>[
+                'client_whatsapp','client_mobile','client_address','client_email'
+            ]],
+            '3'=>['field_names'=>[
+                'client_date','client_status','client_update_at','client_desc','client_remarks'
+            ]],
+        ];
+
         return view('layouts.client.edit',[
             'record'=>$quot_record,
             'form_action' =>'edit',
@@ -74,7 +91,8 @@ class clientController extends Controller
             'editor_description' => 'client debug edit description',
             'update_controller' =>'clientController@update',
             'store_controller' => 'clientController@store',
-            'mn_highlight' => 'client_list'
+            'mn_highlight' => 'client_list',
+            'cards'=>$cards
             ]);
 
     }
@@ -124,7 +142,7 @@ class clientController extends Controller
         $quot_record = new ClientHelper;
         $quot_record->save($id, $req);
 
-        return $this->debug_index();
+        return redirect()->route('client.show',compact('id'));
     }
 
     public function debug_pdf($id)

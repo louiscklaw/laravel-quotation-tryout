@@ -28,6 +28,8 @@ include 'pdf_route.php';
 include 'posts_route.php';
 include 'page_route.php';
 
+include 'colleagues_route.php';
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -38,7 +40,8 @@ $record_type=array(
     'company',
     'site',
     'client',
-    'company'
+    'company',
+    'colleagues'
 );
 
 

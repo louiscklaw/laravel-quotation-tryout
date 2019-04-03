@@ -22,3 +22,6 @@ Route::get('/phpinfo', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/helloworld', 'helloworldController@index')->name('helloworld.index');
+Route::post('/update/helloworld', 'helloworldController@update')->name('helloworld.update');

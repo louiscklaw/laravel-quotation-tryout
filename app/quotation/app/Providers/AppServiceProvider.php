@@ -41,6 +41,11 @@ class AppServiceProvider extends ServiceProvider
 
         Blade::component('layouts.components.select_with_search_bar','select_with_search_bar');
 
+
+        Blade::component('layouts.components.db_txt_field','db_txt_field');
+        Blade::component('layouts.components.db_textarea','db_textarea');
+        Blade::component('layouts.components.db_confirm_button','db_confirm_button');
+
     }
 
     /**

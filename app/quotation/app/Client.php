@@ -2,35 +2,49 @@
 
 namespace App;
 
-
 use Illuminate\Database\Eloquent\Model;
 
 class Client extends Model
 {
-
     protected $table = 'client';
     protected $primaryKey = 'id';
 
+    public $timestamps = false;
+
     protected $fillable = [
-        'client_cat',
         'client_name',
         'client_cname',
-        'client_ename',
+        'client_gender',
+        'client_brithday',
+        'client_whatsapp',
+        'client_mobile',
         'client_address',
-        'client_contact',
-        'client_contact_tel',
-        'client_contact_mobile',
-        'client_contact_fax',
-        'client_contact_email',
-        'client_relatedsales',
-        'client_cr_code',
-        'client_change_time',
-        'client_owner_name',
-        'client_remark',
-        'client_remark2',
-        'client_remark3',
-        'client_last_mod_user',
-        'client_creation_time',
-        'client_last_mod_time'
+        'client_email',
+        'client_remarks',
+        'client_date',
+        'client_status',
+        'client_update_at',
+        'client_desc',
+        'client_remarks'
     ];
+
+    public static $client_status_configuration=array(
+        // 'enabled'=>['enabled','#008000'],
+        // 'disabled'=>['disabled', '#808080'],
+        // 'archived'=>['archived','#000080'],
+        // 'cancelled'=>['cancelled', '#FF0000'],
+        // 'activated'=>['activated','#800080'],
+        // 'pre-activate'=>['pre-activate','#FF00FF']
+        'allowed to contact'=>['Active','limegreen'],
+        'DND'=>['Closed', 'red'],
+        'not in HK'=>['Closed', 'red'],
+        // 'cancelled'=>['cancelled', 'grey'],
+        'activated'=>['Pending','dodgerblue'],
+        // 'pre-activate'=>['pre-activate','lightpink']
+    );
+
+    public static $client_gender_configuration=array(
+        'M'=>['M','dodgerblue'],
+        'F'=>['F','red'],
+    );
 }

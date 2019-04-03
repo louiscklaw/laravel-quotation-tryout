@@ -39,19 +39,29 @@ def docker_compose_run_command(command, path):
 
 def laravel_rebuild():
     with lcd(DOCKER_DIR):
-        docker_compose_php_composer_install('web', 'quotation')
+        docker_composeP_php_composer_install('web', 'quotation')
         laravel_artisan_migrate('web', 'quotation')
 
 def laravel_db_migrate(proj_name):
     with lcd(DOCKER_DIR):
         docker_compose_run_command('php artisan migrate:refresh','/app/{}'.format(proj_name))
 
-        for table in ['ClientTableSeeder','QuotTableSeeder', 'QuotItemTableSeeder']:
+        for table in ['DatabaseSeeder']:
             docker_compose_run_command('php artisan db:seed --class={}'.format(table),'/app/{}'.format( proj_name))
 
 def mysql_create_db(db_name):
     with lcd(DOCKER_DIR):
         docker_compose_run_command('mysql -uroot -e \\"CREATE DATABASE %s COLLATE utf8_general_ci\\";' % db_name, '/app/%s' % db_name)
+
+def get_mysql_command(command_body):
+    return "CREATE DATABASE %s" % db_name
+
+def reset_admin_password();
+    # alter user 'admin' identified by '123456';
+    with lcd(DOCKER_DIR):
+        db_path = '/app/%s' % db_name
+        mysql_command = get_mysql_command("alter user 'admin' identified by '123456'")
+        docker_compose_run_command('mysql -uroot -e \\"%s\\";' % mysql_command, db_path)
 
 def rebuild_docker():
     with lcd(DOCKER_DIR):
@@ -72,6 +82,9 @@ def provision_project(proj_name):
     install_laravel(proj_name)
     mysql_create_db(proj_name)
     laravel_db_migrate(proj_name)
+
+    mysql_create_db('helloworld')
+    laravel_db_migrate('helloworld')
 
 def release_permission(proj_home):
     with lcd(DOCKER_DIR):

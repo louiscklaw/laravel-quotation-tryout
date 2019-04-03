@@ -12,16 +12,18 @@ use App\Client;
 
 class ClientIndexTableTransformer extends TransformerAbstract
 {
+    public function get_button_link($button_text, $link)
+    {
+        return '<a class="btn bg-teal btn-sm waves-effect" href="'.$link.'" role="button">'.$button_text.'</a>';
+    }
+
     public function get_action_link($client_id)
     {
         $view_link =route('client.show',['id'=>$client_id]);
         $edit_link = route('client.edit',['id'=>$client_id]);
 
-        // $view_html = "<a href=\"$view_link\">View</a>";
-        // $edit_html = "<a href=\"$edit_link\">edit</a>";
-
-        $view_html = "<a href=\"$view_link\" style=\"text-decoration: underline; color: blue;\">View</a>";
-        $edit_html = "<a href=\"$edit_link\" style=\"text-decoration: underline; color: blue;\">Edit</a>";
+        $view_html = $this->get_button_link('View', $view_link);
+        $edit_html = $this->get_button_link('Edit', $edit_link);
 
         $action_html = implode(' ',array($view_html,$edit_html));
 

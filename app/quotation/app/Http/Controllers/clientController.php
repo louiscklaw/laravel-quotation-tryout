@@ -178,7 +178,7 @@ class clientController extends Controller
 
     public function index_table_content()
     {
-        $client_records = Client::query();
+        $client_records = Client::all();
 
         return Datatables::of($client_records)->setTransformer(new ClientIndexTableTransformer)
             ->make(true);

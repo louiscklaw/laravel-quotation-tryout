@@ -72,5 +72,50 @@
 
 
 @push('blank_scripts_body')
+
+
     @include('layouts.js_datatable')
+
+    <script>
+        $('document').ready(function(){
+            // // Setup - add a text input to each footer cell
+            $('#test_table thead tr').clone(true).appendTo( '#test_table thead' );
+            $('#test_table thead tr:eq(1) th').each( function (i) {
+                var title = $(this).text();
+                $(this).html( '<input type="text" style="width:100%;"  class="form-control input-sm" placeholder="Search '+title+'" />' );
+
+                $( 'input', this ).on( 'keyup change', function () {
+                    if ( table.column(i).search() !== this.value ) {
+                        table
+                            .column(i)
+                            .search( this.value )
+                            .draw();
+                    }
+                } );
+            } );
+
+            var table = $('#test_table').DataTable( {
+                orderCellsTop: true,
+                fixedHeader: true,
+                ajax: {
+                    "url": "{{ route('client.index_table_content') }}",
+                    type:"GET"
+                },
+                columns: [
+                    { "data": "client_name" },
+                    { "data": "client_gender" },
+                    { "data": "client_whatsapp" },
+                    { "data": "client_mobile" },
+                    { "data": "client_brithday" },
+                    { "data": "client_email" },
+                    { "data": "action" },
+                    ],
+
+            } );
+
+            table.columns.adjust().draw();
+        });
+
+    </script>
+
 @endpush

@@ -44,6 +44,7 @@ class ClientIndexTableTransformer extends TransformerAbstract
         {
             $test_array[$field_name] = $client_record->$field_name;
         }
+        $test_array['action'] = $this->get_action_link($client_record->id);
 
         return $test_array;
     }

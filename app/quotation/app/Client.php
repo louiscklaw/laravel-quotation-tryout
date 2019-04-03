@@ -24,6 +24,7 @@ class Client extends Model
         'client_date',
         'client_status',
         'client_update_at',
+        'client_create_at',
         'client_desc',
         'client_remarks'
     ];

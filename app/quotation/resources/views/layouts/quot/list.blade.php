@@ -14,7 +14,7 @@
                     <div class="card">
                         <div class="header">
                             <h2>
-                                Current Client
+                                Current Quotation
                             </h2>
                             <ul class="header-dropdown m-r--5">
                                 <li class="dropdown">
@@ -34,7 +34,7 @@
                                 <table class="table table-bordered table-striped table-hover dataTable js-exportable" id="test_table">
                                     <thead>
                                         <tr>
-                                            <th>Name</th>
+                                            <th>id</th>
                                             <th>Gender</th>
                                             <th>whatsapp</th>
                                             <th>Mobile</th>
@@ -45,7 +45,7 @@
                                     </thead>
                                     <tfoot>
                                         <tr>
-                                            <th>Name</th>
+                                            <th>id</th>
                                             <th>Gender</th>
                                             <th>whatsapp</th>
                                             <th>Mobile</th>

@@ -142,8 +142,10 @@ class clientTableSeeder extends Seeder
         DB::table('client')->truncate();
         for($i=0; $i < 30; $i++)
         {
+            echo "\r";
+            echo "inert quot $i";
             $this->insert_client_record();
-            echo 'insert';
         }
+        echo "\n";
     }
 }

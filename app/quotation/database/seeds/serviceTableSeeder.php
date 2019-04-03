@@ -84,13 +84,16 @@ class serviceTableSeeder extends Seeder
         DB::table('service')->truncate();
         foreach(range(0,30) as $num)
         {
+            echo "\r";
+            echo "inert quot $num";
             $this->insert_service_record(
                 array_keys($array_services)[random_int(0,4)],
                 $this->get_sentence(random_int(1,3)),
                 $this->get_random_paragraph(random_int(10,40)),
                 $this->get_sentence(random_int(1,3))
             );
-            echo 'insert';
         }
+        echo "\n";
+
     }
 }

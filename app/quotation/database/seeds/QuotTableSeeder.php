@@ -106,10 +106,14 @@ class QuotTableSeeder extends Seeder
 
     public function run()
     {
-        for($i=0; $i < 20; $i++)
+        $num_quot_to_create = 999;
+        foreach(range(0,$num_quot_to_create) as $i)
         {
-            $this->insert_record(sprintf('UFO%05d', $i));
+            echo "\r";
+            echo "inert quot $i/$num_quot_to_create";
+            $this->insert_record(sprintf('QUO%05d', $i));
         }
+        echo "\n";
     }
 
 }

@@ -156,7 +156,10 @@ class packageTableSeeder extends Seeder
         DB::table('package')->truncate();
         for($i=0; $i < 30; $i++)
         {
+            echo "\r";
+            echo "inert quot $i";
             $this->insert_package_record('package_combination_'.(string) $i);
         }
+        echo "\n";
     }
 }

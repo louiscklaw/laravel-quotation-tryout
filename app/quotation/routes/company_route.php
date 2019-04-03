@@ -1,6 +1,6 @@
 <?php
 
-    Route::get('/company/index_table_content','companyController@index_table_content')->name('company.index_table_content');
+    Route::post('/company/index_table_content','companyController@index_table_content')->name('company.index_table_content');
 
     // Route::resources([
     //     'client' => 'ClientController',

@@ -1,41 +1,28 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+include 'debug_route.php';
 
 Route::get('/', 'CommonController@home')->name('quotation.home');
 
+Route::match(['get','post'], '/helloworld', 'helloworldController@index')->name('helloworld.index');
 
+Route::get('/helloget', 'helloworldController@index')->name('helloworld.index');
+Route::post('/hellopost', 'helloworldController@index')->name('helloworld.hellopost');
 
-Route::get('/quotation', function () {
-    return view('quotation');
-});
+// include 'client_route.php';
+// include 'company_route.php';
+// include 'user_route.php';
+// include 'quot_route.php';
+// include 'pdf_route.php';
 
-include 'debug_route.php';
-include 'client_route.php';
-include 'company_route.php';
-include 'user_route.php';
-include 'quot_route.php';
-include 'pdf_route.php';
+// include 'posts_route.php';
+// include 'page_route.php';
 
-include 'posts_route.php';
-include 'page_route.php';
+// include 'colleagues_route.php';
 
-include 'colleagues_route.php';
+// Auth::routes();
 
-Route::get('/helloworld', 'helloworldController@index')->name('helloworld.index');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');
 
 $record_type=array(
     'posts',

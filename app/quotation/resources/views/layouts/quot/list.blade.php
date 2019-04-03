@@ -34,23 +34,23 @@
                                 <table class="table table-bordered table-striped table-hover dataTable js-exportable" id="test_table">
                                     <thead>
                                         <tr>
-                                            <th>id</th>
-                                            <th>Gender</th>
-                                            <th>whatsapp</th>
-                                            <th>Mobile</th>
-                                            <th>Brithday</th>
-                                            <th>Email</th>
+                                            <th>Quot id</th>
+                                            <th>Create date</th>
+                                            <th>Client</th>
+                                            <th>Site</th>
+                                            <th>jobType</th>
+                                            <th>deposit</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
-                                            <th>id</th>
-                                            <th>Gender</th>
-                                            <th>whatsapp</th>
-                                            <th>Mobile</th>
-                                            <th>Brithday</th>
-                                            <th>Email</th>
+                                            <th>Quot id</th>
+                                            <th>Create date</th>
+                                            <th>Client</th>
+                                            <th>Site</th>
+                                            <th>jobType</th>
+                                            <th>deposit</th>
                                             <th>Action</th>
                                         </tr>
                                     </tfoot>
@@ -98,16 +98,16 @@
                 orderCellsTop: true,
                 fixedHeader: true,
                 ajax: {
-                    "url": "{{ route('client.index_table_content') }}",
+                    "url": "{{ route('quot.index_table_content') }}",
                     type:"GET"
                 },
                 columns: [
-                    { "data": "client_name" },
-                    { "data": "client_gender" },
-                    { "data": "client_whatsapp" },
-                    { "data": "client_mobile" },
-                    { "data": "client_brithday" },
-                    { "data": "client_email" },
+                    { "data": "quot_ref" },
+                    { "data": "created_at" },
+                    { "data": "quot_client_id" },
+                    { "data": "quot_site_id" },
+                    { "data": "quot_jobtype" },
+                    { "data": "quot_deposit" },
                     { "data": "action" },
                     ],
 

@@ -43,7 +43,8 @@ $record_type=array(
     'company',
     'site',
     'client',
-    'colleagues'
+    'colleagues',
+    'quot'
 );
 
 

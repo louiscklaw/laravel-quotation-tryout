@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Common;
 use App\Company;
+use App\Transformers\CompanyIndexTableTransformer;
 
 
 class companyHelper
@@ -80,5 +81,13 @@ class companyController extends Controller
     public function store()
     {
         return $this->index();
+    }
+
+    public function index_table_content()
+    {
+        $companys = Company::all();
+
+        return Datatables::of($companys)->setTransformer(new CompanyIndexTableTransformer)
+            ->make(true);
     }
 }

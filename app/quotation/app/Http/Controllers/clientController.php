@@ -6,9 +6,8 @@ use Yajra\Datatables\Datatables;
 
 use Illuminate\Http\Request;
 
-use App\Transformers\ClientIndexTableTransformer;
-
 use App\Client;
+use App\Transformers\ClientIndexTableTransformer;
 
 
 

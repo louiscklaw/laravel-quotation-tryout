@@ -7,7 +7,7 @@ use DateTime;
 use League\Fractal\TransformerAbstract;
 
 use App\Company;
-use App\Transformers\SharedTableTransformer;
+use App\Transformers\SharedTransformer;
 
 
 class CompanyIndexTableTransformer extends TransformerAbstract
@@ -33,7 +33,7 @@ class CompanyIndexTableTransformer extends TransformerAbstract
     public function transform(Company $company)
     {
 
-        $field_names = SharedTableTransformer::get_field_name($company);
+        $field_names = SharedTransformer::get_field_name($company);
 
         $test_array = [];
         foreach($field_names as $field_name)

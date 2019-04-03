@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use Yajra\Datatables\Datatables;
+
 use Illuminate\Http\Request;
 
 use App\Common;
+
 use App\Company;
 use App\Transformers\CompanyIndexTableTransformer;
 

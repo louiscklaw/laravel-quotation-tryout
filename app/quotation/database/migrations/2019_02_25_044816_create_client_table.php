@@ -33,6 +33,7 @@ class CreateClientTable extends Migration
                 'client_email',
                 'client_date',
                 'client_status',
+                'client_create_at',
                 'client_update_at'
             ];
 

@@ -180,6 +180,11 @@
                     ]
             ],
 
+            'reports'=>[
+                    'text'=>'reports', 'icon'=>'warning',
+                    'link' => route('reports.index')
+            ],
+
             'helloworld'=>[
                     'text'=>'helloworld', 'icon'=>'warning',
                     'link' => route('helloworld.index')

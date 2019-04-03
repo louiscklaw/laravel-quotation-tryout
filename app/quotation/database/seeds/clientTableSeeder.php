@@ -44,6 +44,14 @@ class clientTableSeeder extends Seeder
         return date('Y-m-d H:m:s', $time);
     }
 
+    public function get_random_created_at()
+    {
+        $min = strtotime("jan 1st -3 years");
+        $max = strtotime("dec 31st -1 years");
+        $time = rand($min,$max);
+        return date('Y-m-d H:m:s', $time);
+    }
+
     public function random_from_pool($array_pool)
     {
         $length = sizeof($array_pool);
@@ -124,6 +132,7 @@ class clientTableSeeder extends Seeder
             'client_date' => $this->get_random_brithday(),
             'client_status' => $this->random_from_pool(array_keys(Client::$client_status_configuration)),
             'client_update_at' => $this->get_random_update_at(),
+            'client_create_at' => $this->get_random_created_at(),
         ]);
     }
 

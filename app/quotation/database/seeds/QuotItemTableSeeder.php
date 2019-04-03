@@ -45,7 +45,7 @@ class QuotItemTableSeeder extends Seeder
     {
         for($i=0; $i < 20; $i++)
         {
-            for($j=0; $j<5;$j++)
+            for($j=0; $j<20;$j++)
             {
                 $this->insert_record(sprintf('UFO%05d', $i));
             }

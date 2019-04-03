@@ -15,20 +15,32 @@
             @else
                     <h2>new quotation form</h2>
             @endif
-            @card([
-                'card_name'=>$editor_name,
-                'card_desc'=>$editor_description
-                ])
-
-                <div class="form-group" style="margin-top, margin-bottom: 20px">
-                    {!! Form::submit('Save', ['class'=>'btn btn-primary']) !!}
-
-                    <a class="btn bg-light-blue waves-effect" href="{{ route('quot.edit',['id'=>$record->id]) }}" role="button">edit</a>
-                <a class="btn bg-light-blue waves-effect" href="{{ route('quot.pdf', ['id'=>$record->id]) }}" role="button">pdf</a>
-                </div>
-            @endcard
 
             <div class="row clearfix">
+
+                @card([
+                    'card_name'=>$editor_name,
+                    'card_desc'=>$editor_description,
+                    'card_class'=>'col-lg-4 col-md-4 col-sm-4 col-xs-4'
+                    ])
+                    <div class="row clearfix">
+                        <div class="col-sm-12">
+                            {!! Form::submit('Save', ['class'=>'btn btn-primary']) !!}
+                            <a class="btn bg-light-blue waves-effect" href="{{ route('quot.pdf', ['id'=>$record->id]) }}" role="button">pdf wo letterhead</a>
+                            <a class="btn bg-light-blue waves-effect" href="{{ route('quot.pdf',['id'=>$record->id]) }}" role="button">pdf</a>
+                        </div>
+                    </div>
+
+                    <div class="row clearfix">
+                        <div class="col-sm-12">
+                            @select_with_search_bar(['title'=>"quot owner", 'select_list'=>$client_name_list])
+                                quot_owner
+                            @endselect_with_search_bar
+                        </div>
+                    </div>
+
+                @endcard
+
                 @card([
                     'card_name'=>$editor_name,
                     'card_desc'=>$editor_description,
@@ -36,18 +48,24 @@
                     ])
 
                     <div class="row clearfix">
-
+                        @if(isset($form_action) and $form_action =='edit')
                             @float_label_input()
                                 id
                             @endfloat_label_input
+                        @endif
 
-                            @datepicker(['placeholder'=>'quot_date'])
+                        @if(isset($form_action) and $form_action =='edit')
+                            @float_label_input(['default'=>$record->quot_date])
                                 quot_date
-                            @enddatepicker
+                            @endfloat_label_input
+                        @else
+                            @float_label_input(['default'=>date('Y-m-d')])
+                                quot_date
+                            @endfloat_label_input
+                        @endif
                     </div>
 
                 @endcard
-
 
                 @card([
                     'card_name'=>'Client',
@@ -60,19 +78,8 @@
                             quot_client_id
                         @endselect_with_search_bar
                     </div>
-                @endcard
-
-
-                @card([
-                    'card_name'=>'Client',
-                    'card_desc'=>'Client description',
-                    'card_class'=>'col-lg-4 col-md-4 col-sm-4 col-xs-4'
-                    ])
-
-
 
                 @endcard
-
 
             </div>
 
@@ -133,6 +140,7 @@
                 </div>
             @endcard
 
+
         {{ Form::close() }}
 
     </div>
@@ -142,7 +150,7 @@
 
 
 @push('blank_scripts_body')
-    @parent
+
 
     <!-- Autosize Plugin Js -->
     <script src="{{asset('plugins/autosize/autosize.js')}}"></script>

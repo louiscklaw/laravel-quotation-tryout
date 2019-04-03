@@ -24,8 +24,9 @@
                         <a href="{{ route($vep_route_target.'.pdf',['id'=>$record->id]) }}">pdf</a>
                         <a href="{{ route($vep_route_target.'.htmlpdf',['id'=>$record->id]) }}">htmlpdf</a>
                     </td>
+
                     @foreach(array_keys($record->getAttributes()) as $field_name)
-                        <td>{{$record->$field_name}}</td>
+                        <td>{{(strlen($record->$field_name) > 50) ? substr($record->$field_name, 0, 50).'...' : $record->$field_name }}</td>
                     @endforeach
 
                 </tr>

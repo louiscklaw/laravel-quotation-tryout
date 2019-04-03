@@ -18,3 +18,11 @@ Route::get('/', function () {
 Route::get('/phpinfo', function () {
     return view('phpinfo');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::post('/update/helloworld', 'helloworldController@update')->name('helloworld.update');
+
+Route::get('/helloworld', 'helloworldController@index')->name('helloworld.index');

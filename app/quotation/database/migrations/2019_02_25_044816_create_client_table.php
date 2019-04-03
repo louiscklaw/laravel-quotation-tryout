@@ -13,29 +13,39 @@ class CreateClientTable extends Migration
      */
     public function up()
     {
+        Schema::dropIfExists('client');
+
         Schema::create('client', function (Blueprint $table) {
+            $table->engine = 'MyISAM';
+            $table->charset = 'utf8';
+            $table->collation = 'utf8_unicode_ci';
+
             $table->increments('id');
-            $table->string('client_cat')->nullable();
-            $table->string('client_name')->nullable();
-            $table->string('client_cname')->nullable();
-            $table->string('client_ename')->nullable();
-            $table->string('client_address')->nullable();
-            $table->string('client_contact')->nullable();
-            $table->string('client_contact_tel')->nullable();
-            $table->string('client_contact_mobile')->nullable();
-            $table->string('client_contact_fax')->nullable();
-            $table->string('client_contact_email')->nullable();
-            $table->string('client_relatedsales')->nullable();
-            $table->string('client_cr_code')->nullable();
-            $table->string('client_change_time')->nullable();
-            $table->string('client_owner_name')->nullable();
-            $table->string('client_remark')->nullable();
-            $table->string('client_remark2')->nullable();
-            $table->string('client_remark3')->nullable();
-            $table->string('client_last_mod_user')->nullable();
-            $table->string('client_creation_time')->nullable();
-            $table->string('client_last_mod_time')->nullable();
-            $table->timestamps();
+
+            $string_columns = [
+                'client_name',
+                'client_cname',
+                'client_gender',
+                'client_brithday',
+                'client_whatsapp',
+                'client_mobile',
+                'client_address',
+                'client_email',
+                'client_date',
+                'client_status',
+                'client_create_at',
+                'client_update_at'
+            ];
+
+            foreach($string_columns as $string_column)
+            {
+                $table->string($string_column)
+                    ->nullable()
+                    ->index($string_column);
+            }
+
+            $table->text('client_desc')->nullable();
+            $table->text('client_remarks')->nullable();
         });
     }
 

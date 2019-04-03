@@ -1,419 +1,257 @@
+@php
+    $menuitems=
+        [
+            'home'=>[
+                'text'=>'Home', 'icon'=>'assignment', 'link'=>route('quotation.home'),
+            ],
+
+            'posts'=>[
+                'text'=>'Posts', 'icon'=>'assignment',
+                'subitem' => [
+                    'new'=>[
+                        'text'=>'New', 'icon'=>'assignment', 'link'=>route('posts.create')
+                    ],
+                    'list'=>[
+                        'text'=>'List', 'icon'=>'assignment', 'link'=>route('posts.index')
+                    ],
+                ]
+            ],
+
+            'page'=>[
+                'text'=>'Page', 'icon'=>'assignment',
+                'subitem' => [
+                    'new'=>[
+                        'text'=>'New', 'icon'=>'assignment', 'link'=>route('page.create')
+                    ],
+                    'list'=>[
+                        'text'=>'List', 'icon'=>'assignment', 'link'=>route('page.index')
+                    ],
+                ]
+            ],
+
+            'tools'=>[
+                'text'=>'Tools', 'icon'=>'assignment',
+                'subitem' => [
+                    'new'=>[
+                        'text'=>'New', 'icon'=>'assignment', 'link'=>route('quotation.create')
+                    ],
+                    'list'=>[
+                        'text'=>'List', 'icon'=>'assignment', 'link'=>route('quotation.index')
+                    ],
+                ]
+            ],
+
+            'quotation'=>[
+                'text'=>'Quotation', 'icon'=>'assignment',
+                'subitem' => [
+                    'new'=>[
+                        'text'=>'New', 'icon'=>'assignment', 'link'=>route('quotation.create')
+                    ],
+                    'list'=>[
+                        'text'=>'List', 'icon'=>'assignment', 'link'=>route('quotation.index')
+                    ],
+                ]
+            ],
+
+            'delivery'=>[
+                'text'=>'Delivery', 'icon'=>'assignment',
+                'subitem' => [
+                    'new'=>[
+                        'text'=>'New', 'icon'=>'assignment', 'link'=>route('quotation.create')
+                    ],
+                    'list'=>[
+                        'text'=>'List', 'icon'=>'assignment', 'link'=>route('quotation.index')
+                    ],
+                ]
+            ],
+
+            'collection'=>[
+                'text'=>'Collection', 'icon'=>'assignment',
+                'subitem' => [
+                    'new'=>[
+                        'text'=>'New', 'icon'=>'assignment', 'link'=>route('quotation.create')
+                    ],
+                    'list'=>[
+                        'text'=>'List', 'icon'=>'assignment', 'link'=>route('quotation.index')
+                    ],
+                ]
+            ],
+
+            'lnd'=>[
+                'text'=>'LnD', 'icon'=>'assignment',
+                'subitem' => [
+                    'new'=>[
+                        'text'=>'New', 'icon'=>'assignment', 'link'=>route('quotation.create')
+                    ],
+                    'list'=>[
+                        'text'=>'List', 'icon'=>'assignment', 'link'=>route('quotation.index')
+                    ],
+                ]
+            ],
+
+
+            'invoice'=>[
+                'text'=>'Invoice', 'icon'=>'assignment',
+                'subitem' => [
+                    'new'=>[
+                        'text'=>'New', 'icon'=>'assignment', 'link'=>route('quotation.create')
+                    ],
+                    'list'=>[
+                        'text'=>'List', 'icon'=>'assignment', 'link'=>route('quotation.index')
+                    ],
+                ]
+            ],
+
+
+            'inventory'=>[
+                'text'=>'Inventory', 'icon'=>'assignment',
+                'subitem' => [
+                    'new'=>[
+                        'text'=>'New', 'icon'=>'assignment', 'link'=>route('quotation.create')
+                    ],
+                    'list'=>[
+                        'text'=>'List', 'icon'=>'assignment', 'link'=>route('quotation.index')
+                    ],
+                ]
+            ],
+
+
+            'price'=>[
+                'text'=>'Price', 'icon'=>'assignment',
+                'subitem' => [
+                    'new'=>[
+                        'text'=>'New', 'icon'=>'assignment', 'link'=>route('quotation.create')
+                    ],
+                    'list'=>[
+                        'text'=>'List', 'icon'=>'assignment', 'link'=>route('quotation.index')
+                    ],
+                ]
+            ],
+
+            'customer'=>[
+                'text'=>'Customer', 'icon'=>'assignment',
+                'subitem' => [
+
+                    'Company'=>[
+                        'text'=>'Company', 'icon'=>'assignment',
+                        'subitem'=>[
+                            'new'=>[
+                                'text'=>'New', 'icon'=>'assignment', 'link'=>route('company.create')
+                            ],
+                            'list'=>[
+                                'text'=>'List', 'icon'=>'assignment', 'link'=>route('company.index')
+                            ],
+                        ]],
+                    'Client'=>[
+                        'text'=>'Client', 'icon'=>'assignment', 'link'=>route('client.create'),
+                        'subitem'=>[
+                            'new'=>[
+                                'text'=>'New', 'icon'=>'assignment', 'link'=>route('client.create')
+                            ],
+                            'list'=>[
+                                'text'=>'List', 'icon'=>'assignment', 'link'=>route('client.index')
+                            ],
+                        ]],
+                    'Site'=>[
+                        'text'=>'Site(DeliveryContact)', 'icon'=>'assignment', 'link'=>route('site.create'),
+                        'subitem'=>[
+                            'new'=>[
+                                'text'=>'New', 'icon'=>'assignment', 'link'=>route('site.create')
+                            ],
+                            'list'=>[
+                                'text'=>'List', 'icon'=>'assignment', 'link'=>route('site.index')
+                            ],
+
+                        ]],
+                    'ConstSite'=>['text'=>'ConstSite', 'icon'=>'assignment', 'link'=>route('quotation.create')],
+                    'Siteitem'=>['text'=>'Siteitem', 'icon'=>'assignment', 'link'=>route('quotation.create')],
+                ]
+            ],
+
+            'colleagues'=>[
+                    'text'=>'Colleagues', 'icon'=>'assignment',
+                    'subitem' => [
+                        'new'=>[
+                            'text'=>'New', 'icon'=>'assignment', 'link'=>route('colleagues.create')
+                        ],
+                        'list'=>[
+                            'text'=>'List', 'icon'=>'assignment', 'link'=>route('colleagues.index')
+                        ],
+                    ]
+            ],
+
+            'reports'=>[
+                    'text'=>'reports', 'icon'=>'warning',
+                    'link' => route('reports.index')
+            ],
+
+            'helloworld'=>[
+                    'text'=>'helloworld', 'icon'=>'warning',
+                    'link' => route('helloworld.index')
+            ],
+
+        ];
+
+@endphp
 <div class="menu">
     <ul class="list">
         <li class="header">MAIN NAVIGATION</li>
-        <li class="active">
-            <a href="index.html">
-                <i class="material-icons">home</i>
-                <span>Home</span>
-            </a>
-        </li>
-        <li>
-            <a href="javascript:void(0);" class="menu-toggle">
-                <i class="material-icons">text_fields</i>
-                <span>Quotation</span>
-            </a>
-            <ul class="ml-menu">
-                <li>
-                    <a href="{{route('quotation.create')}}">New</a>
-                </li>
-                <li>
-                    <a href="{{ route('quotation.index') }}">List</a>
-                </li>
-            </ul>
-        </li>
-        <li>
-            <a href="javascript:void(0);" class="menu-toggle">
-                <i class="material-icons">text_fields</i>
-                <span>Client</span>
-            </a>
-            <ul class="ml-menu">
-                <li>
-                    <a href="{{route('client.create')}}">New</a>
-                </li>
-                <li>
-                    <a href="{{ route('client.index') }}">List</a>
-                </li>
-            </ul>
-        </li>
-        <li>
-            <a href="javascript:void(0);" class="menu-toggle">
-                <i class="material-icons">text_fields</i>
-                <span>Users</span>
-            </a>
-            <ul class="ml-menu">
-                <li>
-                    <a href="{{route('user.create')}}">New</a>
-                </li>
-                <li>
-                    <a href="{{ route('user.index') }}">List</a>
-                </li>
-            </ul>
-        </li>
-        <li>
-            <a href="phpinfo">
-                <i class="material-icons">text_fields</i>
-                <span>phpinfo</span>
-            </a>
-        </li>
-        <!-- <ul class="ml-menu">
-            <li>
-                <a href="javascript:void(0);" class="menu-toggle">
-                    <span>Debug</span>
-                </a>
-                <ul class="ml-menu">
+            @foreach($menuitems as $itemname => $itemvalue)
+                @if (strtolower(explode('_',$mn_highlight)[0]) == strtolower($itemname))
+                    <li class="active">
+                @else
                     <li>
-                        <a href="debug/client">Client</a>
-                    </li>
-                    <li>
-                        <a href="debug/user">User</a>
-                    </li>
-                    <li>
-                        <a href="debug/quotation">Quotation</a>
-                    </li>
-                </ul>
-            </li>
-        </ul> -->
-        <li>
-            <a href="javascript:void(0);" class="menu-toggle">
-                <i class="material-icons">map</i>
-                <span>Debug</span>
-            </a>
-            <ul class="ml-menu">
-                <li>
-                    <a href="{{route('debug_client.debug_list')}}">Client</a>
-                </li>
-                <li>
-                    <a href="{{route('debug_user.debug_list')}}">User</a>
-                </li>
-                <li>
-                    <a href="{{route('debug_quot.debug_index')}}">Quotation</a>
-                </li>
-            </ul>
-        </li>
-        <!--
-        <li>
-            <a href="pages/helper-classes.html">
-                <i class="material-icons">layers</i>
-                <span>Helper Classes</span>
-            </a>
-        </li>
-        <li>
-            <a href="javascript:void(0);" class="menu-toggle">
-                <i class="material-icons">widgets</i>
-                <span>Widgets</span>
-            </a>
-            <ul class="ml-menu">
-                <li>
-                    <a href="javascript:void(0);" class="menu-toggle">
-                        <span>Cards</span>
-                    </a>
-                    <ul class="ml-menu">
-                        <li>
-                            <a href="pages/widgets/cards/basic.html">Basic</a>
-                        </li>
-                        <li>
-                            <a href="pages/widgets/cards/colored.html">Colored</a>
-                        </li>
-                        <li>
-                            <a href="pages/widgets/cards/no-header.html">No Header</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="javascript:void(0);" class="menu-toggle">
-                        <span>Infobox</span>
-                    </a>
-                    <ul class="ml-menu">
-                        <li>
-                            <a href="pages/widgets/infobox/infobox-1.html">Infobox-1</a>
-                        </li>
-                        <li>
-                            <a href="pages/widgets/infobox/infobox-2.html">Infobox-2</a>
-                        </li>
-                        <li>
-                            <a href="pages/widgets/infobox/infobox-3.html">Infobox-3</a>
-                        </li>
-                        <li>
-                            <a href="pages/widgets/infobox/infobox-4.html">Infobox-4</a>
-                        </li>
-                        <li>
-                            <a href="pages/widgets/infobox/infobox-5.html">Infobox-5</a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-        </li>
-        <li>
-            <a href="javascript:void(0);" class="menu-toggle">
-                <i class="material-icons">swap_calls</i>
-                <span>User Interface (UI)</span>
-            </a>
-            <ul class="ml-menu">
-                <li>
-                    <a href="pages/ui/alerts.html">Alerts</a>
-                </li>
-                <li>
-                    <a href="pages/ui/animations.html">Animations</a>
-                </li>
-                <li>
-                    <a href="pages/ui/badges.html">Badges</a>
-                </li>
+                @endif
 
-                <li>
-                    <a href="pages/ui/breadcrumbs.html">Breadcrumbs</a>
-                </li>
-                <li>
-                    <a href="pages/ui/buttons.html">Buttons</a>
-                </li>
-                <li>
-                    <a href="pages/ui/collapse.html">Collapse</a>
-                </li>
-                <li>
-                    <a href="pages/ui/colors.html">Colors</a>
-                </li>
-                <li>
-                    <a href="pages/ui/dialogs.html">Dialogs</a>
-                </li>
-                <li>
-                    <a href="pages/ui/icons.html">Icons</a>
-                </li>
-                <li>
-                    <a href="pages/ui/labels.html">Labels</a>
-                </li>
-                <li>
-                    <a href="pages/ui/list-group.html">List Group</a>
-                </li>
-                <li>
-                    <a href="pages/ui/media-object.html">Media Object</a>
-                </li>
-                <li>
-                    <a href="pages/ui/modals.html">Modals</a>
-                </li>
-                <li>
-                    <a href="pages/ui/notifications.html">Notifications</a>
-                </li>
-                <li>
-                    <a href="pages/ui/pagination.html">Pagination</a>
-                </li>
-                <li>
-                    <a href="pages/ui/preloaders.html">Preloaders</a>
-                </li>
-                <li>
-                    <a href="pages/ui/progressbars.html">Progress Bars</a>
-                </li>
-                <li>
-                    <a href="pages/ui/range-sliders.html">Range Sliders</a>
-                </li>
-                <li>
-                    <a href="pages/ui/sortable-nestable.html">Sortable & Nestable</a>
-                </li>
-                <li>
-                    <a href="pages/ui/tabs.html">Tabs</a>
-                </li>
-                <li>
-                    <a href="pages/ui/thumbnails.html">Thumbnails</a>
-                </li>
-                <li>
-                    <a href="pages/ui/tooltips-popovers.html">Tooltips & Popovers</a>
-                </li>
-                <li>
-                    <a href="pages/ui/waves.html">Waves</a>
-                </li>
-            </ul>
-        </li>
-        <li>
-            <a href="javascript:void(0);" class="menu-toggle">
-                <i class="material-icons">assignment</i>
-                <span>Forms</span>
-            </a>
-            <ul class="ml-menu">
-                <li>
-                    <a href="pages/forms/basic-form-elements.html">Basic Form Elements</a>
-                </li>
-                <li>
-                    <a href="pages/forms/advanced-form-elements.html">Advanced Form Elements</a>
-                </li>
-                <li>
-                    <a href="pages/forms/form-examples.html">Form Examples</a>
-                </li>
-                <li>
-                    <a href="pages/forms/form-validation.html">Form Validation</a>
-                </li>
-                <li>
-                    <a href="pages/forms/form-wizard.html">Form Wizard</a>
-                </li>
-                <li>
-                    <a href="pages/forms/editors.html">Editors</a>
-                </li>
-            </ul>
-        </li>
-        <li>
-            <a href="javascript:void(0);" class="menu-toggle">
-                <i class="material-icons">view_list</i>
-                <span>Tables</span>
-            </a>
-            <ul class="ml-menu">
-                <li>
-                    <a href="pages/tables/normal-tables.html">Normal Tables</a>
-                </li>
-                <li>
-                    <a href="pages/tables/jquery-datatable.html">Jquery Datatables</a>
-                </li>
-                <li>
-                    <a href="pages/tables/editable-table.html">Editable Tables</a>
-                </li>
-            </ul>
-        </li>
-        <li>
-            <a href="javascript:void(0);" class="menu-toggle">
-                <i class="material-icons">perm_media</i>
-                <span>Medias</span>
-            </a>
-            <ul class="ml-menu">
-                <li>
-                    <a href="pages/medias/image-gallery.html">Image Gallery</a>
-                </li>
-                <li>
-                    <a href="pages/medias/carousel.html">Carousel</a>
-                </li>
-            </ul>
-        </li>
-        <li>
-            <a href="javascript:void(0);" class="menu-toggle">
-                <i class="material-icons">pie_chart</i>
-                <span>Charts</span>
-            </a>
-            <ul class="ml-menu">
-                <li>
-                    <a href="pages/charts/morris.html">Morris</a>
-                </li>
-                <li>
-                    <a href="pages/charts/flot.html">Flot</a>
-                </li>
-                <li>
-                    <a href="pages/charts/chartjs.html">ChartJS</a>
-                </li>
-                <li>
-                    <a href="pages/charts/sparkline.html">Sparkline</a>
-                </li>
-                <li>
-                    <a href="pages/charts/jquery-knob.html">Jquery Knob</a>
-                </li>
-            </ul>
-        </li>
-        <li>
-            <a href="javascript:void(0);" class="menu-toggle">
-                <i class="material-icons">content_copy</i>
-                <span>Example Pages</span>
-            </a>
-            <ul class="ml-menu">
-                <li>
-                    <a href="pages/examples/profile.html">Profile</a>
-                </li>
-                <li>
-                    <a href="pages/examples/sign-in.html">Sign In</a>
-                </li>
-                <li>
-                    <a href="pages/examples/sign-up.html">Sign Up</a>
-                </li>
-                <li>
-                    <a href="pages/examples/forgot-password.html">Forgot Password</a>
-                </li>
-                <li>
-                    <a href="pages/examples/blank.html">Blank Page</a>
-                </li>
-                <li>
-                    <a href="pages/examples/404.html">404 - Not Found</a>
-                </li>
-                <li>
-                    <a href="pages/examples/500.html">500 - Server Error</a>
-                </li>
-            </ul>
-        </li>
-        <li>
-            <a href="javascript:void(0);" class="menu-toggle">
-                <i class="material-icons">map</i>
-                <span>Maps</span>
-            </a>
-            <ul class="ml-menu">
-                <li>
-                    <a href="pages/maps/google.html">Google Map</a>
-                </li>
-                <li>
-                    <a href="pages/maps/yandex.html">YandexMap</a>
-                </li>
-                <li>
-                    <a href="pages/maps/jvectormap.html">jVectorMap</a>
-                </li>
-            </ul>
-        </li>
-        <li>
-            <a href="javascript:void(0);" class="menu-toggle">
-                <i class="material-icons">trending_down</i>
-                <span>Multi Level Menu</span>
-            </a>
-            <ul class="ml-menu">
-                <li>
-                    <a href="javascript:void(0);">
-                        <span>Menu Item</span>
+                    @if (isset($itemvalue['subitem']))
+                        <a href="javascript:void(0);" class="menu-toggle">
+                    @else
+                        <a href="{{ $itemvalue['link'] }}">
+                    @endif
+
+                        <i class="material-icons">{{ $itemvalue['icon'] }}</i>
+                        <span>{{$itemvalue['text']}}</span>
                     </a>
-                </li>
-                <li>
-                    <a href="javascript:void(0);">
-                        <span>Menu Item - 2</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="javascript:void(0);" class="menu-toggle">
-                        <span>Level - 2</span>
-                    </a>
-                    <ul class="ml-menu">
-                        <li>
-                            <a href="javascript:void(0);">
-                                <span>Menu Item</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0);" class="menu-toggle">
-                                <span>Level - 3</span>
-                            </a>
+                    @if (isset($itemvalue['subitem']))
+
                             <ul class="ml-menu">
-                                <li>
-                                    <a href="javascript:void(0);">
-                                        <span>Level - 4</span>
-                                    </a>
-                                </li>
+                            @foreach($itemvalue['subitem'] as $subitem_name => $subitem_value)
+                                @if (strtolower(explode('_',$mn_highlight)[0]) == strtolower($itemname) && strtolower(explode('_',$mn_highlight)[1]) == strtolower($subitem_name))
+                                    <li class="active">
+                                @else
+                                    <li>
+                                @endif
+                                        <!-- <a> -->
+                                        @if (isset($subitem_value['subitem']))
+                                            <a href="javascript:void(0);" class="menu-toggle">
+                                        @else
+                                            <a href="{{ $subitem_value['link'] }}">
+                                        @endif
+                                            <!-- <i class="material-icons">{{ $subitem_value['icon'] }}</i> -->
+                                            {{$subitem_value['text']}}
+                                        </a>
+
+                                    @if (isset($subitem_value['subitem']))
+                                        <ul class="ml-menu">
+                                        @foreach($subitem_value['subitem'] as $thirditem_name => $thirditem_value)
+                                        @if (strtolower(explode('_',$mn_highlight)[0]) == strtolower($itemname) && strtolower(explode('_',$mn_highlight)[1]) == strtolower($subitem_name) && strtolower(explode('_',$mn_highlight)[2]) == strtolower($thirditem_name))
+                                            <li class="active">
+                                        @else
+                                            <li>
+                                        @endif
+                                                <a href="{{ $thirditem_value['link'] }}">
+                                                    {{$thirditem_value['text']}}
+                                                </a>
+                                            </li>
+                                        @endforeach
+                                        </ul>
+                                    @endif
+                                    </li>
+                            @endforeach
                             </ul>
-                        </li>
-                    </ul>
+                    @endif
                 </li>
-            </ul>
+            @endforeach
         </li>
-        <li>
-            <a href="pages/changelogs.html">
-                <i class="material-icons">update</i>
-                <span>Changelogs</span>
-            </a>
-        </li>
-        <li class="header">LABELS</li>
-        <li>
-            <a href="javascript:void(0);">
-                <i class="material-icons col-red">donut_large</i>
-                <span>Important</span>
-            </a>
-        </li>
-        <li>
-            <a href="javascript:void(0);">
-                <i class="material-icons col-amber">donut_large</i>
-                <span>Warning</span>
-            </a>
-        </li>
-        <li>
-            <a href="javascript:void(0);">
-                <i class="material-icons col-light-blue">donut_large</i>
-                <span>Information</span>
-            </a>
-        </li>
-        -->
     </ul>
 </div>

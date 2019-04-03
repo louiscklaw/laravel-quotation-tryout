@@ -8,7 +8,7 @@
             <div class="card">
                 <div class="header">
                     <h2>
-                        Company
+                        Company {{ $record->company_name }}
                         <small>Company information</small>
                     </h2>
                 </div>
@@ -22,7 +22,7 @@
                                     {{ __('English name')}}
                                 </div>
                                 <div class="col-sm-8">
-                                    test company name
+                                    {{ $record->company_ename }}
                                 </div>
                             </div>
 
@@ -31,7 +31,7 @@
                                     {{ __('Chinese name')}}
                                 </div>
                                 <div class="col-sm-8">
-                                    test company name
+                                    {{ $record->company_cname }}
                                 </div>
                             </div>
 
@@ -40,7 +40,7 @@
                                     {{ __('Short name')}}
                                 </div>
                                 <div class="col-sm-8">
-                                    test company name
+                                    {{ $record->company_name }}
                                 </div>
                             </div>
 
@@ -49,7 +49,7 @@
                                     {{ __('Address')}}
                                 </div>
                                 <div class="col-sm-8">
-                                    test company address
+                                    {{ $record->company_address }}
                                 </div>
                             </div>
 
@@ -58,7 +58,7 @@
                                     {{ __('Contact name')}}
                                 </div>
                                 <div class="col-sm-8">
-                                    test company name
+                                    {{ $record->company_contact }}
                                 </div>
                             </div>
                         </div>
@@ -68,8 +68,7 @@
                         <div class="card">
                 <div class="header">
                     <h2>
-                        Company
-                        <small>Company information</small>
+                        <small>Contact information</small>
                     </h2>
                 </div>
 
@@ -81,7 +80,7 @@
                                     {{ __('Contract tel')}}
                                 </div>
                                 <div class="col-sm-8">
-                                    test company name
+                                    {{ $record->company_contact_tel }}
                                 </div>
                             </div>
 
@@ -90,7 +89,7 @@
                                     {{ __('Contract mobile')}}
                                 </div>
                                 <div class="col-sm-8">
-                                    test company name
+                                    {{ $record->company_contact_mobile }}
                                 </div>
                             </div>
 
@@ -99,7 +98,7 @@
                                     {{ __('Contract fax')}}
                                 </div>
                                 <div class="col-sm-8">
-                                    test company name
+                                    {{ $record->company_contact_fax }}
                                 </div>
                             </div>
 
@@ -108,7 +107,7 @@
                                     {{ __('Contract email')}}
                                 </div>
                                 <div class="col-sm-8">
-                                    test company name
+                                    {{ $record->company_contact_email }}
                                 </div>
                             </div>
 
@@ -117,7 +116,7 @@
                                     {{ __('sales')}}
                                 </div>
                                 <div class="col-sm-8">
-                                    test company name
+                                    {{ $record->company_relatedsales}}
                                 </div>
                             </div>
 
@@ -126,7 +125,7 @@
                                     {{ __('BR code')}}
                                 </div>
                                 <div class="col-sm-8">
-                                    test company name
+                                    {{ $record->company_cr_code}}
                                 </div>
                             </div>
 
@@ -135,7 +134,7 @@
                                     {{ __('owner name')}}
                                 </div>
                                 <div class="col-sm-8">
-                                    test company name
+                                    {{ $record->company_owner_name }}
                                 </div>
                             </div>
 

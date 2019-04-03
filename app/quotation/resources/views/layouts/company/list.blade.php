@@ -100,12 +100,12 @@
                     type:"GET"
                 },
                 columns: [
-                    { "data": "client_name" },
-                    { "data": "client_gender" },
-                    { "data": "client_whatsapp" },
-                    { "data": "client_mobile" },
-                    { "data": "client_brithday" },
-                    { "data": "client_email" },
+                    { "data": "company_name" },
+                    { "data": "company_contact" },
+                    { "data": "company_contact_email" },
+                    { "data": "company_address" },
+                    { "data": "company_contact_mobile" },
+                    { "data": "company_contact_tel" },
                     { "data": "action" },
                     ],
 

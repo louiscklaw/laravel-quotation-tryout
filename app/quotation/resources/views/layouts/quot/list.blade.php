@@ -103,11 +103,11 @@
                 },
                 columns: [
                     { "data": "quot_ref" },
-                    { "data": "quot_startday" },
-                    { "data": "quot_client_id" },
-                    { "data": "quot_site_id" },
-                    { "data": "quot_jobtype" },
-                    { "data": "quot_deposit" },
+                    { "data": "quot_date" },
+                    { "data": "quot_to_name" },
+                    { "data": "quot_to_address" },
+                    { "data": "quot_discount" },
+                    { "data": "quot_total" },
                     { "data": "action" },
                     ],
 

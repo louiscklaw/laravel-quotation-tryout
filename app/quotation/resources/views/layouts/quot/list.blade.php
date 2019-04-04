@@ -8,13 +8,63 @@
 @section('content')
 <section class="content">
     <div class="container-fluid">
-        <!-- <div class="block-header">
-            <h2>basic form elements</h2>
-        </div> -->
+            <!-- Exportable Table -->
+            <div class="row clearfix">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2>
+                                Current Quotation
+                            </h2>
+                            <ul class="header-dropdown m-r--5">
+                                <li class="dropdown">
+                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                        <i class="material-icons">more_vert</i>
+                                    </a>
+                                    <ul class="dropdown-menu pull-right">
+                                        <li><a href="javascript:void(0);">View 1</a></li>
+                                        <li><a href="javascript:void(0);">View 2</a></li>
+                                        <li><a href="javascript:void(0);">View 3</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-striped table-hover dataTable js-exportable" id="test_table">
+                                    <thead>
+                                        <tr>
+                                            <th>Quot id</th>
+                                            <th>Create date</th>
+                                            <th>Client</th>
+                                            <th>Site</th>
+                                            <th>jobType</th>
+                                            <th>deposit</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>Quot id</th>
+                                            <th>Create date</th>
+                                            <th>Client</th>
+                                            <th>Site</th>
+                                            <th>jobType</th>
+                                            <th>deposit</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
 
-        <div class="col-sm-12">
-            @include('layouts.components.datatable')
-        </div>
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- #END# Exportable Table -->
     </div>
 </section>
 
@@ -24,26 +74,48 @@
 @push('blank_scripts_body')
 
 
-    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+    @include('layouts.js_datatable')
+
     <script>
-        $(document).ready( function () {
-            $('#table_id').DataTable();
-        } );
+        $('document').ready(function(){
+            // // Setup - add a text input to each footer cell
+            $('#test_table thead tr').clone(true).appendTo( '#test_table thead' );
+            $('#test_table thead tr:eq(1) th').each( function (i) {
+                var title = $(this).text();
+                $(this).html( '<input type="text" style="width:100%;"  class="form-control input-sm" placeholder="Search '+title+'" />' );
+
+                $( 'input', this ).on( 'keyup change', function () {
+                    if ( table.column(i).search() !== this.value ) {
+                        table
+                            .column(i)
+                            .search( this.value )
+                            .draw();
+                    }
+                } );
+            } );
+
+            var table = $('#test_table').DataTable( {
+                orderCellsTop: true,
+                fixedHeader: true,
+                ajax: {
+                    "url": "{{ route('Quot.index_table_content') }}",
+                    type:"GET"
+                },
+                columns: [
+                    { "data": "quot_ref" },
+                    { "data": "quot_startday" },
+                    { "data": "quot_client_id" },
+                    { "data": "quot_site_id" },
+                    { "data": "quot_jobtype" },
+                    { "data": "quot_deposit" },
+                    { "data": "action" },
+                    ],
+
+            } );
+
+            table.columns.adjust().draw();
+        });
+
     </script>
-
-    <!-- Autosize Plugin Js -->
-    <script src="{{asset('plugins/autosize/autosize.js')}}"></script>
-
-    <!-- Moment Plugin Js -->
-    <script src="{{asset('plugins/momentjs/moment.js')}}"></script>
-
-    <!-- Bootstrap Material Datetime Picker Plugin Js -->
-    <script src="{{asset('plugins/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js')}}"></script>
-
-    <!-- Bootstrap Datepicker Plugin Js -->
-    <script src="{{asset('plugins/bootstrap-datepicker/js/bootstrap-datepicker.js')}}"></script>
-
-    <!-- Custom Js -->
-    <script src="{{asset('js/pages/forms/basic-form-elements.js')}}"></script>
 
 @endpush

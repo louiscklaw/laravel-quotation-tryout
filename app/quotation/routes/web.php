@@ -9,14 +9,21 @@ Route::match(['get','post'], '/helloworld', 'helloworldController@index')->name(
 Route::get('/helloget', 'helloworldController@index')->name('helloworld.index');
 Route::post('/hellopost', 'helloworldController@index')->name('helloworld.hellopost');
 
+Route::get('/quotation', function () {
+    return view('quotation');
+});
+
+include 'debug_route.php';
 // include 'client_route.php';
 // include 'company_route.php';
 // include 'user_route.php';
-// include 'quot_route.php';
+include 'quot_route.php';
 // include 'pdf_route.php';
 
 // include 'posts_route.php';
 // include 'page_route.php';
+
+// include 'colleagues_route.php';
 
 // include 'colleagues_route.php';
 
@@ -30,7 +37,8 @@ $record_type=array(
     'company',
     'site',
     'client',
-    'colleagues'
+    'colleagues',
+    'Quot'
 );
 
 

@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+
 use Illuminate\Http\Request;
 
+use Carbon\Carbon;
 use Yajra\Datatables\Datatables;
 
 use App\Quot;
@@ -102,17 +104,16 @@ class Quot_helper
         return array($quot_record, $quotitem_records);
     }
 
-    function create_default()
+    public static function save_as($req)
     {
+        $value = $req;
+        $new_quot = new Quot;
+        $new_quot->save($req);
 
+        return $new_quot;
     }
 
-    public function create()
-    {
-
-    }
-
-    public function save($id, $req)
+    public static function save($id, $req)
     {
         $value = $req->all();
         $target_record = $this->get_record($id)[0];
@@ -127,6 +128,53 @@ class Quot_helper
     public static function get_all()
     {
         return Quot::all();
+    }
+
+    // quotitem_array is the array of array in the following order
+    // [quotitem_name[], quotitem_quantity[], quotitem_unitprice[], quotitem_subtotal[]]
+    public static function bloat_quotitem_from_form($quotitems)
+    {
+        $output = [];
+
+        for($i=0; $i < sizeof($quotitems); $i++)
+        {
+            $output[$i]['name']=$quotitems[0][$i];
+            $output[$i]['quantity']=$quotitems[1][$i];
+            $output[$i]['unitprice']=$quotitems[2][$i];
+            $output[$i]['subtotal']=$quotitems[3][$i];
+        }
+
+        return $output;
+
+    }
+
+    public static function form_quot_ref($number)
+    {
+        return sprintf('QUO%05d', $number);
+    }
+
+    public static function get_last_quot_number()
+    {
+        $last_id = Quot::orderBy('id', 'DESC')->take(1)->get();
+        return $last_id[0];
+    }
+
+    public static function get_new_quot_number()
+    {
+
+        $last_quot_ref = self::get_last_quot_number()->quot_ref;
+        $number_part = substr($last_quot_ref,3,99);
+
+        return self::form_quot_ref($number_part+1);
+    }
+
+    public static function new_quot_default_value($quot)
+    {
+
+        $quot->quot_ref = Quot_Helper::get_new_quot_number();
+        $quot->quot_date = Carbon::now();
+
+        return $quot;
     }
 
 }
@@ -145,16 +193,31 @@ class QuotController extends Controller
             ]);
     }
 
-    public function store()
+    public function store(Request $req)
     {
-        return $this->index();
+        // tidy up for bloat
+        $quotitem = Quot_helper::bloat_quotitem_from_form(
+            [$req['quotitem_name'],
+            $req['quotitem_quantity'],
+            $req['quotitem_unitprice'],
+            $req['quotitem_subtotal']]
+        );
+
+        $new_quot_values = $req->all();
+        $new_quot = Quot_helper::save_as($new_quot_values);
+        $id = $new_quot->id;
+
+        return redirect()->route('Quot.show',compact('id'));
     }
 
     public function create()
     {
+        $default_max_product_num = 5;
+
         $quotitem_records = array();
 
         $new_quot_record = new Quot;
+        $new_quot_record = Quot_Helper::new_quot_default_value($new_quot_record);
 
         $client_name_list = Client::pluck('client_cname','id');
 
@@ -166,7 +229,8 @@ class QuotController extends Controller
 
 
         return view('layouts.quot.edit',[
-            'record'=>$new_quot_record,
+            'quot'=>$new_quot_record,
+            'default_max_product_num'=>$default_max_product_num,
             'quotitem_records'=>$quotitem_records,
             'form_action' =>'create',
             'editor_name'=>'new quotation',
@@ -197,6 +261,7 @@ class QuotController extends Controller
 
     public function edit($id)
     {
+
         $record = new Quot_helper;
         $record = Quot_helper::get_record($id);
 
@@ -204,17 +269,10 @@ class QuotController extends Controller
         $quotitem_records = $record[1];
 
         $client_name_list = Client::pluck('client_cname','id');
-        // var_dump($client_name_list);
-        // die();
-
-        // $test = $quotitem_records[0];
-        // var_dump($quotitem_records[0]->quotitem_ref);
-        // die();
 
         return view('layouts.quot.edit',[
-            'record'=>$quot_record,
+            'quot'=>$quot_record,
             'quotitem_records' => $quotitem_records,
-            'form_action' =>'edit',
             'editor_name'=>'quotation edit',
             'editor_description' => 'quotation edit description',
             'update_controller' =>'QuotController@update',
@@ -264,7 +322,6 @@ class QuotController extends Controller
 
     public function update(Request $req, $id)
     {
-        // var_dump($req);
 
         $quot_record = new Quot_helper;
         $quot_record->save($id, $req);

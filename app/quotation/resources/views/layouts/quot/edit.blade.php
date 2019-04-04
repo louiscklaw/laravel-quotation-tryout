@@ -25,9 +25,10 @@
 
                         <div class="col-lg-3">
                             @if (Request::is('*/create') )
-                                <a class="btn btn-primary" href="{{ route('Quot.store') }}" role="button">{{ __('Create')}}</a>
+                                {!! Form::submit(__('Create'), ['class'=>'btn btn-primary']) !!}
+
                             @else
-                                {!! Form::submit('Save', ['class'=>'btn btn-primary']) !!}
+                                {!! Form::submit(__('Save'), ['class'=>'btn btn-primary']) !!}
 
                                 <a class="btn btn-primary" href="{{ route('Quot.pdf',['id'=>$record->id]) }}" role="button">{{ __('PDF')}}</a>
 

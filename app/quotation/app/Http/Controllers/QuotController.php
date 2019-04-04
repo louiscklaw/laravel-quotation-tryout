@@ -129,6 +129,24 @@ class Quot_helper
         return Quot::all();
     }
 
+    // quotitem_array is the array of array in the following order
+    // [quotitem_name[], quotitem_quantity[], quotitem_unitprice[], quotitem_subtotal[]]
+    public static function bloat_quotitem_from_form($quotitems)
+    {
+        $output = [];
+
+        for($i=0; $i < sizeof($quotitems); $i++)
+        {
+            $output[$i]['name']=$quotitems[0][$i];
+            $output[$i]['quantity']=$quotitems[1][$i];
+            $output[$i]['unitprice']=$quotitems[2][$i];
+            $output[$i]['subtotal']=$quotitems[3][$i];
+        }
+
+        return $output;
+
+    }
+
 }
 
 class QuotController extends Controller
@@ -147,11 +165,14 @@ class QuotController extends Controller
 
     public function store(Request $req)
     {
-        echo 'hello store';
-        die();
-
-
-        var_dump($req['quotitem_name']);
+        // tidy up for bloat
+        $quotitem = Quot_helper::bloat_quotitem_from_form(
+            [$req['quotitem_name'],
+            $req['quotitem_quantity'],
+            $req['quotitem_unitprice'],
+            $req['quotitem_subtotal']]
+        );
+        var_dump($quotitem);
         die();
 
         return $this->index();

@@ -11,19 +11,19 @@
     @endif
 
     <div class="row clearfix">
-        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
 
             <div class="card">
                 <div class="header">
                     <div class="row clearfix">
-                        <div class="col-lg-6">
+                        <div class="col-lg-3">
                             <h2>
                                 Quotatioon Edit
                                 <small>Edit quotation information</small>
                             </h2>
                         </div>
 
-                        <div class="col-lg-6">
+                        <div class="col-lg-3">
                             @if (Request::is('*/create') )
                                 <a class="btn btn-primary" href="{{ route('Quot.store') }}" role="button">{{ __('Create')}}</a>
                             @else
@@ -86,36 +86,7 @@
         </div>
 
 
-        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-            <div class="card">
-                <div class="body">
-                    <div class="row clearfix">
-                        <div class="col-sm-12">
-                            <div class="form-group">
-                                <div class="form-line">
-                                    <label class="form-label">{{ __('Terms & Conditions')}}</label>
-                                    <textarea rows="6" class="form-control no-resize"></textarea>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-sm-12">
-                            <div class="form-group">
-                                <div class="form-line">
-                                    <label class="form-label">{{ __('Remarks')}}</label>
-                                    <textarea rows="6" class="form-control no-resize"></textarea>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-
-            <!-- col end -->
-        </div>
-
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
             <div class="card">
                 <div class="body">
                     <div class="row clearfix">
@@ -163,6 +134,36 @@
 
             <!-- col end -->
         </div>
+
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="card">
+                <div class="body">
+                    <div class="row clearfix">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <label class="form-label">{{ __('Terms & Conditions')}}</label>
+                                    <textarea rows="6" class="form-control no-resize"></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <label class="form-label">{{ __('Remarks')}}</label>
+                                    <textarea rows="6" class="form-control no-resize"></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- col end -->
+        </div>
+
     </div>
 
     {!! Form::close() !!}

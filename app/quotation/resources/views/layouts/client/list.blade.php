@@ -119,6 +119,38 @@
 
             } );
 
+            table.columns().every( function () {
+                var that = this;
+                // var milliseconds = (new Date).getTime();
+                // var test_timeout = null;
+                var input_filter_timeout=null;
+
+                $( 'input', this.footer() ).on( 'keyup change', function () {
+                    input_filter_value=this.value;
+                    clearTimeout(input_filter_timeout);
+                    input_filter_timeout=setTimeout(function(){
+                        that.search( input_filter_value ).draw();
+                    }, 250);
+
+                } );
+                $( 'input', this.footer() ).on( 'change', function () {
+                    input_filter_value=this.value;
+                    clearTimeout(input_filter_timeout);
+                    input_filter_timeout=setTimeout(function(){
+                        that.search( input_filter_value ).draw();
+                    }, 250);
+
+                } );
+                $( 'input', this.footer() ).on( 'search', function () {
+                    input_filter_value=this.value;
+                    clearTimeout(input_filter_timeout);
+                    input_filter_timeout=setTimeout(function(){
+                        that.search( input_filter_value ).draw();
+                    }, 250);
+
+                } );
+
+            } );
             table.columns.adjust().draw();
         });
 

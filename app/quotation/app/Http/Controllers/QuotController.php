@@ -172,8 +172,6 @@ class QuotController extends Controller
             $req['quotitem_unitprice'],
             $req['quotitem_subtotal']]
         );
-        var_dump($quotitem);
-        die();
 
         return $this->index();
     }

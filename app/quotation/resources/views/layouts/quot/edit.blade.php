@@ -61,7 +61,7 @@
                         <div class="col-sm-12">
                             <div class="form-group form-float">
                                 <div class="form-line">
-                                    <label class="form-label">{{ __('From')}}</label>
+                                    <label class="form-label">{{ __('from name')}}</label>
                                     <textarea rows="2" class="form-control no-resize"></textarea>
                                 </div>
                             </div>
@@ -70,18 +70,31 @@
                         <div class="col-sm-12">
                             <div class="form-group form-float">
                                 <div class="form-line">
-                                    <label class="form-label">{{ __('Bill To')}}</label>
+                                    <label class="form-label">{{ __('from address')}}</label>
+                                    <textarea rows="2" class="form-control no-resize"></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12">
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <label class="form-label">{{ __('to name')}}</label>
+                                    <textarea rows="2" class="form-control no-resize"></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12">
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <label class="form-label">{{ __('to address')}}</label>
                                     <textarea rows="2" class="form-control no-resize"></textarea>
                                 </div>
                             </div>
                         </div>
 
                     </div>
-                    <div class="row clearfix">
-
-                    </div>
-
-
                 </div>
             </div>
             <!-- col end -->

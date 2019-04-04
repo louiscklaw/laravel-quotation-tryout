@@ -25,11 +25,11 @@
 
                         <div class="col-lg-6">
                             @if (Request::is('*/create') )
-                                <button type="button" class="btn btn-primary m-t-15 waves-effect">{{ __('Create')}}</button>
+                                <a class="btn btn-primary" href="{{ route('Quot.store') }}" role="button">{{ __('Create')}}</a>
                             @else
-                                <button type="button" class="btn btn-primary m-t-15 waves-effect">{{ __('Save')}}</button>
-                                <a href="{{ route('Quot.update',['id'=>$record->id]) }}">{{ __('Save')}}</a>
-                                <button type="button" class="btn btn-primary m-t-15 waves-effect">{{ __('PDF') }}</button>
+                                <a class="btn btn-primary" href="{{ route('Quot.update',['id'=>$record->id]) }}" role="button">{{ __('Save')}}</a>
+                                <a class="btn btn-primary" href="{{ route('Quot.pdf',['id'=>$record->id]) }}" role="button">{{ __('PDF')}}</a>
+
                             @endif
                         </div>
 

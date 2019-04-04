@@ -147,6 +147,11 @@ class Quot_helper
 
     }
 
+    public static function get_new_quot_number()
+    {
+        return '123456';
+    }
+
 }
 
 class QuotController extends Controller
@@ -183,6 +188,11 @@ class QuotController extends Controller
         $quotitem_records = array();
 
         $new_quot_record = new Quot;
+
+        $new_quot_record->quot_ref = Quot_Helper::get_new_quot_number();
+
+        var_dump($new_quot_record);
+        die();
 
         $client_name_list = Client::pluck('client_cname','id');
 

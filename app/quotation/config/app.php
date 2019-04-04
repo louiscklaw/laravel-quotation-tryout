@@ -181,6 +181,7 @@ return [
         Barryvdh\DomPDF\ServiceProvider::class,
 
         Yajra\DataTables\DataTablesServiceProvider::class,
+        Fx3costa\LaravelChartJs\Providers\ChartjsServiceProvider::class,
 
     ],
 

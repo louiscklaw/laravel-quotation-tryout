@@ -22,6 +22,7 @@ add app/quotation/resources/views/phpinfo.blade.php
 *"league/fractal": "^0.17.0",
 *"yajra/laravel-datatables-oracle": "~7.5"
 *yajra/laravel-datatables-fractal
+*fx3costa/laravelchartjs
 
 ### NOTES:
 `composer create-project --prefer-dist laravel/laravel quotation`

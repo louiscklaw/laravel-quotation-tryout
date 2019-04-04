@@ -37,7 +37,15 @@ class QuotTableSeeder extends Seeder
         {
             echo "\r";
             echo "inert quot $i/$num_quot_to_create";
-            $this->insert_record(sprintf('QUO%05d', $i));
+            $gen_quot_ref = sprintf('QUO%05d', $i);
+            $this->insert_record($gen_quot_ref);
+
+            $quotitem_to_add = random_int(1,10);
+            foreach(range(1,$quotitem_to_add) as $quotitem_idx)
+            {
+                QuotItemTableSeeder::insert_record($gen_quot_ref);
+            }
+
         }
         echo "\n";
     }

@@ -6,9 +6,8 @@ use Yajra\Datatables\Datatables;
 
 use Illuminate\Http\Request;
 
-use App\Transformers\ClientIndexTableTransformer;
-
 use App\Client;
+use App\Transformers\ClientIndexTableTransformer;
 
 
 
@@ -178,9 +177,9 @@ class clientController extends Controller
 
     public function index_table_content()
     {
-        $client_records = Client::all();
+        $clients = Client::all();
 
-        return Datatables::of($client_records)->setTransformer(new ClientIndexTableTransformer)
+        return Datatables::of($clients)->setTransformer(new ClientIndexTableTransformer)
             ->make(true);
     }
 

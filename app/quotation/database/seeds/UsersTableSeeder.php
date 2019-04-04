@@ -36,9 +36,10 @@ class UsersTableSeeder extends Seeder
         $this->insert_test_user();
         foreach(range(1,10) as $user_id)
         {
+            echo "\r";
+            echo "inert user $user_id";
             $this->insert_record($user_id, 'user'.$user_id, '123456');
         }
-
-
+        echo "\n";
     }
 }

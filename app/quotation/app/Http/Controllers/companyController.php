@@ -2,10 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use Yajra\Datatables\Datatables;
+
 use Illuminate\Http\Request;
 
 use App\Common;
+
 use App\Company;
+use App\Transformers\CompanyIndexTableTransformer;
 
 
 class companyHelper
@@ -25,8 +29,17 @@ class companyHelper
 class companyController extends Controller
 {
     //
-    public function show()
+    public function show($id)
     {
+        $company = CompanyHelper::get_record($id);
+        return view('layouts.company.show',[
+            'record'=>$company,
+            'editor_name'=>'client view',
+            'editor_description' => 'client debug viwe description',
+            'update_controller' =>'clientController@update',
+            'store_controller' => 'clientController@store',
+            'mn_highlight' => 'client_list'
+            ]);
 
     }
 
@@ -80,5 +93,13 @@ class companyController extends Controller
     public function store()
     {
         return $this->index();
+    }
+
+    public function index_table_content()
+    {
+        $companys = Company::all();
+
+        return Datatables::of($companys)->setTransformer(new CompanyIndexTableTransformer)
+            ->make(true);
     }
 }

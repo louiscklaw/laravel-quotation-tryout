@@ -87,7 +87,10 @@ class CompanyTableSeeder extends Seeder
         DB::table('company')->delete();
         for($i=0; $i < 10; $i++)
         {
+            echo "\r";
+            echo "inert company $i";
             $this->insert_company_record();
         }
+        echo "\n";
     }
 }

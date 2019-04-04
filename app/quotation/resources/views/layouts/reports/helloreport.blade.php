@@ -5,9 +5,7 @@
     <div class="container-fluid">
         <div class="block-header">
             <h2>
-                ChartJS
-                <small>Taken from <a href="https://github.com/chartjs/Chart.js"
-                        target="_blank">github.com/chartjs/Chart.js</a></small>
+                Sample Charts
             </h2>
         </div>
         <div class="row clearfix">
@@ -31,7 +29,7 @@
                         </ul>
                     </div>
                     <div class="body">
-                        <canvas id="line_chart" height="150"></canvas>
+                        {!! $sample_line_chart->render() !!}
                     </div>
                 </div>
             </div>
@@ -56,7 +54,7 @@
                         </ul>
                     </div>
                     <div class="body">
-                        <canvas id="bar_chart" height="150"></canvas>
+                        {!! $sample_bar_chart->render() !!}
                     </div>
                 </div>
             </div>
@@ -68,7 +66,7 @@
             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                 <div class="card">
                     <div class="header">
-                        <h2>RADAR CHART</h2>
+                        <h2>HORIZONTAL BAR CHART</h2>
                         <ul class="header-dropdown m-r--5">
                             <li class="dropdown">
                                 <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown"
@@ -84,7 +82,8 @@
                         </ul>
                     </div>
                     <div class="body">
-                        <canvas id="radar_chart" height="150"></canvas>
+                        <!-- <canvas id="radar_chart" height="150"></canvas> -->
+                        {!! $sample_horizontal_bar_chart->render() !!}
                     </div>
                 </div>
             </div>
@@ -109,8 +108,7 @@
                         </ul>
                     </div>
                     <div class="body">
-                        <canvas id="myChart" height="150"></canvas>
-
+                        {!! $sample_donghunt_chart->render() !!}
                     </div>
                 </div>
             </div>
@@ -129,8 +127,8 @@
 
     <script>
         $('document').ready(function(){
-            var ctx = document.getElementById('myChart').getContext('2d');
-            var myChart = new Chart(ctx, {
+            var ctx = document.getElementById('bar_chart').getContext('2d');
+            var barChart = new Chart(ctx, {
                 type: 'bar',
                 data: {
                     labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],

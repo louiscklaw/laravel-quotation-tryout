@@ -139,11 +139,12 @@ class clientTableSeeder extends Seeder
 
     public function run()
     {
+        $max_num_client = 999;
         DB::table('client')->truncate();
-        for($i=0; $i < 30; $i++)
+        for($i=0; $i < $max_num_client; $i++)
         {
             echo "\r";
-            echo "inert quot $i";
+            echo "inert client $i/$max_num_client";
             $this->insert_client_record();
         }
         echo "\n";

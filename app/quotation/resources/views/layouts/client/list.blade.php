@@ -103,6 +103,9 @@
             var table = $('#test_table').DataTable( {
                 orderCellsTop: true,
                 fixedHeader: true,
+                processing: true,
+                serverSide: true,
+
                 ajax: {
                     "url": "{{ route('client.index_table_content') }}",
                     type:"POST"

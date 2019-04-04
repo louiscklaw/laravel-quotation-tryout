@@ -22,11 +22,10 @@
                                 <button type="button" class="btn btn-primary m-t-15 waves-effect">{{ __('PDF') }}</button>
 
                             @endif
-                        </div>
-
-                        <div class="col-sm-3">
                             <button type="button" class="btn btn-primary m-t-15 waves-effect">{{ __('Cancel') }}</button>
                         </div>
+
+
 
                     </div>
 

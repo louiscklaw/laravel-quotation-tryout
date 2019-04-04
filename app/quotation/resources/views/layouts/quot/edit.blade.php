@@ -4,10 +4,10 @@
 
 <section class="content">
 
-    @if(Request::is('*/edit'))
-        {!! Form::model($record, ['method'=>'PATCH', 'action'=> ['QuotController@update', $record->id]]) !!}
-    @elseif(Request::is('*/create') )
+    @if (Request::is('*/create') )
         {!! Form::model($record, ['method'=>'POST', 'action'=> ['QuotController@store', $record->id]]) !!}
+    @elseif(Request::is('*/edit'))
+        {!! Form::model($record, ['method'=>'PATCH', 'action'=> ['QuotController@update', $record->id]]) !!}
     @endif
 
     <div class="row clearfix">
@@ -27,7 +27,8 @@
                             @if (Request::is('*/create') )
                                 <a class="btn btn-primary" href="{{ route('Quot.store') }}" role="button">{{ __('Create')}}</a>
                             @else
-                                <a class="btn btn-primary" href="{{ route('Quot.update',['id'=>$record->id]) }}" role="button">{{ __('Save')}}</a>
+                                {!! Form::submit('Save', ['class'=>'btn btn-primary']) !!}
+
                                 <a class="btn btn-primary" href="{{ route('Quot.pdf',['id'=>$record->id]) }}" role="button">{{ __('PDF')}}</a>
 
                             @endif
@@ -103,19 +104,22 @@
                                 </thead>
 
                                 <tbody>
-                                    @foreach(range(1,$default_max_product_num) as $product_idx)
-                                        <tr>
-                                            <!-- <th scope="row">1</th> -->
-                                            <td class="col-sm-1">{{ $product_idx }}</td>
-                                            <td class="col-sm-6"><input type="text" class="form-control" name="product_{{ $product_idx }}[]"></td>
-                                            <td class="col-sm-1"><input type="text" class="form-control" name="product_{{ $product_idx }}[]"></td>
-                                            <td class="col-sm-1"><input type="text" class="form-control" name="product_{{ $product_idx }}[]"></td>
-                                            <td class="col-sm-1"><input type="text" class="form-control" name="product_{{ $product_idx }}[]"></td>
 
-                                            <!-- delete button column -->
-                                            <td class="col-sm-2"></td>
-                                        </tr>
-                                    @endforeach
+                                    @if (Request::is('*/create') )
+                                        @foreach(range(1,$default_max_product_num) as $product_idx)
+                                            <tr>
+                                                <!-- <th scope="row">1</th> -->
+                                                <td class="col-sm-1">{{ $product_idx }}</td>
+                                                <td class="col-sm-6"><input type="text" class="form-control" name="quotitem_name[]"></td>
+                                                <td class="col-sm-1"><input type="text" class="form-control" name="quotitem_quantity[]"></td>
+                                                <td class="col-sm-1"><input type="text" class="form-control" name="quotitem_unitprice[]"></td>
+                                                <td class="col-sm-1"><input type="text" class="form-control" name="quotitem_subtotal[]"></td>
+
+                                                <!-- delete button column -->
+                                                <td class="col-sm-2"></td>
+                                            </tr>
+                                        @endforeach
+                                    @endif
                                 </tbody>
 
                                 <tfoot>
@@ -173,48 +177,47 @@
 @endsection
 
 @push('blank_scripts_body')
-<script>
-$(document).ready(function () {
-    var counter = {{$default_max_product_num}}+1;
+    @if (Request::is('*/create') )
+        <script>
+        $(document).ready(function () {
+            var counter = {{$default_max_product_num}}+1;
 
-    $("#addrow").on("click", function () {
-        var newRow = $("<tr>");
-        var cols = "";
+            $("#addrow").on("click", function () {
+                var newRow = $("<tr>");
+                var cols = "";
 
-        cols += '<td>'+counter+'</td>';
-        cols += '<td><input type="text" class="form-control" name="name' + counter + '"/></td>';
-        cols += '<td><input type="text" class="form-control" name="name' + counter + '"/></td>';
-        cols += '<td><input type="text" class="form-control" name="name' + counter + '"/></td>';
-        cols += '<td><input type="text" class="form-control" name="name' + counter + '"/></td>';
+                cols += '<td>'+counter+'</td>';
+                cols += '<td><input type="text" class="form-control" name="quotitem_name[]"/></td>';
+                cols += '<td><input type="text" class="form-control" name="quotitem_quantity[]"/></td>';
+                cols += '<td><input type="text" class="form-control" name="quotitem_unitprice[]"/></td>';
+                cols += '<td><input type="text" class="form-control" name="quotitem_subtotal[]"/></td>';
 
-        cols += '<td><input type="button" class="ibtnDel btn btn-md btn-danger "  value="Delete"></td>';
-        newRow.append(cols);
-        $("table.order-list").append(newRow);
-        counter++;
-    });
+                cols += '<td><input type="button" class="ibtnDel btn btn-md btn-danger "  value="Delete"></td>';
+                newRow.append(cols);
+                $("table.order-list").append(newRow);
+                counter++;
+            });
 
-    $("table.order-list").on("click", ".ibtnDel", function (event) {
-        $(this).closest("tr").remove();
-        counter -= 1
-    });
+            $("table.order-list").on("click", ".ibtnDel", function (event) {
+                $(this).closest("tr").remove();
+                counter -= 1
+            });
+        });
 
+        function calculateRow(row) {
+            var price = +row.find('input[name^="price"]').val();
 
-});
+        }
 
-function calculateRow(row) {
-    var price = +row.find('input[name^="price"]').val();
+        function calculateGrandTotal() {
+            var grandTotal = 0;
+            $("table.order-list").find('input[name^="price"]').each(function () {
+                grandTotal += +$(this).val();
+            });
+            $("#grandtotal").text(grandTotal.toFixed(2));
+        }
 
-}
-
-function calculateGrandTotal() {
-    var grandTotal = 0;
-    $("table.order-list").find('input[name^="price"]').each(function () {
-        grandTotal += +$(this).val();
-    });
-    $("#grandtotal").text(grandTotal.toFixed(2));
-}
-
-</script>
-
+        </script>
+    @endif
 
 @endpush

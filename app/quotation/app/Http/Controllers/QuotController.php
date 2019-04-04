@@ -145,8 +145,15 @@ class QuotController extends Controller
             ]);
     }
 
-    public function store()
+    public function store(Request $req)
     {
+        echo 'hello store';
+        die();
+
+
+        var_dump($req['quotitem_name']);
+        die();
+
         return $this->index();
     }
 
@@ -200,6 +207,7 @@ class QuotController extends Controller
 
     public function edit($id)
     {
+
         $record = new Quot_helper;
         $record = Quot_helper::get_record($id);
 
@@ -260,7 +268,6 @@ class QuotController extends Controller
 
     public function update(Request $req, $id)
     {
-        // var_dump($req);
 
         $quot_record = new Quot_helper;
         $quot_record->save($id, $req);

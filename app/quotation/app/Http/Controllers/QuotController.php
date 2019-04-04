@@ -197,6 +197,8 @@ class QuotController extends Controller
 
     public function edit($id)
     {
+        $action = 'edit';
+
         $record = new Quot_helper;
         $record = Quot_helper::get_record($id);
 
@@ -204,17 +206,11 @@ class QuotController extends Controller
         $quotitem_records = $record[1];
 
         $client_name_list = Client::pluck('client_cname','id');
-        // var_dump($client_name_list);
-        // die();
-
-        // $test = $quotitem_records[0];
-        // var_dump($quotitem_records[0]->quotitem_ref);
-        // die();
 
         return view('layouts.quot.edit',[
+            'action'=>$action,
             'record'=>$quot_record,
             'quotitem_records' => $quotitem_records,
-            'form_action' =>'edit',
             'editor_name'=>'quotation edit',
             'editor_description' => 'quotation edit description',
             'update_controller' =>'QuotController@update',

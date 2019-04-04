@@ -1,6 +1,15 @@
 @extends('layouts.material.html')
 
 @section('content')
+
+    @if($action=='edit')
+        {!! Form::model($record, ['method'=>'PATCH', 'action'=> ['QuotController@update',
+    $record->id]]) !!}
+    @elseif($action=='create')
+        {!! Form::model($record, ['method'=>'POST', 'action'=> ['QuotController@store',
+    $record->id]]) !!}
+    @endif
+
 <section class="content">
     <div class="row clearfix">
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
@@ -11,18 +20,20 @@
                         <div class="col-lg-6">
                             <h2>
                                 Quotatioon Edit
-                                <small>Edit client information</small>
+                                <small>Edit quotation information</small>
                             </h2>
                         </div>
 
                         <div class="col-lg-6">
                             @if (isset($action) && $action =='create')
-                            <button type="button" class="btn btn-primary m-t-15 waves-effect">{{ __('Create')}}</button>
+                                <button type="button" class="btn btn-primary m-t-15 waves-effect">{{ __('Create')}}</button>
                             @else
-                            <button type="button" class="btn btn-primary m-t-15 waves-effect">{{ __('Save')}}</button>
-                            <button type="button" class="btn btn-primary m-t-15 waves-effect">{{ __('PDF') }}</button>
+                                <button type="button" class="btn btn-primary m-t-15 waves-effect">{{ __('Save')}}</button>
+                                <a href="{{ route('Quot.update',['id'=>$record->id]) }}">{{ __('Save')}}</a>
+                                <button type="button" class="btn btn-primary m-t-15 waves-effect">{{ __('PDF') }}</button>
                             @endif
                         </div>
+
                     </div>
                 </div>
 
@@ -125,11 +136,14 @@
                                     <tr>
                                         <!-- <th scope="row">1</th> -->
                                         <td class="col-sm-1">1</td>
-                                        <td class="col-sm-6">Product name</td>
-                                        <td class="col-sm-1">1</td>
-                                        <td class="col-sm-1">100</td>
-                                        <td class="col-sm-1">100</td>
+                                        <td class="col-sm-6"><input type="text" class="form-control" name="product_0[]"></td>
+                                        <td class="col-sm-1"><input type="text" class="form-control" name="product_0[]"></td>
+                                        <td class="col-sm-1"><input type="text" class="form-control" name="product_0[]"></td>
+                                        <td class="col-sm-1"><input type="text" class="form-control" name="product_0[]"></td>
+
+                                        <!-- delete button column -->
                                         <td class="col-sm-2"></td>
+
                                     </tr>
                                 </tbody>
 
@@ -152,6 +166,11 @@
         </div>
     </div>
 </section>
+
+
+
+    {!! Form::close() !!}
+
 @endsection
 
 @push('blank_scripts_body')

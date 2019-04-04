@@ -109,6 +109,8 @@ class Quot_helper
         $value = $req;
         $new_quot = new Quot;
         $new_quot->save($req);
+
+        return $new_quot;
     }
 
     public static function save($id, $req)
@@ -201,10 +203,11 @@ class QuotController extends Controller
             $req['quotitem_subtotal']]
         );
 
-        $new_quot = $req->all();
-        Quot_helper::save_as($new_quot);
+        $new_quot_values = $req->all();
+        $new_quot = Quot_helper::save_as($new_quot_values);
+        $id = $new_quot->id;
 
-        return redirect()->route('quot.show',compact('id'));
+        return redirect()->route('Quot.show',compact('id'));
     }
 
     public function create()

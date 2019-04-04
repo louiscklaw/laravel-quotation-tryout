@@ -9,7 +9,6 @@
         @else
             {{ Form::model($record, ['method'=>'POST', 'action'=> [$store_controller, $record->id]]) }}
         @endif
-            <h2>show quotation form</h2>
             @card([
                 'card_name'=>$editor_name,
                 'card_desc'=>$editor_description

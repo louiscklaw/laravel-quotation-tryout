@@ -147,15 +147,24 @@ class Quot_helper
 
     }
 
-    public function get_last_quot_number()
+    public static function form_quot_ref($number)
     {
-        $last_id = Quot::orderBy('id', 'DESC')->take(1);
-        return $last_id;
+        return sprintf('QUO%05d', $number);
+    }
+
+    public static function get_last_quot_number()
+    {
+        $last_id = Quot::orderBy('id', 'DESC')->take(1)->get();
+        return $last_id[0];
     }
 
     public static function get_new_quot_number()
     {
-        return $this->get_last_quot_number();
+
+        $last_quot_ref = self::get_last_quot_number()->quot_ref;
+        $number_part = substr($last_quot_ref,3,99);
+
+        return self::form_quot_ref($number_part+1);
     }
 
 }

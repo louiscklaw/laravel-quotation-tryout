@@ -12,8 +12,6 @@ class Quot extends Model
     protected $primaryKey = 'id';
 
     protected $fillable = [
-        'created_at',
-        'updated_at',
         'quot_date',
         'quot_ref',
         'quot_to_name',

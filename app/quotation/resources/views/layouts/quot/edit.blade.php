@@ -3,7 +3,7 @@
 @section('content')
 <section class="content">
     <div class="row clearfix">
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
 
             <div class="card">
                 <div class="header">
@@ -28,23 +28,7 @@
 
                 <div class="body">
                     <div class="row clearfix">
-                        <div class="col-sm-4">
-                            <div class="form-group form-float">
-                                <div class="form-line">
-                                    <label class="form-label">{{ __('From')}}</label>
-                                    <textarea rows="6" class="form-control no-resize"></textarea>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-4">
-                            <div class="form-group form-float">
-                                <div class="form-line">
-                                    <label class="form-label">{{ __('Bill To')}}</label>
-                                    <textarea rows="6" class="form-control no-resize"></textarea>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-4">
+                        <div class="col-sm-12">
                             <div class="form-group form-float">
                                 <div class="form-line">
                                     <input type="text" class="form-control">
@@ -52,10 +36,8 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="row clearfix">
 
-                        <div class="col-sm-4">
+                        <div class="col-sm-12">
                             <div class="form-group form-float">
                                 <div class="form-line">
                                     <input type="text" class="form-control">
@@ -63,6 +45,28 @@
                                 </div>
                             </div>
                         </div>
+
+                        <div class="col-sm-12">
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <label class="form-label">{{ __('From')}}</label>
+                                    <textarea rows="2" class="form-control no-resize"></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12">
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <label class="form-label">{{ __('Bill To')}}</label>
+                                    <textarea rows="2" class="form-control no-resize"></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row clearfix">
+
                     </div>
 
 
@@ -70,12 +74,9 @@
             </div>
         <!-- col end -->
         </div>
-    </div>
 
 
-    <div class="row clearfix">
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
             <div class="card">
                 <div class="body">
                     <div class="row clearfix">
@@ -87,13 +88,26 @@
                                 </div>
                             </div>
                         </div>
+
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <label class="form-label">{{ __('Remarks')}}</label>
+                                    <textarea rows="6" class="form-control no-resize"></textarea>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
 
-
         <!-- col end -->
         </div>
+
     </div>
+
+
+
 </section>
 @endsection

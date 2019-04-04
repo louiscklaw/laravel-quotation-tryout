@@ -120,6 +120,7 @@
                                         <th>Subtotal</th>
                                     </tr>
                                 </thead>
+
                                 <tbody>
                                     <tr>
                                         <!-- <th scope="row">1</th> -->
@@ -156,13 +157,13 @@
 @push('blank_scripts_body')
 <script>
 $(document).ready(function () {
-    var counter = 0;
+    var counter = 2;
 
     $("#addrow").on("click", function () {
         var newRow = $("<tr>");
         var cols = "";
 
-        cols += '<td><input type="text" class="form-control" name="name' + counter + '"/></td>';
+        cols += '<td>'+counter+'</td>';
         cols += '<td><input type="text" class="form-control" name="name' + counter + '"/></td>';
         cols += '<td><input type="text" class="form-control" name="name' + counter + '"/></td>';
         cols += '<td><input type="text" class="form-control" name="name' + counter + '"/></td>';

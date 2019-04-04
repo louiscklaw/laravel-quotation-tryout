@@ -1,170 +1,227 @@
 @extends('layouts.material.html')
 
-
 @section('content')
 <section class="content">
-    <div class="container-fluid">
-        @if(isset($form_action) and $form_action =='edit')
-            {{ Form::model($record, ['method'=>'PATCH', 'action'=> [$update_controller, $record->id]]) }}
-        @else
-            {{ Form::model($record, ['method'=>'POST', 'action'=> [$store_controller, $record->id]]) }}
-        @endif
+    <div class="row clearfix">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
 
-            @if(isset($form_action) and $form_action =='edit')
-                    <h2>edit quotation form</h2>
-            @else
-                    <h2>new quotation form</h2>
-            @endif
-
-            <div class="row clearfix">
-
-                @card([
-                    'card_name'=>$editor_name,
-                    'card_desc'=>$editor_description,
-                    'card_class'=>'col-lg-4 col-md-4 col-sm-4 col-xs-4'
-                    ])
+            <div class="card">
+                <div class="header">
                     <div class="row clearfix">
-                        <div class="col-sm-12">
-                            {!! Form::submit('Save', ['class'=>'btn btn-primary']) !!}
-                            <a class="btn bg-light-blue waves-effect" href="{{ route('quot.pdf', ['id'=>$record->id]) }}" role="button">pdf wo letterhead</a>
-                            <a class="btn bg-light-blue waves-effect" href="{{ route('quot.pdf',['id'=>$record->id]) }}" role="button">pdf</a>
+                        <div class="col-lg-6">
+                            <h2>
+                                Quotatioon Edit
+                                <small>Edit client information</small>
+                            </h2>
+                        </div>
+
+                        <div class="col-lg-6">
+                            @if (isset($action) && $action =='create')
+                            <button type="button" class="btn btn-primary m-t-15 waves-effect">{{ __('Create')}}</button>
+                            @else
+                            <button type="button" class="btn btn-primary m-t-15 waves-effect">{{ __('Save')}}</button>
+                            <button type="button" class="btn btn-primary m-t-15 waves-effect">{{ __('PDF') }}</button>
+                            @endif
                         </div>
                     </div>
+                </div>
 
+                <div class="body">
                     <div class="row clearfix">
                         <div class="col-sm-12">
-                            @select_with_search_bar(['title'=>"quot owner", 'select_list'=>$client_name_list])
-                                quot_owner
-                            @endselect_with_search_bar
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <input type="text" class="form-control">
+                                    <label class="form-label">Quote #</label>
+                                </div>
+                            </div>
                         </div>
+
+                        <div class="col-sm-12">
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <input type="text" class="form-control">
+                                    <label class="form-label">Date</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12">
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <label class="form-label">{{ __('From')}}</label>
+                                    <textarea rows="2" class="form-control no-resize"></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12">
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <label class="form-label">{{ __('Bill To')}}</label>
+                                    <textarea rows="2" class="form-control no-resize"></textarea>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
-
-                @endcard
-
-                @card([
-                    'card_name'=>$editor_name,
-                    'card_desc'=>$editor_description,
-                    'card_class'=>'col-lg-4 col-md-4 col-sm-4 col-xs-4'
-                    ])
-
                     <div class="row clearfix">
-                        @if(isset($form_action) and $form_action =='edit')
-                            @float_label_input()
-                                id
-                            @endfloat_label_input
-                        @endif
 
-                        @if(isset($form_action) and $form_action =='edit')
-                            @float_label_input(['default'=>$record->quot_date])
-                                quot_date
-                            @endfloat_label_input
-                        @else
-                            @float_label_input(['default'=>date('Y-m-d')])
-                                quot_date
-                            @endfloat_label_input
-                        @endif
                     </div>
 
-                @endcard
 
-                @card([
-                    'card_name'=>'Client',
-                    'card_desc'=>'Client description',
-                    'card_class'=>'col-lg-4 col-md-4 col-sm-4 col-xs-4'
-                    ])
+                </div>
+            </div>
+            <!-- col end -->
+        </div>
 
+
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+            <div class="card">
+                <div class="body">
                     <div class="row clearfix">
-                        @select_with_search_bar(['title'=>"client id", 'select_list'=>$client_name_list])
-                            quot_client_id
-                        @endselect_with_search_bar
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <label class="form-label">{{ __('Terms & Conditions')}}</label>
+                                    <textarea rows="6" class="form-control no-resize"></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <label class="form-label">{{ __('Remarks')}}</label>
+                                    <textarea rows="6" class="form-control no-resize"></textarea>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
-
-                @endcard
-
+                </div>
             </div>
 
+            <!-- col end -->
+        </div>
 
-            @card([
-                'card_name'=>'quotitem_record',
-                'card_desc'=>'quotitem description'
-                ])
-                <div class="body table-responsive">
-                    <table class="table table-striped">
-                        <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>item name</th>
-                                <th>description</th>
-                                <th>unit price</th>
-                                <th>quantity</th>
-                                <th>subtotal comment</th>
-                                <th>subtotal</th>
-                            </tr>
-                        </thead>
-                        <tbody>
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="card">
+                <div class="body">
+                    <div class="row clearfix">
+                        <div class="body table-responsive">
+                            <table class="table order-list">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Name</th>
+                                        <th>Quantity</th>
+                                        <th>Unit Price</th>
+                                        <th>Subtotal</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">1</th>
+                                        <td>Mark</td>
+                                        <td>Otto</td>
+                                        <td>@mdo</td>
+                                        <td>@mdo</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">2</th>
+                                        <td>Jacob</td>
+                                        <td>Thornton</td>
+                                        <td>@fat</td>
+                                        <td>@fat</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">3</th>
+                                        <td>Larry</td>
+                                        <td>the Bird</td>
+                                        <td>@twitter</td>
+                                        <td>@twitter</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">4</th>
+                                        <td>Larry</td>
+                                        <td>Jellybean</td>
+                                        <td>@lajelly</td>
+                                        <td>@lajelly</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">5</th>
+                                        <td>Larry</td>
+                                        <td>Kikat</td>
+                                        <td>@lakitkat</td>
+                                        <td>@lakitkat</td>
+                                    </tr>
+                                </tbody>
 
-                            @for($i=0;$i<sizeof($quotitem_records); $i++)
-                            <tr>
-                                <th scope="row">{{$i+1}}</th>
-                                <td>{!! Form::textarea('quotitem['.$i.'][quotitem_item]', $quotitem_records[$i]->quotitem_item,
-                                    ['class'=>'form-control','rows'=>2,'cols'=>20]) !!}</td>
+                                <tfoot>
+                                    <tr>
+                                        <td colspan="5" style="text-align: left;">
+                                            <input type="button" class="btn btn-lg btn-block " id="addrow"
+                                                value="Add Row" />
+                                        </td>
+                                    </tr>
+                                </tfoot>
 
-                                <td>{!! Form::textarea('quotitem['.$i.'][quotitem_des_cm]', $quotitem_records[$i]->quotitem_des_cm,
-                                    ['class'=>'form-control','rows'=>2,'cols'=>20]) !!}</td>
-                                <td>{!! Form::text('quotitem['.$i.'][quotitem_unitprice]',  $quotitem_records[$i]->quotitem_unitprice, ['class'=>'form-control']) !!}</td>
-
-                                <td>{!! Form::text('quotitem['.$i.'][quotitem_qty]', $quotitem_records[$i]->quotitem_qty, ['class'=>'form-control']) !!}</td>
-
-                                <td>{!! Form::textarea('quotitem['.$i.'][quotitem_subtotal_cm]', $quotitem_records[$i]->quotitem_subtotal_cm,['class'=>'form-control','rows'=>2,'cols'=>20]) !!}</td>
-
-                                <td>{!! Form::text('quotitem['.$i.'][quotitem_subtotal]', $quotitem_records[$i]->quotitem_subtotal, ['class'=>'form-control']) !!}</td>
-                            </tr>
-                            @endfor
-
-                        </tbody>
-                    </table>
-                </div>
-            @endcard
-
-
-            @card([
-                'card_name'=>'Remarks',
-                'card_desc'=>'Remarks'
-                ])
-                <div class="row clearfix">
-                    <div class="col-sm-12">
-                        @textarea(['form_class'=>'', 'placeholder'=>''])
-                            quot_remark
-                        @endtextarea
+                            </table>
+                        </div>
                     </div>
                 </div>
-            @endcard
+            </div>
 
-
-        {{ Form::close() }}
-
+            <!-- col end -->
+        </div>
     </div>
 </section>
-
 @endsection
 
-
 @push('blank_scripts_body')
+<script>
+$(document).ready(function () {
+    var counter = 0;
+
+    $("#addrow").on("click", function () {
+        var newRow = $("<tr>");
+        var cols = "";
+
+        cols += '<td><input type="text" class="form-control" name="name' + counter + '"/></td>';
+        cols += '<td><input type="text" class="form-control" name="name' + counter + '"/></td>';
+        cols += '<td><input type="text" class="form-control" name="name' + counter + '"/></td>';
+        cols += '<td><input type="text" class="form-control" name="name' + counter + '"/></td>';
+        cols += '<td><input type="text" class="form-control" name="name' + counter + '"/></td>';
+
+        cols += '<td><input type="button" class="ibtnDel btn btn-md btn-danger "  value="Delete"></td>';
+        newRow.append(cols);
+        $("table.order-list").append(newRow);
+        counter++;
+    });
+
+    $("table.order-list").on("click", ".ibtnDel", function (event) {
+        $(this).closest("tr").remove();
+        counter -= 1
+    });
 
 
-    <!-- Autosize Plugin Js -->
-    <script src="{{asset('plugins/autosize/autosize.js')}}"></script>
+});
 
-    <!-- Moment Plugin Js -->
-    <script src="{{asset('plugins/momentjs/moment.js')}}"></script>
+function calculateRow(row) {
+    var price = +row.find('input[name^="price"]').val();
 
-    <!-- Bootstrap Material Datetime Picker Plugin Js -->
-    <script src="{{asset('plugins/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js')}}"></script>
+}
 
-    <!-- Bootstrap Datepicker Plugin Js -->
-    <script src="{{asset('plugins/bootstrap-datepicker/js/bootstrap-datepicker.js')}}"></script>
+function calculateGrandTotal() {
+    var grandTotal = 0;
+    $("table.order-list").find('input[name^="price"]').each(function () {
+        grandTotal += +$(this).val();
+    });
+    $("#grandtotal").text(grandTotal.toFixed(2));
+}
 
-    <!-- Custom Js -->
-    <script src="{{asset('js/pages/forms/basic-form-elements.js')}}"></script>
+</script>
+
 
 @endpush

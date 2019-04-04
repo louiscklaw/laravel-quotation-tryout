@@ -6,5 +6,6 @@
         "
     {{ isset($checked)? 'checked' : '' }}
     {{ isset($disabled)? 'disabled' : '' }}
+    {{ isset($value)? $value : '' }}
      />
 <label for="{{$radio_id}}">{{ $slot }}</label>

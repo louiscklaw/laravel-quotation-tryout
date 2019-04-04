@@ -2,9 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use Yajra\Datatables\Datatables;
+
 use Illuminate\Http\Request;
 
 use App\Client;
+use App\Transformers\ClientIndexTableTransformer;
+
+
 
 class ClientHelper
 {
@@ -24,13 +29,6 @@ class ClientHelper
 
     }
 
-    public function save($id, $req)
-    {
-        $value = $req->all();
-        $target_record = $this->get_record($id);
-        $target_record->update($value);
-    }
-
     public function open_record($id)
     {
         return $this->get_record('id',$id);
@@ -45,9 +43,20 @@ class ClientHelper
     {
         return Client::where('id',$id)->get();
     }
+
+
+    public function save($id, $req)
+    {
+        $value = $req->all();
+        $target_record = $this->get_record($id);
+
+        $target_record->update($value);
+
+    }
+
 }
 
-class ClientController extends Controller
+class clientController extends Controller
 {
 
     public function show($id)
@@ -57,8 +66,9 @@ class ClientController extends Controller
             'record'=>$record,
             'editor_name'=>'client view',
             'editor_description' => 'client debug viwe description',
-            'update_controller' =>'ClientController@update',
-            'store_controller' => 'ClientController@store'
+            'update_controller' =>'clientController@update',
+            'store_controller' => 'clientController@store',
+            'mn_highlight' => 'client_list'
             ]);
     }
 
@@ -66,13 +76,15 @@ class ClientController extends Controller
     {
         $quot_record = new ClientHelper;
         $quot_record = ClientHelper::get_record($id);
+
         return view('layouts.client.edit',[
             'record'=>$quot_record,
             'form_action' =>'edit',
             'editor_name'=>'client edit',
             'editor_description' => 'client debug edit description',
-            'update_controller' =>'ClientController@update',
-            'store_controller' => 'ClientController@store'
+            'update_controller' =>'clientController@update',
+            'store_controller' => 'clientController@store',
+            'mn_highlight' => 'client_list'
             ]);
 
     }
@@ -84,7 +96,7 @@ class ClientController extends Controller
         return view('layouts.client.list',[
             'all_records'=>$all_records,
             'vep_route_target'=>$record_type,
-            'mn_highlight'=>'client_list'
+            'mn_highlight'=>'customer_client_list'
             ]);
     }
 
@@ -103,16 +115,14 @@ class ClientController extends Controller
         $quot_record = new ClientHelper;
         $quot_record = ClientHelper::get_record($id);
 
-
         return view('layouts.debug.record_edit',[
             'record'=>$quot_record,
             'form_action' =>'edit',
             'editor_name'=>'client debug edit',
             'editor_description' => 'client debug edit description',
-            'update_controller' =>'ClientController@update',
-            'store_controller' => 'ClientController@store'
+            'update_controller' =>'clientController@update',
+            'store_controller' => 'clientController@store'
             ]);
-
     }
 
     public function update(Request $req, $id)
@@ -122,7 +132,7 @@ class ClientController extends Controller
         $quot_record = new ClientHelper;
         $quot_record->save($id, $req);
 
-        return $this->debug_index();
+        return redirect()->route('client.show',compact('id'));
     }
 
     public function debug_pdf($id)
@@ -143,9 +153,34 @@ class ClientController extends Controller
             'record'=>$record,
             'editor_name'=>'client debug view',
             'editor_description' => 'client debug viwe description',
-            'update_controller' =>'ClientController@update',
-            'store_controller' => 'ClientController@store'
+            'update_controller' =>'clientController@update',
+            'store_controller' => 'clientController@store'
             ]);
+    }
+
+    public function create()
+    {
+        $action = 'create';
+        $quot_record = new Client;
+
+        return view('layouts.client.edit',[
+            'action'=>$action,
+            'record'=>$quot_record,
+            'form_action' =>'edit',
+            'editor_name'=>'client edit',
+            'editor_description' => 'client debug edit description',
+            'update_controller' =>'clientController@update',
+            'store_controller' => 'clientController@store',
+            'mn_highlight' => 'client_list'
+            ]);
+    }
+
+    public function index_table_content()
+    {
+        $clients = Client::all();
+
+        return Datatables::of($clients)->setTransformer(new ClientIndexTableTransformer)
+            ->make(true);
     }
 
 }

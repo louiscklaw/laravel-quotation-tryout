@@ -5,32 +5,140 @@
 <section class="content">
     <div class="container-fluid">
         <div class="block-header">
-            <h2>basic form elements</h2>
+            <h2>show client information</h2>
         </div>
-        @if(isset($form_action) and $form_action =='edit')
-            {{ Form::model($record, ['method'=>'PATCH', 'action'=> ['QuotController@update', $record->id]]) }}
-        @else
-            {{ Form::model($record, ['method'=>'POST', 'action'=> ['QuotController@store', $record->id]]) }}
-        @endif
+
+        {{ Form::model($record) }}
+            @card([
+                'card_name'=>$editor_name,
+                'card_desc'=>$editor_description,
+                'card_class'=>'col-lg-4 col-md-4 col-sm-6 col-xs-12'
+                ])
+
+                @db_button([
+                    'button_text'=>'edit',
+                    'button_link'=>route('client.edit',['id'=>$record->id])
+                ])
+                @enddb_button
+
+                @db_txt_field(['field_name'=>'client_status',
+                    'field_name_class' => 'col-sm-6',
+                    'field_value_class' =>'col-sm-6',
+                    'input_disabled'=>''
+                ])
+                @enddb_txt_field
+
+                @db_txt_field([
+                'field_name'=>'client_date',
+                'field_name_class' => 'col-sm-6',
+                'field_value_class' =>'col-sm-6',
+                    'input_disabled'=>''
+                ])
+                @enddb_txt_field
+
+                @db_txt_field(['field_name'=>'client_update_at',
+                    'field_name_class' => 'col-sm-6',
+                    'field_value_class' =>'col-sm-6',
+                    'input_disabled'=>''
+                    ])
+                @enddb_txt_field
+
+            @endcard
 
             @card([
                 'card_name'=>$editor_name,
-                'card_desc'=>$editor_description
+                'card_desc'=>$editor_description,
+                'card_class'=>'col-lg-4 col-md-4 col-sm-6 col-xs-12'
+            ])
+
+                @db_txt_field([
+                    'field_name'=>'client_name',
+                    'field_name_class' => 'col-sm-6',
+                    'field_value_class' =>'col-sm-6',
+                        'input_disabled'=>''
                 ])
+                @enddb_txt_field
 
-                    <div class="row clearfix">
-                @foreach(array_keys($record->getAttributes()) as $field_name)
-                        <div class="col-sm-1">
-                            {{$field_name}}
-                        </div>
-                        <div class="col-sm-3">
-                            @textInput(['form_class'=>'', 'placeholder'=>'','input_disabled'=>''])
-                                {{$field_name}}
-                            @endtextInput
-                        </div>
+                @db_txt_field(['field_name'=>'client_cname',
+                    'field_name_class' => 'col-sm-6',
+                    'field_value_class' =>'col-sm-6',
+                        'input_disabled'=>''
+                ])
+                @enddb_txt_field
 
-                    </div>
+                @db_txt_field(['field_name'=>'client_gender',
+                    'field_name_class' => 'col-sm-6',
+                    'field_value_class' =>'col-sm-6',
+                        'input_disabled'=>''
+                    ])
+                @enddb_txt_field
+
+                @db_txt_field(['field_name'=>'client_brithday',
+                    'field_name_class' => 'col-sm-6',
+                    'field_value_class' =>'col-sm-6',
+                        'input_disabled'=>''
+                    ])
+                @enddb_txt_field
+
             @endcard
+
+            @card([
+                'card_name'=>'client contact',
+                'card_desc'=>$editor_description,
+                'card_class'=>'col-lg-4 col-md-4 col-sm-6 col-xs-12'
+            ])
+
+                @db_txt_field([
+                    'field_name'=>'client_whatsapp',
+                    'field_name_class' => 'col-sm-6',
+                    'field_value_class' =>'col-sm-6',
+                        'input_disabled'=>''
+                ])
+                @enddb_txt_field
+
+                @db_txt_field(['field_name'=>'client_mobile',
+                    'field_name_class' => 'col-sm-6',
+                    'field_value_class' =>'col-sm-6',
+                        'input_disabled'=>''
+                ])
+                @enddb_txt_field
+
+                @db_txt_field(['field_name'=>'client_address',
+                    'field_name_class' => 'col-sm-6',
+                    'field_value_class' =>'col-sm-6',
+                        'input_disabled'=>''
+                    ])
+                @enddb_txt_field
+
+                @db_txt_field(['field_name'=>'client_email',
+                    'field_name_class' => 'col-sm-6',
+                    'field_value_class' =>'col-sm-6',
+                        'input_disabled'=>''
+                    ])
+                @enddb_txt_field
+
+            @endcard
+
+            @card([
+                'card_name'=>'client Remarks',
+                'card_desc'=>$editor_description,
+                'card_class'=>'col-xs-12'
+            ])
+
+                @db_textarea(['field_name'=>'client_desc',
+                    'field_name_class' => 'col-sm-12',
+                    'field_value_class' =>'col-sm-12',
+                        'input_disabled'=>''])
+                @enddb_textarea
+
+                @db_textarea(['field_name'=>'client_remarks',
+                    'field_name_class' => 'col-sm-12',
+                    'field_value_class' =>'col-sm-12',
+                        'input_disabled'=>''])
+                @enddb_textarea
+
+            @endcard
+
         {{ Form::close() }}
 
     </div>
@@ -40,7 +148,7 @@
 
 
 @push('blank_scripts_body')
-    @parent
+
 
     <!-- Autosize Plugin Js -->
     <script src="{{asset('plugins/autosize/autosize.js')}}"></script>

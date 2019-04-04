@@ -179,6 +179,10 @@ return [
 
         Collective\Html\HtmlServiceProvider::class,
         Barryvdh\DomPDF\ServiceProvider::class,
+
+        Yajra\DataTables\DataTablesServiceProvider::class,
+        Fx3costa\LaravelChartJs\Providers\ChartjsServiceProvider::class,
+
     ],
 
     /*
@@ -233,6 +237,8 @@ return [
 
         // 'PDF' => Elibyy\TCPDF\Facades\TCPDF::class,
         'PDF' => Barryvdh\DomPDF\Facade::class,
+
+        'DataTables' => Yajra\DataTables\Facades\DataTables::class,
     ],
 
 ];

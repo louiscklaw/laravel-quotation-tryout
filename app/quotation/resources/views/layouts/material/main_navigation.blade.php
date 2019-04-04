@@ -5,8 +5,32 @@
                 'text'=>'Home', 'icon'=>'assignment', 'link'=>route('quotation.home'),
             ],
 
+            'posts'=>[
+                'text'=>'Posts', 'icon'=>'assignment',
+                'subitem' => [
+                    'new'=>[
+                        'text'=>'New', 'icon'=>'assignment', 'link'=>route('posts.create')
+                    ],
+                    'list'=>[
+                        'text'=>'List', 'icon'=>'assignment', 'link'=>route('posts.index')
+                    ],
+                ]
+            ],
+
+            'page'=>[
+                'text'=>'Page', 'icon'=>'assignment',
+                'subitem' => [
+                    'new'=>[
+                        'text'=>'New', 'icon'=>'assignment', 'link'=>route('page.create')
+                    ],
+                    'list'=>[
+                        'text'=>'List', 'icon'=>'assignment', 'link'=>route('page.index')
+                    ],
+                ]
+            ],
+
             'tools'=>[
-                'text'=>'Tools', 'icon'=>'assignment', 'link'=>'javascript:void(0);',
+                'text'=>'Tools', 'icon'=>'assignment',
                 'subitem' => [
                     'new'=>[
                         'text'=>'New', 'icon'=>'assignment', 'link'=>route('quotation.create')
@@ -18,7 +42,7 @@
             ],
 
             'quotation'=>[
-                'text'=>'Quotation', 'icon'=>'assignment', 'link'=>'javascript:void(0);',
+                'text'=>'Quotation', 'icon'=>'assignment',
                 'subitem' => [
                     'new'=>[
                         'text'=>'New', 'icon'=>'assignment', 'link'=>route('quotation.create')
@@ -30,7 +54,7 @@
             ],
 
             'delivery'=>[
-                'text'=>'Delivery', 'icon'=>'assignment', 'link'=>'javascript:void(0);',
+                'text'=>'Delivery', 'icon'=>'assignment',
                 'subitem' => [
                     'new'=>[
                         'text'=>'New', 'icon'=>'assignment', 'link'=>route('quotation.create')
@@ -42,7 +66,7 @@
             ],
 
             'collection'=>[
-                'text'=>'Collection', 'icon'=>'assignment', 'link'=>'javascript:void(0);',
+                'text'=>'Collection', 'icon'=>'assignment',
                 'subitem' => [
                     'new'=>[
                         'text'=>'New', 'icon'=>'assignment', 'link'=>route('quotation.create')
@@ -54,7 +78,7 @@
             ],
 
             'lnd'=>[
-                'text'=>'LnD', 'icon'=>'assignment', 'link'=>'javascript:void(0);',
+                'text'=>'LnD', 'icon'=>'assignment',
                 'subitem' => [
                     'new'=>[
                         'text'=>'New', 'icon'=>'assignment', 'link'=>route('quotation.create')
@@ -67,7 +91,7 @@
 
 
             'invoice'=>[
-                'text'=>'Invoice', 'icon'=>'assignment', 'link'=>'javascript:void(0);',
+                'text'=>'Invoice', 'icon'=>'assignment',
                 'subitem' => [
                     'new'=>[
                         'text'=>'New', 'icon'=>'assignment', 'link'=>route('quotation.create')
@@ -80,7 +104,7 @@
 
 
             'inventory'=>[
-                'text'=>'Inventory', 'icon'=>'assignment', 'link'=>'javascript:void(0);',
+                'text'=>'Inventory', 'icon'=>'assignment',
                 'subitem' => [
                     'new'=>[
                         'text'=>'New', 'icon'=>'assignment', 'link'=>route('quotation.create')
@@ -93,7 +117,7 @@
 
 
             'price'=>[
-                'text'=>'Price', 'icon'=>'assignment', 'link'=>'javascript:void(0);',
+                'text'=>'Price', 'icon'=>'assignment',
                 'subitem' => [
                     'new'=>[
                         'text'=>'New', 'icon'=>'assignment', 'link'=>route('quotation.create')
@@ -105,50 +129,66 @@
             ],
 
             'customer'=>[
-                'text'=>'Customer', 'icon'=>'assignment', 'link'=>'javascript:void(0);',
+                'text'=>'Customer', 'icon'=>'assignment',
                 'subitem' => [
 
                     'Company'=>[
-                        'text'=>'New', 'icon'=>'assignment', 'link'=>route('quotation.create'),
+                        'text'=>'Company', 'icon'=>'assignment',
                         'subitem'=>[
                             'new'=>[
-                                'text'=>'New', 'icon'=>'assignment', 'link'=>route('quotation.create')
+                                'text'=>'New', 'icon'=>'assignment', 'link'=>route('company.create')
                             ],
                             'list'=>[
-                                'text'=>'List', 'icon'=>'assignment', 'link'=>route('quotation.index')
+                                'text'=>'List', 'icon'=>'assignment', 'link'=>route('company.index')
                             ],
                         ]],
-                    'Client'=>['text'=>'New', 'icon'=>'assignment', 'link'=>route('quotation.create')],
-                    'Site(DeliveryContact)'=>['text'=>'New', 'icon'=>'assignment', 'link'=>route('quotation.create')],
-                    'ConstSite'=>['text'=>'New', 'icon'=>'assignment', 'link'=>route('quotation.create')],
-                    'Siteitem'=>['text'=>'New', 'icon'=>'assignment', 'link'=>route('quotation.create')],
+                    'Client'=>[
+                        'text'=>'Client', 'icon'=>'assignment', 'link'=>route('client.create'),
+                        'subitem'=>[
+                            'new'=>[
+                                'text'=>'New', 'icon'=>'assignment', 'link'=>route('client.create')
+                            ],
+                            'list'=>[
+                                'text'=>'List', 'icon'=>'assignment', 'link'=>route('client.index')
+                            ],
+                        ]],
+                    'Site'=>[
+                        'text'=>'Site(DeliveryContact)', 'icon'=>'assignment', 'link'=>route('site.create'),
+                        'subitem'=>[
+                            'new'=>[
+                                'text'=>'New', 'icon'=>'assignment', 'link'=>route('site.create')
+                            ],
+                            'list'=>[
+                                'text'=>'List', 'icon'=>'assignment', 'link'=>route('site.index')
+                            ],
+
+                        ]],
+                    'ConstSite'=>['text'=>'ConstSite', 'icon'=>'assignment', 'link'=>route('quotation.create')],
+                    'Siteitem'=>['text'=>'Siteitem', 'icon'=>'assignment', 'link'=>route('quotation.create')],
                 ]
             ],
 
-            'client'=>[
-                    'text'=>'Client', 'icon'=>'assignment', 'link'=>'javascript:void(0);',
+            'colleagues'=>[
+                    'text'=>'Colleagues', 'icon'=>'assignment',
                     'subitem' => [
                         'new'=>[
-                            'text'=>'New', 'icon'=>'assignment', 'link'=>route('client.create')
+                            'text'=>'New', 'icon'=>'assignment', 'link'=>route('colleagues.create')
                         ],
                         'list'=>[
-                            'text'=>'List', 'icon'=>'assignment', 'link'=>route('client.index')
-                        ],
-                    ]
-            ],
-            'user'=>[
-                    'text'=>'user', 'icon'=>'assignment', 'link'=>'javascript:void(0);',
-                    'subitem' => [
-                        'new'=>[
-                            'text'=>'New', 'icon'=>'assignment', 'link'=>route('user.create')
-                        ],
-                        'list'=>[
-                            'text'=>'List', 'icon'=>'assignment', 'link'=>route('user.index')
+                            'text'=>'List', 'icon'=>'assignment', 'link'=>route('colleagues.index')
                         ],
                     ]
             ],
 
+            'reports'=>[
+                    'text'=>'reports', 'icon'=>'warning',
+                    'link' => route('reports.index')
+            ],
 
+            'helloworld'=>[
+                    'text'=>'helloworld', 'icon'=>'warning',
+                    'link' => route('helloworld.index')
+            ],
 
         ];
 
@@ -157,7 +197,7 @@
     <ul class="list">
         <li class="header">MAIN NAVIGATION</li>
             @foreach($menuitems as $itemname => $itemvalue)
-                @if (explode('_',$mn_highlight)[0] == $itemname)
+                @if (strtolower(explode('_',$mn_highlight)[0]) == strtolower($itemname))
                     <li class="active">
                 @else
                     <li>
@@ -176,7 +216,7 @@
 
                             <ul class="ml-menu">
                             @foreach($itemvalue['subitem'] as $subitem_name => $subitem_value)
-                                @if (explode('_',$mn_highlight)[0] == $itemname && explode('_',$mn_highlight)[1] == $subitem_name)
+                                @if (strtolower(explode('_',$mn_highlight)[0]) == strtolower($itemname) && strtolower(explode('_',$mn_highlight)[1]) == strtolower($subitem_name))
                                     <li class="active">
                                 @else
                                     <li>
@@ -194,7 +234,11 @@
                                     @if (isset($subitem_value['subitem']))
                                         <ul class="ml-menu">
                                         @foreach($subitem_value['subitem'] as $thirditem_name => $thirditem_value)
+                                        @if (strtolower(explode('_',$mn_highlight)[0]) == strtolower($itemname) && strtolower(explode('_',$mn_highlight)[1]) == strtolower($subitem_name) && strtolower(explode('_',$mn_highlight)[2]) == strtolower($thirditem_name))
+                                            <li class="active">
+                                        @else
                                             <li>
+                                        @endif
                                                 <a href="{{ $thirditem_value['link'] }}">
                                                     {{$thirditem_value['text']}}
                                                 </a>
@@ -207,7 +251,7 @@
                             </ul>
                     @endif
                 </li>
-                @endforeach
+            @endforeach
         </li>
     </ul>
 </div>

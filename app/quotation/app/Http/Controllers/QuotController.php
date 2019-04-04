@@ -4,9 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use Yajra\Datatables\Datatables;
+
 use App\Quot;
 use App\QuotItem;
 use App\Client;
+
+use App\Transformers\QuotIndexTableTransformer;
+
 use App\Http\Controllers\Pdf;
 
 class QuotItemHelper
@@ -164,9 +169,9 @@ class QuotController extends Controller
             'record'=>$new_quot_record,
             'quotitem_records'=>$quotitem_records,
             'form_action' =>'create',
-            'editor_name'=>'new auotation',
+            'editor_name'=>'new quotation',
             'client_name_list' => $client_name_list,
-            'editor_description' => 'new auotation description',
+            'editor_description' => 'new quotation description',
             'update_controller' =>'QuotController@update',
             'store_controller' =>'QuotController@store',
             'mn_highlight'=>'quotation_new'
@@ -286,6 +291,14 @@ class QuotController extends Controller
             'update_controller' =>'QuotController@update',
             'store_controller' =>'QuotController@store'
             ]);
+    }
+
+    public function index_table_content()
+    {
+        $Quotations = Quot::all()->take(20);
+
+        return Datatables::of($Quotations)->setTransformer(new QuotIndexTableTransformer)
+            ->make(true);
     }
 
 }

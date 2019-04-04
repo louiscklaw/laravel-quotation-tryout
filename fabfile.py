@@ -6,6 +6,8 @@ from fabric.colors import *
 from fabric.context_managers import *
 from fabric.contrib.project import *
 
+from time import sleep
+
 CWD = os.path.dirname(__file__)
 DOCKER_DIR = os.path.join(CWD,'_docker')
 
@@ -37,15 +39,43 @@ def docker_compose_run_command(command, path):
 
 def laravel_rebuild():
     with lcd(DOCKER_DIR):
-        docker_compose_php_composer_install('web', 'quotation')
+        docker_composeP_php_composer_install('web', 'quotation')
         laravel_artisan_migrate('web', 'quotation')
 
 def laravel_db_migrate(proj_name):
     with lcd(DOCKER_DIR):
         docker_compose_run_command('php artisan migrate:refresh','/app/{}'.format(proj_name))
 
-        for table in ['ClientTableSeeder','QuotTableSeeder', 'QuotItemTableSeeder']:
+        for table in ['DatabaseSeeder']:
             docker_compose_run_command('php artisan db:seed --class={}'.format(table),'/app/{}'.format( proj_name))
+
+def mysql_create_db(db_name):
+    with lcd(DOCKER_DIR):
+        docker_compose_run_command('mysql -uroot -e \\"CREATE DATABASE %s\\";' % db_name, '/app/%s' % db_name)
+
+def get_mysql_command(cmd_body):
+    return 'mysql -uroot -e \\"%s\\";' % cmd_body
+
+def reset_admin_password():
+    # alter user 'admin' identified by '123456';
+    with lcd(DOCKER_DIR):
+        wk_path = '/app'
+        mysql_command = "alter user 'admin' identified by '123456'"
+        docker_compose_run_command(get_mysql_command(mysql_command), wk_path)
+
+def drop_db_if_exist(db_name):
+    # alter user 'admin' identified by '123456';
+    with lcd(DOCKER_DIR):
+        wk_path = '/app'
+        mysql_command = "DROP DATABASE IF EXISTS %s" % db_name
+        docker_compose_run_command(get_mysql_command(mysql_command), wk_path)
+
+def rebuild_db():
+    reset_admin_password()
+    for db in ['quotation', 'helloworld']:
+        drop_db_if_exist(db)
+        mysql_create_db(db)
+        laravel_db_migrate(db)
 
 def rebuild_docker():
     with lcd(DOCKER_DIR):
@@ -59,7 +89,9 @@ def rebuild_docker():
 
     laravel_reload_conf()
 
-    laravel_db_migrate('quotation')
+    # print('sleep a while for docker becomes steady...')
+    sleep(60*3)
+    rebuild_db()
 
 def release_permission(proj_home):
     with lcd(DOCKER_DIR):
@@ -74,7 +106,7 @@ def laraveL_create_project(proj_name='blog'):
 def install_laravel(proj_name='blog'):
     proj_home = '/'.join(['/app', proj_name])
     with lcd(DOCKER_DIR):
-        docker_compose_run_command('cp .env.example .env', proj_home )
+        # docker_compose_run_command('cp .env.example .env', proj_home )
         docker_compose_run_command('chown www-data:staff -R .', proj_home )
 
         local('docker-compose exec web sh -c "cd {} && composer install"'.format(proj_home))

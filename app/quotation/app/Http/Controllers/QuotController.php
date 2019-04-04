@@ -104,17 +104,14 @@ class Quot_helper
         return array($quot_record, $quotitem_records);
     }
 
-    function create_default()
+    public static function save_as($req)
     {
-
+        $value = $req;
+        $new_quot = new Quot;
+        $new_quot->save($req);
     }
 
-    public function create()
-    {
-
-    }
-
-    public function save($id, $req)
+    public static function save($id, $req)
     {
         $value = $req->all();
         $target_record = $this->get_record($id)[0];
@@ -204,7 +201,10 @@ class QuotController extends Controller
             $req['quotitem_subtotal']]
         );
 
-        return $this->index();
+        $new_quot = $req->all();
+        Quot_helper::save_as($new_quot);
+
+        return redirect()->route('quot.show',compact('id'));
     }
 
     public function create()

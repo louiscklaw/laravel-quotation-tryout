@@ -17,10 +17,10 @@
 
                         <div class="col-lg-6">
                             @if (isset($action) && $action =='create')
-                                <button type="button" class="btn btn-primary m-t-15 waves-effect">{{ __('Create')}}</button>
+                            <button type="button" class="btn btn-primary m-t-15 waves-effect">{{ __('Create')}}</button>
                             @else
-                                <button type="button" class="btn btn-primary m-t-15 waves-effect">{{ __('Save')}}</button>
-                                <button type="button" class="btn btn-primary m-t-15 waves-effect">{{ __('PDF') }}</button>
+                            <button type="button" class="btn btn-primary m-t-15 waves-effect">{{ __('Save')}}</button>
+                            <button type="button" class="btn btn-primary m-t-15 waves-effect">{{ __('PDF') }}</button>
                             @endif
                         </div>
                     </div>
@@ -72,7 +72,7 @@
 
                 </div>
             </div>
-        <!-- col end -->
+            <!-- col end -->
         </div>
 
 
@@ -102,17 +102,14 @@
                 </div>
             </div>
 
-        <!-- col end -->
+            <!-- col end -->
         </div>
-
-
-
 
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <div class="card">
                 <div class="body">
                     <div class="row clearfix">
-                    <div class="body table-responsive">
+                        <div class="body table-responsive">
                             <table class="table order-list">
                                 <thead>
                                     <tr>
@@ -159,36 +156,26 @@
                                         <td>@lakitkat</td>
                                         <td>@lakitkat</td>
                                     </tr>
-
-
                                 </tbody>
 
                                 <tfoot>
                                     <tr>
                                         <td colspan="5" style="text-align: left;">
-                                            <input type="button" class="btn btn-lg btn-block " id="addrow" value="Add Row" />
+                                            <input type="button" class="btn btn-lg btn-block " id="addrow"
+                                                value="Add Row" />
                                         </td>
                                     </tr>
                                 </tfoot>
 
                             </table>
                         </div>
-
-
-
                     </div>
                 </div>
             </div>
 
-        <!-- col end -->
+            <!-- col end -->
         </div>
-
-
-
     </div>
-
-
-
 </section>
 @endsection
 

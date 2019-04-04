@@ -103,18 +103,19 @@
                                 </thead>
 
                                 <tbody>
-                                    <tr>
-                                        <!-- <th scope="row">1</th> -->
-                                        <td class="col-sm-1">1</td>
-                                        <td class="col-sm-6"><input type="text" class="form-control" name="product_0[]"></td>
-                                        <td class="col-sm-1"><input type="text" class="form-control" name="product_0[]"></td>
-                                        <td class="col-sm-1"><input type="text" class="form-control" name="product_0[]"></td>
-                                        <td class="col-sm-1"><input type="text" class="form-control" name="product_0[]"></td>
+                                    @foreach(range(1,$default_max_product_num) as $product_idx)
+                                        <tr>
+                                            <!-- <th scope="row">1</th> -->
+                                            <td class="col-sm-1">{{ $product_idx }}</td>
+                                            <td class="col-sm-6"><input type="text" class="form-control" name="product_{{ $product_idx }}[]"></td>
+                                            <td class="col-sm-1"><input type="text" class="form-control" name="product_{{ $product_idx }}[]"></td>
+                                            <td class="col-sm-1"><input type="text" class="form-control" name="product_{{ $product_idx }}[]"></td>
+                                            <td class="col-sm-1"><input type="text" class="form-control" name="product_{{ $product_idx }}[]"></td>
 
-                                        <!-- delete button column -->
-                                        <td class="col-sm-2"></td>
-
-                                    </tr>
+                                            <!-- delete button column -->
+                                            <td class="col-sm-2"></td>
+                                        </tr>
+                                    @endforeach
                                 </tbody>
 
                                 <tfoot>
@@ -174,7 +175,7 @@
 @push('blank_scripts_body')
 <script>
 $(document).ready(function () {
-    var counter = 2;
+    var counter = {{$default_max_product_num}}+1;
 
     $("#addrow").on("click", function () {
         var newRow = $("<tr>");

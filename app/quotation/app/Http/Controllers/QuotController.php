@@ -152,6 +152,8 @@ class QuotController extends Controller
 
     public function create()
     {
+        $default_max_product_num = 5;
+
         $quotitem_records = array();
 
         $new_quot_record = new Quot;
@@ -167,6 +169,7 @@ class QuotController extends Controller
 
         return view('layouts.quot.edit',[
             'record'=>$new_quot_record,
+            'default_max_product_num'=>$default_max_product_num,
             'quotitem_records'=>$quotitem_records,
             'form_action' =>'create',
             'editor_name'=>'new quotation',

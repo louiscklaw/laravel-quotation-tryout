@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+
 use Illuminate\Http\Request;
 
+use Carbon\Carbon;
 use Yajra\Datatables\Datatables;
 
 use App\Quot;
@@ -167,6 +169,15 @@ class Quot_helper
         return self::form_quot_ref($number_part+1);
     }
 
+    public static function new_quot_default_value($quot)
+    {
+
+        $quot->quot_ref = Quot_Helper::get_new_quot_number();
+        $quot->quot_date = Carbon::now();
+
+        return $quot;
+    }
+
 }
 
 class QuotController extends Controller
@@ -203,11 +214,7 @@ class QuotController extends Controller
         $quotitem_records = array();
 
         $new_quot_record = new Quot;
-
-        $new_quot_record->quot_ref = Quot_Helper::get_new_quot_number();
-
-        var_dump($new_quot_record);
-        die();
+        $new_quot_record = Quot_Helper::new_quot_default_value($new_quot_record);
 
         $client_name_list = Client::pluck('client_cname','id');
 
@@ -219,7 +226,7 @@ class QuotController extends Controller
 
 
         return view('layouts.quot.edit',[
-            'record'=>$new_quot_record,
+            'quot'=>$new_quot_record,
             'default_max_product_num'=>$default_max_product_num,
             'quotitem_records'=>$quotitem_records,
             'form_action' =>'create',
@@ -261,7 +268,7 @@ class QuotController extends Controller
         $client_name_list = Client::pluck('client_cname','id');
 
         return view('layouts.quot.edit',[
-            'record'=>$quot_record,
+            'quot'=>$quot_record,
             'quotitem_records' => $quotitem_records,
             'editor_name'=>'quotation edit',
             'editor_description' => 'quotation edit description',

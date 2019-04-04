@@ -5,9 +5,9 @@
 <section class="content">
 
     @if (Request::is('*/create') )
-        {!! Form::model($record, ['method'=>'POST', 'action'=> ['QuotController@store', $record->id]]) !!}
+        {!! Form::model($quot, ['method'=>'POST', 'action'=> ['QuotController@store', $quot->id]]) !!}
     @elseif(Request::is('*/edit'))
-        {!! Form::model($record, ['method'=>'PATCH', 'action'=> ['QuotController@update', $record->id]]) !!}
+        {!! Form::model($quot, ['method'=>'PATCH', 'action'=> ['QuotController@update', $quot->id]]) !!}
     @endif
 
     <div class="row clearfix">
@@ -30,7 +30,7 @@
                             @else
                                 {!! Form::submit(__('Save'), ['class'=>'btn btn-primary']) !!}
 
-                                <a class="btn btn-primary" href="{{ route('Quot.pdf',['id'=>$record->id]) }}" role="button">{{ __('PDF')}}</a>
+                                <a class="btn btn-primary" href="{{ route('Quot.pdf',['id'=>$quot->id]) }}" role="button">{{ __('PDF')}}</a>
 
                             @endif
                         </div>
@@ -43,7 +43,7 @@
                         <div class="col-sm-12">
                             <div class="form-group form-float">
                                 <div class="form-line">
-                                    <input type="text" class="form-control">
+                                    <input type="text" class="form-control" value="{{ $quot->quot_ref }}" readonly>
                                     <label class="form-label">Quote #</label>
                                 </div>
                             </div>
@@ -52,7 +52,7 @@
                         <div class="col-sm-12">
                             <div class="form-group form-float">
                                 <div class="form-line">
-                                    <input type="text" class="form-control">
+                                    <input type="text" class="form-control" value="{{ $quot->quot_date}}">
                                     <label class="form-label">Date</label>
                                 </div>
                             </div>

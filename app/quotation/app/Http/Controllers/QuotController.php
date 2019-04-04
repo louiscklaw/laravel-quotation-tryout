@@ -147,9 +147,15 @@ class Quot_helper
 
     }
 
+    public function get_last_quot_number()
+    {
+        $last_id = Quot::orderBy('id', 'DESC')->take(1);
+        return $last_id;
+    }
+
     public static function get_new_quot_number()
     {
-        return '123456';
+        return $this->get_last_quot_number();
     }
 
 }

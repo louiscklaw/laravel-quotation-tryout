@@ -2,15 +2,14 @@
 
 @section('content')
 
-    @if($action=='edit')
-        {!! Form::model($record, ['method'=>'PATCH', 'action'=> ['QuotController@update',
-    $record->id]]) !!}
-    @elseif($action=='create')
-        {!! Form::model($record, ['method'=>'POST', 'action'=> ['QuotController@store',
-    $record->id]]) !!}
+<section class="content">
+
+    @if(Request::is('*/edit'))
+        {!! Form::model($record, ['method'=>'PATCH', 'action'=> ['QuotController@update', $record->id]]) !!}
+    @elseif(Request::is('*/create') )
+        {!! Form::model($record, ['method'=>'POST', 'action'=> ['QuotController@store', $record->id]]) !!}
     @endif
 
-<section class="content">
     <div class="row clearfix">
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
 
@@ -25,7 +24,7 @@
                         </div>
 
                         <div class="col-lg-6">
-                            @if (isset($action) && $action =='create')
+                            @if (Request::is('*/create') )
                                 <button type="button" class="btn btn-primary m-t-15 waves-effect">{{ __('Create')}}</button>
                             @else
                                 <button type="button" class="btn btn-primary m-t-15 waves-effect">{{ __('Save')}}</button>
@@ -165,12 +164,10 @@
             <!-- col end -->
         </div>
     </div>
-</section>
-
-
 
     {!! Form::close() !!}
 
+</section>
 @endsection
 
 @push('blank_scripts_body')

@@ -62,7 +62,7 @@
                             <div class="form-group form-float">
                                 <div class="form-line">
                                     <label class="form-label">{{ __('from name')}}</label>
-                                    <textarea rows="2" class="form-control no-resize"></textarea>
+                                    <textarea rows="2" class="form-control no-resize">{{ $quot->quot_from_name }}</textarea>
                                 </div>
                             </div>
                         </div>
@@ -71,7 +71,7 @@
                             <div class="form-group form-float">
                                 <div class="form-line">
                                     <label class="form-label">{{ __('from address')}}</label>
-                                    <textarea rows="2" class="form-control no-resize"></textarea>
+                                    <textarea rows="2" class="form-control no-resize">{{ $quot->quot_from_address }}</textarea>
                                 </div>
                             </div>
                         </div>
@@ -80,7 +80,7 @@
                             <div class="form-group form-float">
                                 <div class="form-line">
                                     <label class="form-label">{{ __('to name')}}</label>
-                                    <textarea rows="2" class="form-control no-resize"></textarea>
+                                    <textarea rows="2" class="form-control no-resize">{{ $quot->quot_to_name }}</textarea>
                                 </div>
                             </div>
                         </div>
@@ -89,7 +89,7 @@
                             <div class="form-group form-float">
                                 <div class="form-line">
                                     <label class="form-label">{{ __('to address')}}</label>
-                                    <textarea rows="2" class="form-control no-resize"></textarea>
+                                    <textarea rows="2" class="form-control no-resize">{{ $quot->quot_to_address }}</textarea>
                                 </div>
                             </div>
                         </div>

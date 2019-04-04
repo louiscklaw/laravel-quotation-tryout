@@ -161,8 +161,8 @@
                         <div class="col-sm-12">
                             <div class="form-group">
                                 <div class="form-line">
-                                    <label class="form-label">{{ __('Terms & Conditions')}}</label>
-                                    <textarea rows="6" class="form-control no-resize"></textarea>
+                                    {{ __('Terms & Conditions')}}
+                                    <textarea rows="6" class="form-control no-resize">{{ $quot->quot_terms }}</textarea>
                                 </div>
                             </div>
                         </div>
@@ -170,8 +170,8 @@
                         <div class="col-sm-12">
                             <div class="form-group">
                                 <div class="form-line">
-                                    <label class="form-label">{{ __('Remarks')}}</label>
-                                    <textarea rows="6" class="form-control no-resize"></textarea>
+                                    {{ __('Remarks')}}
+                                    <textarea rows="6" class="form-control no-resize">{{ $quot->quot_remarks }}</textarea>
                                 </div>
                             </div>
                         </div>

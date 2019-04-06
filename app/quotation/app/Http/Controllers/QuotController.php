@@ -41,7 +41,7 @@ class QuotItemHelper
 
         $incoming = $req->only('quotitem');
 
-        var_dump($incoming);
+        var_dump($req);
         die();
 
         if(QuotItemHelper::get_length_of_quotitems($req) > 0)
@@ -77,7 +77,10 @@ class QuotItemHelper
 
     public static function save_quot_items($quot_ref, $req)
     {
-        QuotItemHelper::del_quotitem_by_ref($quot_ref);
+        var_dump($req);
+        die();
+
+        // QuotItemHelper::del_quotitem_by_ref($quot_ref);
         QuotItemHelper::save_quot_item($quot_ref, $req);
 
     }
@@ -219,6 +222,11 @@ class QuotController extends Controller
             ]);
     }
 
+    public function redirect_to_index()
+    {
+        return redirect()->route('Quot.index');
+    }
+
     public function store(Request $req)
     {
         // tidy up for bloat
@@ -357,9 +365,13 @@ class QuotController extends Controller
         // // update quotitem
         $quot_ref = Quot_helper::get_quot_ref_by_id($id);
 
-        // QuotItemHelper::save_quot_items($quot_ref,$req);
+        var_dump($req);
+        die();
 
-        return $this->index();
+        QuotItemHelper::save_quot_items($quot_ref,$req);
+
+        // return $this->index();
+        return $this->redirect_to_index();
     }
 
     public function debug_pdf($id)

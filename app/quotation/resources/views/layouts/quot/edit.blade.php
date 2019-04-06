@@ -155,18 +155,18 @@
                                                 <!-- <th scope="row">1</th> -->
                                                 <td class="col-sm-1">{{ $i+1 }}</td>
                                                 <td class="col-sm-6">
-                                                    {{Form::text('quotitem_name', $quot['quotitems'][$i]->quotitem_name,['class'=>'form-control'])}}
+                                                    {{Form::text('quotitem_name'.'[]', $quot['quotitems'][$i]->quotitem_name,['class'=>'form-control'])}}
                                                 </td>
                                                 <td class="col-sm-1">
-                                                    {{Form::text('quotitem_quantity', $quot['quotitems'][$i]->quotitem_quantity,['class'=>'form-control'])}}
+                                                    {{Form::text('quotitem_quantity'.'[]', $quot['quotitems'][$i]->quotitem_quantity,['class'=>'form-control'])}}
 
                                                 </td>
                                                 <td class="col-sm-1">
-                                                    {{Form::text('quotitem_unitprice', $quot['quotitems'][$i]->quotitem_unitprice,['class'=>'form-control'])}}
+                                                    {{Form::text('quotitem_unitprice'.'[]', $quot['quotitems'][$i]->quotitem_unitprice,['class'=>'form-control'])}}
 
                                                 </td>
                                                 <td class="col-sm-1">
-                                                    {{Form::text('quotitem_subtotal', $quot['quotitems'][$i]->quotitem_subtotal,['class'=>'form-control'])}}
+                                                    {{Form::text('quotitem_subtotal'.'[]', $quot['quotitems'][$i]->quotitem_subtotal,['class'=>'form-control'])}}
                                                 </td>
 
                                                 <!-- delete button column -->

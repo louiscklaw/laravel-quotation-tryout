@@ -249,12 +249,11 @@ class QuotController extends Controller
     public function index()
     {
         $all_records = Quot_helper::get_all();
-        $record_type = 'quot';
-
 
         return view('layouts.quot.list',[
             'all_records'=>$all_records,
-            'vep_route_target'=>$record_type,
+            // TODO: remove me
+            // 'vep_route_target'=>$record_type,
             'mn_highlight'=>'quotation_list'
             ]);
     }

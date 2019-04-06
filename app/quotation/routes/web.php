@@ -59,7 +59,7 @@ foreach($record_types as $record_type)
         $record_type => $record_type.'Controller',
     ]);
 
-    Route::get('/'.$record_type.'/{Quot}/get_pdf', function(){
+    Route::get("/$record_type/{id}/get_pdf", function(){
         return 'helloworld';
     })->name($record_type.'.pdf');
 

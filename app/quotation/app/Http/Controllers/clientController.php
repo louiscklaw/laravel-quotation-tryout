@@ -91,13 +91,16 @@ class clientController extends Controller
 
     public function index()
     {
-        $all_records = ClientHelper::get_all();
-        $record_type = 'client';
-        return view('layouts.client.list',[
-            'all_records'=>$all_records,
-            'vep_route_target'=>$record_type,
-            'mn_highlight'=>'customer_client_list'
-            ]);
+        // $all_records = ClientHelper::get_all();
+
+        return view('layouts.client.list');
+
+        // return view('layouts.client.list',[
+        //     'all_records'=>$all_records,
+        //     // TODO: remove me
+        //     // 'vep_route_target'=>$record_type,
+        //     'mn_highlight'=>'customer_client_list'
+        //     ]);
     }
 
     public function debug_index()

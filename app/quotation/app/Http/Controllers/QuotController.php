@@ -425,7 +425,7 @@ class QuotController extends Controller
 
     public function index_table_content()
     {
-        $Quotations = Quot::all()->take(20);
+        $Quotations = Quot::all();
 
         return Datatables::of($Quotations)->setTransformer(new QuotIndexTableTransformer)
             ->make(true);

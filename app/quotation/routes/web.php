@@ -49,7 +49,7 @@ $record_types=array(
     'client',
     'colleagues',
     'Quot',
-    'reports'
+    'Report'
 );
 
 foreach($record_types as $record_type)

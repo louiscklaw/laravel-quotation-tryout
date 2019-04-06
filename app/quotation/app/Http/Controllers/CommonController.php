@@ -18,4 +18,9 @@ class CommonController
             ['mn_highlight'=>'home']
         );
     }
+
+    public function helloworld()
+    {
+        return 'helloworld';
+    }
 }

@@ -168,3 +168,31 @@ def monAndTest():
     wdd = wm.add_watch(CWD, mask, rec=True, auto_add=True)
 
     notifier.loop()
+
+def get_current_branch():
+    # git branch | grep \* | cut -d ' ' -f2
+    current_branch = '';
+    with lcd(CWD):
+        current_branch = local("git branch | grep \* | cut -d ' ' -f2", capture=True)
+
+    return current_branch
+
+def checkout_brach(target_branch):
+    with lcd(CWD):
+        local('git checkout %s' % target_branch)
+
+def merge_branch(branch_to_merge):
+    with lcd(CWD):
+        local('git merge %s' % branch_to_merge)
+
+def merge_to(target_branch):
+    # get current branch
+    current_branch = get_current_branch()
+
+    # checkout target_branch
+    checkout_brach(target_branch)
+
+    # issue merge command
+    merge_branch(current_branch)
+
+    checkout_brach(current_branch)

@@ -76,7 +76,7 @@
                             <div class="form-group form-float">
                                 <div class="form-line">
                                     <label class="form-label">{{ __('from address')}}</label>
-                                    <textarea rows="2" class="form-control no-resize">{{ $quot->quot_from_address }}</textarea>
+                                    {{ Form::textarea('quot_from_address', $quot->quot_from_address,[ 'class'=>'form-control no-resize', 'rows'=>'2' ]) }}
                                 </div>
                             </div>
                         </div>
@@ -85,7 +85,8 @@
                             <div class="form-group form-float">
                                 <div class="form-line">
                                     <label class="form-label">{{ __('to name')}}</label>
-                                    <textarea rows="2" class="form-control no-resize">{{ $quot->quot_to_name }}</textarea>
+                                    {{ Form::textarea('quot_to_name', $quot->quot_to_name,[ 'class'=>'form-control no-resize', 'rows'=>'2' ]) }}
+
                                 </div>
                             </div>
                         </div>
@@ -94,7 +95,8 @@
                             <div class="form-group form-float">
                                 <div class="form-line">
                                     <label class="form-label">{{ __('to address')}}</label>
-                                    <textarea rows="2" class="form-control no-resize">{{ $quot->quot_to_address }}</textarea>
+                                    {{ Form::textarea('quot_to_address', $quot->quot_to_address,[ 'class'=>'form-control no-resize', 'rows'=>'2' ]) }}
+
                                 </div>
                             </div>
                         </div>

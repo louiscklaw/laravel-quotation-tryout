@@ -1,5 +1,12 @@
 @extends('layouts.material.html')
 
+
+@push('append_head')
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
+    <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
+@endpush
+
+
 @section('content')
 
 <section class="content">
@@ -180,7 +187,7 @@
                             <div class="form-group">
                                 <div class="form-line">
                                     {{ __('Terms & Conditions')}}
-                                    {{ Form::textarea('quot_terms', $quot->quot_terms,[ 'class'=>'form-control no-resize', 'rows'=>'2' ]) }}
+                                    {{ Form::textarea('quot_terms', $quot->quot_terms,[ 'class'=>'no-resize', 'rows'=>'2' ]) }}
                                 </div>
                             </div>
                         </div>
@@ -189,7 +196,7 @@
                             <div class="form-group">
                                 <div class="form-line">
                                     {{ __('Remarks')}}
-                                    {{ Form::textarea('quot_remarks', $quot->quot_remarks,[ 'class'=>'form-control no-resize', 'rows'=>'2' ]) }}
+                                    {{ Form::textarea('quot_remarks', $quot->quot_remarks,[ 'class'=>'no-resize', 'rows'=>'2' ]) }}
                                 </div>
                             </div>
                         </div>
@@ -251,5 +258,14 @@
 
         </script>
 
+    <script>
+        var simplemde = new SimpleMDE({
+            element: document.getElementsByName("quot_terms")[0],
+        });
 
+        var simplemde = new SimpleMDE({
+            element: document.getElementsByName("quot_remarks")[0],
+        });
+
+    </script>
 @endpush

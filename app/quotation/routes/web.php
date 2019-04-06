@@ -47,7 +47,6 @@ $record_type=array(
     'Quot'
 );
 
-
 foreach($record_type as $record)
 {
     Route::resources([

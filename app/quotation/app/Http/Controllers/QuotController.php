@@ -36,40 +36,54 @@ class QuotItemHelper
         return QuotItem::where('quotitem_ref',$quot_ref)->delete();
     }
 
+    public static function get_quotitems_from_request($req)
+    {
+        return $req->only('quotitems');
+    }
+
+
+    public static function get_num_of_quotitems($quotitems_incoming)
+    {
+        if (array_key_exists('quotitem_name',$quotitems_incoming))
+        {
+            return sizeof($quotitems_incoming['quotitem_name']);
+        }else{
+            return 0;
+
+        }
+    }
+
     public static function save_quot_item($quot_ref, $req)
     {
 
-        $incoming = $req->only('quotitems');
+        $quotitems_incoming = self::get_quotitems_from_request($req);
+        $quotitems_incoming = $quotitems_incoming['quotitems'];
 
-        if(QuotItemHelper::get_num_of_quotitems($req) > 0)
+        $quotitems_len = self::get_num_of_quotitems($quotitems_incoming);
+
+        if($quotitems_len > 0)
         {
-            for ($i=0; $i< sizeof($incoming); $i++)
+            for ($i=0; $i< $quotitems_len; $i++)
             {
                 // IDEA: check need to be create
 
                 $quotitem_record = new QuotItem;
                 $quotitem_record->quotitem_ref = $quot_ref;
 
-                foreach(array_keys($quotitem_record) as $field)
+                foreach($quotitem_record->getFillable() as $field)
                 {
-                    $quotitem_record->$field = $incoming[$i][$field];
+                    if (isset($quotitems_incoming[$field]))
+                    {
+                        $quotitem_record->$field = $quotitems_incoming[$field][$i];
+                        // $quotitem_record->$field = '123';
+                    }
                 }
+
                 $quotitem_record->save();
             }
         }
     }
 
-    public static function get_num_of_quotitems($req)
-    {
-        $incoming = $req->only('quotitem');
-        if (array_key_exists('quotitem',$incoming))
-        {
-            return sizeof($incoming['quotitem'][0]);
-        }else{
-            return 0;
-
-        }
-    }
 
     public static function save_quot_items($quot_ref, $req)
     {

@@ -44,7 +44,11 @@
                             <div class="form-group form-float">
                                 <div class="form-line">
                                     <input type="text" class="form-control" value="{{ $quot->quot_ref }}" readonly>
-                                    <label class="form-label">Quote #</label>
+                                    @if (Request::is('*/create'))
+                                        <label class="form-label">Quote #</label>
+                                    @else
+                                        <label class="form-label">Quote # (display only)</label>
+                                    @endif
                                 </div>
                             </div>
                         </div>
@@ -52,7 +56,7 @@
                         <div class="col-sm-12">
                             <div class="form-group form-float">
                                 <div class="form-line">
-                                    <input type="text" class="form-control" value="{{ $quot->quot_date}}">
+                                    {{Form::text('quot_date', $quot->quot_date,['class'=>'form-control'])}}
                                     <label class="form-label">Date</label>
                                 </div>
                             </div>
@@ -62,7 +66,8 @@
                             <div class="form-group form-float">
                                 <div class="form-line">
                                     <label class="form-label">{{ __('from name')}}</label>
-                                    <textarea rows="2" class="form-control no-resize">{{ $quot->quot_from_name }}</textarea>
+                                    {{ Form::textarea('quot_from_name', $quot->quot_from_name,[ 'class'=>'form-control no-resize', 'rows'=>'2' ]) }}
+
                                 </div>
                             </div>
                         </div>
@@ -118,7 +123,6 @@
                                 </thead>
 
                                 <tbody>
-
                                     @if (Request::is('*/create') )
                                         @foreach(range(1,$default_max_product_num) as $product_idx)
                                             <tr>

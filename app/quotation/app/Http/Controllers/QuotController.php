@@ -40,6 +40,10 @@ class QuotItemHelper
     {
 
         $incoming = $req->only('quotitem');
+
+        var_dump($incoming);
+        die();
+
         if(QuotItemHelper::get_length_of_quotitems($req) > 0)
         {
             for ($i=0; $i< sizeof($incoming['quotitem']); $i++)
@@ -77,6 +81,7 @@ class QuotItemHelper
         QuotItemHelper::save_quot_item($quot_ref, $req);
 
     }
+
 }
 
 class Quot_helper
@@ -120,13 +125,21 @@ class Quot_helper
     public static function save($id, $req)
     {
         $value = $req->all();
-        $target_record = $this->get_record($id)[0];
-        $target_record->update($value);
+
+        $quot_record = self::get_record($id);
+
+        var_dump($value);
+        die();
+
+        $quot_record->update($value);
+
+        // $quot_record = QuotitemHelper::save_quot_items($quot_record->quot_ref,  $vlaue);
+
     }
 
     public function open_record($id)
     {
-        return $this->get_record('id',$id)[0];
+        return $this->get_record('id',$id);
     }
 
     public static function get_all()
@@ -327,9 +340,16 @@ class QuotController extends Controller
     public function update(Request $req, $id)
     {
 
+
+        // update quot
         $quot_record = new Quot_helper;
         $quot_record->save($id, $req);
 
+
+        var_dump($req);
+        die();
+
+        // update quotitem
         $quot_ref = Quot_helper::get_quot_ref_by_id($id);
 
         QuotItemHelper::save_quot_items($quot_ref,$req);

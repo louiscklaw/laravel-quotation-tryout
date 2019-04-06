@@ -11,10 +11,9 @@
     <div class="row clearfix">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <div class="card">
-
-            <textarea name="test_simplemde" id="test_simplemde" cols="30" rows="10"></textarea>
-
-
+                <div class="body">
+                    <textarea name="test_simplemde" cols="30" rows="10"></textarea>
+                </div>
             </div>
         </div>
     </div>

@@ -125,31 +125,6 @@
                                 </thead>
 
                                 <tbody>
-                                    @if (Request::is('*/create') )
-                                        @foreach(range(1,$default_max_product_num) as $product_idx)
-                                            <tr>
-                                                <!-- <th scope="row">1</th> -->
-                                                <td class="col-sm-1">{{ $product_idx }}</td>
-                                                <td class="col-sm-6">
-                                                    {{Form::text('quotitem_name[]', '',['class'=>'form-control'])}}
-                                                </td>
-                                                <td class="col-sm-1">
-                                                    {{Form::text('quotitem_quantity[]', '',['class'=>'form-control'])}}
-                                                </td>
-                                                <td class="col-sm-1">
-                                                    {{Form::text('quotitem_unitprice[]', '',['class'=>'form-control'])}}
-                                                </td>
-                                                <td class="col-sm-1">
-                                                    {{Form::text('quotitem_subtotal[]', '',['class'=>'form-control'])}}
-                                                </td>
-
-                                                <!-- delete button column -->
-                                                <td class="col-sm-2">
-                                                </td>
-                                            </tr>
-                                        @endforeach
-                                    @else
-
                                         @for($i=0; $i<sizeof($quot['quotitems']); $i++)
                                             <tr>
                                                 <!-- <th scope="row">1</th> -->
@@ -177,7 +152,6 @@
                                                 @endif
                                             </tr>
                                         @endfor
-                                    @endif
                                 </tbody>
 
                                 <tfoot>
@@ -238,11 +212,7 @@
 
         <script>
         $(document).ready(function () {
-            @if (Request::is('*/create'))
-                var counter = {{$default_max_product_num}}+1;
-            @else
-                var counter = {{sizeof($quot['quotitems'])}}+1;
-            @endif
+            var counter = {{ sizeof($quot['quotitems'])}}+1;
 
             $("#addrow").on("click", function () {
                 var newRow = $("<tr>");

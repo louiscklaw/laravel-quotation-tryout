@@ -294,11 +294,11 @@ class QuotController extends Controller
             array_push($quotitem_records, $quotitem_record);
         }
 
+        $new_quot_record['quotitems'] = $quotitem_records;
 
         return view('layouts.quot.edit',[
             'quot'=>$new_quot_record,
-            'default_max_product_num'=>$default_max_product_num,
-            'quotitem_records'=>$quotitem_records,
+            // 'quotitem_records'=>$quotitem_records,
             'form_action' =>'create',
             'editor_name'=>'new quotation',
             'client_name_list' => $client_name_list,

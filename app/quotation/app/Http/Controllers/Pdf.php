@@ -75,6 +75,8 @@ EOF;
 
     public function pdf_helloworld()
     {
+        return 'hellopdf';
+
         $html = $this->get_client_table_html(1);
 
         $html = $html . $this->get_work_description(1);
@@ -91,8 +93,8 @@ EOF;
         // $pdf = new ;
 
         // if($request->has('download')){
-            $pdf = PDF::loadView('pdfview');
-            return $pdf->download('pdfview.pdf');
+        $pdf = PDF::loadView('pdfview');
+        return $pdf->download('pdfview.pdf');
         // }
 
 
@@ -101,7 +103,7 @@ EOF;
 
     public function gen_pdf()
     {
-        return PdfHelper::pdf_helloworld();
+        return 'hellopdf';
     }
 
 }

@@ -36,6 +36,11 @@ class ClientIndexTableTransformer extends TransformerAbstract
         return array_keys($client_record->getAttributes());
     }
 
+    public function get_email_link($email_address)
+    {
+        return "<a href = \"mailto: $email_address\">$email_address</a>";
+    }
+
     public function transform(Client $client_record)
     {
 
@@ -44,7 +49,13 @@ class ClientIndexTableTransformer extends TransformerAbstract
         $test_array = [];
         foreach($field_names as $field_name)
         {
-            $test_array[$field_name] = $client_record->$field_name;
+            $field_value = $client_record->$field_name;
+            if ($field_name == 'client_email')
+            {
+                $test_array[$field_name] = $this->get_email_link($field_value);
+            }else{
+                $test_array[$field_name] = $field_value;
+            }
         }
         $test_array['action'] = $this->get_action_link($client_record->id);
 

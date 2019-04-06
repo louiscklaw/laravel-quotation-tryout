@@ -351,14 +351,11 @@ class QuotController extends Controller
 
 
         // update quot
-        $quot_record = new Quot_helper;
-        $quot_record->save($id, $req);
-
-        // var_dump($req);
-        // die();
+        $quot_helper = new Quot_helper;
+        $quot_helper->save($id, $req);
 
         // // update quotitem
-        // $quot_ref = Quot_helper::get_quot_ref_by_id($id);
+        $quot_ref = Quot_helper::get_quot_ref_by_id($id);
 
         // QuotItemHelper::save_quot_items($quot_ref,$req);
 

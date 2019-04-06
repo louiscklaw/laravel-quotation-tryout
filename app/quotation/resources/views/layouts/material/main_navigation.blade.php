@@ -182,7 +182,7 @@
 
             'reports'=>[
                     'text'=>'reports', 'icon'=>'warning',
-                    'link' => route('reports.index')
+                    'link' => route('Report.index')
             ],
 
             'helloworld'=>[

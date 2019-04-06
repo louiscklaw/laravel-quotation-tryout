@@ -11,6 +11,11 @@ use App\Client;
 
 class postsController
 {
+    public function get_pdf()
+    {
+        return 'hellopdf';
+    }
+
     public function index()
     {
         $all_records = Posts::all();

@@ -55,6 +55,8 @@ $record_types=array(
 foreach($record_types as $record_type)
 {
 
+    Route::get('/'.$record_type.'/get_pdf', $record_type.'Controller@get_pdf')->name($record_type.'.pdf');
+
     Route::resources([
         $record_type => $record_type.'Controller',
     ]);

@@ -382,12 +382,10 @@ class QuotController extends Controller
 
     }
 
-    public function get_pdf($id)
+    public function get_pdf(Request $req)
     {
-        // $pdf_helper = new PdfHelper();
-        // $pdf_helper->gen_pdf();
-
-        return 'hellopdf';
+        $pdf_helper = new PdfHelper();
+        return $pdf_helper->gen_pdf();
     }
 
     public function update(Request $req, $id)

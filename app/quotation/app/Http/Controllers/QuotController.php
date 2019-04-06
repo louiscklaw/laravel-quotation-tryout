@@ -106,6 +106,7 @@ class Quot_helper
         return $quot_record;
     }
 
+    // save a new record and return the content of it
     public static function save_as($req)
     {
         $value = $req;
@@ -115,6 +116,7 @@ class Quot_helper
         return $new_quot;
     }
 
+    // save to an existing record by providing the id
     public static function save($id, $req)
     {
         $value = $req->all();

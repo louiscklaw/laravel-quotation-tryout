@@ -2,7 +2,7 @@
     $menuitems=
         [
             'home'=>[
-                'text'=>'Home', 'icon'=>'assignment', 'link'=>route('quotation.home'),
+                'text'=>'Home', 'icon'=>'assignment', 'link'=>route('Quot.index'),
             ],
 
             'posts'=>[
@@ -33,10 +33,10 @@
                 'text'=>'Tools', 'icon'=>'assignment',
                 'subitem' => [
                     'new'=>[
-                        'text'=>'New', 'icon'=>'assignment', 'link'=>route('quotation.create')
+                        'text'=>'New', 'icon'=>'assignment', 'link'=>route('Quot.create')
                     ],
                     'list'=>[
-                        'text'=>'List', 'icon'=>'assignment', 'link'=>route('quotation.index')
+                        'text'=>'List', 'icon'=>'assignment', 'link'=>route('Quot.index')
                     ],
                 ]
             ],
@@ -45,10 +45,10 @@
                 'text'=>'Quotation', 'icon'=>'assignment',
                 'subitem' => [
                     'new'=>[
-                        'text'=>'New', 'icon'=>'assignment', 'link'=>route('quotation.create')
+                        'text'=>'New', 'icon'=>'assignment', 'link'=>route('Quot.create')
                     ],
                     'list'=>[
-                        'text'=>'List', 'icon'=>'assignment', 'link'=>route('quotation.index')
+                        'text'=>'List', 'icon'=>'assignment', 'link'=>route('Quot.index')
                     ],
                 ]
             ],
@@ -57,10 +57,10 @@
                 'text'=>'Delivery', 'icon'=>'assignment',
                 'subitem' => [
                     'new'=>[
-                        'text'=>'New', 'icon'=>'assignment', 'link'=>route('quotation.create')
+                        'text'=>'New', 'icon'=>'assignment', 'link'=>route('Quot.create')
                     ],
                     'list'=>[
-                        'text'=>'List', 'icon'=>'assignment', 'link'=>route('quotation.index')
+                        'text'=>'List', 'icon'=>'assignment', 'link'=>route('Quot.index')
                     ],
                 ]
             ],
@@ -69,10 +69,10 @@
                 'text'=>'Collection', 'icon'=>'assignment',
                 'subitem' => [
                     'new'=>[
-                        'text'=>'New', 'icon'=>'assignment', 'link'=>route('quotation.create')
+                        'text'=>'New', 'icon'=>'assignment', 'link'=>route('Quot.create')
                     ],
                     'list'=>[
-                        'text'=>'List', 'icon'=>'assignment', 'link'=>route('quotation.index')
+                        'text'=>'List', 'icon'=>'assignment', 'link'=>route('Quot.index')
                     ],
                 ]
             ],
@@ -81,10 +81,10 @@
                 'text'=>'LnD', 'icon'=>'assignment',
                 'subitem' => [
                     'new'=>[
-                        'text'=>'New', 'icon'=>'assignment', 'link'=>route('quotation.create')
+                        'text'=>'New', 'icon'=>'assignment', 'link'=>route('Quot.create')
                     ],
                     'list'=>[
-                        'text'=>'List', 'icon'=>'assignment', 'link'=>route('quotation.index')
+                        'text'=>'List', 'icon'=>'assignment', 'link'=>route('Quot.index')
                     ],
                 ]
             ],
@@ -94,10 +94,10 @@
                 'text'=>'Invoice', 'icon'=>'assignment',
                 'subitem' => [
                     'new'=>[
-                        'text'=>'New', 'icon'=>'assignment', 'link'=>route('quotation.create')
+                        'text'=>'New', 'icon'=>'assignment', 'link'=>route('Quot.create')
                     ],
                     'list'=>[
-                        'text'=>'List', 'icon'=>'assignment', 'link'=>route('quotation.index')
+                        'text'=>'List', 'icon'=>'assignment', 'link'=>route('Quot.index')
                     ],
                 ]
             ],
@@ -107,10 +107,10 @@
                 'text'=>'Inventory', 'icon'=>'assignment',
                 'subitem' => [
                     'new'=>[
-                        'text'=>'New', 'icon'=>'assignment', 'link'=>route('quotation.create')
+                        'text'=>'New', 'icon'=>'assignment', 'link'=>route('Quot.create')
                     ],
                     'list'=>[
-                        'text'=>'List', 'icon'=>'assignment', 'link'=>route('quotation.index')
+                        'text'=>'List', 'icon'=>'assignment', 'link'=>route('Quot.index')
                     ],
                 ]
             ],
@@ -120,10 +120,10 @@
                 'text'=>'Price', 'icon'=>'assignment',
                 'subitem' => [
                     'new'=>[
-                        'text'=>'New', 'icon'=>'assignment', 'link'=>route('quotation.create')
+                        'text'=>'New', 'icon'=>'assignment', 'link'=>route('Quot.create')
                     ],
                     'list'=>[
-                        'text'=>'List', 'icon'=>'assignment', 'link'=>route('quotation.index')
+                        'text'=>'List', 'icon'=>'assignment', 'link'=>route('Quot.index')
                     ],
                 ]
             ],
@@ -163,8 +163,8 @@
                             ],
 
                         ]],
-                    'ConstSite'=>['text'=>'ConstSite', 'icon'=>'assignment', 'link'=>route('quotation.create')],
-                    'Siteitem'=>['text'=>'Siteitem', 'icon'=>'assignment', 'link'=>route('quotation.create')],
+                    'ConstSite'=>['text'=>'ConstSite', 'icon'=>'assignment', 'link'=>route('Quot.create')],
+                    'Siteitem'=>['text'=>'Siteitem', 'icon'=>'assignment', 'link'=>route('Quot.create')],
                 ]
             ],
 

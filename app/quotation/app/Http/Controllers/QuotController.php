@@ -250,6 +250,8 @@ class QuotController extends Controller
     {
         $all_records = Quot_helper::get_all();
         $record_type = 'quot';
+
+
         return view('layouts.quot.list',[
             'all_records'=>$all_records,
             'vep_route_target'=>$record_type,

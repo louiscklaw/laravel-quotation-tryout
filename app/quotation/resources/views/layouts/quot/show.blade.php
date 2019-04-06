@@ -16,7 +16,7 @@
 
                 <div class="form-group" style="margin-top, margin-bottom: 20px">
                     <a class="btn bg-light-blue waves-effect" href="{{ route('Quot.edit',['id'=>$record->id]) }}" role="button">edit</a>
-                    <a class="btn bg-light-blue waves-effect" href="{{ route('quot.pdf', ['id'=>$record->id]) }}" role="button">pdf</a>
+                    <a class="btn bg-light-blue waves-effect" href="{{ route('Quot.pdf', ['id'=>$record->id]) }}" role="button">pdf</a>
                 </div>
             @endcard
 

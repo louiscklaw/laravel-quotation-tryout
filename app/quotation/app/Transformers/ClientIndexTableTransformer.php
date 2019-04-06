@@ -41,6 +41,19 @@ class ClientIndexTableTransformer extends TransformerAbstract
         return "<a href = \"mailto: $email_address\">$email_address</a>";
     }
 
+    public function get_whatsapp_link($whatsapp_num)
+    {
+        $whatsapp_num_on_link = $whatsapp_num;
+        $not_appear_on_link = ['+','-','(',')'];
+
+        foreach($not_appear_on_link as $char_to_replace)
+        {
+            $whatsapp_num_on_link = str_replace($char_to_replace, '', $whatsapp_num_on_link);
+        }
+
+        return "<a href = \"https://wa.me/$whatsapp_num_on_link\">$whatsapp_num</a>";
+    }
+
     public function transform(Client $client_record)
     {
 
@@ -53,7 +66,10 @@ class ClientIndexTableTransformer extends TransformerAbstract
             if ($field_name == 'client_email')
             {
                 $test_array[$field_name] = $this->get_email_link($field_value);
-            }else{
+            }elseif ($field_name == 'client_whatsapp'){
+                $test_array[$field_name] = $this->get_whatsapp_link($field_value);
+            }
+            else{
                 $test_array[$field_name] = $field_value;
             }
         }

@@ -73,6 +73,6 @@ Route::get('/index_table_content/quot','QuotController@index_table_content')->na
 
 Route::get('/quot/index','QuotController@index')->name('Quot.index');
 
-Route::get('/quot/index','CommonController@helloworld')->name('helloworld.index');
-
 Route::post('/index_table_content/client', 'clientController@index_table_content')->name('client.index_table_content');
+
+Route::get('/helloworld', 'helloworldController@index')->name('helloworld.index');

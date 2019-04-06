@@ -8,7 +8,7 @@ use Carbon\Carbon;
 
 use App\Client;
 
-class clientTableSeeder extends Seeder
+class ClientTableSeeder extends Seeder
 {
     public function __construct()
     {
@@ -139,7 +139,7 @@ class clientTableSeeder extends Seeder
 
     public function run()
     {
-        $max_num_client = 99999;
+        $max_num_client = 100;
         DB::table('client')->truncate();
         for($i=0; $i < $max_num_client; $i++)
         {

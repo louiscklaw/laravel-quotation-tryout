@@ -71,6 +71,8 @@ foreach($record_types as $record_type)
 
 Route::get('/quot/index_table_content','QuotController@index_table_content')->name('Quot.index_table_content');
 
+Route::get('/client/index_table_content','ClientController@index_table_content')->name('client.index_table_content');
+
 Route::get('/quot/index','QuotController@index')->name('Quot.index');
 
 Route::get('/quot/index','CommonController@helloworld')->name('helloworld.index');

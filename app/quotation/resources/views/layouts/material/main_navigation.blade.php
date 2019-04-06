@@ -2,7 +2,7 @@
     $menuitems=
         [
             'home'=>[
-                'text'=>'Home', 'icon'=>'assignment', 'link'=>route('Quot.index'),
+                'text'=>'Home', 'icon'=>'assignment', 'link'=>route('home'),
             ],
 
             'posts'=>[

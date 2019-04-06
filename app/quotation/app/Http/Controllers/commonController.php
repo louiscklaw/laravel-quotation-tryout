@@ -23,4 +23,9 @@ class commonController
     {
         return 'helloworld';
     }
+
+    public function index()
+    {
+        return view('helloworld',['mn_highlight'=>'home']);
+    }
 }

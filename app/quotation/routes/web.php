@@ -12,7 +12,7 @@
 */
 
 
-// Route::get('/', 'commonController@home')->name('quotation.home');
+Route::get('/', 'commonController@index')->name('home');
 
 
 
@@ -39,7 +39,7 @@
 
 Auth::routes();
 
-Route::get('/home', 'homeController@index')->name('home');
+
 
 $record_types=array(
     'posts',

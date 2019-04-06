@@ -132,6 +132,8 @@ class Quot_helper
 
         $quotitem_records = QuotItemHelper::get_quot_item($quot_ref);
 
+        // $quot_record['quotitems']=$quotitem_records;
+
         return $quot_record;
     }
 
@@ -148,6 +150,8 @@ class Quot_helper
 
         return $quot_record;
     }
+
+
 
     // save a new record and return the content of it
     public static function save_as($req)
@@ -302,9 +306,9 @@ class QuotController extends Controller
 
     public function show($id)
     {
-        $records = Quot_helper::get_record($id);
-        $quot_record = $records[0];
-        $quotitem_records = $records[1];
+        $records = Quot_helper::get_quot($id);
+        $quot_record = $records;
+        $quotitem_records = $records['quotitems'];
 
         return view('layouts.quot.show',[
             'record'=>$quot_record,

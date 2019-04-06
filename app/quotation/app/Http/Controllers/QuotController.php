@@ -288,7 +288,7 @@ class QuotController extends Controller
 
         $client_name_list = Client::pluck('client_cname','id');
 
-        for($i=0;$i<5;$i++)
+        for($i=0;$i<$default_max_product_num;$i++)
         {
             $quotitem_record = new QuotItem;
             array_push($quotitem_records, $quotitem_record);

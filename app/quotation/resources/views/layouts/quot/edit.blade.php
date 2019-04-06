@@ -16,14 +16,14 @@
             <div class="card">
                 <div class="header">
                     <div class="row clearfix">
-                        <div class="col-lg-3">
+                        <div class="col-lg-6">
                             <h2>
                                 Quotatioon Edit
                                 <small>Edit quotation information</small>
                             </h2>
                         </div>
 
-                        <div class="col-lg-3">
+                        <div class="col-lg-6">
                             @if (Request::is('*/create') )
                                 {!! Form::submit(__('Create'), ['class'=>'btn btn-primary']) !!}
 

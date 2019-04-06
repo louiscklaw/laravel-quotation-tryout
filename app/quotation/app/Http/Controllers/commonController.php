@@ -9,7 +9,7 @@ use App\QuotItem;
 use App\Client;
 use App\Http\Controllers\Pdf;
 
-class CommonController
+class commonController
 {
     public function home()
     {

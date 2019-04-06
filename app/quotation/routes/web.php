@@ -12,7 +12,7 @@
 */
 
 
-// Route::get('/', 'CommonController@home')->name('quotation.home');
+// Route::get('/', 'commonController@home')->name('quotation.home');
 
 
 

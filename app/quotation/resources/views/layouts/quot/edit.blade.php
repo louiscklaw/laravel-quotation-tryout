@@ -205,10 +205,14 @@
 @endsection
 
 @push('blank_scripts_body')
-    @if (Request::is('*/create') )
+
         <script>
         $(document).ready(function () {
-            var counter = {{$default_max_product_num}}+1;
+            @if (Request::is('*/create'))
+                var counter = {{$default_max_product_num}}+1;
+            @else
+                var counter = {{sizeof($quot['quotitems'])}}+1;
+            @endif
 
             $("#addrow").on("click", function () {
                 var newRow = $("<tr>");
@@ -246,6 +250,6 @@
         }
 
         </script>
-    @endif
+
 
 @endpush

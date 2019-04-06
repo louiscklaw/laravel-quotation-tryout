@@ -130,13 +130,22 @@
                                             <tr>
                                                 <!-- <th scope="row">1</th> -->
                                                 <td class="col-sm-1">{{ $product_idx }}</td>
-                                                <td class="col-sm-6"><input type="text" class="form-control" name="quotitem_name[]"></td>
-                                                <td class="col-sm-1"><input type="text" class="form-control" name="quotitem_quantity[]"></td>
-                                                <td class="col-sm-1"><input type="text" class="form-control" name="quotitem_unitprice[]"></td>
-                                                <td class="col-sm-1"><input type="text" class="form-control" name="quotitem_subtotal[]"></td>
+                                                <td class="col-sm-6">
+                                                    {{Form::text('quotitem_name[]', '',['class'=>'form-control'])}}
+                                                </td>
+                                                <td class="col-sm-1">
+                                                    {{Form::text('quotitem_quantity[]', '',['class'=>'form-control'])}}
+                                                </td>
+                                                <td class="col-sm-1">
+                                                    {{Form::text('quotitem_unitprice[]', '',['class'=>'form-control'])}}
+                                                </td>
+                                                <td class="col-sm-1">
+                                                    {{Form::text('quotitem_subtotal[]', '',['class'=>'form-control'])}}
+                                                </td>
 
                                                 <!-- delete button column -->
-                                                <td class="col-sm-2"></td>
+                                                <td class="col-sm-2">
+                                                </td>
                                             </tr>
                                         @endforeach
                                     @else
@@ -145,10 +154,20 @@
                                             <tr>
                                                 <!-- <th scope="row">1</th> -->
                                                 <td class="col-sm-1">{{ $i+1 }}</td>
-                                                <td class="col-sm-6"><input type="text" class="form-control" name="quotitem_name[]" value="{{ $quot['quotitems'][$i]->quotitem_name }}"></td>
-                                                <td class="col-sm-1"><input type="text" class="form-control" name="quotitem_quantity[]" value="{{ $quot['quotitems'][$i]->quotitem_quantity}}"></td>
-                                                <td class="col-sm-1"><input type="text" class="form-control" name="quotitem_unitprice[]" value="{{$quot['quotitems'][$i]->quotitem_unitprice }}"></td>
-                                                <td class="col-sm-1"><input type="text" class="form-control" name="quotitem_subtotal[]" value="{{ $quot['quotitems'][$i]->quotitem_subtotal }}"></td>
+                                                <td class="col-sm-6">
+                                                    {{Form::text('quotitem_name', $quot['quotitems'][$i]->quotitem_name,['class'=>'form-control'])}}
+                                                </td>
+                                                <td class="col-sm-1">
+                                                    {{Form::text('quotitem_quantity', $quot['quotitems'][$i]->quotitem_quantity,['class'=>'form-control'])}}
+
+                                                </td>
+                                                <td class="col-sm-1">
+                                                    {{Form::text('quotitem_unitprice', $quot['quotitems'][$i]->quotitem_unitprice,['class'=>'form-control'])}}
+
+                                                </td>
+                                                <td class="col-sm-1">
+                                                    {{Form::text('quotitem_subtotal', $quot['quotitems'][$i]->quotitem_subtotal,['class'=>'form-control'])}}
+                                                </td>
 
                                                 <!-- delete button column -->
                                                 @if (Request::is('*/create'))
@@ -187,7 +206,7 @@
                             <div class="form-group">
                                 <div class="form-line">
                                     {{ __('Terms & Conditions')}}
-                                    <textarea rows="6" class="form-control no-resize">{{ $quot->quot_terms }}</textarea>
+                                    {{ Form::textarea('quot_terms', $quot->quot_terms,[ 'class'=>'form-control no-resize', 'rows'=>'2' ]) }}
                                 </div>
                             </div>
                         </div>
@@ -196,7 +215,7 @@
                             <div class="form-group">
                                 <div class="form-line">
                                     {{ __('Remarks')}}
-                                    <textarea rows="6" class="form-control no-resize">{{ $quot->quot_remarks }}</textarea>
+                                    {{ Form::textarea('quot_remarks', $quot->quot_remarks,[ 'class'=>'form-control no-resize', 'rows'=>'2' ]) }}
                                 </div>
                             </div>
                         </div>

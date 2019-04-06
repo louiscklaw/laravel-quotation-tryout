@@ -151,7 +151,11 @@
                                                 <td class="col-sm-1"><input type="text" class="form-control" name="quotitem_subtotal[]" value="{{ $quot['quotitems'][$i]->quotitem_subtotal }}"></td>
 
                                                 <!-- delete button column -->
-                                                <td class="col-sm-2"></td>
+                                                @if (Request::is('*/create'))
+                                                    <td class="col-sm-2"></td>
+                                                @else
+                                                    <td><input type="button" class="ibtnDel btn btn-md btn-danger "  value="Delete"></td>
+                                                @endif
                                             </tr>
                                         @endfor
                                     @endif

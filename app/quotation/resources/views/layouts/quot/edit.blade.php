@@ -133,6 +133,20 @@
                                                 <td class="col-sm-2"></td>
                                             </tr>
                                         @endforeach
+                                    @else
+                                        @foreach($quot['quotitems'] as $quotitem)
+                                            <tr>
+                                                <!-- <th scope="row">1</th> -->
+                                                <td class="col-sm-1">{{ $quotitem->id }}</td>
+                                                <td class="col-sm-6"><input type="text" class="form-control" name="quotitem_name[]" value="{{ $quotitem->quotitem_name }}"></td>
+                                                <td class="col-sm-1"><input type="text" class="form-control" name="quotitem_quantity[]" value="{{ $quotitem->quotitem_quantity}}"></td>
+                                                <td class="col-sm-1"><input type="text" class="form-control" name="quotitem_unitprice[]" value="{{$quotitem->quotitem_unitprice }}"></td>
+                                                <td class="col-sm-1"><input type="text" class="form-control" name="quotitem_subtotal[]" value="{{ $quotitem->quotitem_subtotal }}"></td>
+
+                                                <!-- delete button column -->
+                                                <td class="col-sm-2"></td>
+                                            </tr>
+                                        @endforeach
                                     @endif
                                 </tbody>
 

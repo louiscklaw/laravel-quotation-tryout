@@ -21,11 +21,13 @@ class QuotIndexTableTransformer extends TransformerAbstract
     {
         $view_link =route('Quot.show',['id'=>$id]);
         $edit_link = route('Quot.edit',['id'=>$id]);
+        $pdf_link = route('Quot.pdf',['id'=>$id]);
 
         $view_html = $this->get_button_link('View', $view_link);
         $edit_html = $this->get_button_link('Edit', $edit_link);
+        $pdf_html = $this->get_button_link('Pdf', $pdf_link);
 
-        $action_html = implode(' ',array($view_html,$edit_html));
+        $action_html = implode(' ',array($view_html,$edit_html, $pdf_html));
 
         return $action_html;
     }

@@ -1,5 +1,7 @@
 <?php
 
+
+
 namespace App\Http\Controllers;
 
 
@@ -381,10 +383,10 @@ class QuotController extends Controller
 
     public function get_pdf($id)
     {
-        $pdf_helper = new PdfHelper();
-        $pdf_helper->gen_pdf();
+        // $pdf_helper = new PdfHelper();
+        // $pdf_helper->gen_pdf();
 
-
+        return 'hellopdf';
     }
 
     public function update(Request $req, $id)
@@ -427,6 +429,11 @@ class QuotController extends Controller
 
         return Datatables::of($Quotations)->setTransformer(new QuotIndexTableTransformer)
             ->make(true);
+    }
+
+    public function helloworld()
+    {
+        return 'helloworld';
     }
 
 }

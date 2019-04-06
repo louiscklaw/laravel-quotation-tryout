@@ -105,6 +105,17 @@ class Quot_helper
 
         $quotitem_records = QuotItemHelper::get_quot_item($quot_ref);
 
+        return $quot_record;
+    }
+
+    public static function get_quot($id)
+    {
+        $quot_record = Quot::where('id',$id)->firstOrFail();
+        $quot_ref = $quot_record->quot_ref;
+
+        $client_record = ClientHelper::get_client_by_id($quot_record->client_id);
+
+        $quotitem_records = QuotItemHelper::get_quot_item($quot_ref);
 
         $quot_record['quotitems'] = $quotitem_records;
 
@@ -128,10 +139,8 @@ class Quot_helper
 
         $quot_record = self::get_record($id);
 
-        var_dump($value);
-        die();
-
         $quot_record->update($value);
+
 
         // $quot_record = QuotitemHelper::save_quot_items($quot_record->quot_ref,  $vlaue);
 
@@ -280,7 +289,7 @@ class QuotController extends Controller
     {
 
         $record = new Quot_helper;
-        $record = Quot_helper::get_record($id);
+        $record = Quot_helper::get_quot($id);
 
         $quot_record = $record;
         // $quotitem_records = $record[1];
@@ -345,14 +354,13 @@ class QuotController extends Controller
         $quot_record = new Quot_helper;
         $quot_record->save($id, $req);
 
+        // var_dump($req);
+        // die();
 
-        var_dump($req);
-        die();
+        // // update quotitem
+        // $quot_ref = Quot_helper::get_quot_ref_by_id($id);
 
-        // update quotitem
-        $quot_ref = Quot_helper::get_quot_ref_by_id($id);
-
-        QuotItemHelper::save_quot_items($quot_ref,$req);
+        // QuotItemHelper::save_quot_items($quot_ref,$req);
 
         return $this->index();
     }

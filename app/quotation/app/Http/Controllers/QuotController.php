@@ -39,31 +39,27 @@ class QuotItemHelper
     public static function save_quot_item($quot_ref, $req)
     {
 
-        $incoming = $req->only('quotitem');
+        $incoming = $req->only('quotitems');
 
-        var_dump($req);
-        die();
-
-        if(QuotItemHelper::get_length_of_quotitems($req) > 0)
+        if(QuotItemHelper::get_num_of_quotitems($req) > 0)
         {
-            for ($i=0; $i< sizeof($incoming['quotitem']); $i++)
+            for ($i=0; $i< sizeof($incoming); $i++)
             {
                 // IDEA: check need to be create
 
                 $quotitem_record = new QuotItem;
                 $quotitem_record->quotitem_ref = $quot_ref;
 
-                foreach(array_keys($incoming['quotitem'][0]) as $field)
+                foreach(array_keys($quotitem_record) as $field)
                 {
-                    $quotitem_record->$field = $incoming['quotitem'][$i][$field];
+                    $quotitem_record->$field = $incoming[$i][$field];
                 }
                 $quotitem_record->save();
             }
         }
-
     }
 
-    public static function get_length_of_quotitems($req)
+    public static function get_num_of_quotitems($req)
     {
         $incoming = $req->only('quotitem');
         if (array_key_exists('quotitem',$incoming))
@@ -77,10 +73,8 @@ class QuotItemHelper
 
     public static function save_quot_items($quot_ref, $req)
     {
-        var_dump($req);
-        die();
 
-        // QuotItemHelper::del_quotitem_by_ref($quot_ref);
+        QuotItemHelper::del_quotitem_by_ref($quot_ref);
         QuotItemHelper::save_quot_item($quot_ref, $req);
 
     }
@@ -364,9 +358,6 @@ class QuotController extends Controller
 
         // // update quotitem
         $quot_ref = Quot_helper::get_quot_ref_by_id($id);
-
-        var_dump($req['quotitem']);
-        die();
 
         QuotItemHelper::save_quot_items($quot_ref,$req);
 

@@ -39,7 +39,7 @@
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'homeController@index')->name('home');
 
 $record_types=array(
     'posts',

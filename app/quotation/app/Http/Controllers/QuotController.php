@@ -57,47 +57,52 @@ class QuotItemHelper
     {
 
         $quotitems_incoming = self::get_quotitems_from_request($req);
-        $quotitems_incoming = $quotitems_incoming['quotitems'];
 
-        $quotitems_len = self::get_num_of_quotitems($quotitems_incoming);
-
-        if($quotitems_len > 0)
+        if (isset($quotitems_incoming['quotitems']))
         {
-            for ($i=0; $i< $quotitems_len; $i++)
+            $quotitems_incoming = $quotitems_incoming['quotitems'];
+
+            $quotitems_len = self::get_num_of_quotitems($quotitems_incoming);
+
+            if($quotitems_len > 0)
             {
-                // IDEA: check need to be create
-                $need_to_add = FALSE;
-                $quotitem_record = new QuotItem;
-
-                // check if all field
-                // IDEA: need to refactor ?
-                foreach($quotitem_record->getFillable() as $field)
+                for ($i=0; $i< $quotitems_len; $i++)
                 {
-                    if (!empty($quotitems_incoming[$field][$i]))
-                    {
-                        $need_to_add = TRUE;
-                    }
-                }
+                    // IDEA: check need to be create
+                    $need_to_add = FALSE;
+                    $quotitem_record = new QuotItem;
 
-                // IDEA: need to refactor ?
-                if ($need_to_add)
-                {
-
-                    $quotitem_record->quotitem_ref = $quot_ref;
-
+                    // check if all field
+                    // IDEA: need to refactor ?
                     foreach($quotitem_record->getFillable() as $field)
                     {
-                        if (isset($quotitems_incoming[$field]))
+                        if (!empty($quotitems_incoming[$field][$i]))
                         {
-                            $quotitem_record->$field = $quotitems_incoming[$field][$i];
+                            $need_to_add = TRUE;
                         }
                     }
 
-                    $quotitem_record->save();
+                    // IDEA: need to refactor ?
+                    if ($need_to_add)
+                    {
 
+                        $quotitem_record->quotitem_ref = $quot_ref;
+
+                        foreach($quotitem_record->getFillable() as $field)
+                        {
+                            if (isset($quotitems_incoming[$field]))
+                            {
+                                $quotitem_record->$field = $quotitems_incoming[$field][$i];
+                            }
+                        }
+
+                        $quotitem_record->save();
+
+                    }
                 }
             }
         }
+
     }
 
 

@@ -37,7 +37,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-$record_type=array(
+$record_types=array(
     'posts',
     'page',
     'company',
@@ -47,14 +47,16 @@ $record_type=array(
     'Quot'
 );
 
-foreach($record_type as $record)
+foreach($record_types as $record_type)
 {
     Route::resources([
-        $record => $record.'Controller',
+        $record_type => $record_type.'Controller',
     ]);
 
-    Route::get('/'.$record.'/get_pdf')->name($record.'.pdf');
-    Route::get('/'.$record.'/get_htmlpdf')->name($record.'.htmlpdf');
+    Route::get('/'.$record_type.'/get_pdf', 'QuotController@get_pdf')->name($record_type.'.pdf');
+    Route::get('/'.$record_type.'/get_htmlpdf')->name($record_type.'.htmlpdf');
+
+    // Route::get('/'.$record.'/helloworld', 'QuotController@helloworld')->name($record.'.helloworld');
 }
 
 Route::get('/reports', 'ReportController@index')->name('reports.index');

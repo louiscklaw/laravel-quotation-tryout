@@ -66,20 +66,36 @@ class QuotItemHelper
             for ($i=0; $i< $quotitems_len; $i++)
             {
                 // IDEA: check need to be create
-
+                $need_to_add = FALSE;
                 $quotitem_record = new QuotItem;
-                $quotitem_record->quotitem_ref = $quot_ref;
 
+                // check if all field
+                // IDEA: need to refactor ?
                 foreach($quotitem_record->getFillable() as $field)
                 {
-                    if (isset($quotitems_incoming[$field]))
+                    if (!empty($quotitems_incoming[$field][$i]))
                     {
-                        $quotitem_record->$field = $quotitems_incoming[$field][$i];
-                        // $quotitem_record->$field = '123';
+                        $need_to_add = TRUE;
                     }
                 }
 
-                $quotitem_record->save();
+                // IDEA: need to refactor ?
+                if ($need_to_add)
+                {
+
+                    $quotitem_record->quotitem_ref = $quot_ref;
+
+                    foreach($quotitem_record->getFillable() as $field)
+                    {
+                        if (isset($quotitems_incoming[$field]))
+                        {
+                            $quotitem_record->$field = $quotitems_incoming[$field][$i];
+                        }
+                    }
+
+                    $quotitem_record->save();
+
+                }
             }
         }
     }

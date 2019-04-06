@@ -32,7 +32,8 @@ class QuotTableSeeder extends Seeder
     public function run()
     {
         DB::table('quot')->truncate();
-        $num_quot_to_create = 999;
+        DB::table('quotitem')->truncate();
+        $num_quot_to_create = 20;
         foreach(range(0,$num_quot_to_create) as $i)
         {
             echo "\r";

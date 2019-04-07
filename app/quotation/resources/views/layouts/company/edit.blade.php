@@ -70,37 +70,45 @@
 
                         <div class="col-sm-4">
                             <div class="form-group form-float">
-                                <div class="form-line">
-                                    {{Form::text('company_ename', $company->company_ename,['class'=>'form-control'])}}
-                                    <label class="form-label">{{ __('Chinese name') }}</label>
-                                </div>
+                                @textInput([
+                                    'textinput_label'=>'English name',
+                                    'textinput_name' => 'company_ename'
+                                ])
+                                    {{$company->company_ename}}
+                                @endtextInput
                             </div>
                         </div>
 
                         <div class="col-sm-4">
                             <div class="form-group form-float">
-                                <div class="form-line">
-                                    <input type="text" class="form-control">
-                                    <label class="form-label">{{ __('telephone') }}</label>
-                                </div>
+                                @textInput([
+                                    'textinput_label'=>'telephone',
+                                    'textinput_name' => 'company_contact_tel'
+                                ])
+                                    {{$company->company_contact_tel}}
+                                @endtextInput
                             </div>
                         </div>
 
                         <div class="col-sm-4">
                             <div class="form-group form-float">
-                                <div class="form-line">
-                                    <input type="text" class="form-control">
-                                    <label class="form-label">{{ __('mobile number') }}</label>
-                                </div>
+                                @textInput([
+                                    'textinput_label'=>'Mobile phone',
+                                    'textinput_name' => 'company_contact_mobile'
+                                ])
+                                    {{$company->company_contact_mobile}}
+                                @endtextInput
                             </div>
                         </div>
 
                         <div class="col-sm-4">
                             <div class="form-group form-float">
-                                <div class="form-line">
-                                    <input type="text" class="form-control">
-                                    <label class="form-label">{{ __('fax') }}</label>
-                                </div>
+                                @textInput([
+                                    'textinput_label'=>'Fax',
+                                    'textinput_name' => 'company_contact_fax'
+                                ])
+                                    {{$company->company_contact_fax}}
+                                @endtextInput
                             </div>
                         </div>
                     </div>

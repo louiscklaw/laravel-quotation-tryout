@@ -197,6 +197,22 @@
 
         ];
 
+    $systems=[
+        'home1'=>[
+            'text'=>'Home1', 'icon'=>'home', 'link'=>route('home'),
+        ],
+        'home2'=>[
+            'text'=>'Home2', 'icon'=>'home', 'link'=>route('home'),
+        ],
+        'home3'=>[
+            'text'=>'Home3', 'icon'=>'home', 'link'=>route('home'),
+        ],
+        'home4'=>[
+            'text'=>'Home4', 'icon'=>'home', 'link'=>route('home'),
+        ],
+
+        ];
+
 @endphp
 <div class="menu">
     <ul class="list">
@@ -257,6 +273,63 @@
                     @endif
                 </li>
             @endforeach
-        </li>
+
+        <li class="header">SYSTEMS</li>
+            @foreach($systems as $itemname => $itemvalue)
+                @if (strtolower(explode('_',$mn_highlight)[0]) == strtolower($itemname))
+                    <li class="active">
+                @else
+                    <li>
+                @endif
+
+                    @if (isset($itemvalue['subitem']))
+                        <a href="javascript:void(0);" class="menu-toggle">
+                    @else
+                        <a href="{{ $itemvalue['link'] }}">
+                    @endif
+
+                        <i class="material-icons">{{ $itemvalue['icon'] }}</i>
+                        <span>{{$itemvalue['text']}}</span>
+                    </a>
+                    @if (isset($itemvalue['subitem']))
+
+                            <ul class="ml-menu">
+                            @foreach($itemvalue['subitem'] as $subitem_name => $subitem_value)
+                                @if (strtolower(explode('_',$mn_highlight)[0]) == strtolower($itemname) && strtolower(explode('_',$mn_highlight)[1]) == strtolower($subitem_name))
+                                    <li class="active">
+                                @else
+                                    <li>
+                                @endif
+                                        <!-- <a> -->
+                                        @if (isset($subitem_value['subitem']))
+                                            <a href="javascript:void(0);" class="menu-toggle">
+                                        @else
+                                            <a href="{{ $subitem_value['link'] }}">
+                                        @endif
+                                            <!-- <i class="material-icons">{{ $subitem_value['icon'] }}</i> -->
+                                            {{$subitem_value['text']}}
+                                        </a>
+
+                                    @if (isset($subitem_value['subitem']))
+                                        <ul class="ml-menu">
+                                        @foreach($subitem_value['subitem'] as $thirditem_name => $thirditem_value)
+                                        @if (strtolower(explode('_',$mn_highlight)[0]) == strtolower($itemname) && strtolower(explode('_',$mn_highlight)[1]) == strtolower($subitem_name) && strtolower(explode('_',$mn_highlight)[2]) == strtolower($thirditem_name))
+                                            <li class="active">
+                                        @else
+                                            <li>
+                                        @endif
+                                                <a href="{{ $thirditem_value['link'] }}">
+                                                    {{$thirditem_value['text']}}
+                                                </a>
+                                            </li>
+                                        @endforeach
+                                        </ul>
+                                    @endif
+                                    </li>
+                            @endforeach
+                            </ul>
+                    @endif
+                </li>
+            @endforeach
     </ul>
 </div>

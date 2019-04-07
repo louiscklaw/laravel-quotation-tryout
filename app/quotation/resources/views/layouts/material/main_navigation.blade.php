@@ -91,7 +91,7 @@
 
 
             'invoice'=>[
-                'text'=>'Invoice', 'icon'=>'assignment',
+                'text'=>'Invoice', 'icon'=>'receipt',
                 'subitem' => [
                     'new'=>[
                         'text'=>'New', 'icon'=>'assignment', 'link'=>route('Quot.create')

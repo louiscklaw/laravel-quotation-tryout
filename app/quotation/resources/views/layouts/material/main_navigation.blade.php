@@ -201,14 +201,14 @@
         'home1'=>[
             'text'=>'Quotation', 'icon'=>'home', 'link'=>route('home'),
         ],
-        'home2'=>[
-            'text'=>'HR', 'icon'=>'home', 'link'=>route('home'),
+        'hr'=>[
+            'text'=>'HR', 'icon'=>'people', 'link'=>route('home'),
         ],
         'home3'=>[
             'text'=>'Profile', 'icon'=>'home', 'link'=>route('home'),
         ],
         'home4'=>[
-            'text'=>'System Config', 'icon'=>'home', 'link'=>route('home'),
+            'text'=>'System Config', 'icon'=>'settings', 'link'=>route('home'),
         ],
 
         ];

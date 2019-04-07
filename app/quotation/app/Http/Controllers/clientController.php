@@ -186,13 +186,30 @@ class clientController extends Controller
             ]);
     }
 
-    public function bs_select($field)
+    public function get_client_name_select_list($q)
     {
-        // sleep(1);
-        return response()->json([
-            ['value' => 'Abigail'],
-            ['value' => 'CA']
-        ]);
+        $clients = Client::where('client_name','LIKE', "%$q%")->get();
+
+        $select_array = $clients->map(function($value){
+            return [
+                'text'=>$value->client_name,
+                'value' =>$value->client_name,
+                'subtext'=>$value->client_status
+            ];
+        });
+
+
+        return response()->json($select_array);
+    }
+
+    public function bs_select(Request $req, $field)
+    {
+        if ($field == 'customer_name')
+        {
+            $q = $req->only('q')['q'];
+            return $this->get_client_name_select_list($q);
+        }
+
     }
 
 }

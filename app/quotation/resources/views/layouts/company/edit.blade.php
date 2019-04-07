@@ -48,27 +48,31 @@
 
                         <div class="col-sm-4">
                             <div class="form-group form-float">
-                                <div class="form-line">
-                                    <input type="text" class="form-control">
-                                    <label class="form-label">{{ __('short name') }}</label>
-                                </div>
+                                @textInput([
+                                    'textinput_label'=>'short name',
+                                    'textinput_name' => 'company_name'
+                                ])
+                                    {{$company->company_name}}
+                                @endtextInput
+                            </div>
+                        </div>
+
+                        <div class="col-sm-4">
+                            <div class="form-group form-float">
+                                @textInput([
+                                    'textinput_label'=>'Chinese name',
+                                    'textinput_name' => 'company_cname'
+                                ])
+                                    {{$company->company_cname}}
+                                @endtextInput
                             </div>
                         </div>
 
                         <div class="col-sm-4">
                             <div class="form-group form-float">
                                 <div class="form-line">
-                                    <input type="text" class="form-control">
+                                    {{Form::text('company_ename', $company->company_ename,['class'=>'form-control'])}}
                                     <label class="form-label">{{ __('Chinese name') }}</label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-sm-4">
-                            <div class="form-group form-float">
-                                <div class="form-line">
-                                    <input type="text" class="form-control">
-                                    <label class="form-label">{{ __('English name') }}</label>
                                 </div>
                             </div>
                         </div>

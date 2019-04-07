@@ -161,33 +161,36 @@
                     <div class="body">
                         <div class="row clearfix">
                             <div class="col-sm-12">
-                                <div class="form-group">
-
-                                    @textareaMCE([
-                                        'textinput_name'=>'company_remark',
-                                        'model'=>'company',
-                                    ])
-                                        {{ $company->company_remark2 }}
-                                    @endtextareaMCE
-                                </div>
+                                @textareaMCE([
+                                    'textinput_name'=>'company_remark',
+                                ])
+                                    {{ $company->company_remark }}
+                                @endtextareaMCE
                             </div>
                         </div>
-                    </div>
 
-                    <div class="row clearfix">
-                        <div class="col-sm-12">
-                            <div class="form-group">
-                                <div class="form-line">
-                                    {{ __('Description') }}
-                                    <textarea rows="6" class="no-resize" name="textarea2"></textarea>
-                                    </div>
-                                </div>
+                        <div class="row clearfix">
+                            <div class="col-sm-12">
+                                @textareaMCE([
+                                    'textinput_name'=>'company_remark2',
+                                ])
+                                    {{ $company->company_remark2 }}
+                                @endtextareaMCE
                             </div>
-                            <div class="form-group">
 
-                            </div>
                         </div>
-                    </div>
+
+                        <div class="row clearfix">
+                            <div class="col-sm-12">
+                                @textareaMCE([
+                                    'textinput_name'=>'company_remark3',
+                                ])
+                                    {{ $company->company_remark3 }}
+                                @endtextareaMCE
+                            </div>
+
+                        </div>
+
                 </div>
             </div>
         </div>

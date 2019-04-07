@@ -8,7 +8,7 @@ use Carbon\Carbon;
 
 use App\Client;
 
-class ClientTableSeeder extends Seeder
+class clientTableSeeder extends Seeder
 {
     public function __construct()
     {

@@ -33,6 +33,21 @@
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
 
+    <!-- Animation Css -->
+    <link href="http://localhost:8001/quotation/plugins/animate-css/animate.css" rel="stylesheet" />
+
+    <!-- Bootstrap Material Datetime Picker Css -->
+    <link
+        href="http://localhost:8001/quotation/plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css"
+        rel="stylesheet" />
+
+    <!-- Bootstrap DatePicker Css -->
+    <link href="http://localhost:8001/quotation/plugins/bootstrap-datepicker/css/bootstrap-datepicker.css"
+        rel="stylesheet" />
+
+    <!-- Wait Me Css -->
+    <link href="http://localhost:8001/quotation/plugins/waitme/waitMe.css" rel="stylesheet" />
+
 
     <link href="{{ asset('/css/select2-bootstrap4.min.css') }}" rel="stylesheet" />
 

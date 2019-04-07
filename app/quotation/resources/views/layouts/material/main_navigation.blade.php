@@ -202,7 +202,7 @@
             'text'=>'Quotation', 'icon'=>'attach_money', 'link'=>route('home'),
         ],
         'report'=>[
-            'text'=>'Reporting', 'icon'=>'attach_money', 'link'=>route('home'),
+            'text'=>'Reporting', 'icon'=>'pie_chart', 'link'=>route('home'),
         ],
         'hr'=>[
             'text'=>'HR', 'icon'=>'people', 'link'=>route('home'),

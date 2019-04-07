@@ -9,4 +9,6 @@
     @stack('head_link')
 
     @stack('append_css')
+
+    @stack('append_head')
 </head>

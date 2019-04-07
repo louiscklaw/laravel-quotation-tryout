@@ -1,5 +1,9 @@
 @extends('layouts.material.html')
 
+@push('append_meta')
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
+@endpush
+
 @push('append_css')
     <link href="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet">
     <script src="{{asset('plugins/jquery/jquery.min.js')}}"></script>
@@ -76,6 +80,12 @@
 
     <script>
         $('document').ready(function(){
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
             // // Setup - add a text input to each footer cell
             $('#test_table thead tr').clone(true).appendTo( '#test_table thead' );
             $('#test_table thead tr:eq(1) th').each( function (i) {
@@ -93,11 +103,15 @@
             } );
 
             var table = $('#test_table').DataTable( {
+                processing: true,
+                serverSide: true,
+
                 orderCellsTop: true,
                 fixedHeader: true,
+
                 ajax: {
                     "url": "{{ route('company.index_table_content') }}",
-                    type:"GET"
+                    type:"POST"
                 },
                 columns: [
                     { "data": "company_name" },
@@ -109,8 +123,41 @@
                     { "data": "action" },
                     ],
 
+
             } );
 
+            table.columns().every( function () {
+                var that = this;
+                // var milliseconds = (new Date).getTime();
+                // var test_timeout = null;
+                var input_filter_timeout=null;
+                $( 'input', this.footer() ).on( 'keyup change', function () {
+                    input_filter_value=this.value;
+                    clearTimeout(input_filter_timeout);
+                    input_filter_timeout=setTimeout(function(){
+                        that.search( input_filter_value ).draw();
+                    }, 250);
+
+
+                } );
+                $( 'input', this.footer() ).on( 'change', function () {
+                    input_filter_value=this.value;
+                    clearTimeout(input_filter_timeout);
+                    input_filter_timeout=setTimeout(function(){
+                        that.search( input_filter_value ).draw();
+                    }, 250);
+
+
+                } );
+                $( 'input', this.footer() ).on( 'search', function () {
+                    input_filter_value=this.value;
+                    clearTimeout(input_filter_timeout);
+                    input_filter_timeout=setTimeout(function(){
+                        that.search( input_filter_value ).draw();
+                    }, 250);
+
+                } );
+            });
             table.columns.adjust().draw();
         });
 

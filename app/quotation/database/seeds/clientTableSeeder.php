@@ -139,7 +139,7 @@ class clientTableSeeder extends Seeder
 
     public function run()
     {
-        $max_num_client = 999;
+        $max_num_client = 100;
         DB::table('client')->truncate();
         for($i=0; $i < $max_num_client; $i++)
         {

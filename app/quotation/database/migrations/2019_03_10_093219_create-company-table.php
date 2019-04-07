@@ -25,6 +25,7 @@ class CreateCompanyTable extends Migration
             $table->string('company_contact_mobile')->nullable();
             $table->string('company_contact_fax')->nullable();
             $table->string('company_contact_email')->nullable();
+            $table->string('company_contact_website')->nullable();
             $table->string('company_relatedsales')->nullable();
             $table->string('company_cr_code')->nullable();
             $table->string('company_change_time')->nullable();

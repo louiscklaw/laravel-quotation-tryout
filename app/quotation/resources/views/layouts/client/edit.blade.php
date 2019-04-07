@@ -1,5 +1,10 @@
 @extends('layouts.material.html')
 
+@push('append_head')
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
+    <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
+@endpush
+
 @section('content')
 <section class="content">
     <div class="row clearfix">
@@ -119,8 +124,8 @@
                         <div class="col-sm-12">
                             <div class="form-group">
                                 <div class="form-line">
-                                    <label class="form-label">{{ __('Remarks')}}</label>
-                                    <textarea rows="6" class="form-control no-resize"></textarea>
+                                    {{ __('Remarks')}}
+                                    <textarea rows="6" class="no-resize" name="textarea1"></textarea>
                                 </div>
                             </div>
                         </div>
@@ -130,8 +135,8 @@
                         <div class="col-sm-12">
                             <div class="form-group">
                                 <div class="form-line">
-                                    <label class="form-label">{{ __('Description') }}</label>
-                                    <textarea rows="6" class="form-control no-resize"></textarea>
+                                    {{ __('Description') }}
+                                    <textarea rows="6" class="no-resize" name="textarea2"></textarea>
                                 </div>
                             </div>
                         </div>
@@ -144,3 +149,16 @@
     </div>
 </section>
 @endsection
+
+
+@push('blank_scripts_body')
+    <script>
+        var simplemde = new SimpleMDE({
+            element: document.getElementsByName("textarea1")[0],
+        });
+
+        var simplemde = new SimpleMDE({
+            element: document.getElementsByName("textarea2")[0],
+        });
+    </script>
+@endpush

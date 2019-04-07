@@ -12,7 +12,7 @@
 */
 
 
-// Route::get('/', 'CommonController@home')->name('quotation.home');
+Route::get('/', 'commonController@index')->name('home');
 
 
 
@@ -39,7 +39,7 @@
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+
 
 $record_types=array(
     'posts',
@@ -49,7 +49,7 @@ $record_types=array(
     'client',
     'colleagues',
     'Quot',
-    'reports'
+    'Report'
 );
 
 foreach($record_types as $record_type)
@@ -61,14 +61,30 @@ foreach($record_types as $record_type)
         $record_type => $record_type.'Controller',
     ]);
 
-    // Route::get('/'.$record_type.'/get_htmlpdf')->name($record_type.'.htmlpdf');
+    Route::get("/index/$record_type", $record_type.'Controller@index')->name("$record_type.index");
 
+
+    Route::get("/$record_type/{id}/get_pdf", function(){
+        return 'helloworld';
+    })->name($record_type.'.pdf');
+
+    // Route::get('/'.$record_type.'/get_htmlpdf')->name($record_type.'.htmlpdf');
     // Route::get('/'.$record.'/helloworld', 'QuotController@helloworld')->name($record.'.helloworld');
+
+
+    // to serve the ajax call on index page
+    Route::post("/index_table_content/$record_type", $record_type."Controller@index_table_content")->name("$record_type.index_table_content");
+
 }
 
 
-Route::get('/quot/index_table_content','QuotController@index_table_content')->name('Quot.index_table_content');
+// Route::get('/index_table_content/quot','QuotController@index_table_content')->name('Quot.index_table_content');
 
-Route::get('/quot/index','QuotController@index')->name('Quot.index');
 
-Route::get('/quot/index','CommonController@helloworld')->name('helloworld.index');
+// Route::post('/index_table_content/client', 'clientController@index_table_content')->name('client.index_table_content');
+
+Route::get('/helloworld', 'helloworldController@index')->name('helloworld.index');
+
+Route::get('/bugs_report', function(){
+    return 'hello bugs';
+})->name('bugs_report.index');

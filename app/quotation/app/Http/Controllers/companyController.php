@@ -59,11 +59,14 @@ class companyController extends Controller
 
     public function edit($id)
     {
-        $company_record = new companyHelper;
-        $company_record = companyHelper::get_record($id);
+        $company = new companyHelper;
+        $company = companyHelper::get_record($id);
+
+        // var_dump($company);
+        // die();
 
         return view('layouts.company.edit',[
-            'record'=>$company_record,
+            'company'=>$company,
             'form_action' =>'edit',
             'editor_description' => 'client debug edit description',
             'update_controller' =>'companyController@update',
@@ -86,8 +89,10 @@ class companyController extends Controller
             ]);
     }
 
-    public function update()
+    public function update(Request $req)
     {
+        var_dump($req);
+        die();
         return $this->index();
     }
     public function store()

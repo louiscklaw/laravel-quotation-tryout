@@ -30,21 +30,24 @@ class ClientIndexTableTransformer extends TransformerAbstract
         return $action_html;
     }
 
-    // get a record and return array of field name
-    public function get_field_name(Client $client_record)
-    {
-        return array_keys($client_record->getAttributes());
-    }
-
     public function transform(Client $client_record)
     {
 
-        $field_names = $this->get_field_name($client_record);
+        $field_names = SharedTransformer::get_field_name($client_record);
 
         $test_array = [];
         foreach($field_names as $field_name)
         {
-            $test_array[$field_name] = $client_record->$field_name;
+            $field_value = $client_record->$field_name;
+            if ($field_name == 'client_email')
+            {
+                $test_array[$field_name] = SharedTransformer::get_email_link($field_value);
+            }elseif ($field_name == 'client_whatsapp'){
+                $test_array[$field_name] = SharedTransformer::get_whatsapp_link($field_value);
+            }
+            else{
+                $test_array[$field_name] = $field_value;
+            }
         }
         $test_array['action'] = $this->get_action_link($client_record->id);
 

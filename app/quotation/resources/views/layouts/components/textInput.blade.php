@@ -1,12 +1,15 @@
 
 <div class="form-group">
-    <div class="form-line {{ $form_class }}">
-        <!-- <input type="text" class="form-control" placeholder="{{ $slot }}" {{ (isset($input_disabled) ? 'disabled=""' : '')  }}/> -->
-        {{ Form::text($slot,null ,
-            [   'class'=>'form-control',
-                (isset($placeholder) ? 'placeholder="'.$placeholder.'"' : ''),
-                (isset($input_disabled) ? 'disabled=""' : '')
-            ]
-        )}}
+    <div class="form-line">
+        {{Form::text($textinput_name, $slot,['class'=>'form-control'])}}
+
+        <label class="form-label">
+            @if (isset($textinput_label))
+                {{ __($textinput_label)}}
+            @else
+                {{ __($textinput_name)}}
+            @endif
+        </label>
+
     </div>
 </div>

@@ -84,44 +84,22 @@ class clientController extends Controller
             'editor_description' => 'client debug edit description',
             'update_controller' =>'clientController@update',
             'store_controller' => 'clientController@store',
-            'mn_highlight' => 'client_list'
+            'mn_highlight' => 'customer_client_list'
             ]);
 
     }
 
     public function index()
     {
-        $all_records = ClientHelper::get_all();
-        $record_type = 'client';
+        // $all_records = ClientHelper::get_all();
+
+        $all_records = Client::all();
+
         return view('layouts.client.list',[
             'all_records'=>$all_records,
-            'vep_route_target'=>$record_type,
+            // TODO: remove me
+            // 'vep_route_target'=>$record_type,
             'mn_highlight'=>'customer_client_list'
-            ]);
-    }
-
-    public function debug_index()
-    {
-        $all_records = ClientHelper::get_all();
-        $record_type = 'debug_client';
-        return view('layouts.debug.debug_list',[
-            'all_records'=>$all_records,
-            'vep_route_target'=>$record_type,
-            ]);
-    }
-
-    public function debug_edit($id)
-    {
-        $quot_record = new ClientHelper;
-        $quot_record = ClientHelper::get_record($id);
-
-        return view('layouts.debug.record_edit',[
-            'record'=>$quot_record,
-            'form_action' =>'edit',
-            'editor_name'=>'client debug edit',
-            'editor_description' => 'client debug edit description',
-            'update_controller' =>'clientController@update',
-            'store_controller' => 'clientController@store'
             ]);
     }
 
@@ -171,7 +149,7 @@ class clientController extends Controller
             'editor_description' => 'client debug edit description',
             'update_controller' =>'clientController@update',
             'store_controller' => 'clientController@store',
-            'mn_highlight' => 'client_list'
+            'mn_highlight' => 'customer_client_new'
             ]);
     }
 
@@ -181,6 +159,31 @@ class clientController extends Controller
 
         return Datatables::of($clients)->setTransformer(new ClientIndexTableTransformer)
             ->make(true);
+    }
+
+    public function debug_index()
+    {
+        $all_records = ClientHelper::get_all();
+        $record_type = 'debug_client';
+        return view('layouts.debug.debug_list',[
+            'all_records'=>$all_records,
+            'vep_route_target'=>$record_type,
+            ]);
+    }
+
+    public function debug_edit($id)
+    {
+        $quot_record = new ClientHelper;
+        $quot_record = ClientHelper::get_record($id);
+
+        return view('layouts.debug.record_edit',[
+            'record'=>$quot_record,
+            'form_action' =>'edit',
+            'editor_name'=>'client debug edit',
+            'editor_description' => 'client debug edit description',
+            'update_controller' =>'clientController@update',
+            'store_controller' => 'clientController@store'
+            ]);
     }
 
 }

@@ -9,7 +9,7 @@ use App\QuotItem;
 use App\Client;
 use App\Http\Controllers\Pdf;
 
-class CommonController
+class commonController
 {
     public function home()
     {
@@ -22,5 +22,10 @@ class CommonController
     public function helloworld()
     {
         return 'helloworld';
+    }
+
+    public function index()
+    {
+        return view('helloworld',['mn_highlight'=>'home']);
     }
 }

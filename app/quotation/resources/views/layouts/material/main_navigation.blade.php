@@ -2,7 +2,7 @@
     $menuitems=
         [
             'home'=>[
-                'text'=>'Home', 'icon'=>'assignment', 'link'=>route('Quot.index'),
+                'text'=>'Home', 'icon'=>'home', 'link'=>route('home'),
             ],
 
             'posts'=>[
@@ -30,7 +30,7 @@
             ],
 
             'tools'=>[
-                'text'=>'Tools', 'icon'=>'assignment',
+                'text'=>'Tools', 'icon'=>'settings',
                 'subitem' => [
                     'new'=>[
                         'text'=>'New', 'icon'=>'assignment', 'link'=>route('Quot.create')
@@ -91,7 +91,7 @@
 
 
             'invoice'=>[
-                'text'=>'Invoice', 'icon'=>'assignment',
+                'text'=>'Invoice', 'icon'=>'receipt',
                 'subitem' => [
                     'new'=>[
                         'text'=>'New', 'icon'=>'assignment', 'link'=>route('Quot.create')
@@ -117,7 +117,7 @@
 
 
             'price'=>[
-                'text'=>'Price', 'icon'=>'assignment',
+                'text'=>'Price', 'icon'=>'attach_money',
                 'subitem' => [
                     'new'=>[
                         'text'=>'New', 'icon'=>'assignment', 'link'=>route('Quot.create')
@@ -129,7 +129,7 @@
             ],
 
             'customer'=>[
-                'text'=>'Customer', 'icon'=>'assignment',
+                'text'=>'Customer', 'icon'=>'sentiment_satisfied',
                 'subitem' => [
 
                     'Company'=>[
@@ -169,7 +169,7 @@
             ],
 
             'colleagues'=>[
-                    'text'=>'Colleagues', 'icon'=>'assignment',
+                    'text'=>'Colleagues', 'icon'=>'group',
                     'subitem' => [
                         'new'=>[
                             'text'=>'New', 'icon'=>'assignment', 'link'=>route('colleagues.create')
@@ -181,12 +181,17 @@
             ],
 
             'reports'=>[
-                    'text'=>'reports', 'icon'=>'warning',
-                    'link' => route('reports.index')
+                    'text'=>'reports', 'icon'=>'pie_chart',
+                    'link' => route('Report.index')
+            ],
+
+            'bugs_report'=>[
+                    'text'=>'bugs_report', 'icon'=>'bug_report',
+                    'link' => route('bugs_report.index')
             ],
 
             'helloworld'=>[
-                    'text'=>'helloworld', 'icon'=>'warning',
+                    'text'=>'helloworld', 'icon'=>'info',
                     'link' => route('helloworld.index')
             ],
 

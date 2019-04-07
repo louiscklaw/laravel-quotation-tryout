@@ -129,20 +129,33 @@
 
                         <div class="col-sm-4">
                             <div class="form-group form-float">
-                                <div class="form-line">
-                                    <input type="text" class="form-control">
-                                    <label class="form-label">{{ __('website') }}</label>
-                                </div>
+                                @textInput([
+                                    'textinput_name' => 'company_contact_website'
+                                ])
+                                    {{$company->company_contact_website}}
+                                @endtextInput
                             </div>
                         </div>
 
+                        <div class="col-sm-4">
+                            <div class="form-group form-float">
+                                @textInput([
+                                    'textinput_label'=>'email',
+                                    'textinput_name' => 'company_contact_email'
+                                ])
+                                    {{$company->company_contact_email}}
+                                @endtextInput
+                            </div>
+                        </div>
 
                         <div class="col-sm-4">
                             <div class="form-group form-float">
-                                <div class="form-line">
-                                    <input type="text" class="form-control">
-                                    <label class="form-label">{{ __('email') }}</label>
-                                </div>
+                                @textInput([
+                                    'textinput_label'=>'email',
+                                    'textinput_name' => 'company_relatedsales'
+                                ])
+                                    {{$company->company_relatedsales}}
+                                @endtextInput
                             </div>
                         </div>
 

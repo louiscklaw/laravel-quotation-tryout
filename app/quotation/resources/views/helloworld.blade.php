@@ -7,9 +7,21 @@
 
 
 @section('content')
+
+
 <section class="content">
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="#">Home</a></li>
+    <li class="breadcrumb-item"><a href="#">Library</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Data</li>
+  </ol>
+</nav>
+
     <div class="row clearfix">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
             <div class="card">
                 <div class="body">
                     <textarea name="test_simplemde" cols="30" rows="10"></textarea>

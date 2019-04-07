@@ -18,9 +18,12 @@
                     <div class="row clearfix">
                         <div class="col-lg-6">
                             <h2>
+                                <div style="height: 25px;">
+                                <i class="material-icons">monetization_on</i>
                                 Quotatioon Edit
-                                <small>Edit quotation information</small>
+                                </div>
                             </h2>
+                            <small>Edit quotation information</small>
                         </div>
 
                         <div class="col-lg-6">

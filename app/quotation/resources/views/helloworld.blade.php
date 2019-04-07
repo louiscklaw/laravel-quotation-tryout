@@ -14,7 +14,11 @@
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <div class="card">
                 <div class="body">
-                    @bootstrap_select_ajax()
+                    @bootstrap_select_ajax([
+                        'select_name'=>'select_test',
+                        'ajax_url'=> '/quotation/bs_select/client/customer_name',
+                        'preselect'=>['value'=>'ipsum@Quisqueac.net', 'text'=>'Lacy', 'subtext'=>'Lacy']
+                        ])
                     @endbootstrap_select_ajax
                 </div>
             </div>

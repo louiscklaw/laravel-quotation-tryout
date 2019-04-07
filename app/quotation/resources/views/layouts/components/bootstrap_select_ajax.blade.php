@@ -1,8 +1,8 @@
 
-<select id="select_helloworld" class="selectpicker with-ajax" data-live-search="true" multiple>
-    <option value="neque.venenatis.lacus@neque.com" data-subtext="neque.venenatis.lacus@neque.com" selected>
-        Chancellor
-    </option>
+<select id="{{ $select_name }}" class="selectpicker with-ajax" data-live-search="true" multiple>
+    @if (isset($preselect))
+        <option value="{{$preselect['value']}}" data-subtext="{{$preselect['subtext']}}">{{$preselect['text']}}</option>
+    @endif
 </select>
 
 @push('blank_scripts_body')
@@ -15,9 +15,9 @@
             }
         });
 
-        var options = {
+        $("#{{ $select_name }}").ajaxSelectPicker( {
             ajax          : {
-                url     : '/quotation/bs_select/client/customer_name',
+                url     : '{{ $ajax_url }}',
                 type    : 'POST',
                 dataType: 'json',
                 data    : {
@@ -35,10 +35,10 @@
                 if (l) {
                     for (i = 0; i < l; i++) {
                         array.push($.extend(true, data[i], {
-                            text : data[i].Name,
-                            value: data[i].Email,
+                            text : data[i].text,
+                            value: data[i].value,
                             data : {
-                                subtext: '123'
+                                subtext: data[i].subtext
                             }
                         }));
                     }
@@ -47,10 +47,9 @@
                 // data argument passed is a clone and cannot be modified directly.
                 return array;
             }
-        };
+        });
 
-        $("#select_helloworld").ajaxSelectPicker(options);
-        $('select').trigger('change');
+        $("#{{ $select_name }}").trigger('change');
     });
 
     </script>

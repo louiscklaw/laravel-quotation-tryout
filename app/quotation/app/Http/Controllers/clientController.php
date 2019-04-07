@@ -188,7 +188,7 @@ class clientController extends Controller
 
     public function bs_select($field)
     {
-        sleep(3);
+        // sleep(1);
         return response()->json([
             ['value' => 'Abigail'],
             ['value' => 'CA']

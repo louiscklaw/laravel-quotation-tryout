@@ -1,10 +1,14 @@
 @extends('layouts.material.html')
 
-@push('append_head')
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
-    <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
+@push('append_meta')
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
 @endpush
 
+@push('append_head')
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/css/bootstrap-select.min.css"/>
+    <link rel="stylesheet" href="{{ asset('/css/ajax-bootstrap-select.css') }}"/>
+@endpush
 
 @section('content')
 <section class="content">
@@ -12,7 +16,11 @@
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <div class="card">
                 <div class="body">
-                    <textarea name="test_simplemde" cols="30" rows="10"></textarea>
+                    <select class="selectpicker with-ajax" data-live-search="true" multiple>
+                        <option value="neque.venenatis.lacus@neque.com" data-subtext="neque.venenatis.lacus@neque.com" selected>
+                            Chancellor
+                        </option>
+                    </select>
                 </div>
             </div>
         </div>
@@ -22,9 +30,52 @@
 
 
 @push('blank_scripts_body')
+    <script type="text/javascript"
+        src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/js/bootstrap-select.min.js"></script>
+    <script type="text/javascript" src="{{ asset('/js/ajax-bootstrap-select.js') }}"></script>
     <script>
-        var simplemde = new SimpleMDE({
-            element: document.getElementsByName("test_simplemde")[0],
+    $('document').ready(function(){
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
         });
+
+        var options = {
+            ajax          : {
+                url     : '/quotation/bs_select/client/customer_name',
+                type    : 'POST',
+                dataType: 'json',
+                data    : {
+                    q: '@{{{q}}}'
+                }
+            },
+            locale        : {
+                emptyTitle: 'Select and Begin Typing'
+            },
+            log           : 3,
+            preprocessData: function (data) {
+                var i, l = data.length, array = [];
+                if (l) {
+                    for (i = 0; i < l; i++) {
+                        array.push($.extend(true, data[i], {
+                            text : data[i].Name,
+                            value: data[i].Email,
+                            data : {
+                                subtext: '123'
+                            }
+                        }));
+                    }
+                }
+                // You must always return a valid array when processing data. The
+                // data argument passed is a clone and cannot be modified directly.
+                return array;
+            }
+        };
+
+        $('.selectpicker').selectpicker().filter('.with-ajax').ajaxSelectPicker(options);
+        $('select').trigger('change');
+    });
+
     </script>
 @endpush

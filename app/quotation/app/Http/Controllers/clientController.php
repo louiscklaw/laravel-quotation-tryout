@@ -149,7 +149,7 @@ class clientController extends Controller
             'editor_description' => 'client debug edit description',
             'update_controller' =>'clientController@update',
             'store_controller' => 'clientController@store',
-            'mn_highlight' => 'client_list'
+            'mn_highlight' => 'customer_client_new'
             ]);
     }
 

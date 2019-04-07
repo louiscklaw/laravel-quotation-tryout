@@ -116,10 +116,13 @@
                     <div class="row clearfix">
                         <div class="col-sm-12">
                             <div class="form-group">
-                                <div class="form-line">
-                                    <label>{{ __('Address')}}</label>
-                                    <textarea rows="2" class="form-control no-resize"></textarea>
-                                </div>
+                                @textarea([
+                                    'textinput_label'=>'Address',
+                                    'textinput_name'=>'company_address',
+                                    'rows'=>2
+                                    ])
+                                    {{$company->company_address}}
+                                @endtextarea
                             </div>
                         </div>
 
@@ -159,9 +162,11 @@
                         <div class="row clearfix">
                             <div class="col-sm-12">
                                 <div class="form-group">
-                                    <div class="form-line">
-                                    {{ __('Remarks')}}
-                                    <textarea rows="6" class="no-resize" name="textarea1"></textarea>
+                                    @textareaMCE([
+                                        'textinput_name'=>'company_remark',
+                                        'model'=>'company',
+                                    ])
+                                    @endtextareaMCE
                                 </div>
                             </div>
                         </div>
@@ -188,16 +193,3 @@
 </section>
 
 @endsection
-
-
-@push('blank_scripts_body')
-    <script>
-        var simplemde = new SimpleMDE({
-            element: document.getElementsByName("textarea1")[0],
-        });
-
-        var simplemde = new SimpleMDE({
-            element: document.getElementsByName("textarea2")[0],
-        });
-    </script>
-@endpush

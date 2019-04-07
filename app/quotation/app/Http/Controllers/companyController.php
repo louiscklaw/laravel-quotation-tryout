@@ -86,8 +86,10 @@ class companyController extends Controller
             ]);
     }
 
-    public function update()
+    public function update(Request $req)
     {
+        var_dump($req);
+        die();
         return $this->index();
     }
     public function store()

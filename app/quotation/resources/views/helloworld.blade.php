@@ -33,12 +33,14 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
 
     <script>
-            $('.js-example-basic-multiple').select2({
+        $('select').each(function () {
+            $(this).select2({
                 theme: 'bootstrap4',
                 width: '100%',
                 placeholder: $(this).attr('placeholder'),
                 allowClear: Boolean($(this).data('allow-clear')),
             });
+        });
 
     </script>
 @endpush

@@ -5,8 +5,6 @@
 @endpush
 
 @push('append_head')
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/css/bootstrap-select.min.css"/>
     <link rel="stylesheet" href="{{ asset('/css/ajax-bootstrap-select.css') }}"/>
 @endpush
 
@@ -30,8 +28,6 @@
 
 
 @push('blank_scripts_body')
-    <script type="text/javascript"
-        src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/js/bootstrap-select.min.js"></script>
     <script type="text/javascript" src="{{ asset('/js/ajax-bootstrap-select.js') }}"></script>
     <script>
     $('document').ready(function(){

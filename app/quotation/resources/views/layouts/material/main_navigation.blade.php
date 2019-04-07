@@ -2,7 +2,7 @@
     $menuitems=
         [
             'home'=>[
-                'text'=>'Home', 'icon'=>'assignment', 'link'=>route('home'),
+                'text'=>'Home', 'icon'=>'home', 'link'=>route('home'),
             ],
 
             'posts'=>[
@@ -191,7 +191,7 @@
             ],
 
             'helloworld'=>[
-                    'text'=>'helloworld', 'icon'=>'warning',
+                    'text'=>'helloworld', 'icon'=>'info',
                     'link' => route('helloworld.index')
             ],
 

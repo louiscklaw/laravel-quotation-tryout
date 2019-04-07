@@ -26,3 +26,7 @@ add app/quotation/resources/views/phpinfo.blade.php
 
 ### NOTES:
 `composer create-project --prefer-dist laravel/laravel quotation`
+
+
+### TODO:
+add submit bugs page

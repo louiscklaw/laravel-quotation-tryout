@@ -62,6 +62,9 @@ class companyController extends Controller
         $company = new companyHelper;
         $company = companyHelper::get_record($id);
 
+        // var_dump($company);
+        // die();
+
         return view('layouts.company.edit',[
             'company'=>$company,
             'form_action' =>'edit',

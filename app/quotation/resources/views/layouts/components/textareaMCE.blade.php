@@ -5,7 +5,7 @@
     @else
         {{ __($textinput_name)}}
     @endif
-    {{ Form::textarea($textinput_name, null,[ 'class'=>'no-resize', 'rows'=>'5' ]) }}
+    {{ Form::textarea($textinput_name, $slot,[ 'class'=>'no-resize', 'rows'=>'5' ]) }}
 </div>
 
 @push('blank_scripts_body')

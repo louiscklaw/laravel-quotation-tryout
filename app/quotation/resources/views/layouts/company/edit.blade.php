@@ -162,10 +162,12 @@
                         <div class="row clearfix">
                             <div class="col-sm-12">
                                 <div class="form-group">
+
                                     @textareaMCE([
                                         'textinput_name'=>'company_remark',
                                         'model'=>'company',
                                     ])
+                                        {{ $company->company_remark2 }}
                                     @endtextareaMCE
                                 </div>
                             </div>
@@ -180,6 +182,9 @@
                                     <textarea rows="6" class="no-resize" name="textarea2"></textarea>
                                     </div>
                                 </div>
+                            </div>
+                            <div class="form-group">
+
                             </div>
                         </div>
                     </div>

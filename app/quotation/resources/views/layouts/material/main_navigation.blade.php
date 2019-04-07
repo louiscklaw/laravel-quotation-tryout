@@ -185,6 +185,11 @@
                     'link' => route('Report.index')
             ],
 
+            'bugs_report'=>[
+                    'text'=>'bugs_report', 'icon'=>'bug_report',
+                    'link' => route('bugs_report.index')
+            ],
+
             'helloworld'=>[
                     'text'=>'helloworld', 'icon'=>'warning',
                     'link' => route('helloworld.index')

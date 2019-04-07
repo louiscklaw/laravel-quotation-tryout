@@ -204,9 +204,6 @@
         'hr'=>[
             'text'=>'HR', 'icon'=>'people', 'link'=>route('home'),
         ],
-        'home3'=>[
-            'text'=>'Profile', 'icon'=>'home', 'link'=>route('home'),
-        ],
         'home4'=>[
             'text'=>'System Config', 'icon'=>'settings', 'link'=>route('home'),
         ],

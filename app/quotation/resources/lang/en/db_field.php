@@ -21,4 +21,6 @@ return [
     'client_desc' => 'client desc',
     'client_remarks' => 'client remarks',
 
+    'company_relatedsales' => 'related sales',
+
 ];

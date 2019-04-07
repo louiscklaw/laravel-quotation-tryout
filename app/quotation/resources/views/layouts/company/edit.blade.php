@@ -151,7 +151,6 @@
                         <div class="col-sm-4">
                             <div class="form-group form-float">
                                 @textInput([
-                                    'textinput_label'=>'email',
                                     'textinput_name' => 'company_relatedsales'
                                 ])
                                     {{$company->company_relatedsales}}

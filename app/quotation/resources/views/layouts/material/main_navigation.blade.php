@@ -180,13 +180,13 @@
                     ]
             ],
 
-            'reports'=>[
+            'Reports'=>[
                     'text'=>'reports', 'icon'=>'pie_chart',
                     'link' => route('Report.index')
             ],
 
-            'bugs_report'=>[
-                    'text'=>'bugs_report', 'icon'=>'bug_report',
+            'bugreport'=>[
+                    'text'=>'Bugs report', 'icon'=>'bug_report',
                     'link' => route('bugs_report.index')
             ],
 
@@ -194,6 +194,22 @@
                     'text'=>'helloworld', 'icon'=>'info',
                     'link' => route('helloworld.index')
             ],
+
+        ];
+
+    $systems=[
+        'quotation'=>[
+            'text'=>'Quotation', 'icon'=>'attach_money', 'link'=>route('home'),
+        ],
+        'report'=>[
+            'text'=>'Reporting', 'icon'=>'pie_chart', 'link'=>route('home'),
+        ],
+        'hr'=>[
+            'text'=>'HR', 'icon'=>'people', 'link'=>route('home'),
+        ],
+        'sys_config'=>[
+            'text'=>'System Config', 'icon'=>'settings', 'link'=>route('home'),
+        ],
 
         ];
 
@@ -257,6 +273,63 @@
                     @endif
                 </li>
             @endforeach
-        </li>
+
+        <li class="header">OTHER SYSTEMS</li>
+            @foreach($systems as $itemname => $itemvalue)
+                @if (strtolower(explode('_',$mn_highlight)[0]) == strtolower($itemname))
+                    <li class="active">
+                @else
+                    <li>
+                @endif
+
+                    @if (isset($itemvalue['subitem']))
+                        <a href="javascript:void(0);" class="menu-toggle">
+                    @else
+                        <a href="{{ $itemvalue['link'] }}">
+                    @endif
+
+                        <i class="material-icons">{{ $itemvalue['icon'] }}</i>
+                        <span>{{$itemvalue['text']}}</span>
+                    </a>
+                    @if (isset($itemvalue['subitem']))
+
+                            <ul class="ml-menu">
+                            @foreach($itemvalue['subitem'] as $subitem_name => $subitem_value)
+                                @if (strtolower(explode('_',$mn_highlight)[0]) == strtolower($itemname) && strtolower(explode('_',$mn_highlight)[1]) == strtolower($subitem_name))
+                                    <li class="active">
+                                @else
+                                    <li>
+                                @endif
+                                        <!-- <a> -->
+                                        @if (isset($subitem_value['subitem']))
+                                            <a href="javascript:void(0);" class="menu-toggle">
+                                        @else
+                                            <a href="{{ $subitem_value['link'] }}">
+                                        @endif
+                                            <!-- <i class="material-icons">{{ $subitem_value['icon'] }}</i> -->
+                                            {{$subitem_value['text']}}
+                                        </a>
+
+                                    @if (isset($subitem_value['subitem']))
+                                        <ul class="ml-menu">
+                                        @foreach($subitem_value['subitem'] as $thirditem_name => $thirditem_value)
+                                        @if (strtolower(explode('_',$mn_highlight)[0]) == strtolower($itemname) && strtolower(explode('_',$mn_highlight)[1]) == strtolower($subitem_name) && strtolower(explode('_',$mn_highlight)[2]) == strtolower($thirditem_name))
+                                            <li class="active">
+                                        @else
+                                            <li>
+                                        @endif
+                                                <a href="{{ $thirditem_value['link'] }}">
+                                                    {{$thirditem_value['text']}}
+                                                </a>
+                                            </li>
+                                        @endforeach
+                                        </ul>
+                                    @endif
+                                    </li>
+                            @endforeach
+                            </ul>
+                    @endif
+                </li>
+            @endforeach
     </ul>
 </div>

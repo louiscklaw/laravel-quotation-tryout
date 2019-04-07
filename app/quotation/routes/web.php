@@ -86,5 +86,5 @@ foreach($record_types as $record_type)
 Route::get('/helloworld', 'helloworldController@index')->name('helloworld.index');
 
 Route::get('/bugs_report', function(){
-    return 'hello bugs';
+    return view('bug_report',['mn_highlight'=>'bugreport']);
 })->name('bugs_report.index');

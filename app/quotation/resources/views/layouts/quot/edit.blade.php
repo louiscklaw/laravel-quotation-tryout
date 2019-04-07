@@ -188,10 +188,6 @@
                 </div>
             </div>
 
-            <!-- col end -->
-        </div>
-
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <div class="card">
                 <div class="body">
                     <div class="row clearfix">
@@ -216,6 +212,7 @@
                     </div>
                 </div>
             </div>
+
 
             <!-- col end -->
         </div>

@@ -74,9 +74,17 @@ foreach($record_types as $record_type)
 
     // to serve the ajax call on index page
     Route::post("/index_table_content/$record_type", $record_type."Controller@index_table_content")->name("$record_type.index_table_content");
-
 }
 
+
+foreach(['client'] as $record_type)
+{
+    foreach(['customer_name'] as $field)
+    {
+        // Route::get("/bs_select/client/{$field}", ['uses'=>."clientController@bs_select"])->name("client.bs_helloworld");
+        Route::get("/bs_select/client/{squirrel}", ['uses' =>'clientController@bs_select']);
+    }
+}
 
 // Route::get('/index_table_content/quot','QuotController@index_table_content')->name('Quot.index_table_content');
 

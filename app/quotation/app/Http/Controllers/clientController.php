@@ -186,4 +186,9 @@ class clientController extends Controller
             ]);
     }
 
+    public function bs_select($squirrel)
+    {
+        return "hello $squirrel";
+    }
+
 }

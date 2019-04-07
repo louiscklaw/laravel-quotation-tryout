@@ -199,7 +199,7 @@
 
     $systems=[
         'home1'=>[
-            'text'=>'Quotation', 'icon'=>'home', 'link'=>route('home'),
+            'text'=>'Quotation', 'icon'=>'attach_money', 'link'=>route('home'),
         ],
         'hr'=>[
             'text'=>'HR', 'icon'=>'people', 'link'=>route('home'),

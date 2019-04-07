@@ -1,5 +1,9 @@
 @extends('layouts.material.html')
 
+@push('append_meta')
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
+@endpush
+
 @push('append_css')
     <link href="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet">
     <script src="{{asset('plugins/jquery/jquery.min.js')}}"></script>

@@ -180,13 +180,13 @@
                     ]
             ],
 
-            'reports'=>[
+            'Reports'=>[
                     'text'=>'reports', 'icon'=>'pie_chart',
                     'link' => route('Report.index')
             ],
 
-            'bugs_report'=>[
-                    'text'=>'bugs_report', 'icon'=>'bug_report',
+            'bugreport'=>[
+                    'text'=>'Bugs report', 'icon'=>'bug_report',
                     'link' => route('bugs_report.index')
             ],
 

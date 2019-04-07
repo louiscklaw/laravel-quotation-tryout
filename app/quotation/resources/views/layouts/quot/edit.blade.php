@@ -19,7 +19,6 @@
 
     <div class="row clearfix">
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-
             <div class="card">
                 <div class="header">
                     <div class="row clearfix">

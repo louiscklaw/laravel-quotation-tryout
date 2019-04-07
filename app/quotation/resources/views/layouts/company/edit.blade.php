@@ -7,26 +7,34 @@
 
 @section('content')
 <section class="content">
+
+    @if (Request::is('*/create') )
+        {!! Form::model($company, ['method'=>'POST', 'action'=> ['companyController@store', $company->id]]) !!}
+    @elseif(Request::is('*/edit'))
+        {!! Form::model($company, ['method'=>'PATCH', 'action'=> ['companyController@update', $company->id]]) !!}
+    @endif
+
     <div class="row clearfix">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <div class="card">
                 <div class="header">
                     <div class="row clearfix">
-                        <div class="col-sm-3">
+                        <div class="col-sm-6">
                             <h2>
                                 Company Edit
                                 <small>Edit company information</small>
                             </h2>
                         </div>
-                        <div class="col-sm-3">
-                            @if (isset($form_action) && $form_action =='create')
-                                <button type="button" class="btn btn-primary m-t-15 waves-effect">{{ __('Create')}}</button>
+                        <div class="col-sm-6">
+                            @if (Request::is('*/create') )
+                                {!! Form::submit(__('Create'), ['class'=>'btn btn-primary']) !!}
+
                             @else
-                                <button type="button" class="btn btn-primary m-t-15 waves-effect">{{ __('Save')}}</button>
-                                <button type="button" class="btn btn-primary m-t-15 waves-effect">{{ __('PDF') }}</button>
+                                {!! Form::submit(__('Save'), ['class'=>'btn btn-primary']) !!}
+
+                                <a class="btn btn-primary" href="{{ route('company.pdf',['id'=>$company->id]) }}" role="button">{{ __('PDF')}}</a>
 
                             @endif
-                            <button type="button" class="btn btn-primary m-t-15 waves-effect">{{ __('Cancel') }}</button>
                         </div>
 
 
@@ -162,6 +170,9 @@
             </div>
         </div>
     </div>
+
+    {!! Form::close() !!}
+
 </section>
 
 @endsection

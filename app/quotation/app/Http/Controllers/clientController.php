@@ -186,9 +186,9 @@ class clientController extends Controller
             ]);
     }
 
-    public function bs_select($squirrel)
+    public function bs_select($field)
     {
-        return "hello $squirrel";
+        return "hello $field";
     }
 
 }

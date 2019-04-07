@@ -37,9 +37,11 @@
                                 {!! Form::submit(__('Create'), ['class'=>'btn btn-primary']) !!}
 
                             @else
-                                {!! Form::submit(__('Save'), ['class'=>'btn btn-primary']) !!}
+                                @button_save
+                                @endbutton_save
 
-                                <a class="btn btn-primary" href="{{ route('Quot.pdf',['id'=>$quot->id]) }}" role="button">{{ __('PDF')}}</a>
+                                @button_pdf
+                                @endbutton_pdf
 
                             @endif
                         </div>

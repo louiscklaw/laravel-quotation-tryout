@@ -73,14 +73,14 @@ foreach($record_types as $record_type)
 
 
     // to serve the ajax call on index page
-    // Route::get("/index_table_content/$record_type", $record_type."Controller@index_table_content")->name("$record_type.index_table_content");
+    Route::post("/index_table_content/$record_type", $record_type."Controller@index_table_content")->name("$record_type.index_table_content");
 
 }
 
 
-Route::get('/index_table_content/quot','QuotController@index_table_content')->name('Quot.index_table_content');
+// Route::get('/index_table_content/quot','QuotController@index_table_content')->name('Quot.index_table_content');
 
 
-Route::post('/index_table_content/client', 'clientController@index_table_content')->name('client.index_table_content');
+// Route::post('/index_table_content/client', 'clientController@index_table_content')->name('client.index_table_content');
 
 Route::get('/helloworld', 'helloworldController@index')->name('helloworld.index');

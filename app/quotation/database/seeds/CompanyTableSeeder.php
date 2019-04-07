@@ -32,6 +32,11 @@ class CompanyTableSeeder extends Seeder
         return $this->random_from_pool([null,'',$this->faker[0]->email]);
     }
 
+    public function get_website()
+    {
+        return $this->random_from_pool([null,'',$this->faker[0]->url]);
+    }
+
     public function get_address()
     {
         return $this->random_from_pool([
@@ -69,6 +74,7 @@ class CompanyTableSeeder extends Seeder
             'company_contact_mobile' => $this->get_phone_number(),
             'company_contact_fax' => $this->get_phone_number(),
             'company_contact_email' => $this->get_email(),
+            'company_contact_website' => $this->get_website(),
             // 'company_relatedsales' => Str::random(10),
             // 'company_cr_code' => Str::random(10),
             // 'company_change_time' => Str::random(10),

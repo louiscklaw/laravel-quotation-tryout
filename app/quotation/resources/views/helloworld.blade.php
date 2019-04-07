@@ -13,6 +13,9 @@
         .bootstrap-select {
             width: 100% !important;
         }</style>
+
+
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
 </head>
 <body>
 <div class="container">
@@ -158,41 +161,50 @@
         src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/js/bootstrap-select.min.js"></script>
 <script type="text/javascript" src="{{ asset('/js/ajax-bootstrap-select.js') }}"></script>
 <script>
-    var options = {
-        ajax          : {
-            url     : '/ajax',
-            type    : 'POST',
-            dataType: 'json',
-            data    : {
-                q: '@{{{q}}}'
+    $('document').ready(function(){
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
-        },
-        locale        : {
-            emptyTitle: 'Select and Begin Typing'
-        },
-        log           : 3,
-        preprocessData: function (data) {
-            var i, l = data.length, array = [];
-            if (l) {
-                for (i = 0; i < l; i++) {
-                    array.push($.extend(true, data[i], {
-                        text : data[i].Name,
-                        value: data[i].Email,
-                        data : {
-                            subtext: data[i].Email
-                        }
-                    }));
-                }
-            }
-            // You must always return a valid array when processing data. The
-            // data argument passed is a clone and cannot be modified directly.
-            return array;
-        }
-    };
+        });
 
-    $('.selectpicker').selectpicker().filter('.with-ajax').ajaxSelectPicker(options);
-    $('select.after-init').append('<option value="neque.venenatis.lacus@neque.com" data-subtext="neque.venenatis.lacus@neque.com" selected="selected">Chancellor</option>').selectpicker('refresh');
-    $('select').trigger('change');
+        var options = {
+            ajax          : {
+                url     : '/quotation/bs_select/client/customer_name',
+                type    : 'POST',
+                dataType: 'json',
+                data    : {
+                    q: '@{{{q}}}'
+                }
+            },
+            locale        : {
+                emptyTitle: 'Select and Begin Typing'
+            },
+            log           : 3,
+            preprocessData: function (data) {
+                var i, l = data.length, array = [];
+                if (l) {
+                    for (i = 0; i < l; i++) {
+                        array.push($.extend(true, data[i], {
+                            text : data[i].Name,
+                            value: data[i].Email,
+                            data : {
+                                subtext: '123'
+                            }
+                        }));
+                    }
+                }
+                // You must always return a valid array when processing data. The
+                // data argument passed is a clone and cannot be modified directly.
+                return array;
+            }
+        };
+
+        $('.selectpicker').selectpicker().filter('.with-ajax').ajaxSelectPicker(options);
+        $('select.after-init').append('<option value="neque.venenatis.lacus@neque.com" data-subtext="neque.venenatis.lacus@neque.com" selected="selected">Chancellor</option>').selectpicker('refresh');
+        $('select').trigger('change');
+    });
+
 </script>
 </body>
 </html>

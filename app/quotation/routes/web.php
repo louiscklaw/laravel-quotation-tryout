@@ -81,7 +81,7 @@ foreach(['client'] as $record_type)
 {
     foreach(['customer_name'] as $field)
     {
-        Route::get("/bs_select/$record_type/{field}", $record_type."Controller@bs_select")->name("$record_type.bs_select");
+        Route::post("/bs_select/$record_type/{field}", $record_type."Controller@bs_select")->name("$record_type.bs_select");
     }
 }
 

@@ -198,13 +198,16 @@
         ];
 
     $systems=[
-        'home1'=>[
+        'quotation'=>[
             'text'=>'Quotation', 'icon'=>'attach_money', 'link'=>route('home'),
+        ],
+        'report'=>[
+            'text'=>'Reporting', 'icon'=>'attach_money', 'link'=>route('home'),
         ],
         'hr'=>[
             'text'=>'HR', 'icon'=>'people', 'link'=>route('home'),
         ],
-        'home4'=>[
+        'sys_config'=>[
             'text'=>'System Config', 'icon'=>'settings', 'link'=>route('home'),
         ],
 

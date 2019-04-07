@@ -157,7 +157,13 @@
                                                 @if (Request::is('*/create'))
                                                     <td class="col-sm-2"></td>
                                                 @else
-                                                    <td><input type="button" class="ibtnDel btn btn-md btn-danger "  value="Delete"></td>
+                                                    <td>
+                                                        <!-- <input type="button" class="ibtnDel btn btn-md btn-danger "  value="Delete"> -->
+                                                        <button type="button" class="ibtnDel btn btn-md btn-danger" id="Delete">
+                                                            <i class="material-icons">cancel</i>
+                                                            <span>Delete</span>
+                                                        </button>
+                                                    </td>
                                                 @endif
                                             </tr>
                                         @endfor
@@ -166,8 +172,10 @@
                                 <tfoot>
                                     <tr>
                                         <td colspan="5" style="text-align: left;">
-                                            <input type="button" class="btn btn-lg btn-block " id="addrow"
-                                                value="Add Row" />
+                                            <button type="button" class="btn btn-primary waves-effect" id="addrow">
+                                                <i class="material-icons">add</i>
+                                                <span>ADD NEW ITEM</span>
+                                            </button>
                                         </td>
                                     </tr>
                                 </tfoot>
@@ -233,7 +241,7 @@
                 cols += '<td><input type="text" class="form-control" name="quotitems[quotitem_unitprice][]"/></td>';
                 cols += '<td><input type="text" class="form-control" name="quotitems[quotitem_subtotal][]"/></td>';
 
-                cols += '<td><input type="button" class="ibtnDel btn btn-md btn-danger "  value="Delete"></td>';
+                cols += '<td><button type="button" class="ibtnDel btn btn-md btn-danger" id="Delete"><i class="material-icons">cancel</i><span>Delete</span></button></td>';
                 newRow.append(cols);
                 $("table.order-list").append(newRow);
                 counter++;

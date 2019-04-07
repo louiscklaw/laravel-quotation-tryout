@@ -199,16 +199,16 @@
 
     $systems=[
         'home1'=>[
-            'text'=>'Home1', 'icon'=>'home', 'link'=>route('home'),
+            'text'=>'Quotation', 'icon'=>'home', 'link'=>route('home'),
         ],
         'home2'=>[
-            'text'=>'Home2', 'icon'=>'home', 'link'=>route('home'),
+            'text'=>'HR', 'icon'=>'home', 'link'=>route('home'),
         ],
         'home3'=>[
-            'text'=>'Home3', 'icon'=>'home', 'link'=>route('home'),
+            'text'=>'Profile', 'icon'=>'home', 'link'=>route('home'),
         ],
         'home4'=>[
-            'text'=>'Home4', 'icon'=>'home', 'link'=>route('home'),
+            'text'=>'System Config', 'icon'=>'home', 'link'=>route('home'),
         ],
 
         ];
@@ -274,7 +274,7 @@
                 </li>
             @endforeach
 
-        <li class="header">SYSTEMS</li>
+        <li class="header">OTHER SYSTEMS</li>
             @foreach($systems as $itemname => $itemvalue)
                 @if (strtolower(explode('_',$mn_highlight)[0]) == strtolower($itemname))
                     <li class="active">

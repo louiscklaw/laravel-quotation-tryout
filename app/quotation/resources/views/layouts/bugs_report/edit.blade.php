@@ -12,7 +12,7 @@
                 <div class="card">
                     <div class="header">
                         <h2>Report bugs</h2>
-                        <small>report system abnormality</small>
+                        <small>report system abnormality 123</small>
 
                         @button_save
                         @endbutton_save
@@ -41,7 +41,12 @@
                                         </span>
                                         <div class="form-line">
                                             <label for="date">date</label>
-                                            <input name="date" type="text" class="form-control date" placeholder="date">
+                                            <!-- <input name="date" type="text" class="form-control date" placeholder="date"> -->
+                                            @bs_datepicker(
+                                                ['name'=>'test_datepicker',
+                                                'id'=>'test_datepicker']
+                                            )
+                                            @endbs_datepicker
                                         </div>
                                     </div>
                                 </div>

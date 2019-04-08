@@ -1,6 +1,8 @@
 
-<label>{{$label}}</label>
-<select multiple class="form-control js-example-basic-multiple" placeholder="{{ $placeholder }}" data-allow-clear="1">
+@if(isset($label) && !empty($label))
+    <label>{{$label}}</label>
+@endif
+<select id="{{ $id }}" name="{{ $id}}" multiple class="form-control js-example-basic-multiple" placeholder="{{ $placeholder }}" data-allow-clear="1">
     @if (isset($cached_options))
         {{ $cached_options }}
     @endif
@@ -24,13 +26,11 @@
                             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                         }
                     });
-
-                    $('select').each(function () {
-                            $(this).select2({
+                    $('#{{$id}}').select2({
                                     theme: 'bootstrap4',
                                     width: '100%',
-                                    placeholder: $(this).attr('placeholder'),
-                                    allowClear: Boolean($(this).data('allow-clear')),
+                                    placeholder: $('#{{$id}}').attr('placeholder'),
+                                    allowClear: Boolean($('#{{$id}}').data('allow-clear')),
                                     ajax: {
                                         url: '{{ route("bugs_report.get_bugs_category") }}',
                                         dataType: 'json'
@@ -39,7 +39,6 @@
 
                                     });
                             });
-                    });
 
     </script>
 @endpush

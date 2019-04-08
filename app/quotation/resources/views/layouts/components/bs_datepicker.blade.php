@@ -3,6 +3,7 @@
         <i class="material-icons">date_range</i>
     </span>
     <div class="form-line">
+        <label for="username">date</label>
         <input name="{{$name}}" type="text" class="form-control" placeholder="Please choose a date...">
     </div>
 </div>
@@ -25,7 +26,8 @@
 
         $('#{{$id}}').datepicker({
             autoclose: true,
-            container: '#{{$id}}'
+            container: '#{{$id}}',
+            orientation: "bottom auto"
         });
     });
 </script>

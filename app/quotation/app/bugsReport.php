@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class BugsReport extends Model
+class bugsReport extends Model
 {
     protected $table = 'client';
     protected $primaryKey = 'id';

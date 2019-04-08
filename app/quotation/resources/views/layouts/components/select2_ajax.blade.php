@@ -18,12 +18,33 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
 
     <script>
-        $('select').each(function () {
-            $(this).select2({
-                theme: 'bootstrap4',
-                width: '100%',
-                placeholder: $(this).attr('placeholder'),
-                allowClear: Boolean($(this).data('allow-clear')),
+        $('document').ready(function () {
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
+            $('select').each(function () {
+                $(this).select2({
+                    theme: 'bootstrap4',
+                    width: '100%',
+                    placeholder: $(this).attr('placeholder'),
+                    allowClear: Boolean($(this).data('allow-clear')),
+                    ajax: {
+                        url: '{{ $ajax_url }}',
+                        data: function (params) {
+                            var query = {
+                                search: params.term,
+                                type: 'public'
+                            }
+
+                            // Query parameters will be ?search=[term]&type=public
+                            return query;
+                        }
+                    }
+
+                });
             });
         });
 

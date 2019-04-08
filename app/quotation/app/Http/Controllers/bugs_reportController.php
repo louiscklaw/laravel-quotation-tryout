@@ -6,7 +6,7 @@ use Yajra\Datatables\Datatables;
 
 use Illuminate\Http\Request;
 
-use App\Client;
+use App\bugsReport;
 use App\Transformers\ClientIndexTableTransformer;
 
 
@@ -56,7 +56,7 @@ use App\Transformers\ClientIndexTableTransformer;
 
 // }
 
-class bugsReportController extends Controller
+class bugs_reportController extends Controller
 {
 
     // public function show($id)
@@ -206,5 +206,11 @@ class bugsReportController extends Controller
     //     }
 
     // }
+
+    public function get_bugs_category()
+    {
+        $categories = BugsReport::$bugsreport_category_list;
+        return 'hello cate';
+    }
 
 }

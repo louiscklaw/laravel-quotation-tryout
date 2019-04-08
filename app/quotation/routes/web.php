@@ -40,6 +40,10 @@ Route::get('/', 'commonController@index')->name('home');
 Auth::routes();
 
 
+Route::get('/bugs_report/get_bugs_category', 'bugs_reportController@get_bugs_category')->name('bugs_report.get_bugs_category');
+
+Route::get('/helloworld', 'helloworldController@index')->name('helloworld.index');
+
 
 $record_types=array(
     'posts',
@@ -49,7 +53,8 @@ $record_types=array(
     'client',
     'colleagues',
     'Quot',
-    'Report'
+    'Report',
+    'bugs_report'
 );
 
 foreach($record_types as $record_type)
@@ -90,9 +95,7 @@ foreach(['client'] as $record_type)
 
 // Route::post('/index_table_content/client', 'clientController@index_table_content')->name('client.index_table_content');
 
-Route::get('/helloworld', 'helloworldController@index')->name('helloworld.index');
-
-Route::get('/bugs_report', function(){
-    return view('bugs_report',['mn_highlight'=>'bugreport']);
-    // return redirect('https://github.com/louiscklaw/laravel-quotation-tryout/issues');
-})->name('bugs_report.index');
+// Route::get('/bugs_report', function(){
+//     return view('bugs_report',['mn_highlight'=>'bugreport']);
+//     // return redirect('https://github.com/louiscklaw/laravel-quotation-tryout/issues');
+// })->name('bugs_report.index');

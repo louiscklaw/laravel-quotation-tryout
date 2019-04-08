@@ -29,7 +29,8 @@
 
                                 @select2_ajax([
                                     'label'=>'test select2',
-                                    'placeholder' => __('test placeholder')
+                                    'placeholder' => __('test placeholder'),
+                                    'ajax_url' => route('bugs_report.get_bugs_category')
                                     ])
                                 @endselect2_ajax
 

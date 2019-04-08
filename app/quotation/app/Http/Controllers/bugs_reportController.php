@@ -211,7 +211,32 @@ class bugs_reportController extends Controller
     // rendering job on client side
     public function get_bugs_category()
     {
-        $categories = BugsReport::$bugsreport_category_list;
+        // https://select2.org/data-sources/formats
+        // {
+        //   "results": [
+        //     {
+        //       "id": 1,
+        //       "text": "Option 1"
+        //     },
+        //     {
+        //       "id": 2,
+        //       "text": "Option 2"
+        //     }
+        //   ],
+        //   "pagination": {
+        //     "more": true
+        //   }
+        // }
+        // $categories = BugsReport::$bugsreport_category_list;
+        $categories = [
+            'results'=>[
+                ['id'=>1, 'text'=>'option 1'],
+                ['id'=>2, 'text'=>'option 2'],
+            ],
+            'pagination'=>[
+                'more'=>FALSE
+            ]
+        ];
         return response()->json($categories);
     }
 

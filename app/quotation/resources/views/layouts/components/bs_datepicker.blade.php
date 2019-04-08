@@ -14,31 +14,13 @@
     <!-- Bootstrap DatePicker Css -->
     <link href="http://localhost:8001/quotation/plugins/bootstrap-datepicker/css/bootstrap-datepicker.css" rel="stylesheet" />
 
-<!-- Bootstrap Material Datetime Picker Css -->
-<!-- <link href="http://localhost:8001/quotation/plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css" rel="stylesheet" /> -->
-
 @endpush
 
 
 @push('append_body')
-    <!-- Moment Plugin Js -->
-    <!-- <script src="http://localhost:8001/quotation/plugins/momentjs/moment.js"></script> -->
 
     <!-- Bootstrap Datepicker Plugin Js -->
     <script src="http://localhost:8001/quotation/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
-
-<!-- Autosize Plugin Js -->
-<!-- <script src="http://localhost:8001/quotation/plugins/autosize/autosize.js"></script> -->
-
-<!-- Bootstrap Material Datetime Picker Plugin Js -->
-<!-- <script src="http://localhost:8001/quotation/plugins/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js"> </script> -->
-
-<!-- Custom Js -->
-<!-- <script src="http://localhost:8001/quotation/js/admin.js"></script> -->
-<!-- <script src="http://localhost:8001/quotation/js/pages/forms/basic-form-elements.js"></script> -->
-
-<!-- Demo Js -->
-<!-- <script src="http://localhost:8001/quotation/js/demo.js"></script> -->
 
 <script>
     $('#{{$id}}').datepicker({

@@ -185,11 +185,6 @@
                     'link' => route('Report.index')
             ],
 
-            'bugreport'=>[
-                    'text'=>'Bugs report', 'icon'=>'bug_report',
-                    'link' => route('bugs_report.index')
-            ],
-
             'helloworld'=>[
                     'text'=>'helloworld', 'icon'=>'info',
                     'link' => route('helloworld.index')
@@ -210,6 +205,11 @@
         'sys_config'=>[
             'text'=>'System Config', 'icon'=>'settings', 'link'=>route('home'),
         ],
+
+        'bugreport'=>[
+                    'text'=>'Bugs report', 'icon'=>'bug_report',
+                    'link' => route('bugs_report.index')
+            ],
 
         ];
 

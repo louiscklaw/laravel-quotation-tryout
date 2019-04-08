@@ -94,4 +94,5 @@ Route::get('/helloworld', 'helloworldController@index')->name('helloworld.index'
 
 Route::get('/bugs_report', function(){
     return view('bug_report',['mn_highlight'=>'bugreport']);
+    // return redirect('https://github.com/louiscklaw/laravel-quotation-tryout/issues');
 })->name('bugs_report.index');

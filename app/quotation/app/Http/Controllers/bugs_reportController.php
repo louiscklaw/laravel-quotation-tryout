@@ -228,16 +228,36 @@ class bugs_reportController extends Controller
         //   }
         // }
         // $categories = BugsReport::$bugsreport_category_list;
-        $categories = [
-            'results'=>[
-                ['id'=>1, 'text'=>'option 1'],
-                ['id'=>2, 'text'=>'option 2'],
-            ],
-            'pagination'=>[
-                'more'=>FALSE
-            ]
-        ];
-        return response()->json($categories);
+        // $categories = [
+        //     'results'=>[
+        //         ['id'=>1, 'text'=>'option 1'],
+        //         ['id'=>2, 'text'=>'option 2'],
+        //     ],
+        //     'pagination'=>[
+        //         'more'=>FALSE
+        //     ]
+        // ];
+
+        $bugsreport_category_list = bugsReport::$bugsreport_category_list;
+
+
+        $output = ['results'=>[], 'pagination'=>[]];
+        $i=0;
+        foreach(array_keys($bugsreport_category_list) as $bugsreport_category)
+        {
+            array_push($output['results'],
+                ['id'=>$i,
+                'text'=>$bugsreport_category]
+            );
+            $i++;
+        }
+
+        $output['pagination']=['more'=>FALSE];
+
+        // var_dump(response()->json($output));
+        // die();
+
+        return response()->json($output);
     }
 
 }

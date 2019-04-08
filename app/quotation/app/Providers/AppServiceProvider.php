@@ -34,6 +34,7 @@ class AppServiceProvider extends ServiceProvider
         Blade::component('layouts.components.bootstrap_datepicker','bootstrap_datepicker');
         Blade::component('layouts.components.bootstrap_datepicker_daterange','bootstrap_datepicker_daterange');
         Blade::component('layouts.components.bootstrap_datetime_picker','bootstrap_datetime_picker');
+        Blade::component('layouts.components.bs_datepicker','bs_datepicker');
 
         Blade::component('layouts.components.checkbox','checkbox');
         Blade::component('layouts.components.radio','radio');

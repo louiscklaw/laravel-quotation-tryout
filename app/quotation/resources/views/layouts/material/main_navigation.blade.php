@@ -207,7 +207,7 @@
         ],
 
         'bugreport'=>[
-                    'text'=>'Bugs report', 'icon'=>'bug_report',
+                    'text'=>'Bugs report', 'icon'=>'bugs_report',
                     'link' => route('bugs_report.index')
             ],
 

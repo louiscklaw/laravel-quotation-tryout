@@ -12,10 +12,7 @@
                 <div class="card">
                     <div class="header">
                         <h2>Report bugs</h2>
-                        <small>report system abnormality 123</small>
-
-                        @button_save
-                        @endbutton_save
+                        <small>report system abnormality</small>
 
                     </div>
                     <div class="body">
@@ -71,6 +68,16 @@
                                         @endtextareaMCE
                                     </div>
                                 </div>
+
+
+                                <div class="row clearfix">
+
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                        @button_save
+                                        @endbutton_save
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
                     </div>

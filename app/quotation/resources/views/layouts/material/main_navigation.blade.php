@@ -208,7 +208,7 @@
 
         'bugreport'=>[
                     'text'=>'Bugs report', 'icon'=>'bugs_report',
-                    'link' => route('bugs_report.index')
+                    'link' => route('bugs_report.create')
             ],
 
         ];

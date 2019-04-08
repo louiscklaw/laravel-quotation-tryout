@@ -1,10 +1,10 @@
 <div class="input-group date" id="{{$id}}">
-    <div class="form-line">
-        <input name="{{$name}}" type="text" class="form-control" placeholder="Please choose a date...">
-    </div>
     <span class="input-group-addon">
         <i class="material-icons">date_range</i>
     </span>
+    <div class="form-line">
+        <input name="{{$name}}" type="text" class="form-control" placeholder="Please choose a date...">
+    </div>
 </div>
 
 @push('append_head')
@@ -22,11 +22,11 @@
 
 <script>
     $('document').ready(function(){
+
         $('#{{$id}}').datepicker({
             autoclose: true,
             container: '#{{$id}}'
         });
-
     });
 </script>
 @endpush

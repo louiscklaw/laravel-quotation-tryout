@@ -35,18 +35,11 @@
                                 </div>
 
                                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-3">
-                                    <div class="input-group">
-                                        <span class="input-group-addon">
-                                            <i class="material-icons">date_range</i>
-                                        </span>
-                                            <label for="date">date</label>
-                                            <!-- <input name="date" type="text" class="form-control date" placeholder="date"> -->
-                                            @bs_datepicker(
-                                                ['name'=>'test_datepicker',
-                                                'id'=>'test_datepicker']
-                                            )
-                                            @endbs_datepicker
-                                    </div>
+                                    @bs_datepicker(
+                                        ['name'=>'test_datepicker',
+                                        'id'=>'test_datepicker']
+                                    )
+                                    @endbs_datepicker
                                 </div>
 
                                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-3">

@@ -1,13 +1,13 @@
 
-    <h2 class="card-inside-title">Component</h2>
-    <div class="input-group date" id="bs_datepicker_component_container">
-        <div class="form-line">
-            <input type="text" class="form-control" placeholder="Please choose a date...">
-        </div>
-        <span class="input-group-addon">
-            <i class="material-icons">date_range</i>
-        </span>
+<h2 class="card-inside-title">Component</h2>
+<div class="input-group date" id="{{$id}}">
+    <div class="form-line">
+        <input name="{{$name}}" type="text" class="form-control" placeholder="Please choose a date...">
     </div>
+    <span class="input-group-addon">
+        <i class="material-icons">date_range</i>
+    </span>
+</div>
 
 @push('append_head')
 
@@ -41,8 +41,15 @@
 
 <!-- Custom Js -->
 <script src="http://localhost:8001/quotation/js/admin.js"></script>
-<script src="http://localhost:8001/quotation/js/pages/forms/basic-form-elements.js"></script>
+<!-- <script src="http://localhost:8001/quotation/js/pages/forms/basic-form-elements.js"></script> -->
 
 <!-- Demo Js -->
 <script src="http://localhost:8001/quotation/js/demo.js"></script>
+
+<script>
+    $('#{{$id}}').datepicker({
+        autoclose: true,
+        container: '#{{$id}}'
+    });
+</script>
 @endpush

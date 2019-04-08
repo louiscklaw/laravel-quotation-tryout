@@ -33,7 +33,10 @@
                     <div class="body">
                         <div class="row clearfix">
                             <div class="col-xs-3">
-                                @bs_datepicker
+                                @bs_datepicker([
+                                    'id'=>'test_datepicker',
+                                    'name'=>'test1'
+                                ])
                                 @endbs_datepicker
                             </div>
                         </div>

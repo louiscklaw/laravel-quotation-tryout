@@ -208,8 +208,8 @@
         'sys_config'=>[
             'text'=>'System Config', 'icon'=>'settings', 'link'=>route('home'),
         ],
-        'bugreport'=>[
-            'text'=>'Bugs_report', 'icon'=>'bug_report', 'link' => route('bugs_report.create')
+        'bugsreport'=>[
+            'text'=>'Bugs report', 'icon'=>'bug_report', 'link' => route('bugs_report.create')
         ],
 
         ];

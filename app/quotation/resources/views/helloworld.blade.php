@@ -1,12 +1,17 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
-    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <title>Basic Form Elements | Bootstrap Based Admin Template - Material Design</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+
+    <title>Welcome To | Bootstrap Based Admin Template - Material Design</title>
+
     <!-- Favicon-->
-    <link rel="icon" href="http://localhost:8001/quotation/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet"
@@ -35,7 +40,7 @@
     <link href="http://localhost:8001/quotation/plugins/waitme/waitMe.css" rel="stylesheet" />
 
     <!-- Bootstrap Select Css -->
-    <link href="http://localhost:8001/quotation/plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />
+    <!-- <link href="http://localhost:8001/quotation/plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" /> -->
 
     <!-- Custom Css -->
     <link href="http://localhost:8001/quotation/css/style.css" rel="stylesheet">
@@ -83,7 +88,7 @@
                 <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse"
                     data-target="#navbar-collapse" aria-expanded="false"></a>
                 <a href="javascript:void(0);" class="bars"></a>
-                <a class="navbar-brand" href="http://localhost:8001/quotation/index.html">ADMINBSB - MATERIAL DESIGN</a>
+                <a class="navbar-brand" href="index.html">ACME CORP</a>
             </div>
             <div class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
@@ -298,11 +303,11 @@
             <!-- User Info -->
             <div class="user-info">
                 <div class="image">
-                    <img src="http://localhost:8001/quotation/images/user.png" width="48" height="48" alt="User" />
+                    <img src="images/user.png" width="48" height="48" alt="User" />
                 </div>
                 <div class="info-container">
-                    <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">John Doe</div>
-                    <div class="email">john.doe@example.com</div>
+                    <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Louis law</div>
+                    <div class="email">louiscklaw@example.com</div>
                     <div class="btn-group user-helper-dropdown">
                         <i class="material-icons" data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="true">keyboard_arrow_down</i>
@@ -324,366 +329,463 @@
                 <ul class="list">
                     <li class="header">MAIN NAVIGATION</li>
                     <li>
-                        <a href="http://localhost:8001/quotation/index.html">
+
+                        <a href="http://localhost:8001/quotation">
+
                             <i class="material-icons">home</i>
                             <span>Home</span>
                         </a>
                     </li>
                     <li>
-                        <a href="http://localhost:8001/quotation/pages/typography.html">
-                            <i class="material-icons">text_fields</i>
-                            <span>Typography</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="http://localhost:8001/quotation/pages/helper-classes.html">
-                            <i class="material-icons">layers</i>
-                            <span>Helper Classes</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0);" class="menu-toggle">
-                            <i class="material-icons">widgets</i>
-                            <span>Widgets</span>
-                        </a>
-                        <ul class="ml-menu">
-                            <li>
-                                <a href="javascript:void(0);" class="menu-toggle">
-                                    <span>Cards</span>
-                                </a>
-                                <ul class="ml-menu">
-                                    <li>
-                                        <a
-                                            href="http://localhost:8001/quotation/pages/widgets/cards/basic.html">Basic</a>
-                                    </li>
-                                    <li>
-                                        <a
-                                            href="http://localhost:8001/quotation/pages/widgets/cards/colored.html">Colored</a>
-                                    </li>
-                                    <li>
-                                        <a href="http://localhost:8001/quotation/pages/widgets/cards/no-header.html">No
-                                            Header</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0);" class="menu-toggle">
-                                    <span>Infobox</span>
-                                </a>
-                                <ul class="ml-menu">
-                                    <li>
-                                        <a
-                                            href="http://localhost:8001/quotation/pages/widgets/infobox/infobox-1.html">Infobox-1</a>
-                                    </li>
-                                    <li>
-                                        <a
-                                            href="http://localhost:8001/quotation/pages/widgets/infobox/infobox-2.html">Infobox-2</a>
-                                    </li>
-                                    <li>
-                                        <a
-                                            href="http://localhost:8001/quotation/pages/widgets/infobox/infobox-3.html">Infobox-3</a>
-                                    </li>
-                                    <li>
-                                        <a
-                                            href="http://localhost:8001/quotation/pages/widgets/infobox/infobox-4.html">Infobox-4</a>
-                                    </li>
-                                    <li>
-                                        <a
-                                            href="http://localhost:8001/quotation/pages/widgets/infobox/infobox-5.html">Infobox-5</a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0);" class="menu-toggle">
-                            <i class="material-icons">swap_calls</i>
-                            <span>User Interface (UI)</span>
-                        </a>
-                        <ul class="ml-menu">
-                            <li>
-                                <a href="http://localhost:8001/quotation/pages/ui/alerts.html">Alerts</a>
-                            </li>
-                            <li>
-                                <a href="http://localhost:8001/quotation/pages/ui/animations.html">Animations</a>
-                            </li>
-                            <li>
-                                <a href="http://localhost:8001/quotation/pages/ui/badges.html">Badges</a>
-                            </li>
 
+                        <a href="javascript:void(0);" class="menu-toggle">
+
+                            <i class="material-icons">assignment</i>
+                            <span>Posts</span>
+                        </a>
+
+                        <ul class="ml-menu">
                             <li>
-                                <a href="http://localhost:8001/quotation/pages/ui/breadcrumbs.html">Breadcrumbs</a>
+                                <!-- <a> -->
+                                <a href="http://localhost:8001/quotation/posts/create">
+                                    <!-- <i class="material-icons">assignment</i> -->
+                                    New
+                                </a>
+
                             </li>
                             <li>
-                                <a href="http://localhost:8001/quotation/pages/ui/buttons.html">Buttons</a>
-                            </li>
-                            <li>
-                                <a href="http://localhost:8001/quotation/pages/ui/collapse.html">Collapse</a>
-                            </li>
-                            <li>
-                                <a href="http://localhost:8001/quotation/pages/ui/colors.html">Colors</a>
-                            </li>
-                            <li>
-                                <a href="http://localhost:8001/quotation/pages/ui/dialogs.html">Dialogs</a>
-                            </li>
-                            <li>
-                                <a href="http://localhost:8001/quotation/pages/ui/icons.html">Icons</a>
-                            </li>
-                            <li>
-                                <a href="http://localhost:8001/quotation/pages/ui/labels.html">Labels</a>
-                            </li>
-                            <li>
-                                <a href="http://localhost:8001/quotation/pages/ui/list-group.html">List Group</a>
-                            </li>
-                            <li>
-                                <a href="http://localhost:8001/quotation/pages/ui/media-object.html">Media Object</a>
-                            </li>
-                            <li>
-                                <a href="http://localhost:8001/quotation/pages/ui/modals.html">Modals</a>
-                            </li>
-                            <li>
-                                <a href="http://localhost:8001/quotation/pages/ui/notifications.html">Notifications</a>
-                            </li>
-                            <li>
-                                <a href="http://localhost:8001/quotation/pages/ui/pagination.html">Pagination</a>
-                            </li>
-                            <li>
-                                <a href="http://localhost:8001/quotation/pages/ui/preloaders.html">Preloaders</a>
-                            </li>
-                            <li>
-                                <a href="http://localhost:8001/quotation/pages/ui/progressbars.html">Progress Bars</a>
-                            </li>
-                            <li>
-                                <a href="http://localhost:8001/quotation/pages/ui/range-sliders.html">Range Sliders</a>
-                            </li>
-                            <li>
-                                <a href="http://localhost:8001/quotation/pages/ui/sortable-nestable.html">Sortable &
-                                    Nestable</a>
-                            </li>
-                            <li>
-                                <a href="http://localhost:8001/quotation/pages/ui/tabs.html">Tabs</a>
-                            </li>
-                            <li>
-                                <a href="http://localhost:8001/quotation/pages/ui/thumbnails.html">Thumbnails</a>
-                            </li>
-                            <li>
-                                <a href="http://localhost:8001/quotation/pages/ui/tooltips-popovers.html">Tooltips &
-                                    Popovers</a>
-                            </li>
-                            <li>
-                                <a href="http://localhost:8001/quotation/pages/ui/waves.html">Waves</a>
+                                <!-- <a> -->
+                                <a href="http://localhost:8001/quotation/index/posts">
+                                    <!-- <i class="material-icons">assignment</i> -->
+                                    List
+                                </a>
+
                             </li>
                         </ul>
+                    </li>
+                    <li>
+
+                        <a href="javascript:void(0);" class="menu-toggle">
+
+                            <i class="material-icons">assignment</i>
+                            <span>Page</span>
+                        </a>
+
+                        <ul class="ml-menu">
+                            <li>
+                                <!-- <a> -->
+                                <a href="http://localhost:8001/quotation/page/create">
+                                    <!-- <i class="material-icons">assignment</i> -->
+                                    New
+                                </a>
+
+                            </li>
+                            <li>
+                                <!-- <a> -->
+                                <a href="http://localhost:8001/quotation/index/page">
+                                    <!-- <i class="material-icons">assignment</i> -->
+                                    List
+                                </a>
+
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+
+                        <a href="javascript:void(0);" class="menu-toggle">
+
+                            <i class="material-icons">settings</i>
+                            <span>Tools</span>
+                        </a>
+
+                        <ul class="ml-menu">
+                            <li>
+                                <!-- <a> -->
+                                <a href="http://localhost:8001/quotation/Quot/create">
+                                    <!-- <i class="material-icons">assignment</i> -->
+                                    New
+                                </a>
+
+                            </li>
+                            <li>
+                                <!-- <a> -->
+                                <a href="http://localhost:8001/quotation/index/Quot">
+                                    <!-- <i class="material-icons">assignment</i> -->
+                                    List
+                                </a>
+
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+
+                        <a href="javascript:void(0);" class="menu-toggle">
+
+                            <i class="material-icons">assignment</i>
+                            <span>Quotation</span>
+                        </a>
+
+                        <ul class="ml-menu">
+                            <li>
+                                <!-- <a> -->
+                                <a href="http://localhost:8001/quotation/Quot/create">
+                                    <!-- <i class="material-icons">assignment</i> -->
+                                    New
+                                </a>
+
+                            </li>
+                            <li>
+                                <!-- <a> -->
+                                <a href="http://localhost:8001/quotation/index/Quot">
+                                    <!-- <i class="material-icons">assignment</i> -->
+                                    List
+                                </a>
+
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+
+                        <a href="javascript:void(0);" class="menu-toggle">
+
+                            <i class="material-icons">assignment</i>
+                            <span>Delivery</span>
+                        </a>
+
+                        <ul class="ml-menu">
+                            <li>
+                                <!-- <a> -->
+                                <a href="http://localhost:8001/quotation/Quot/create">
+                                    <!-- <i class="material-icons">assignment</i> -->
+                                    New
+                                </a>
+
+                            </li>
+                            <li>
+                                <!-- <a> -->
+                                <a href="http://localhost:8001/quotation/index/Quot">
+                                    <!-- <i class="material-icons">assignment</i> -->
+                                    List
+                                </a>
+
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+
+                        <a href="javascript:void(0);" class="menu-toggle">
+
+                            <i class="material-icons">assignment</i>
+                            <span>Collection</span>
+                        </a>
+
+                        <ul class="ml-menu">
+                            <li>
+                                <!-- <a> -->
+                                <a href="http://localhost:8001/quotation/Quot/create">
+                                    <!-- <i class="material-icons">assignment</i> -->
+                                    New
+                                </a>
+
+                            </li>
+                            <li>
+                                <!-- <a> -->
+                                <a href="http://localhost:8001/quotation/index/Quot">
+                                    <!-- <i class="material-icons">assignment</i> -->
+                                    List
+                                </a>
+
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+
+                        <a href="javascript:void(0);" class="menu-toggle">
+
+                            <i class="material-icons">assignment</i>
+                            <span>LnD</span>
+                        </a>
+
+                        <ul class="ml-menu">
+                            <li>
+                                <!-- <a> -->
+                                <a href="http://localhost:8001/quotation/Quot/create">
+                                    <!-- <i class="material-icons">assignment</i> -->
+                                    New
+                                </a>
+
+                            </li>
+                            <li>
+                                <!-- <a> -->
+                                <a href="http://localhost:8001/quotation/index/Quot">
+                                    <!-- <i class="material-icons">assignment</i> -->
+                                    List
+                                </a>
+
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+
+                        <a href="javascript:void(0);" class="menu-toggle">
+
+                            <i class="material-icons">receipt</i>
+                            <span>Invoice</span>
+                        </a>
+
+                        <ul class="ml-menu">
+                            <li>
+                                <!-- <a> -->
+                                <a href="http://localhost:8001/quotation/Quot/create">
+                                    <!-- <i class="material-icons">assignment</i> -->
+                                    New
+                                </a>
+
+                            </li>
+                            <li>
+                                <!-- <a> -->
+                                <a href="http://localhost:8001/quotation/index/Quot">
+                                    <!-- <i class="material-icons">assignment</i> -->
+                                    List
+                                </a>
+
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+
+                        <a href="javascript:void(0);" class="menu-toggle">
+
+                            <i class="material-icons">assignment</i>
+                            <span>Inventory</span>
+                        </a>
+
+                        <ul class="ml-menu">
+                            <li>
+                                <!-- <a> -->
+                                <a href="http://localhost:8001/quotation/Quot/create">
+                                    <!-- <i class="material-icons">assignment</i> -->
+                                    New
+                                </a>
+
+                            </li>
+                            <li>
+                                <!-- <a> -->
+                                <a href="http://localhost:8001/quotation/index/Quot">
+                                    <!-- <i class="material-icons">assignment</i> -->
+                                    List
+                                </a>
+
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+
+                        <a href="javascript:void(0);" class="menu-toggle">
+
+                            <i class="material-icons">attach_money</i>
+                            <span>Price</span>
+                        </a>
+
+                        <ul class="ml-menu">
+                            <li>
+                                <!-- <a> -->
+                                <a href="http://localhost:8001/quotation/Quot/create">
+                                    <!-- <i class="material-icons">assignment</i> -->
+                                    New
+                                </a>
+
+                            </li>
+                            <li>
+                                <!-- <a> -->
+                                <a href="http://localhost:8001/quotation/index/Quot">
+                                    <!-- <i class="material-icons">assignment</i> -->
+                                    List
+                                </a>
+
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+
+                        <a href="javascript:void(0);" class="menu-toggle">
+
+                            <i class="material-icons">sentiment_satisfied</i>
+                            <span>Customer</span>
+                        </a>
+
+                        <ul class="ml-menu">
+                            <li>
+                                <!-- <a> -->
+                                <a href="javascript:void(0);" class="menu-toggle">
+                                    <!-- <i class="material-icons">assignment</i> -->
+                                    Company
+                                </a>
+
+                                <ul class="ml-menu">
+                                    <li>
+                                        <a href="http://localhost:8001/quotation/company/create">
+                                            New
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="http://localhost:8001/quotation/index/company">
+                                            List
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <!-- <a> -->
+                                <a href="javascript:void(0);" class="menu-toggle">
+                                    <!-- <i class="material-icons">assignment</i> -->
+                                    Client
+                                </a>
+
+                                <ul class="ml-menu">
+                                    <li>
+                                        <a href="http://localhost:8001/quotation/client/create">
+                                            New
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="http://localhost:8001/quotation/index/client">
+                                            List
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <!-- <a> -->
+                                <a href="javascript:void(0);" class="menu-toggle">
+                                    <!-- <i class="material-icons">assignment</i> -->
+                                    Site(DeliveryContact)
+                                </a>
+
+                                <ul class="ml-menu">
+                                    <li>
+                                        <a href="http://localhost:8001/quotation/site/create">
+                                            New
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="http://localhost:8001/quotation/index/site">
+                                            List
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <!-- <a> -->
+                                <a href="http://localhost:8001/quotation/Quot/create">
+                                    <!-- <i class="material-icons">assignment</i> -->
+                                    ConstSite
+                                </a>
+
+                            </li>
+                            <li>
+                                <!-- <a> -->
+                                <a href="http://localhost:8001/quotation/Quot/create">
+                                    <!-- <i class="material-icons">assignment</i> -->
+                                    Siteitem
+                                </a>
+
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+
+                        <a href="javascript:void(0);" class="menu-toggle">
+
+                            <i class="material-icons">group</i>
+                            <span>Colleagues</span>
+                        </a>
+
+                        <ul class="ml-menu">
+                            <li>
+                                <!-- <a> -->
+                                <a href="http://localhost:8001/quotation/colleagues/create">
+                                    <!-- <i class="material-icons">assignment</i> -->
+                                    New
+                                </a>
+
+                            </li>
+                            <li>
+                                <!-- <a> -->
+                                <a href="http://localhost:8001/quotation/index/colleagues">
+                                    <!-- <i class="material-icons">assignment</i> -->
+                                    List
+                                </a>
+
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+
+                        <a href="http://localhost:8001/quotation/index/Report">
+
+                            <i class="material-icons">pie_chart</i>
+                            <span>reports</span>
+                        </a>
                     </li>
                     <li class="active">
-                        <a href="javascript:void(0);" class="menu-toggle">
-                            <i class="material-icons">assignment</i>
-                            <span>Forms</span>
+
+                        <a href="http://localhost:8001/quotation/helloworld">
+
+                            <i class="material-icons">info</i>
+                            <span>helloworld</span>
                         </a>
-                        <ul class="ml-menu">
-                            <li class="active">
-                                <a href="http://localhost:8001/quotation/pages/forms/basic-form-elements.html">Basic
-                                    Form Elements</a>
-                            </li>
-                            <li>
-                                <a href="http://localhost:8001/quotation/pages/forms/advanced-form-elements.html">Advanced
-                                    Form Elements</a>
-                            </li>
-                            <li>
-                                <a href="http://localhost:8001/quotation/pages/forms/form-examples.html">Form
-                                    Examples</a>
-                            </li>
-                            <li>
-                                <a href="http://localhost:8001/quotation/pages/forms/form-validation.html">Form
-                                    Validation</a>
-                            </li>
-                            <li>
-                                <a href="http://localhost:8001/quotation/pages/forms/form-wizard.html">Form Wizard</a>
-                            </li>
-                            <li>
-                                <a href="http://localhost:8001/quotation/pages/forms/editors.html">Editors</a>
-                            </li>
-                        </ul>
+                    </li>
+
+                    <li class="header">OTHER SYSTEMS</li>
+                    <li>
+
+                        <a href="http://localhost:8001/quotation">
+
+                            <i class="material-icons">attach_money</i>
+                            <span>Quotation</span>
+                        </a>
                     </li>
                     <li>
-                        <a href="javascript:void(0);" class="menu-toggle">
-                            <i class="material-icons">view_list</i>
-                            <span>Tables</span>
-                        </a>
-                        <ul class="ml-menu">
-                            <li>
-                                <a href="http://localhost:8001/quotation/pages/tables/normal-tables.html">Normal
-                                    Tables</a>
-                            </li>
-                            <li>
-                                <a href="http://localhost:8001/quotation/pages/tables/jquery-datatable.html">Jquery
-                                    Datatables</a>
-                            </li>
-                            <li>
-                                <a href="http://localhost:8001/quotation/pages/tables/editable-table.html">Editable
-                                    Tables</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0);" class="menu-toggle">
-                            <i class="material-icons">perm_media</i>
-                            <span>Medias</span>
-                        </a>
-                        <ul class="ml-menu">
-                            <li>
-                                <a href="http://localhost:8001/quotation/pages/medias/image-gallery.html">Image
-                                    Gallery</a>
-                            </li>
-                            <li>
-                                <a href="http://localhost:8001/quotation/pages/medias/carousel.html">Carousel</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0);" class="menu-toggle">
+
+                        <a href="http://localhost:8001/quotation">
+
                             <i class="material-icons">pie_chart</i>
-                            <span>Charts</span>
-                        </a>
-                        <ul class="ml-menu">
-                            <li>
-                                <a href="http://localhost:8001/quotation/pages/charts/morris.html">Morris</a>
-                            </li>
-                            <li>
-                                <a href="http://localhost:8001/quotation/pages/charts/flot.html">Flot</a>
-                            </li>
-                            <li>
-                                <a href="http://localhost:8001/quotation/pages/charts/chartjs.html">ChartJS</a>
-                            </li>
-                            <li>
-                                <a href="http://localhost:8001/quotation/pages/charts/sparkline.html">Sparkline</a>
-                            </li>
-                            <li>
-                                <a href="http://localhost:8001/quotation/pages/charts/jquery-knob.html">Jquery Knob</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0);" class="menu-toggle">
-                            <i class="material-icons">content_copy</i>
-                            <span>Example Pages</span>
-                        </a>
-                        <ul class="ml-menu">
-                            <li>
-                                <a href="http://localhost:8001/quotation/pages/examples/profile.html">Profile</a>
-                            </li>
-                            <li>
-                                <a href="http://localhost:8001/quotation/pages/examples/sign-in.html">Sign In</a>
-                            </li>
-                            <li>
-                                <a href="http://localhost:8001/quotation/pages/examples/sign-up.html">Sign Up</a>
-                            </li>
-                            <li>
-                                <a href="http://localhost:8001/quotation/pages/examples/forgot-password.html">Forgot
-                                    Password</a>
-                            </li>
-                            <li>
-                                <a href="http://localhost:8001/quotation/pages/examples/blank.html">Blank Page</a>
-                            </li>
-                            <li>
-                                <a href="http://localhost:8001/quotation/pages/examples/404.html">404 - Not Found</a>
-                            </li>
-                            <li>
-                                <a href="http://localhost:8001/quotation/pages/examples/500.html">500 - Server Error</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0);" class="menu-toggle">
-                            <i class="material-icons">map</i>
-                            <span>Maps</span>
-                        </a>
-                        <ul class="ml-menu">
-                            <li>
-                                <a href="http://localhost:8001/quotation/pages/maps/google.html">Google Map</a>
-                            </li>
-                            <li>
-                                <a href="http://localhost:8001/quotation/pages/maps/yandex.html">YandexMap</a>
-                            </li>
-                            <li>
-                                <a href="http://localhost:8001/quotation/pages/maps/jvectormap.html">jVectorMap</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0);" class="menu-toggle">
-                            <i class="material-icons">trending_down</i>
-                            <span>Multi Level Menu</span>
-                        </a>
-                        <ul class="ml-menu">
-                            <li>
-                                <a href="javascript:void(0);">
-                                    <span>Menu Item</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0);">
-                                    <span>Menu Item - 2</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0);" class="menu-toggle">
-                                    <span>Level - 2</span>
-                                </a>
-                                <ul class="ml-menu">
-                                    <li>
-                                        <a href="javascript:void(0);">
-                                            <span>Menu Item</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:void(0);" class="menu-toggle">
-                                            <span>Level - 3</span>
-                                        </a>
-                                        <ul class="ml-menu">
-                                            <li>
-                                                <a href="javascript:void(0);">
-                                                    <span>Level - 4</span>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="../changelogs.html">
-                            <i class="material-icons">update</i>
-                            <span>Changelogs</span>
-                        </a>
-                    </li>
-                    <li class="header">LABELS</li>
-                    <li>
-                        <a href="javascript:void(0);">
-                            <i class="material-icons col-red">donut_large</i>
-                            <span>Important</span>
+                            <span>Reporting</span>
                         </a>
                     </li>
                     <li>
-                        <a href="javascript:void(0);">
-                            <i class="material-icons col-amber">donut_large</i>
-                            <span>Warning</span>
+
+                        <a href="http://localhost:8001/quotation">
+
+                            <i class="material-icons">people</i>
+                            <span>HR</span>
                         </a>
                     </li>
                     <li>
-                        <a href="javascript:void(0);">
-                            <i class="material-icons col-light-blue">donut_large</i>
-                            <span>Information</span>
+
+                        <a href="http://localhost:8001/quotation">
+
+                            <i class="material-icons">settings</i>
+                            <span>System Config</span>
+                        </a>
+                    </li>
+                    <li>
+
+                        <a href="http://localhost:8001/quotation/bugs_report/create">
+
+                            <i class="material-icons">bugs_report</i>
+                            <span>Bugs report</span>
                         </a>
                     </li>
                 </ul>
             </div>
+
             <!-- #Menu -->
             <!-- Footer -->
             <div class="legal">
                 <div class="copyright">
-                    &copy; 2016 - 2017 <a href="javascript:void(0);">AdminBSB - Material Design</a>.
+                    &copy; 2016 - 2017 <a href="javascript:void(0);">ACME CORP</a>.
                 </div>
                 <div class="version">
                     <b>Version: </b> 1.0.5

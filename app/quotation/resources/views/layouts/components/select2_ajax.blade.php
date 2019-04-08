@@ -2,7 +2,7 @@
 @if(isset($label) && !empty($label))
     <label>{{$label}}</label>
 @endif
-<select id="{{ $id }}" name="{{ $id}}" multiple class="form-control js-example-basic-multiple" placeholder="{{ $placeholder }}" data-allow-clear="1">
+<select id="{{ $id }}" name="{{ $id}}" style="border: 0px;" multiple class="form-control js-example-basic-multiple" placeholder="{{ $placeholder }}" data-allow-clear="1">
     @if (isset($cached_options))
         {{ $cached_options }}
     @endif
@@ -38,6 +38,12 @@
                 }
 
             });
+
+            // to override the origional select2 styling without touching the select2.min.css
+            var select2Ele = document.querySelector(".select2-selection--multiple");
+            select2Ele.style.border = "0px";
+
+
         });
 
     </script>

@@ -32,7 +32,7 @@
                                     placeholder: $(this).attr('placeholder'),
                                     allowClear: Boolean($(this).data('allow-clear')),
                                     ajax: {
-                                        url: 'https://api.github.com/search/repositories',
+                                        url: '{{ route("bugs_report.get_bugs_category") }}',
                                         dataType: 'json'
                                         // Additional AJAX parameters go here; see the end of this chapter for the full code of this example
                                     }

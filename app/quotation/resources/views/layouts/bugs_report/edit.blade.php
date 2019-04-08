@@ -22,7 +22,7 @@
                         <div class="row clearfix">
                             <div class="form-group">
 
-                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-3">
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                                     <div class="input-group">
                                         <span class="input-group-addon">
                                             <i class="material-icons">person</i>
@@ -34,7 +34,7 @@
                                     </div>
                                 </div>
 
-                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-3">
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                                     @bs_datepicker(
                                         ['name'=>'test_datepicker',
                                         'id'=>'test_datepicker']
@@ -42,7 +42,7 @@
                                     @endbs_datepicker
                                 </div>
 
-                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-3">
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                                     <div class="input-group">
                                         <span class="input-group-addon">
                                             <i class="material-icons">category</i>

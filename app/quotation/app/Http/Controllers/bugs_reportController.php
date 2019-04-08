@@ -207,10 +207,11 @@ class bugs_reportController extends Controller
 
     // }
 
+    // rendering job on client side
     public function get_bugs_category()
     {
         $categories = BugsReport::$bugsreport_category_list;
-        return 'hello cate';
+        return response()->json($categories);
     }
 
 }

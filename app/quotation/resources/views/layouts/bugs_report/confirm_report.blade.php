@@ -4,7 +4,7 @@
 <section class="content">
     <div class="container-fluid">
         <div class="block-header">
-            <h2>Bugs report PAGE</h2>
+            <h2>thank you for your report, i will fix it ASAP...</h2>
         </div>
     </div>
 </section>

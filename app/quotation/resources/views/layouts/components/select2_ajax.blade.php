@@ -19,34 +19,27 @@
 
     <script>
         $('document').ready(function () {
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-            });
-
-            $('select').each(function () {
-                $(this).select2({
-                    theme: 'bootstrap4',
-                    width: '100%',
-                    placeholder: $(this).attr('placeholder'),
-                    allowClear: Boolean($(this).data('allow-clear')),
-                    ajax: {
-                        url: '{{ $ajax_url }}',
-                        data: function (params) {
-                            var query = {
-                                search: params.term,
-                                type: 'public'
-                            }
-
-                            // Query parameters will be ?search=[term]&type=public
-                            return query;
+                    $.ajaxSetup({
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                         }
-                    }
+                    });
 
-                });
-            });
-        });
+                    $('select').each(function () {
+                            $(this).select2({
+                                    theme: 'bootstrap4',
+                                    width: '100%',
+                                    placeholder: $(this).attr('placeholder'),
+                                    allowClear: Boolean($(this).data('allow-clear')),
+                                    ajax: {
+                                        url: 'https://api.github.com/search/repositories',
+                                        dataType: 'json'
+                                        // Additional AJAX parameters go here; see the end of this chapter for the full code of this example
+                                    }
+
+                                    });
+                            });
+                    });
 
     </script>
 @endpush

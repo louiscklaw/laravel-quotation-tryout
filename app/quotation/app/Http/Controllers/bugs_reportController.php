@@ -89,19 +89,20 @@ class bugs_reportController extends Controller
 
     // }
 
-    // public function index()
-    // {
-    //     // $all_records = ClientHelper::get_all();
+    public function index()
+    {
+        // $all_records = ClientHelper::get_all();
 
-    //     $all_records = Client::all();
+        // $all_records = Client::all();
 
-    //     return view('layouts.client.list',[
-    //         'all_records'=>$all_records,
-    //         // TODO: remove me
-    //         // 'vep_route_target'=>$record_type,
-    //         'mn_highlight'=>'customer_client_list'
-    //         ]);
-    // }
+        // return view('layouts.client.list',[
+        //     'all_records'=>$all_records,
+        //     // TODO: remove me
+        //     // 'vep_route_target'=>$record_type,
+        //     'mn_highlight'=>'customer_client_list'
+        //     ]);
+        return redirect(route('bugs_report.create'));
+    }
 
     // public function update(Request $req, $id)
     // {

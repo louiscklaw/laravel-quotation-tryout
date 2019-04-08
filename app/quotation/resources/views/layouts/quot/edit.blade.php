@@ -24,9 +24,12 @@
                     <div class="row clearfix">
                         <div class="col-lg-6">
                             <h2>
+                                <div style="height: 25px;">
+                                <i class="material-icons">monetization_on</i>
                                 Quotatioon Edit
-                                <small>Edit quotation information</small>
+                                </div>
                             </h2>
+                            <small>Edit quotation information</small>
                         </div>
 
                         <div class="col-lg-6">
@@ -34,9 +37,11 @@
                                 {!! Form::submit(__('Create'), ['class'=>'btn btn-primary']) !!}
 
                             @else
-                                {!! Form::submit(__('Save'), ['class'=>'btn btn-primary']) !!}
+                                @button_save
+                                @endbutton_save
 
-                                <a class="btn btn-primary" href="{{ route('Quot.pdf',['id'=>$quot->id]) }}" role="button">{{ __('PDF')}}</a>
+                                @button_pdf
+                                @endbutton_pdf
 
                             @endif
                         </div>
@@ -154,7 +159,13 @@
                                                 @if (Request::is('*/create'))
                                                     <td class="col-sm-2"></td>
                                                 @else
-                                                    <td><input type="button" class="ibtnDel btn btn-md btn-danger "  value="Delete"></td>
+                                                    <td>
+                                                        <!-- <input type="button" class="ibtnDel btn btn-md btn-danger "  value="Delete"> -->
+                                                        <button type="button" class="ibtnDel btn btn-md btn-danger" id="Delete">
+                                                            <i class="material-icons">cancel</i>
+                                                            <span>Delete</span>
+                                                        </button>
+                                                    </td>
                                                 @endif
                                             </tr>
                                         @endfor
@@ -163,8 +174,10 @@
                                 <tfoot>
                                     <tr>
                                         <td colspan="5" style="text-align: left;">
-                                            <input type="button" class="btn btn-lg btn-block " id="addrow"
-                                                value="Add Row" />
+                                            <button type="button" class="btn btn-primary waves-effect" id="addrow">
+                                                <i class="material-icons">add</i>
+                                                <span>ADD NEW ITEM</span>
+                                            </button>
                                         </td>
                                     </tr>
                                 </tfoot>
@@ -175,10 +188,6 @@
                 </div>
             </div>
 
-            <!-- col end -->
-        </div>
-
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <div class="card">
                 <div class="body">
                     <div class="row clearfix">
@@ -203,6 +212,7 @@
                     </div>
                 </div>
             </div>
+
 
             <!-- col end -->
         </div>
@@ -230,7 +240,7 @@
                 cols += '<td><input type="text" class="form-control" name="quotitems[quotitem_unitprice][]"/></td>';
                 cols += '<td><input type="text" class="form-control" name="quotitems[quotitem_subtotal][]"/></td>';
 
-                cols += '<td><input type="button" class="ibtnDel btn btn-md btn-danger "  value="Delete"></td>';
+                cols += '<td><button type="button" class="ibtnDel btn btn-md btn-danger" id="Delete"><i class="material-icons">cancel</i><span>Delete</span></button></td>';
                 newRow.append(cols);
                 $("table.order-list").append(newRow);
                 counter++;

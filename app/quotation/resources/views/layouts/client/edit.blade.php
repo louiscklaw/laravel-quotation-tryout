@@ -11,16 +11,19 @@
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <div class="card">
                 <div class="header">
-                    <h2>
-                        Client Edit
-                        <small>Edit client information</small>
-                    </h2>
-                    @if (isset($action) && $action =='create')
-                        <button type="button" class="btn btn-primary m-t-15 waves-effect">{{ __('Create')}}</button>
-                    @else
-                        <button type="button" class="btn btn-primary m-t-15 waves-effect">{{ __('Save')}}</button>
-                        <button type="button" class="btn btn-primary m-t-15 waves-effect">{{ __('PDF') }}</button>
-                    @endif
+                        <h2 >
+                            <span>
+                            <i class="material-icons" style="font-size:30px; vertical-align: middle;">person</i>
+                                Client Edit
+                            </span>
+                            <small>Edit client information</small>
+                        </h2>
+                        @if (isset($action) && $action =='create')
+                            <button type="button" class="btn btn-primary m-t-15 waves-effect">{{ __('Create')}}</button>
+                        @else
+                            <button type="button" class="btn btn-primary m-t-15 waves-effect">{{ __('Save')}}</button>
+                            <button type="button" class="btn btn-primary m-t-15 waves-effect">{{ __('PDF') }}</button>
+                        @endif
                 </div>
 
                 <div class="body">
@@ -65,7 +68,13 @@
             </div>
             <div class="card">
                 <div class="header">
-                        <h2>Client contact method</h2>
+                        <h2>
+                            <span>
+                                <i class="material-icons" style="font-size:30px; vertical-align: middle;">perm_contact_calendar</i>
+                                Client contact method
+
+                            </span>
+                        </h2>
                         <small>Edit client method</small>
                 </div>
 

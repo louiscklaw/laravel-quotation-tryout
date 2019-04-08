@@ -91,3 +91,7 @@ foreach(['client'] as $record_type)
 // Route::post('/index_table_content/client', 'clientController@index_table_content')->name('client.index_table_content');
 
 Route::get('/helloworld', 'helloworldController@index')->name('helloworld.index');
+
+Route::get('/bugs_report', function(){
+    return view('bug_report',['mn_highlight'=>'bugreport']);
+})->name('bugs_report.index');

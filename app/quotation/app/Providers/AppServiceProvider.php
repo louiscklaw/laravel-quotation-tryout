@@ -44,6 +44,9 @@ class AppServiceProvider extends ServiceProvider
         Blade::component('layouts.components.textareaMCE','textareaMCE');
 
         Blade::component('layouts.components.bootstrap_select_ajax','bootstrap_select_ajax');
+        Blade::component('layouts.components.button_icon','button_icon');
+        Blade::component('layouts.components.button_save','button_save');
+        Blade::component('layouts.components.button_pdf','button_pdf');
 
 
         Blade::component('layouts.components.db_txt_field','db_txt_field');

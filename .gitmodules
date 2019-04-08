@@ -1,3 +1,18 @@
 [submodule "_ref/Ajax-Bootstrap-Select"]
 	path = _ref/Ajax-Bootstrap-Select
 	url = https://github.com/truckingsim/Ajax-Bootstrap-Select.git
+[submodule "_ref/editable-table"]
+	path = _ref/editable-table
+	url = https://github.com/mindmup/editable-table.git
+[submodule "_ref/bootstrap-datepicker"]
+	path = _ref/bootstrap-datepicker
+	url = https://github.com/uxsolutions/bootstrap-datepicker.git
+[submodule "_ref/autosize"]
+	path = _ref/autosize
+	url = https://github.com/jackmoore/autosize.git
+[submodule "_ref/bootstrap-material-datetimepicker"]
+	path = _ref/bootstrap-material-datetimepicker
+	url = https://github.com/T00rk/bootstrap-material-datetimepicker
+[submodule "_ref/Chart.js"]
+	path = _ref/Chart.js
+	url = https://github.com/chartjs/Chart.js.git

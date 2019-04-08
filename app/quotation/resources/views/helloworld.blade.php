@@ -19,31 +19,37 @@
 
                     </div>
                     <div class="body">
-                        <div class="form-group">
-                                @textareaMCE([
-                                    'textinput_name'=>__('bugs_report_description'),
-                                ])
-                                    {{123}}
-                                    {{-- {{ $bugs_report->bugsreport_description }} --}}
-                                @endtextareaMCE
+                        <div class="row clearfix">
+                            <div class="form-group">
 
-                                @select2_ajax([
-                                    'label'=>'test select2',
-                                    'placeholder' => __('test placeholder'),
-                                    'ajax_url' => 'https://api.github.com/search/repositories'
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-3">
+
+                                </div>
+
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-3">
+                                    @select2_ajax([
+                                        'label'=>'test select2',
+                                        'placeholder' => __('test placeholder'),
+                                        'ajax_url' => 'https://api.github.com/search/repositories'
                                     ])
-                                @endselect2_ajax
+                                    @endselect2_ajax
+                                </div>
 
-<!--
-                            <label>Example multiple select</label>
-                            <select multiple class="form-control js-example-basic-multiple" placeholder="Choose anything" data-allow-clear="1">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                            </select> -->
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-3">
 
+                                </div>
+                                <div class="row clearfix">
+
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                        @textareaMCE([
+                                            'textinput_name'=>__('bugs_report_description'),
+                                        ])
+                                        {{123}}
+                                        {{-- {{ $bugs_report->bugsreport_description }} --}}
+                                        @endtextareaMCE
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -1,11 +1,9 @@
 
-<label>{{'test'}}</label>
-<select multiple class="form-control js-example-basic-multiple" placeholder="Choose anything" data-allow-clear="1">
-    <option>1</option>
-    <option>2</option>
-    <option>3</option>
-    <option>4</option>
-    <option>5</option>
+<label>{{$label}}</label>
+<select multiple class="form-control js-example-basic-multiple" placeholder="{{ $placeholder }}" data-allow-clear="1">
+    @if (isset($cached_options))
+        {{ $cached_options }}
+    @endif
 </select>
 
 

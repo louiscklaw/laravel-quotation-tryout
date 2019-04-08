@@ -13,17 +13,24 @@
                     <div class="header">
                         <h2>Report bugs</h2>
                         <small>report system abnormality</small>
+
+                        @button_save
+                        @endbutton_save
+
                     </div>
                     <div class="body">
                         <div class="form-group">
                                 @textareaMCE([
-                                    'textinput_name'=>'bugs_report_description',
+                                    'textinput_name'=>__('bugs_report_description'),
                                 ])
                                     {{123}}
                                     {{-- {{ $bugs_report->bugsreport_description }} --}}
                                 @endtextareaMCE
 
-                                @select2_ajax
+                                @select2_ajax([
+                                    'label'=>'test select2',
+                                    'placeholder' => __('test placeholder')
+                                    ])
                                 @endselect2_ajax
 
 <!--

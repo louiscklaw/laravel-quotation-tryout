@@ -193,6 +193,9 @@
         ];
 
     $systems=[
+        'cms'=>[
+            'text'=>'CMS', 'icon'=>'public', 'link'=>route('home'),
+        ],
         'quotation'=>[
             'text'=>'Quotation', 'icon'=>'attach_money', 'link'=>route('home'),
         ],
@@ -205,11 +208,9 @@
         'sys_config'=>[
             'text'=>'System Config', 'icon'=>'settings', 'link'=>route('home'),
         ],
-
         'bugreport'=>[
-                    'text'=>'Bugs report', 'icon'=>'bugs_report',
-                    'link' => route('bugs_report.create')
-            ],
+            'text'=>'Bugs_report', 'icon'=>'bug_report', 'link' => route('bugs_report.create')
+        ],
 
         ];
 

@@ -44,4 +44,5 @@
     @show
 
     @stack('blank_scripts_body')
+    @stack('append_body')
 </body>

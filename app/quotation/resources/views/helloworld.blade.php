@@ -17,7 +17,7 @@
 </section>
 @endsection
 
-@push('blank_scripts_body')
+@push('append_body')
     <script src="{{ asset('/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js') }}"></script>
     <script>
         $('document').ready(function () {

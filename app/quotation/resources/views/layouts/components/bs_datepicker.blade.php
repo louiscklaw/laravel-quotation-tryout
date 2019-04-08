@@ -1,5 +1,3 @@
-
-<h2 class="card-inside-title">Component</h2>
 <div class="input-group date" id="{{$id}}">
     <div class="form-line">
         <input name="{{$name}}" type="text" class="form-control" placeholder="Please choose a date...">
@@ -23,9 +21,12 @@
     <script src="http://localhost:8001/quotation/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
 
 <script>
-    $('#{{$id}}').datepicker({
-        autoclose: true,
-        container: '#{{$id}}'
+    $('document').ready(function(){
+        $('#{{$id}}').datepicker({
+            autoclose: true,
+            container: '#{{$id}}'
+        });
+
     });
 </script>
 @endpush

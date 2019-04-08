@@ -39,7 +39,6 @@
                                         <span class="input-group-addon">
                                             <i class="material-icons">date_range</i>
                                         </span>
-                                        <div class="form-line">
                                             <label for="date">date</label>
                                             <!-- <input name="date" type="text" class="form-control date" placeholder="date"> -->
                                             @bs_datepicker(
@@ -47,7 +46,6 @@
                                                 'id'=>'test_datepicker']
                                             )
                                             @endbs_datepicker
-                                        </div>
                                     </div>
                                 </div>
 

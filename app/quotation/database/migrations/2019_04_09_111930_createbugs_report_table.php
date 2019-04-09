@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Createbugs_reportTable extends Migration
+class CreatebugsReportTable extends Migration
 {
     /**
      * Run the migrations.
@@ -36,6 +36,7 @@ class Createbugs_reportTable extends Migration
             $table->text('bugsreport_description')->nullable();
             $table->text('bugsreport_remarks')->nullable();
 
+        });
     }
 
     /**
@@ -45,6 +46,6 @@ class Createbugs_reportTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('bugs_report');
     }
 }

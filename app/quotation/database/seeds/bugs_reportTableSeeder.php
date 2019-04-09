@@ -66,5 +66,4 @@ class bugs_reportTableSeeder extends Seeder
         }
         echo "\n";
     }
-    }
 }

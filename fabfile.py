@@ -42,8 +42,20 @@ def laravel_rebuild():
         docker_composeP_php_composer_install('web', 'quotation')
         laravel_artisan_migrate('web', 'quotation')
 
+def clear_laravel_cache(proj_name):
+    commands=[
+        # 'php artisan clear-compiled',
+        'composer dump-autoload',
+        # 'php artisan optimize',
+    ]
+    for command in commands:
+        docker_compose_run_command(command,'/app/{}'.format(proj_name))
+
 def laravel_db_migrate(proj_name):
     with lcd(DOCKER_DIR):
+        # clear laravel cache
+        clear_laravel_cache(proj_name)
+
         docker_compose_run_command('php artisan migrate:refresh','/app/{}'.format(proj_name))
 
         for table in ['DatabaseSeeder']:

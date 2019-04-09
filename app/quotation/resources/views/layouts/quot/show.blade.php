@@ -111,8 +111,8 @@
                 </div>
             </div>
 
-            <!-- item list -->
             <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <!-- item list -->
                 <div class="card">
                     <div class="header">
                         <div class="row clearfix">
@@ -190,12 +190,9 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <!-- end item list -->
+                <!-- end item list -->
 
-
-            <!-- Remarks -->
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <!-- Remarks -->
                 <div class="card">
                     <div class="header">
                         <div class="row clearfix">
@@ -234,8 +231,8 @@
                         </div>
                     </div>
                 </div>
+                <!-- end remarks -->
             </div>
-            <!-- end remarks -->
 
         </div>
 

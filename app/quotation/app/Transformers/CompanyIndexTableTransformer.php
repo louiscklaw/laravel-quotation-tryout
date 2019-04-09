@@ -14,7 +14,7 @@ class CompanyIndexTableTransformer extends TransformerAbstract
 {
     public function get_button_link($button_text, $link)
     {
-        return '<a class="btn bg-teal btn-sm waves-effect" href="'.$link.'" role="button">'.$button_text.'</a>';
+        return '<a class="btn bg-teal btn-xs waves-effect" href="'.$link.'" role="button">'.$button_text.'</a>';
     }
 
     public function get_action_link($id)

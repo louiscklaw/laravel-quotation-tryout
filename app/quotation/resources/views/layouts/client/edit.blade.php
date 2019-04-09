@@ -50,6 +50,16 @@
                             {{$client->client_brithday}}
                             @endtextInput
                         </div>
+                        <div class="col-sm-12">
+                            @textInput(['form_class'=>'', 'placeholder'=>'', 'textinput_name'=>'client_height'])
+                            {{$client->client_height}}
+                            @endtextInput
+                        </div>
+                        <div class="col-sm-12">
+                            @textInput(['form_class'=>'', 'placeholder'=>'', 'textinput_name'=>'client_weight'])
+                            {{$client->client_weight}}
+                            @endtextInput
+                        </div>
                     </div>
                 </div>
             </div>

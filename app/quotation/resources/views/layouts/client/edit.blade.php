@@ -131,11 +131,21 @@
                 <div class="header">
                     <h2>
                         {{ __('Remarks')}}
-                        <small>{{ __('Additional information about client')}}}</small>
                     </h2>
                 </div>
 
                 <div class="body">
+
+                <div class="row clearfix">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <div class="form-line">
+                                    {{ __('Tags')}}
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
                     <div class="row clearfix">
                         <div class="col-sm-12">

@@ -49,4 +49,15 @@ class Client extends Model
         'M'=>['M','dodgerblue'],
         'F'=>['F','red'],
     );
+
+
+    public static $client_tags_configuration=array(
+        'tall'=>['tall','dodgerblue'],
+        'shot'=>['shot','red'],
+        'fat'=>['fat','red'],
+        'slim'=>['slim','red'],
+    );
+
+
+
 }

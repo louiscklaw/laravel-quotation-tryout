@@ -32,7 +32,7 @@
                 placeholder: $('#{{$id}}').attr('placeholder'),
                 allowClear: Boolean($('#{{$id}}').data('allow-clear')),
                 ajax: {
-                    url: '{{ route("bugs_report.get_bugs_category") }}',
+                    url: '{{ $ajax_url }}',
                     dataType: 'json'
                     // Additional AJAX parameters go here; see the end of this chapter for the full code of this example
                 }

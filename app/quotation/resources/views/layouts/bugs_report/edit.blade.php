@@ -48,7 +48,7 @@
                                             <label for="select_category">bugs category</label>
                                             @select2_ajax([
                                                 'placeholder' => __('test placeholder'),
-                                                'ajax_url' => 'https://api.github.com/search/repositories',
+                                                'ajax_url' => route('bugs_report.get_bugs_category'),
                                                 'id'=>'select_category'
                                             ])
                                             @endselect2_ajax

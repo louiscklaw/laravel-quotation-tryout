@@ -143,7 +143,7 @@
                                     {{ __('Tags')}}
                                     @select2_ajax([
                                     'placeholder' => __('test placeholder'),
-                                    'ajax_url' => 'https://api.github.com/search/repositories',
+                                    'ajax_url' => route('client.get_client_body_tags'),
                                     'id'=>'select_category'
                                     ])
                                     @endselect2_ajax

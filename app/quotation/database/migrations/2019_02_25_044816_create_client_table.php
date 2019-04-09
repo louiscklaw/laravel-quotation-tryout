@@ -33,6 +33,9 @@ class CreateClientTable extends Migration
                 'client_email',
                 'client_date',
                 'client_status',
+                'client_height',
+                'client_weight',
+                'client_bmi',
                 'client_create_at',
                 'client_update_at'
             ];

@@ -112,11 +112,30 @@ class clientTableSeeder extends Seeder
         return random_int(-1,5);
     }
 
+    public function get_random_height()
+    {
+        return $this->random_from_pool(range(150,190));
+    }
+
+    public function get_random_weight()
+    {
+        return $this->random_from_pool(range(50,100));
+    }
+
+    public function get_bmi($height, $weight)
+    {
+        return $weight / ($height * $height);
+    }
+
     public function insert_client_record()
     {
 
         $client_cname = $this->faker[0]->name;
         $client_ename = $this->faker[1]->name;
+
+        $height = $this->get_random_height();
+        $weight = $this->get_random_weight();
+        $bmi = $this->get_bmi($height, $weight);
 
         DB::table('client')->insert([
             'client_name' => $client_ename,
@@ -131,6 +150,9 @@ class clientTableSeeder extends Seeder
             'client_remarks' => $this->get_random_paragraph(10),
             'client_date' => $this->get_random_brithday(),
             'client_status' => $this->random_from_pool(array_keys(Client::$client_status_configuration)),
+            'client_height' => $height,
+            'client_weight' => $weight,
+            'client_bmi' => $bmi,
             'client_update_at' => $this->get_random_update_at(),
             'client_create_at' => $this->get_random_created_at(),
         ]);

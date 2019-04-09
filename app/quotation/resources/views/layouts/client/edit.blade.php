@@ -8,27 +8,27 @@
 @section('content')
 <section class="content">
     <div class="row clearfix">
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
             <div class="card">
                 <div class="header">
-                        <h2 >
-                            <span>
+                    <h2>
+                        <span>
                             <i class="material-icons" style="font-size:30px; vertical-align: middle;">person</i>
-                                Client Edit
-                            </span>
-                            <small>Edit client information</small>
-                        </h2>
-                        @if (isset($action) && $action =='create')
-                            <button type="button" class="btn btn-primary m-t-15 waves-effect">{{ __('Create')}}</button>
-                        @else
-                            <button type="button" class="btn btn-primary m-t-15 waves-effect">{{ __('Save')}}</button>
-                            <button type="button" class="btn btn-primary m-t-15 waves-effect">{{ __('PDF') }}</button>
-                        @endif
+                            Client Edit
+                        </span>
+                        <small>Edit client information</small>
+                    </h2>
+                    @if (isset($action) && $action =='create')
+                    <button type="button" class="btn btn-primary m-t-15 waves-effect">{{ __('Create')}}</button>
+                    @else
+                    <button type="button" class="btn btn-primary m-t-15 waves-effect">{{ __('Save')}}</button>
+                    <button type="button" class="btn btn-primary m-t-15 waves-effect">{{ __('PDF') }}</button>
+                    @endif
                 </div>
 
                 <div class="body">
                     <div class="row clearfix">
-                        <div class="col-sm-4">
+                        <div class="col-sm-12">
                             <div class="form-group form-float">
                                 <div class="form-line">
                                     <input type="text" class="form-control">
@@ -36,7 +36,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-4">
+                        <div class="col-sm-12">
                             <div class="form-group form-float">
                                 <div class="form-line">
                                     <input type="text" class="form-control">
@@ -44,7 +44,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-4">
+                        <div class="col-sm-12">
                             <div class="form-group form-float">
                                 <div class="form-line">
                                     <input type="text" class="form-control">
@@ -55,7 +55,7 @@
                     </div>
                     <div class="row clearfix">
 
-                    <div class="col-sm-4">
+                        <div class="col-sm-12">
                             <div class="form-group form-float">
                                 <div class="form-line">
                                     <input type="text" class="form-control">
@@ -66,6 +66,10 @@
                     </div>
                 </div>
             </div>
+        </div>
+
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+            <!-- contact card -->
             <div class="card">
                 <div class="header">
                         <h2>
@@ -80,7 +84,7 @@
 
                 <div class="body">
                     <div class="row clearfix">
-                        <div class="col-sm-4">
+                        <div class="col-sm-12">
                             <div class="form-group form-float">
                                 <div class="form-line">
                                     <input type="text" class="form-control">
@@ -88,7 +92,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-4">
+                        <div class="col-sm-12">
                             <div class="form-group form-float">
                                 <div class="form-line">
                                     <input type="text" class="form-control">
@@ -96,7 +100,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-4">
+                        <div class="col-sm-12">
                             <div class="form-group form-float">
                                 <div class="form-line">
                                     <input type="text" class="form-control">
@@ -118,7 +122,11 @@
                     </div>
                 </div>
             </div>
+            <!-- end contact card -->
+        </div>
 
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+            <!-- remarks card -->
             <div class="card">
                 <div class="header">
                     <h2>
@@ -140,21 +148,11 @@
                         </div>
                     </div>
 
-                    <div class="row clearfix">
-                        <div class="col-sm-12">
-                            <div class="form-group">
-                                <div class="form-line">
-                                    {{ __('Description') }}
-                                    <textarea rows="6" class="no-resize" name="textarea2"></textarea>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
             </div>
-
+            <!-- end remarks card -->
         </div>
+
     </div>
 </section>
 @endsection
@@ -164,10 +162,6 @@
     <script>
         var simplemde = new SimpleMDE({
             element: document.getElementsByName("textarea1")[0],
-        });
-
-        var simplemde = new SimpleMDE({
-            element: document.getElementsByName("textarea2")[0],
         });
     </script>
 @endpush

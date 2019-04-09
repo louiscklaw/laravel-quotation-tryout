@@ -44,6 +44,7 @@
                             @endtextInput
                         </div>
                     </div>
+
                     <div class="row clearfix">
                         <div class="col-sm-12">
                             @textInput(['form_class'=>'', 'placeholder'=>'', 'textinput_name'=>'client_brithday'])
@@ -60,6 +61,7 @@
                             {{$client->client_weight}}
                             @endtextInput
                         </div>
+
                     </div>
                 </div>
             </div>

@@ -1,156 +1,135 @@
 @extends('layouts.material.html')
 
-
 @section('content')
 <section class="content">
     <div class="container-fluid">
         @if(isset($form_action) and $form_action =='edit')
-            {{ Form::model($record, ['method'=>'PATCH', 'action'=> [$update_controller, $record->id]]) }}
+            {{ Form::model($quot, ['method'=>'PATCH', 'action'=> [$update_controller, $quot->id]]) }}
         @else
-            {{ Form::model($record, ['method'=>'POST', 'action'=> [$store_controller, $record->id]]) }}
+            {{ Form::model($quot, ['method'=>'POST', 'action'=> [$store_controller, $quot->id]]) }}
         @endif
-            @card([
-                'card_name'=>$editor_name,
-                'card_desc'=>$editor_description
-                ])
 
-                <div class="form-group" style="margin-top, margin-bottom: 20px">
-                    <a class="btn bg-light-blue waves-effect" href="{{ route('Quot.edit',['id'=>$record->id]) }}" role="button">edit</a>
-                    <a class="btn bg-light-blue waves-effect" href="{{ route('Quot.pdf', ['id'=>$record->id]) }}" role="button">pdf</a>
-                </div>
-            @endcard
 
-            @card([
-                'card_name'=>$editor_name,
-                'card_desc'=>$editor_description
-                ])
+        <div class="row clearfix">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <div class="card">
+                    <div class="header">
+                        <div class="row clearfix">
+                            <div class="col-lg-6">
+                                <h2>
+                                    Edit
+                                </h2>
+                                <small>General information</small>
+                            </div>
 
-                <div class="row clearfix">
-                    <div class="col-sm-2">
-                        id
-                    </div>
-                    <div class="col-sm-4">
-                        @textInput(['form_class'=>'', 'placeholder'=>''])
-                            id
-                        @endtextInput
-                    </div>
+                            <div class="col-lg-6">
+                                @if (Request::is('*/create') )
+                                    {!! Form::submit(__('Create'), ['class'=>'btn btn-primary']) !!}
 
-                    <div class="col-sm-2">
-                        quot_date
-                    </div>
-                    <div class="col-sm-4">
-                        @textInput(['form_class'=>'', 'placeholder'=>''])
-                            quot_date
-                        @endtextInput
-                    </div>
-                </div>
+                                @else
+                                    @button_save
+                                    @endbutton_save
 
-            @endcard
+                                    @button_pdf
+                                    @endbutton_pdf
 
-            @card([
-                'card_name'=>'Client',
-                'card_desc'=>'Client description'
-                ])
-
-                <div class="row clearfix">
-                    <div class="col-sm-2">
-                        id
-                    </div>
-                    <div class="col-sm-4">
-                        @textInput(['form_class'=>'', 'placeholder'=>''])
-                            id
-                        @endtextInput
+                                @endif
+                            </div>
+                        </div>
                     </div>
 
-                    <div class="col-sm-2">
-                        quot_date
-                    </div>
-                    <div class="col-sm-4">
-                        @textInput(['form_class'=>'', 'placeholder'=>''])
-                            quot_date
-                        @endtextInput
+                    <div class="body">
+                        <div class="row clearfix">
+                            <div class="col-sm-12">
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="text" class="form-control" value="{{ $quot->quot_ref }}" readonly>
+                                        @if (Request::is('*/create'))
+                                            <label class="form-label">Quote #</label>
+                                        @else
+                                            <label class="form-label">Quote # (display only)</label>
+                                        @endif
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
+            </div>
 
-            @endcard
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <div class="card">
+                    <div class="header">
+                        <div class="row clearfix">
+                            <div class="col-lg-6">
+                                <h2>
+                                    Item list
+                                </h2>
+                                <small>Items in this quotation</small>
+                            </div>
+                        </div>
+                    </div>
 
-
-            @card([
-                'card_name'=>'quotitem_record',
-                'card_desc'=>'quotitem description'
-                ])
-                <div class="body table-responsive">
-                    <table class="table table-striped">
-                        <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>item name</th>
-                                <th>description</th>
-                                <th>unit price</th>
-                                <th>quantity</th>
-                                <th>subtotal comment</th>
-                                <th>subtotal</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-
-                            @for($i=0;$i<sizeof($quotitem_records); $i++)
-                            <tr>
-                                <th scope="row">{{$i+1}}</th>
-                                <td>{!! Form::textarea(
-                                        'quotitem_item[]',
-                                        $quotitem_records[$i]->quotitem_item,
-                                        ['class'=>'form-control','rows'=>2,'cols'=>20, 'disabled'=>'']) !!}
-                                </td>
-                                <td>{!! Form::textarea(
-                                        'quotitem_des_cm[]',
-                                        $quotitem_records[$i]->quotitem_des_cm,
-                                        ['class'=>'form-control','rows'=>2,'cols'=>20, 'disabled'=>'']) !!}
-                                </td>
-                                <td>
-                                    {!! Form::label($quotitem_records[$i]->quotitem_unitprice) !!}
-                                </td>
-
-                                <td>
-                                    {!! Form::label($quotitem_records[$i]->quotitem_qty) !!}
-                                </td>
-
-                                <td>
-                                    {!! Form::textarea('quotitem_subtotal_cm[]', $quotitem_records[$i]->quotitem_subtotal_cm,['class'=>'form-control','rows'=>2,'cols'=>20, 'disabled'=>'']) !!}
-                                </td>
-
-                                <td>
-                                    {!! Form::label($quotitem_records[$i]->quotitem_subtotal) !!}
-                                </td>
-                            </tr>
-                            @endfor
-
-                        </tbody>
-                    </table>
-                </div>
-            @endcard
-
-
-            @card([
-                'card_name'=>'Remarks',
-                'card_desc'=>'Remarks'
-                ])
-                <div class="row clearfix">
-                    <div class="col-sm-12">
-                        @textarea(['form_class'=>'', 'placeholder'=>''])
-                            quot_remark
-                        @endtextarea
+                    <div class="body">
+                        <div class="row clearfix">
+                            <div class="col-sm-12">
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="text" class="form-control" value="{{ $quot->quot_ref }}" readonly>
+                                        @if (Request::is('*/create'))
+                                            <label class="form-label">Quote #</label>
+                                        @else
+                                            <label class="form-label">Quote # (display only)</label>
+                                        @endif
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            @endcard
+            </div>
 
-        {{ Form::close() }}
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <div class="card">
+                    <div class="header">
+                        <div class="row clearfix">
+                            <div class="col-lg-6">
+                                <h2>
+                                    Remarks
+                                </h2>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="body">
+                        <div class="row clearfix">
+                            <div class="col-sm-12">
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="text" class="form-control" value="{{ $quot->quot_ref }}" readonly>
+                                        @if (Request::is('*/create'))
+                                            <label class="form-label">Quote #</label>
+                                        @else
+                                            <label class="form-label">Quote # (display only)</label>
+                                        @endif
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+
+
+
 
     </div>
 </section>
-
 @endsection
-
 
 @push('blank_scripts_body')
 

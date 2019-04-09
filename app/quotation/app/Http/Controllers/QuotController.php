@@ -319,7 +319,7 @@ class QuotController extends Controller
         $quotitem_records = $records['quotitems'];
 
         return view('layouts.quot.show',[
-            'record'=>$quot_record,
+            'quot'=>$quot_record,
             'quotitem_records'=>$quotitem_records,
             'editor_name'=>'quotation show',
             'editor_description' => 'quotation show description',

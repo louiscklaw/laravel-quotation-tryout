@@ -163,7 +163,7 @@
                                                         <!-- <input type="button" class="ibtnDel btn btn-md btn-danger "  value="Delete"> -->
                                                         <button type="button" class="ibtnDel btn btn-md btn-danger" id="Delete">
                                                             <i class="material-icons">cancel</i>
-                                                            <span>Delete</span>
+
                                                         </button>
                                                     </td>
                                                 @endif
@@ -240,7 +240,7 @@
                 cols += '<td><input type="text" class="form-control" name="quotitems[quotitem_unitprice][]"/></td>';
                 cols += '<td><input type="text" class="form-control" name="quotitems[quotitem_subtotal][]"/></td>';
 
-                cols += '<td><button type="button" class="ibtnDel btn btn-md btn-danger" id="Delete"><i class="material-icons">cancel</i><span>Delete</span></button></td>';
+                cols += '<td><button type="button" class="ibtnDel btn btn-md btn-danger" id="Delete"><i class="material-icons">cancel</i></button></td>';
                 newRow.append(cols);
                 $("table.order-list").append(newRow);
                 counter++;

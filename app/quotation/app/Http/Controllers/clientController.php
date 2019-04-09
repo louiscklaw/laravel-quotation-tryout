@@ -7,6 +7,7 @@ use Yajra\Datatables\Datatables;
 use Illuminate\Http\Request;
 
 use App\Client;
+use App\bugsReport;
 use App\Transformers\ClientIndexTableTransformer;
 
 
@@ -212,4 +213,55 @@ class clientController extends Controller
 
     }
 
+    // rendering job on client side
+    public static function get_client_body_tags()
+    {
+        // https://select2.org/data-sources/formats
+        // {
+        //   "results": [
+        //     {
+        //       "id": 1,
+        //       "text": "Option 1"
+        //     },
+        //     {
+        //       "id": 2,
+        //       "text": "Option 2"
+        //     }
+        //   ],
+        //   "pagination": {
+        //     "more": true
+        //   }
+        // }
+        // $categories = BugsReport::$bugsreport_category_list;
+        // $categories = [
+        //     'results'=>[
+        //         ['id'=>1, 'text'=>'option 1'],
+        //         ['id'=>2, 'text'=>'option 2'],
+        //     ],
+        //     'pagination'=>[
+        //         'more'=>FALSE
+        //     ]
+        // ];
+
+        $bugsreport_category_list = bugsReport::$bugsreport_category_list;
+
+
+        $output = ['results'=>[], 'pagination'=>[]];
+        $i=0;
+        foreach(array_keys($bugsreport_category_list) as $bugsreport_category)
+        {
+            array_push($output['results'],
+                ['id'=>$i,
+                'text'=>$bugsreport_category]
+            );
+            $i++;
+        }
+
+        $output['pagination']=['more'=>FALSE];
+
+        // var_dump(response()->json($output));
+        // die();
+
+        return response()->json($output);
+    }
 }

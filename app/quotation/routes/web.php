@@ -39,6 +39,8 @@ Route::get('/', 'commonController@index')->name('home');
 
 Auth::routes();
 
+Route::get('/client/get_client_body_tags', 'clientController@get_client_body_tags')->name('client.get_client_body_tags');
+
 
 Route::get('/bugs_report/get_bugs_category', 'bugs_reportController@get_bugs_category')->name('bugs_report.get_bugs_category');
 

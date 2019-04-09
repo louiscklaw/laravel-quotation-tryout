@@ -30,24 +30,24 @@
                     <div class="row clearfix">
                         <div class="col-sm-12">
                             @textInput(['form_class'=>'', 'placeholder'=>'', 'textinput_name'=>'client_name'])
-                                {{$client->client_name}}
+                            {{$client->client_name}}
                             @endtextInput
                         </div>
                         <div class="col-sm-12">
                             @textInput(['form_class'=>'', 'placeholder'=>'', 'textinput_name'=>'client_cname'])
-                                {{$client->client_cname}}
+                            {{$client->client_cname}}
                             @endtextInput
                         </div>
                         <div class="col-sm-12">
                             @textInput(['form_class'=>'', 'placeholder'=>'', 'textinput_name'=>'client_gender'])
-                                {{$client->client_gender}}
+                            {{$client->client_gender}}
                             @endtextInput
                         </div>
                     </div>
                     <div class="row clearfix">
                         <div class="col-sm-12">
                             @textInput(['form_class'=>'', 'placeholder'=>'', 'textinput_name'=>'client_brithday'])
-                                {{$client->client_brithday}}
+                            {{$client->client_brithday}}
                             @endtextInput
                         </div>
                     </div>
@@ -59,52 +59,40 @@
             <!-- contact card -->
             <div class="card">
                 <div class="header">
-                        <h2>
-                            <span>
-                                <i class="material-icons" style="font-size:30px; vertical-align: middle;">perm_contact_calendar</i>
-                                Client contact method
+                    <h2>
+                        <span>
+                            <i class="material-icons"
+                                style="font-size:30px; vertical-align: middle;">perm_contact_calendar</i>
+                            Client contact method
 
-                            </span>
-                        </h2>
-                        <small>Edit client method</small>
+                        </span>
+                    </h2>
+                    <small>Edit client method</small>
                 </div>
-
                 <div class="body">
                     <div class="row clearfix">
                         <div class="col-sm-12">
-                            <div class="form-group form-float">
-                                <div class="form-line">
-                                    <input type="text" class="form-control">
-                                    <label class="form-label">whatsapp</label>
-                                </div>
-                            </div>
+                            @textInput(['form_class'=>'', 'placeholder'=>'', 'textinput_name'=>'client_whatsapp'])
+                            {{$client->client_whatsapp}}
+                            @endtextInput
                         </div>
                         <div class="col-sm-12">
-                            <div class="form-group form-float">
-                                <div class="form-line">
-                                    <input type="text" class="form-control">
-                                    <label class="form-label">mobile number</label>
-                                </div>
-                            </div>
+                            @textInput(['form_class'=>'', 'placeholder'=>'', 'textinput_name'=>'client_mobile'])
+                            {{$client->client_mobile}}
+                            @endtextInput
                         </div>
                         <div class="col-sm-12">
-                            <div class="form-group form-float">
-                                <div class="form-line">
-                                    <input type="text" class="form-control">
-                                    <label class="form-label">email</label>
-                                </div>
-                            </div>
+                            @textInput(['form_class'=>'', 'placeholder'=>'', 'textinput_name'=>'client_email'])
+                            {{$client->client_email}}
+                            @endtextInput
                         </div>
                     </div>
 
                     <div class="row clearfix">
                         <div class="col-sm-12">
-                            <div class="form-group">
-                                <div class="form-line">
-                                    <label class="form-label">Address</label>
-                                    <textarea rows="2" class="form-control no-resize"></textarea>
-                                </div>
-                            </div>
+                            @textInput(['form_class'=>'', 'placeholder'=>'', 'textinput_name'=>'client_address'])
+                            {{$client->client_address}}
+                            @endtextInput
                         </div>
                     </div>
                 </div>

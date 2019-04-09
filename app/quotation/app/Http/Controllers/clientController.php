@@ -232,9 +232,6 @@ class clientController extends Controller
 
         $output['pagination']=['more'=>FALSE];
 
-        // var_dump(response()->json($output));
-        // die();
-
         return response()->json($output);
     }
 }

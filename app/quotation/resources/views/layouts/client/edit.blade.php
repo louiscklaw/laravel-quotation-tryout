@@ -61,7 +61,11 @@
                             {{$client->client_weight}}
                             @endtextInput
                         </div>
-
+                        <div class="col-sm-12">
+                            @textInput(['form_class'=>'', 'placeholder'=>'', 'textinput_name'=>'client_bmi'])
+                            {{$client->client_bmi}}
+                            @endtextInput
+                        </div>
                     </div>
                 </div>
             </div>
@@ -107,6 +111,15 @@
                             @endtextInput
                         </div>
                     </div>
+
+                    <div class="row clearfix">
+                        <div class="col-sm-12">
+                            @textInput(['form_class'=>'', 'placeholder'=>'', 'textinput_name'=>'client_bmi'])
+                            {{$client->client_bmi}}
+                            @endtextInput
+                        </div>
+                    </div>
+
                 </div>
             </div>
             <!-- end contact card -->

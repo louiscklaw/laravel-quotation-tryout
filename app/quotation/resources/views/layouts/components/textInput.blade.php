@@ -1,5 +1,5 @@
 
-<div class="form-group">
+<div class="form-group form-float">
     <div class="form-line">
         {{Form::text($textinput_name, $slot,['class'=>'form-control'])}}
 

@@ -75,11 +75,11 @@ class clientController extends Controller
 
     public function edit($id)
     {
-        $quot_record = new ClientHelper;
-        $quot_record = ClientHelper::get_record($id);
+        $client = new ClientHelper;
+        $client = ClientHelper::get_record($id);
 
         return view('layouts.client.edit',[
-            'record'=>$quot_record,
+            'client'=>$client,
             'form_action' =>'edit',
             'editor_name'=>'client edit',
             'editor_description' => 'client debug edit description',

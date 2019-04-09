@@ -29,39 +29,26 @@
                 <div class="body">
                     <div class="row clearfix">
                         <div class="col-sm-12">
-                            <div class="form-group form-float">
-                                <div class="form-line">
-                                    <input type="text" class="form-control">
-                                    <label class="form-label">Client name</label>
-                                </div>
-                            </div>
+                            @textInput(['form_class'=>'', 'placeholder'=>'', 'textinput_name'=>'client_name'])
+                                {{$client->client_name}}
+                            @endtextInput
                         </div>
                         <div class="col-sm-12">
-                            <div class="form-group form-float">
-                                <div class="form-line">
-                                    <input type="text" class="form-control">
-                                    <label class="form-label">Client cname</label>
-                                </div>
-                            </div>
+                            @textInput(['form_class'=>'', 'placeholder'=>'', 'textinput_name'=>'client_cname'])
+                                {{$client->client_cname}}
+                            @endtextInput
                         </div>
                         <div class="col-sm-12">
-                            <div class="form-group form-float">
-                                <div class="form-line">
-                                    <input type="text" class="form-control">
-                                    <label class="form-label">Client gender</label>
-                                </div>
-                            </div>
+                            @textInput(['form_class'=>'', 'placeholder'=>'', 'textinput_name'=>'client_gender'])
+                                {{$client->client_gender}}
+                            @endtextInput
                         </div>
                     </div>
                     <div class="row clearfix">
-
                         <div class="col-sm-12">
-                            <div class="form-group form-float">
-                                <div class="form-line">
-                                    <input type="text" class="form-control">
-                                    <label class="form-label">Client brithday</label>
-                                </div>
-                            </div>
+                            @textInput(['form_class'=>'', 'placeholder'=>'', 'textinput_name'=>'client_brithday'])
+                                {{$client->client_brithday}}
+                            @endtextInput
                         </div>
                     </div>
                 </div>

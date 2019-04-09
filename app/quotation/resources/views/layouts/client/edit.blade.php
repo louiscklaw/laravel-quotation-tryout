@@ -141,7 +141,12 @@
                             <div class="form-group">
                                 <div class="form-line">
                                     {{ __('Tags')}}
-
+                                    @select2_ajax([
+                                    'placeholder' => __('test placeholder'),
+                                    'ajax_url' => 'https://api.github.com/search/repositories',
+                                    'id'=>'select_category'
+                                    ])
+                                    @endselect2_ajax
                                 </div>
                             </div>
                         </div>

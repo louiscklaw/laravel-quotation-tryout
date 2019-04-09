@@ -13,7 +13,6 @@
             {{ Form::model($quot, ['method'=>'POST', 'action'=> [$store_controller, $quot->id]]) }}
         @endif
 
-
         <div class="row clearfix">
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                 <div class="card">
@@ -211,20 +210,11 @@
                 </div>
                 <!-- end remarks -->
             </div>
-
         </div>
-
-
-
-
-
     </div>
 </section>
 @endsection
-
 @push('append_body')
-
-
     <!-- Autosize Plugin Js -->
     <script src="{{asset('plugins/autosize/autosize.js')}}"></script>
 
@@ -246,7 +236,7 @@
 
     <script>
         document.getElementById('remarks').innerHTML =
-        marked(`{{$quot->quot_remarks}}`);
+            marked(`{{$quot->quot_remarks}}`);
     </script>
 
 @endpush

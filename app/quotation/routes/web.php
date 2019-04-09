@@ -44,6 +44,10 @@ Route::get('/bugs_report/get_bugs_category', 'bugs_reportController@get_bugs_cat
 
 Route::get('/helloworld', 'helloworldController@index')->name('helloworld.index');
 
+Route::get('/dashboard', function(){
+    return view('dashboard');
+})->name('dashboard');
+
 
 $record_types=array(
     'posts',

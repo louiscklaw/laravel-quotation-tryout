@@ -15,6 +15,9 @@
                     @endif
 
                     You are logged in!
+                    <script>
+                        window.location.replace("route('dashboard')");
+                    </script>
                 </div>
             </div>
         </div>

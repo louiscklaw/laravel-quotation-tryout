@@ -143,47 +143,25 @@
                                             <!-- <th scope="row">1</th> -->
                                             <td class="col-sm-1">{{ $i+1 }}</td>
                                             <td class="col-sm-6">
-                                                {{Form::text('quotitems'.'[quotitem_name]'.'[]', $quot['quotitems'][$i]->quotitem_name,['class'=>'form-control'])}}
-                                            </td>
-                                            <td class="col-sm-1">
-                                                {{Form::text('quotitems'.'[quotitem_quantity]'.'[]', $quot['quotitems'][$i]->quotitem_quantity,['class'=>'form-control'])}}
+                                                {{$quot['quotitems'][$i]->quotitem_name}}
 
                                             </td>
                                             <td class="col-sm-1">
-                                                {{Form::text('quotitems'.'[quotitem_unitprice]'.'[]', $quot['quotitems'][$i]->quotitem_unitprice,['class'=>'form-control'])}}
+                                                {{$quot['quotitems'][$i]->quotitem_quantity}}
 
                                             </td>
                                             <td class="col-sm-1">
-                                                {{Form::text('quotitems'.'[quotitem_subtotal]'.'[]', $quot['quotitems'][$i]->quotitem_subtotal,['class'=>'form-control'])}}
+                                                {{$quot['quotitems'][$i]->quotitem_unitprice}}
+
+                                            </td>
+                                            <td class="col-sm-1">
+                                                {{$quot['quotitems'][$i]->quotitem_subtotal}}
                                             </td>
 
-                                            <!-- delete button column -->
-                                            @if (Request::is('*/create'))
-                                                <td class="col-sm-2"></td>
-                                            @else
-                                                <td>
-                                                    <!-- <input type="button" class="ibtnDel btn btn-md btn-danger "  value="Delete"> -->
-                                                    <button type="button" class="ibtnDel btn btn-md btn-danger" id="Delete">
-                                                        <i class="material-icons">cancel</i>
-
-                                                    </button>
-                                                </td>
-                                            @endif
                                         </tr>
 
                                         @endfor
                                     </tbody>
-
-                                    <tfoot>
-                                        <tr>
-                                            <td colspan="5" style="text-align: left;">
-                                                <button type="button" class="btn btn-primary waves-effect" id="addrow">
-                                                    <i class="material-icons">add</i>
-                                                    <span>ADD NEW ITEM</span>
-                                                </button>
-                                            </td>
-                                        </tr>
-                                    </tfoot>
 
                                 </table>
                             </div>

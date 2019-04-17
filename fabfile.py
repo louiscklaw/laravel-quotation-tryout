@@ -115,7 +115,7 @@ def laraveL_create_project(proj_name='blog'):
     with lcd(DOCKER_DIR):
         local('docker-compose exec web sh -c "cd /app && composer create-project --prefer-dist laravel/laravel {}"'.format(proj_name))
 
-
+@task
 def install_laravel(proj_name='blog'):
     proj_home = '/'.join(['/app', proj_name])
     with lcd(DOCKER_DIR):

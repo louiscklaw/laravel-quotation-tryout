@@ -121,7 +121,7 @@ def laraveL_create_project(proj_name='blog'):
 def install_laravel(proj_name='blog'):
     proj_home = '/'.join(['/app', proj_name])
     with cd(DOCKER_DIR):
-        # docker_compose_run_command('cp .env.example .env', proj_home )
+        docker_compose_run_command('cp .env.example .env', proj_home )
         docker_compose_run_command('chown www-data:staff -R .', proj_home )
 
         run('docker-compose exec {} sh -c "cd {} && composer install"'.format(CONTAINER_NAME, proj_home))

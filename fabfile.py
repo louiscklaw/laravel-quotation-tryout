@@ -98,6 +98,7 @@ def rebuild_docker():
             run('docker-compose build')
             run('docker-compose up -d')
 
+    sleep(10)
     install_laravel('helloworld')
     # install_laravel('quotation')
 

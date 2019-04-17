@@ -10,6 +10,18 @@ services:
     volumes:
       - ../app/:/app
     ports:
-      - "8001:80"
-    # stdin_open: true
-    # tty: true
+      - "8002:80"
+
+    restart: always
+    networks:
+        - proxy
+    labels:
+        - "traefik.docker.network=proxy"
+        - "traefik.enable=true"
+        - "traefik.basic.frontend.rule=Host:temp.louislabs.com"
+        - "traefik.basic.port=80"
+        - "traefik.basic.protocol=http"
+
+networks:
+  proxy:
+    external: true

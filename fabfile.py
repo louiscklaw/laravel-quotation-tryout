@@ -217,7 +217,7 @@ def git_pull():
     local('git push')
     with cd(CWD):
         run('git checkout master')
-        run('git pull --depth=1')
+        run('git pull')
     with cd(PROJ_DOCKER_DIR):
         rebuild_docker()
 

@@ -17,7 +17,7 @@ XDOTOOL_RELOAD_SH='''WID=`xdotool search --name "Material Design - Mozilla Firef
 CONTAINER_NAME = 'demo-quotation-web'
 
 def docker_compose_cmd(cmd_body):
-    local('docker-compose {}'.format(cmd_body) )
+    run('docker-compose {}'.format(cmd_body) )
 
 def docker_compose_exec(cmd_body):
     docker_compose_cmd(' exec {}'.format(cmd_body) )
@@ -29,14 +29,14 @@ def laravel_artisan_migrate(service_name, proj_name='blog' ):
     docker_compose_exec("{} /bin/sh -c 'cd /app/{}; php artisan migrate'".format(service_name, proj_name))
 
 def laravel_reload_conf():
-    with lcd(DOCKER_DIR):
-        local('docker cp ./_settings/000-default.conf {}:/etc/apache2/sites-available/000-default.conf'.format(CONTAINER_NAME))
+    with cd(DOCKER_DIR):
+        run('docker cp ./_settings/000-default.conf {}:/etc/apache2/sites-available/000-default.conf'.format(CONTAINER_NAME))
         # local('docker cp ./_settings/apache2.conf laravel-tryout:/etc/apache2/sites-available/000-default.conf')
-        local('docker-compose restart')
+        run('docker-compose restart')
         print('restart done')
 
 def docker_compose_run_command(command, path):
-        local('docker-compose exec {} sh -c "cd {} && {}"'.format(CONTAINER_NAME, path, command))
+        run('docker-compose exec {} sh -c "cd {} && {}"'.format(CONTAINER_NAME, path, command))
 
 def laravel_rebuild():
     with lcd(DOCKER_DIR):
@@ -98,7 +98,7 @@ def rebuild_docker():
             run('docker-compose build')
             run('docker-compose up -d')
 
-    sleep(10)
+    # sleep(10)
     install_laravel('helloworld')
     # install_laravel('quotation')
 
@@ -114,18 +114,18 @@ def release_permission(proj_home):
 
 def laraveL_create_project(proj_name='blog'):
     proj_home = '/app/{}'.format(proj_name)
-    with lcd(DOCKER_DIR):
-        local('docker-compose exec web sh -c "cd /app && composer create-project --prefer-dist laravel/laravel {}"'.format(proj_name))
+    with cd(DOCKER_DIR):
+        run('docker-compose exec web sh -c "cd /app && composer create-project --prefer-dist laravel/laravel {}"'.format(proj_name))
 
 @task
 def install_laravel(proj_name='blog'):
     proj_home = '/'.join(['/app', proj_name])
-    with lcd(DOCKER_DIR):
+    with cd(DOCKER_DIR):
         # docker_compose_run_command('cp .env.example .env', proj_home )
         docker_compose_run_command('chown www-data:staff -R .', proj_home )
 
-        local('docker-compose exec {} sh -c "cd {} && composer install"'.format(CONTAINER_NAME, proj_home))
-        local('docker-compose exec {} sh -c "cd {} && php artisan key:generate"'.format(CONTAINER_NAME, proj_home))
+        run('docker-compose exec {} sh -c "cd {} && composer install"'.format(CONTAINER_NAME, proj_home))
+        run('docker-compose exec {} sh -c "cd {} && php artisan key:generate"'.format(CONTAINER_NAME, proj_home))
 
     #     laravel_db_migrate(proj_home)
     release_permission(proj_home)
@@ -158,8 +158,8 @@ def monAndTest():
     xdo = Xdo()
 
     def perform_test():
-        with lcd('/'.join([CWD,'_docker'])), settings(warn_only=True):
-            local('docker-compose exec web sh -c "/app/blog/vendor/bin/phpunit /app/blog/tests/"')
+        with cd('/'.join([CWD,'_docker'])), settings(warn_only=True):
+            run('docker-compose exec web sh -c "/app/blog/vendor/bin/phpunit /app/blog/tests/"')
 
     CWD = os.path.dirname(os.path.abspath(__file__))
     class EventHandler(pyinotify.ProcessEvent):
@@ -213,12 +213,16 @@ def merge_to(target_branch):
     checkout_brach(current_branch)
 
 @task
-def git_pull():
+def deploy_gcp():
+
+    print('checkout in remote site')
     local('git checkout master')
     local('git push')
     with cd(CWD):
         run('git checkout master')
         run('git pull')
+
+    print('rebuild docker')
     with cd(PROJ_DOCKER_DIR):
         rebuild_docker()
 

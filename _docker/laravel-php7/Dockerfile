@@ -1,4 +1,4 @@
-FROM mattrayner/lamp:latest-1604-php7
+FROM mattrayner/lamp:latest-1604-php5
 
 ENV DEBIAN_FRONTEND noninteractive
 

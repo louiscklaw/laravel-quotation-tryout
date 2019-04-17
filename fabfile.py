@@ -90,21 +90,22 @@ def rebuild_db():
         mysql_create_db(db)
         laravel_db_migrate(db)
 
+@task
 def rebuild_docker():
-    with lcd(DOCKER_DIR):
-            local('docker-compose kill')
-            local('docker-compose down')
-            local('docker-compose build')
-            local('docker-compose up -d')
+    with cd(DOCKER_DIR):
+            run('docker-compose kill')
+            run('docker-compose down')
+            run('docker-compose build')
+            run('docker-compose up -d')
 
-    install_laravel('helloworld')
-    install_laravel('quotation')
+    # install_laravel('helloworld')
+    # install_laravel('quotation')
 
-    laravel_reload_conf()
+    # laravel_reload_conf()
 
-    # print('sleep a while for docker becomes steady...')
-    sleep(60*3)
-    rebuild_db()
+    # # print('sleep a while for docker becomes steady...')
+    # sleep(60*3)
+    # rebuild_db()
 
 def release_permission(proj_home):
     with lcd(DOCKER_DIR):
@@ -218,9 +219,7 @@ def git_pull():
         run('git checkout master')
         run('git pull --depth=1')
     with cd(PROJ_DOCKER_DIR):
-        run('docker-compose build')
-        run('docker-compose kill')
-        run('docker-compose up -d')
+        rebuild_docker()
 
     with cd(CWD):
         run('fab -H logic@localhost install_laravel')

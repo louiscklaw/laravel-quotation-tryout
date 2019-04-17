@@ -122,8 +122,8 @@ def install_laravel(proj_name='blog'):
         # docker_compose_run_command('cp .env.example .env', proj_home )
         docker_compose_run_command('chown www-data:staff -R .', proj_home )
 
-        local('docker-compose exec web sh -c "cd {} && composer install"'.format(proj_home))
-        local('docker-compose exec web sh -c "cd {} && php artisan key:generate"'.format(proj_home))
+        local('docker-compose exec {} sh -c "cd {} && composer install"'.format(CONTAINER_NAME, proj_home))
+        local('docker-compose exec {} sh -c "cd {} && php artisan key:generate"'.format(CONTAINER_NAME, proj_home))
 
     #     laravel_db_migrate(proj_home)
     release_permission(proj_home)
@@ -221,3 +221,6 @@ def git_pull():
         run('docker-compose build')
         run('docker-compose kill')
         run('docker-compose up -d')
+
+    with cd(CWD):
+        run('fab -H logic@localhost install_laravel')

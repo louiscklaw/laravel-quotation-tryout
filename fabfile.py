@@ -221,5 +221,5 @@ def git_pull():
     with cd(PROJ_DOCKER_DIR):
         rebuild_docker()
 
-    with cd(CWD):
-        run('fab -H logic@localhost install_laravel')
+    # with cd(CWD):
+    #     run('fab -H logic@localhost install_laravel')

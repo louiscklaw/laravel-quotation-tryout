@@ -10,6 +10,7 @@ from time import sleep
 
 CWD = os.path.dirname(__file__)
 DOCKER_DIR = os.path.join(CWD,'_docker')
+PROJ_DOCKER_DIR = DOCKER_DIR
 
 XDOTOOL_RELOAD_SH='''WID=`xdotool search --name "Material Design - Mozilla Firefox" | head -1`; xdotool windowactivate $WID; xdotool key F5'''
 
@@ -208,3 +209,15 @@ def merge_to(target_branch):
     merge_branch(current_branch)
 
     checkout_brach(current_branch)
+
+@task
+def git_pull():
+    local('git checkout master')
+    local('git push')
+    with cd(CWD):
+        run('git checkout master')
+        run('git pull')
+    with cd(PROJ_DOCKER_DIR):
+        run('docker-compose build')
+        run('docker-compose kill')
+        run('docker-compose up -d')

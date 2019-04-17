@@ -14,7 +14,7 @@ PROJ_DOCKER_DIR = DOCKER_DIR
 
 XDOTOOL_RELOAD_SH='''WID=`xdotool search --name "Material Design - Mozilla Firefox" | head -1`; xdotool windowactivate $WID; xdotool key F5'''
 
-CONTAINER_NAME = 'quotation-web'
+CONTAINER_NAME = 'demo-quotation-web'
 
 def docker_compose_cmd(cmd_body):
     local('docker-compose {}'.format(cmd_body) )
@@ -36,7 +36,7 @@ def laravel_reload_conf():
         print('restart done')
 
 def docker_compose_run_command(command, path):
-        local('docker-compose exec web sh -c "cd {} && {}"'.format(path, command))
+        local('docker-compose exec {} sh -c "cd {} && {}"'.format(CONTAINER_NAME, path, command))
 
 def laravel_rebuild():
     with lcd(DOCKER_DIR):

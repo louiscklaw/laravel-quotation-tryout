@@ -216,7 +216,7 @@ def git_pull():
     local('git push')
     with cd(CWD):
         run('git checkout master')
-        run('git pull')
+        run('git pull --depth=1')
     with cd(PROJ_DOCKER_DIR):
         run('docker-compose build')
         run('docker-compose kill')

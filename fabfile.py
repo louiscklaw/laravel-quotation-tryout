@@ -216,10 +216,11 @@ def merge_to(target_branch):
 def deploy_gcp():
 
     print('checkout in remote site')
-    local('git checkout master')
+    local('git checkout feature/docker/tryout')
     local('git push')
     with cd(CWD):
-        run('git checkout master')
+        run('git fetch --all')
+        run('git checkout feature/docker/tryout')
         run('git pull')
 
     print('rebuild docker')
